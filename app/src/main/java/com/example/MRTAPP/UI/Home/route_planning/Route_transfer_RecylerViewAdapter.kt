@@ -66,6 +66,9 @@ class Route_transfer_RecylerViewAdapter(
             "大坪林", "西門", "中山", "東門", "中正紀念堂",
             "古亭", "南港展覽館", "台北車站", "頭前庄", "民權西路", "忠孝新生"
         )
+
+
+
         transfetView2(holder,position,dualStationNames)
         val pathArray = currentItem.TransferStation.split("-").filter { it.isNotEmpty() }
         holder.tPath.text = pathArray[0]
