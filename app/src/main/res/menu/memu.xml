@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navbar_home"
+        android:icon="@drawable/home"
+        android:iconTint="@color/main_color"
+        android:title="@string/bar_home" />
+    <item
+        android:id="@+id/navbar_store"
+        android:icon="@drawable/store"
+        android:title="@string/bar_store" />
+    <item
+        android:id="@+id/navbar_camera"
+        android:title=""/>
+    <item
+        android:id="@+id/navbar_star"
+        android:icon="@drawable/star"
+        android:title="@string/Achievement" />
+    <item
+        android:id="@+id/navbar_setting"
+        android:icon="@drawable/settings"
+        android:title="@string/setting_text" />
+</menu>

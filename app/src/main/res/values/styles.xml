@@ -1,0 +1,54 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--        <item name="colorPrimary">@color/</item>-->
+    </style>
+
+    <style name="CustomTabLayout" parent="Theme.AppCompat">
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/white</item>
+        <item name="tabBackground">@color/main_color_night</item>
+    </style>
+
+    <style name="Widget.MyApplication.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.MyApplication.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="Widget.MRTAPP.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.MRTAPP.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Theme.AppCompat">
+        <item name="android:background">@color/white</item>
+
+        <item name="android:textColor">@color/black</item>
+<!--        <item name="android:backgroundTint">@color/startgradient</item>-->
+
+    </style>
+<!--    <color name="startgradient_spinner">@color/startgradient</color>-->
+<!--    <color name="white_spinner">#FFFFFF</color>-->
+<!--    <color name="dropdown_background_spinner">#FFFFFF</color>-->
+<!--    <color name="dropdown_text">@color/white</color>-->
+
+
+<!--    <color name="startgradient_spinner">@color/white</color>-->
+<!--    <color name="white_spinner">@color/black</color>-->
+    <color name="dropdown_white_to_black">@color/black</color>
+
+    <color name="dropdown_background_spinner">@color/white</color>
+    <color name="dropdown_text">@color/black</color>
+    <color name="Setting_FAQ_cardview_bg">@color/white</color>
+    <color name="Setting_FAQ_cardview_Text">@color/darkGray</color>
+
+</resources>

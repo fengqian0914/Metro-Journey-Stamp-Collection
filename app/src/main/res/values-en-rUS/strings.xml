@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">集章達人</string>
+    <string name="login">Log In</string>
+    <string name="email">Account Number</string>
+    <string name="password">Password</string>
+    /** Register **/
+    <string name="bar_home">Home</string>
+    <string name="password_repeact">Confirm Password</string>
+    <string name="password_repeat">确认密码</string>
+    <string name="back">Return</string>
+    <string name="username">Username</string>
+    <string name="user_Photo_stickers">Avatar Selection</string>
+    <string name="Submit_registration">Submit Registration</string>
+    <string name="register">Go To Register Account</string>
+    <string name="register_r">Register An Account</string>
+    <string name="Task">Task</string>
+    <string name="Achievement">Achievement</string>
+    <string name="setting_text">Settings</string>
+    <string name="logout">Sign Out</string>
+    <string name="settiing_user">Personal Data</string>
+    <string name="settiing_notifications">Notify</string>
+    <string name="settiing_moonmode">Moon Mode</string>
+    <string name="Gender_Male">Male</string>
+    <string name="Gender_Female">Female</string>
+    <string name="Gender_Other">Other/Not Convenient To Disclose</string>
+    <string name="register_left_text">Have not registered an account yet?</string>
+    <string name="wecome_text">Welcome, The Master Of Collecting Stamps</string>
+    <string name="route_BL">Bannan Line</string>
+    <string name="route_BR">Wenhu Line</string>
+    <string name="route_G">Songshan Xindian Line</string>
+    <string name="route_O">Zhonghe Xinlu Line</string>
+    <string name="route_Y">Ring Line</string>
+    <string name="route_R">Tamsui Xinyi Line</string>
+    <string name="route_BL_en">BL</string>
+    <string name="route_BR_en">BR</string>
+    <string name="route_G_en">G</string>
+    <string name="route_O_en">O</string>
+    <string name="route_Y_en">Y</string>
+    <string name="route_R_en">R</string>
+    <string name="scan">Scanning</string>
+    <string name="Camera_verify_btn">Go Collect Stamps</string>
+    /** Front Page **/
+    <string name="start_station">Starting Point</string>
+    <string name="end_station">End</string>
+    <string name="total_times">Estimated Travel Time</string>
+    <string name="total_money">Fare</string>
+    <string name="station_data_btn">See More Site Information</string>
+    <string name="return_btn">Reset</string>
+    /** Station Information Page **/
+    <string name="Station_information">Station Information</string>
+    <string name="Train_information">Train Information</string>
+    /** Train Information Page **/
+    <string name="Train_arrives">Train Arrives</string>
+    <string name="Train_arrives_time">Update In Seconds</string>
+    <string name="Train_crowding">Car Crowding</string>
+    /** Mall Page **/
+    <string name="StoreName">Points Mall</string>
+    <string name="ProductquantityName">Remaining Quantity</string>
+    <string name="exchange">Exchange</string>
+    <string name="appwidget_text">Example</string>
+    <string name="add_widget">Add Widget</string>
+    <string name="app_widget_description">This Is An App Widget Description</string>
+    /** Mall Bounce **/
+    <string name="bottom_sheet_layout_title">Exchange</string>
+    <string name="exchange_final">Confirm Exchange</string>
+    <string name="Productquantity">Remaining Quantity</string>
+    <string name="Redemption_successful">Redemption Successful</string>
+    /** Achievement **/
+    <string name="Task_text">Task</string>
+    <string name="Today_task">Today\'S Task</string>
+    <string name="Tasks_of_the_week">This Week\'S Tasks</string>
+    <string name="This_month_tasks">This Month\'S Tasks</string>
+    <string name="Deadline">Deadline:</string>
+    <string name="Year">Year</string>
+    <string name="moon">Moon</string>
+    <string name="days">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Point</string>
+    <string name="Second">Second</string>
+    /** Setting Page **/
+    /** Voucher Page **/
+    <string name="Not_used_information">Not Used</string>
+    <string name="Expired_information">Expired</string>
+    <string name="QR_quantity_Title">Quantity:</string>
+    <string name="QR_redeemCode_Title">Redeem Code:</string>
+    <string name="QR_Title">Scan To Redeem</string>
+    <string name="QR_Change_btn">Confirm Exchange</string>
+    <string name="Coupon_expired_text">Expired</string>
+    <string name="No_coupon_available">There Are Currently No Redemption Coupons Available</string>
+    <string name="No_expired_vouchers">There Are Currently No Expired Redemption Coupons</string>
+    /** Setting Menu **/
+    <string name="Setting_user">Personal Data</string>
+    <string name="Setting_Station">Frequently Used Sites</string>
+    <string name="Setting_coupon">Redemption History</string>
+    <string name="Setting_language">Language</string>
+    <string name="Setting_darkmode">Night Mode</string>
+    <string name="Setting_FAQ">Faq</string>
+    <string name="Setting_about">About Us</string>
+    <string name="Setting_other">Other Settings</string>
+    <string name="Setting_logout">Sign Out</string>
+    /** Language Menu **/
+    <string name="setting_language_title">Language</string>
+    <string name="setting_language_btn">Change Language</string>
+    <string name="Store_info">Purchase Instructions: This Screen Only Provides Simulation Operations And Is Not An Actual Exchange.</string>
+    <string name="bar_store">Mall</string>
+</resources>

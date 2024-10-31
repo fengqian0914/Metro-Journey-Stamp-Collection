@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">集章達人</string>
+    <string name="login">ログイン</string>
+    <string name="email">口座番号</string>
+    <string name="password">パスワード</string>
+    /** 登録する **/
+    <string name="bar_home">ホームページ</string>
+    <string name="password_repeact">パスワードを認証する</string>
+    <string name="password_repeat">确认密码</string>
+    <string name="back">戻る</string>
+    <string name="username">ユーザー名</string>
+    <string name="user_Photo_stickers">アバターの選択</string>
+    <string name="Submit_registration">登録を送信する</string>
+    <string name="register">アカウントの登録に進みます</string>
+    <string name="register_r">アカウントを登録する</string>
+    <string name="Task">タスク</string>
+    <string name="Achievement">成果</string>
+    <string name="setting_text">設定</string>
+    <string name="logout">サインアウト</string>
+    <string name="settiing_user">個人データ</string>
+    <string name="settiing_notifications">通知する</string>
+    <string name="settiing_moonmode">ムーンモード</string>
+    <string name="Gender_Male">男</string>
+    <string name="Gender_Female">女性</string>
+    <string name="Gender_Other">その他/開示するのが不都合な場合</string>
+    <string name="register_left_text">まだアカウントを登録していませんか?</string>
+    <string name="wecome_text">ようこそ、スタンプ集めの達人</string>
+    <string name="route_BL">板南線</string>
+    <string name="route_BR">文湖線</string>
+    <string name="route_G">松山新店線</string>
+    <string name="route_O">中和新蘆線</string>
+    <string name="route_Y">環状線</string>
+    <string name="route_R">淡水信義線</string>
+    <string name="route_BL_en">BL</string>
+    <string name="route_BR_en">BR</string>
+    <string name="route_G_en">G</string>
+    <string name="route_O_en">O</string>
+    <string name="route_Y_en">Y</string>
+    <string name="route_R_en">R</string>
+    <string name="scan">走査</string>
+    <string name="Camera_verify_btn">スタンプを集めに行く</string>
+    /** フロントページ **/
+    <string name="start_station">出発点</string>
+    <string name="end_station">終わり</string>
+    <string name="total_times">推定移動時間</string>
+    <string name="total_money">運賃</string>
+    <string name="station_data_btn">サイト情報をもっと見る</string>
+    <string name="return_btn">リセット</string>
+    /** 駅情報ページ **/
+    <string name="Station_information">駅情報</string>
+    <string name="Train_information">列車情報</string>
+    /** 列車情報ページ **/
+    <string name="Train_arrives">電車が到着</string>
+    <string name="Train_arrives_time">数秒で更新</string>
+    <string name="Train_crowding">車の混雑</string>
+    /** モールページ **/
+    <string name="StoreName">ポイントモール</string>
+    <string name="ProductquantityName">残量</string>
+    <string name="exchange">交換</string>
+    <string name="appwidget_text">例</string>
+    <string name="add_widget">ウィジェットを追加する</string>
+    <string name="app_widget_description">これはアプリのウィジェットの説明です</string>
+    /** モールバウンス **/
+    <string name="bottom_sheet_layout_title">交換</string>
+    <string name="exchange_final">交換の確認</string>
+    <string name="Productquantity">残量</string>
+    <string name="Redemption_successful">引き換えが成功しました</string>
+    /** 成果 **/
+    <string name="Task_text">タスク</string>
+    <string name="Today_task">今日のタスク</string>
+    <string name="Tasks_of_the_week">今週のタスク</string>
+    <string name="This_month_tasks">今月のタスク</string>
+    <string name="Deadline">締め切り：</string>
+    <string name="Year">年</string>
+    <string name="moon">月</string>
+    <string name="days">日</string>
+    <string name="hour">時間</string>
+    <string name="minute">ポイント</string>
+    <string name="Second">2番</string>
+    /** 設定ページ **/
+    /** クーポンページ **/
+    <string name="Not_used_information">未使用</string>
+    <string name="Expired_information">期限切れ</string>
+    <string name="QR_quantity_Title">量：</string>
+    <string name="QR_redeemCode_Title">コードを引き換える:</string>
+    <string name="QR_Title">スキャンして引き換える</string>
+    <string name="QR_Change_btn">交換の確認</string>
+    <string name="Coupon_expired_text">期限切れ</string>
+    <string name="No_coupon_available">現在利用可能な引き換えクーポンはありません</string>
+    <string name="No_expired_vouchers">現在、期限切れの引き換えクーポンはありません</string>
+    /** 設定メニュー **/
+    <string name="Setting_user">個人データ</string>
+    <string name="Setting_Station">よく使うサイト</string>
+    <string name="Setting_coupon">引き換え履歴</string>
+    <string name="Setting_language">言語</string>
+    <string name="Setting_darkmode">ナイトモード</string>
+    <string name="Setting_FAQ">よくある質問</string>
+    <string name="Setting_about">私たちについて</string>
+    <string name="Setting_other">その他の設定</string>
+    <string name="Setting_logout">サインアウト</string>
+    /** 言語メニュー **/
+    <string name="setting_language_title">言語</string>
+    <string name="setting_language_btn">言語を変更する</string>
+    <string name="Store_info">購入手順: この画面はシミュレーション操作のみを提供しており、実際の交換ではありません。</string>
+    <string name="bar_store">モール</string>
+</resources>

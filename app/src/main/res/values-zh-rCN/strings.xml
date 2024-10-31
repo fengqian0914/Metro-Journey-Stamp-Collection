@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">集章達人</string>
+    <string name="login">登录</string>
+    <string name="email">帐号</string>
+    <string name="password">密码</string>
+    /** 注册 **/
+    <string name="bar_home">首页</string>
+    <string name="password_repeact">确认密码</string>
+    <string name="password_repeat">确认密码</string>
+    <string name="back">返回</string>
+    <string name="username">用户名</string>
+    <string name="user_Photo_stickers">头像选择</string>
+    <string name="Submit_registration">送出注册</string>
+    <string name="register">前往注册帐号</string>
+    <string name="register_r">注册帐号</string>
+    <string name="Task">任务</string>
+    <string name="Achievement">成就</string>
+    <string name="setting_text">设置</string>
+    <string name="logout">登出</string>
+    <string name="settiing_user">个人资料</string>
+    <string name="settiing_notifications">通知</string>
+    <string name="settiing_moonmode">月亮模式</string>
+    <string name="Gender_Male">男性</string>
+    <string name="Gender_Female">女性</string>
+    <string name="Gender_Other">其他/不方便透露</string>
+    <string name="register_left_text">尚未注册帐号?</string>
+    <string name="wecome_text">欢迎来到，集章达人</string>
+    <string name="route_BL">板南线</string>
+    <string name="route_BR">文湖线</string>
+    <string name="route_G">松山新店线</string>
+    <string name="route_O">中和新芦线</string>
+    <string name="route_Y">环状线</string>
+    <string name="route_R">淡水信义线</string>
+    <string name="route_BL_en">BL</string>
+    <string name="route_BR_en">BR</string>
+    <string name="route_G_en">G</string>
+    <string name="route_O_en">O</string>
+    <string name="route_Y_en">Y</string>
+    <string name="route_R_en">R</string>
+    <string name="scan">扫描</string>
+    <string name="Camera_verify_btn">集章去</string>
+    /** 首页 **/
+    <string name="start_station">起点</string>
+    <string name="end_station">终点</string>
+    <string name="total_times">预计搭乘时间</string>
+    <string name="total_money">票价</string>
+    <string name="station_data_btn">看更多站点资讯</string>
+    <string name="return_btn">重置</string>
+    /** 车站资讯页面 **/
+    <string name="Station_information">车站资讯</string>
+    <string name="Train_information">列车资讯</string>
+    /** 列车资讯页面 **/
+    <string name="Train_arrives">列车到站</string>
+    <string name="Train_arrives_time">秒后更新</string>
+    <string name="Train_crowding">车厢拥挤度</string>
+    /** 商城页面 **/
+    <string name="StoreName">点数商城</string>
+    <string name="ProductquantityName">剩余数量</string>
+    <string name="exchange">兑换</string>
+    <string name="appwidget_text">Example</string>
+    <string name="add_widget">Add Widget</string>
+    <string name="app_widget_description">This Is An App Widget Description</string>
+    /** 商城弹跳 **/
+    <string name="bottom_sheet_layout_title">兑换</string>
+    <string name="exchange_final">确定兑换</string>
+    <string name="Productquantity">剩余数量</string>
+    <string name="Redemption_successful">兑换成功</string>
+    /** 成就 **/
+    <string name="Task_text">任务</string>
+    <string name="Today_task">本日任务</string>
+    <string name="Tasks_of_the_week">本周任务</string>
+    <string name="This_month_tasks">本月任务</string>
+    <string name="Deadline">截止时间：</string>
+    <string name="Year">年</string>
+    <string name="moon">月</string>
+    <string name="days">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="Second">秒</string>
+    /** 设定页面 **/
+    /** 兑换券页面 **/
+    <string name="Not_used_information">未使用</string>
+    <string name="Expired_information">已失效</string>
+    <string name="QR_quantity_Title">数量：</string>
+    <string name="QR_redeemCode_Title">兑换码：</string>
+    <string name="QR_Title">扫描兑换</string>
+    <string name="QR_Change_btn">确定兑换</string>
+    <string name="Coupon_expired_text">已失效</string>
+    <string name="No_coupon_available">目前尚无可用兑换券</string>
+    <string name="No_expired_vouchers">目前尚无失效兑换券</string>
+    /** 设定选单 **/
+    <string name="Setting_user">个人资料</string>
+    <string name="Setting_Station">常用站点</string>
+    <string name="Setting_coupon">兑换纪录</string>
+    <string name="Setting_language">语言</string>
+    <string name="Setting_darkmode">夜间模式</string>
+    <string name="Setting_FAQ">常见问题</string>
+    <string name="Setting_about">关于我们</string>
+    <string name="Setting_other">其他设定</string>
+    <string name="Setting_logout">登出</string>
+    /** 语言选单 **/
+    <string name="setting_language_title">语言</string>
+    <string name="setting_language_btn">变更语言</string>
+    <string name="Store_info">购买须知：本画面仅提供模拟操作，非实际兑换</string>
+    <string name="bar_store">商城</string>
+</resources>

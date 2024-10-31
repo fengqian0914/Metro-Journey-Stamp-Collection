@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "906060627228",
+    "firebase_url": "https://mrt-app-55dac-default-rtdb.firebaseio.com",
+    "project_id": "mrt-app-55dac",
+    "storage_bucket": "mrt-app-55dac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906060627228:android:e7d39d04238d292b344ed9",
+        "android_client_info": {
+          "package_name": "com.example.MRTAPP"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc5PAT1npvJ6KSavLBQJWzC0XBjd2Nblg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,99 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+         <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryVariant">@color/main_color</item>
+
+    </style>
+
+
+    <style name="TextColor_B_W"  parent="Theme.AppCompat">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextColor_W"  parent="Theme.AppCompat">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Bg_W"  parent="Theme.AppCompat">
+        <item name="android:background">@color/black</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="main_bg_night"  parent="Theme.AppCompat">
+        <item name="android:background">#000000</item>
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+    <style name="Tint_LightBlack_NightWhite" parent="Theme.AppCompat">
+        <item name="android:tint">@color/white</item>
+    </style>
+    <style name="TextColor_LightBlack_NightWhite" parent="Theme.AppCompat">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextColor_LightWhite_NightBlack" parent="Theme.AppCompat">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="BackGround_LightWhite_NightBlack" parent="Theme.AppCompat">
+        <item name="android:background">@color/grayColor</item>
+    </style>
+
+    <color name="card_background_color">#424242</color>
+
+    <style name="Setting_btn" parent="Theme.AppCompat">
+        <item name="android:backgroundTint">@color/startgradient</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+
+    <style name="ScreenBackground"  parent="Theme.AppCompat">
+        <item name="android:background">@color/black</item>
+    </style>
+    <style name="CardBackground"  parent="Theme.AppCompat">
+        <item name="android:background">@color/darkGray</item>
+    </style>
+    <style name="TextColor" parent="Theme.AppCompat">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ImageChange"  parent="Theme.AppCompat">
+        <item name="android:src">@drawable/baseline_wb_sunny_24</item>
+    </style>
+  <!-- Base application theme. -->
+    <style name="Base.Theme.Material3.Light" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+    <style name="Background_card_LightWhite_NightBlack" parent="Theme.AppCompat">
+        <item name="android:background">#FF4C4C4C</item>
+    </style>
+    <style name="Background_btn" parent="Theme.AppCompat">
+        <item name="android:backgroundTint">@color/startgradient</item>
+    </style>
+    <style name="Background_login" parent="Theme.AppCompat">
+        <item name="android:background">@color/startgradient</item>
+    </style>
+    <style name="Background_loginbg" parent="Theme.AppCompat">
+        <item name="android:backgroundTint">@color/Endgradient</item>
+    </style>
+    <color name="login_inputlayout">@color/white</color>
+    <color name="nav_item_icon_tint">@color/white</color> <!-- 黑暗模式顏色 -->
+    <color name="nav_item_icon_tint_dark">@color/gray</color> <!-- 未被點擊顏色 -->
+
+    <style name="SpinnerStyle" parent="Theme.AppCompat">
+        <item name="android:background">@color/startgradient</item>
+        <item name="android:textColor">@color/black</item>
+<!--        <item name="android:backgroundTint">@color/white</item>-->
+
+    </style>
+<!--    <color name="startgradient_spinner">@color/startgradient</color>-->
+<!--    <color name="white_spinner">#FFFFFF</color>-->
+    <color name="dropdown_background_spinner">@color/startgradient</color>
+    <color name="dropdown_text">@color/white</color>
+    <color name="dropdown_white_to_black">@color/white</color>
+    <color name="Setting_FAQ_cardview_bg">@color/startgradient</color>
+    <color name="Setting_FAQ_cardview_Text">@color/gray</color>
+
+    <!--    <color name="startgradient_spinner">@color/white</color>-->
+<!--    <color name="white_spinner">@color/black</color>-->
+<!--    <color name="dropdown_background_spinner">@color/black</color>-->
+<!--    <color name="dropdown_text">@color/black</color>-->
+
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="10dp"
+    app:cardBackgroundColor="@color/Setting_FAQ_cardview_bg"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    tools:context=".UI.Setting.FAQ.Setting_FAQ_RecylerViewAdapter">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/FAQ_Title_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/FAQ_Title"
+                style="@style/TextColor_LightBlack_NightWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="遇到問題或錯誤，該如何重啟或重新安裝？"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                android:tint="@color/dropdown_text" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/dropdown_text" />
+
+        <LinearLayout
+            android:id="@+id/FAQ_Ans_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/FAQ_Ans"
+                style="@style/TextColor_LightBlack_NightWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="積分蒐集：使用者可以透過掃描車站 QR 碼來賺取積分。 \n 兌換商品：累積的積分可在 APP 中兌換精選商品。（模擬） \n 捷運資訊查詢：提供即時車站資訊、票價查詢、預估行程時間、路線。 \n 小工具：提供捷運到站時間的即時查詢，方便用戶隨時掌握行程。"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
