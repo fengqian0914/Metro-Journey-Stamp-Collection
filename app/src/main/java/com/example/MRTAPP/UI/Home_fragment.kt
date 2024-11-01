@@ -146,15 +146,20 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             }
         }
         view.findViewById<Button>(R.id.route_planning_btn).setOnClickListener {
-//            val dialog_kt= dialogs(requireContext())
-//            val dialog_title="錯誤"
-//            val dialogs_msg="資料請求速度過快，請稍後再試"
-//            dialog_kt.showdialog(dialog_title,dialogs_msg)
-              val intent = Intent(requireContext(), route_plannings::class.java)
+            val startName = startStation.text
+            val EndName = endStation.text
 
-              intent.putExtra("startStation", start_code)
-              intent.putExtra("EndStation", end_code)
-              startActivity(intent)
+
+            if (startName.isEmpty()||EndName.isEmpty()){
+                Toast.makeText(context,"請點選站名",Toast.LENGTH_LONG).show()
+            }else{
+                val intent = Intent(requireContext(), route_plannings::class.java)
+
+                intent.putExtra("startStation", start_code)
+                intent.putExtra("EndStation", end_code)
+                startActivity(intent)
+            }
+
 
 
 
