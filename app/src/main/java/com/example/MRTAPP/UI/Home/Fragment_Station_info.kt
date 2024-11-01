@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.MRTAPP.API.TDX_API
+import com.example.MRTAPP.Other.GetStationNameLanguage
 import com.example.MRTAPP.R
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.StationInfoList
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.StationInfo_RecylerViewAdapter
@@ -59,6 +60,8 @@ class Fragment_Station_info : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences("stationInfo", Context.MODE_PRIVATE)
         val stationName = sharedPreferences.getString("stationName", null).toString()
         var startID:String?=null
+        val getlanguage=GetStationNameLanguage(requireContext())
+        val getsavelanguage=getlanguage.getsaveLanguage(requireContext())
         if(stationName=="板橋(環狀)"){
             startID = "Y16"
         }else{
@@ -94,7 +97,11 @@ class Fragment_Station_info : Fragment() {
                             }else{
                                 StationName_Zh_tw = jsonObject.getString("StationName_zh")
                             }
-                            StationName_en = jsonObject.getString("StationName_En")
+                            StationName_en = getlanguage.getStationName2(requireContext(),jsonObject.getString("StationName_En"),"En",getsavelanguage)
+//                                jsonObject.getString("StationName_En"),getsavelanguage)
+
+
+//                                jsonObject.getString("StationName_En"),"Zh_tw",getsavelanguage)
                             StationName_Exit_number=jsonObject.getString("ExitNumber")
                             var StairText = if (Stair) "有樓梯" else "無樓梯"
                             var EscalatorText = when (Escalator) {

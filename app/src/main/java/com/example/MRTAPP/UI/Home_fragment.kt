@@ -16,6 +16,7 @@ import android.widget.Toast
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.example.MRTAPP.API.MRT_API
 import com.example.MRTAPP.API.TDX_API
+import com.example.MRTAPP.Other.GetStationNameLanguage
 import com.example.MRTAPP.R
 import com.example.MRTAPP.UI.Home.station_data
 import com.google.gson.Gson
@@ -66,6 +67,8 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         val startStation = view.findViewById<TextView>(R.id.start_station)
         val endStation = view.findViewById<TextView>(R.id.end_station)
         val mapView = view.findViewById<MapView>(R.id.mapView)
+        val GetLanguage = GetStationNameLanguage(requireContext())
+        val InputLanguage=GetLanguage.getsaveLanguage(requireContext())
 
         mapView.setStationTexts(startStation.text.toString(), endStation.text.toString())
 
@@ -88,8 +91,19 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         }
 
         view.findViewById<ImageView>(R.id.startInfo).setOnClickListener {
+//            val stationname = startStation.text
+//            val stationname = GetLanguage.getStationName(requireContext(),startStation.text.toString())
 
-            val stationname = startStation.text
+            val stationname = GetLanguage.getStationName2(requireContext(),startStation.text.toString(),InputLanguage,"Zh_tw")
+
+            Log.d("clickInfo","輸入語言${InputLanguage} \n" +
+                    "輸入文字${startStation.text}\n" +
+                    "輸出語言${"Zh_tw"} \n" +
+                    "輸出文字${stationname}")
+
+
+
+//            val stationname = startStation.text
             if (stationname.isEmpty()){
                 Toast.makeText(context,"請點選站名",Toast.LENGTH_LONG).show()
             }else{
