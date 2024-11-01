@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/main_color"
-                    android:text="選擇圖片"
+                    android:text="@string/user_Photo_stickers"
                     android:textColor="@color/white" />
 
                 <Button

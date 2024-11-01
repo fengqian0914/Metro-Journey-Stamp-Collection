@@ -26,7 +26,7 @@
     <string name="Gender_Female">여성</string>
     <string name="Gender_Other">기타/공개하기 불편함</string>
     <string name="register_left_text">아직 계정을 등록하지 않으셨나요?</string>
-    <string name="wecome_text">타이페이 Metro 스탬프에 오신 것을 환영합니다</string>
+    <string name="wecome_text">타이페이 Metro 스탬프</string>
     <string name="scan_result">스캔 결과</string>
     <string name="route_BL">반난선</string>
     <string name="route_BR">원후선</string>

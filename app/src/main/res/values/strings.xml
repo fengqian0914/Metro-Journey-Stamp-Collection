@@ -149,4 +149,8 @@
     <!-- dialog -->
     <string name="dialog_Previous">上一個</string>
     <string name="dialog_Next">下一個</string>
+    <!--  train_update   -->
+    <string name="have_ended" translatable="false">營運時間已過</string>
+    <string name="Train_is_arriving" translatable="false">列車進站中</string>
+
 </resources>

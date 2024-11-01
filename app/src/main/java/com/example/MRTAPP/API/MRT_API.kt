@@ -3,6 +3,7 @@ package com.example.MRTAPP.API
 import android.content.Context
 import android.util.Log
 import com.example.MRTAPP.BuildConfig
+import com.example.MRTAPP.R
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.TrainInfoList
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.TrainInfo_RecyclerViewAdapter
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -214,7 +215,7 @@ class MRT_API(private val context: Context) {
                                     Log.d("JSON Result", "TransferStations: $transferStations")
 
                                     if (time.toInt() < 60) {
-                                        time += "分"
+                                        time += context.getString(R.string.minute)
                                     } else {
                                         time = "1小時" + (time.toInt() - 60).toString() + "分"
                                     }
