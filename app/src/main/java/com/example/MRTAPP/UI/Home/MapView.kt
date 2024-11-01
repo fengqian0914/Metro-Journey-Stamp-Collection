@@ -150,7 +150,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 //            val stationName_TW = "${GetLanguage.getStationName(context,station.chineseName)}"
 //            val stationName_EN = "${station.englishName}"
             savelanauge=GetLanguage.getsaveLanguage(context)
-            updateTextSizeBasedOnLanguage()
 
             val LanguageText=when(savelanauge){
                 "Zh_tw"->station.chineseName
@@ -164,6 +163,7 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             val stationName_EN= "${LanguageText}"
 
             val stationCode = station.code
+            updateTextSizeBasedOnLanguage(station.code)
 
             setLinePaint(lineCode)
             setStationPaint(lineCode)
@@ -174,134 +174,105 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
                 in "R07"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign = Paint.Align.LEFT
 
                     canvas.drawText(stationName_TW, x , y+60f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x , y+100f, englishTextPaint)
-                    canvas.drawText(stationCode, x , y + 140f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x , y + 100f, createCodeTextPaint(lineCode))
                 }
                 in "G08"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
-                    canvas.drawText(stationName_TW, x-80f , y+65f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x-80f , y+105f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x-80f , y+105f, chineseTextPaint)
                     canvas.drawText(stationCode, x-80f , y+145f, createCodeTextPaint(lineCode))
                 }
                 in "G09","G03A"->{
                     chineseTextPaint.textAlign = Paint.Align.RIGHT
-                    englishTextPaint.textAlign = Paint.Align.RIGHT
                     codePaint.textAlign=Paint.Align.RIGHT
 
                     canvas.drawText(stationName_TW, x -70f, y, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x - 70f, y+35f, englishTextPaint)
-                    canvas.drawText(stationCode, x - 120f, y+70f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x - 120f, y+35f, createCodeTextPaint(lineCode))
                 }
                 in "O12"->{
                     chineseTextPaint.textAlign = Paint.Align.RIGHT
-                    englishTextPaint.textAlign = Paint.Align.RIGHT
                     codePaint.textAlign=Paint.Align.RIGHT
 
                     canvas.drawText(stationName_TW, x -120f, y-10f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x -120f, y+20f, englishTextPaint)
-                    canvas.drawText(stationCode, x - 170f, y+50f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x - 150f, y+20f, createCodeTextPaint(lineCode))
                 }
                 in "O50".."O54"->{
                     chineseTextPaint.textAlign = Paint.Align.RIGHT
-                    englishTextPaint.textAlign = Paint.Align.RIGHT
                     codePaint.textAlign=Paint.Align.RIGHT
 
                     canvas.drawText(stationName_TW, x-80f , y+60f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x-80f , y+90f, englishTextPaint)
-                    canvas.drawText(stationCode, x-130f , y+120f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x-120f , y+90f, createCodeTextPaint(lineCode))
                 }
                 in "BL09"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
                     canvas.drawText(stationName_TW, x + 30f, y+20f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x + 30f, y+55f, englishTextPaint)
-                    canvas.drawText(stationCode, x + 30f, y + 90f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x + 30f, y + 55f, createCodeTextPaint(lineCode))
                 }
                 in "R09"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
-                    canvas.drawText(stationName_TW, x + 30f, y-40f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x + 30f, y-10f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x + 30f, y-10f, chineseTextPaint)
                     canvas.drawText(stationCode, x + 30f, y +20f, createCodeTextPaint(lineCode))
                 }
                 in "R11","R13"->{ //交叉站 右下
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
-                    canvas.drawText(stationName_TW, x +40f, y+50f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x +40f, y+80f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x +40f, y+60f, chineseTextPaint)
 
-                    canvas.drawText(stationCode, x +40f, y+110f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x +40f, y+90f, createCodeTextPaint(lineCode))
                 }
                 in "O05","O06","Y07","O12_1","R22_1","G03_1","Y11_1","Y18_1"->{ //不顯示
 
                 }in "O17"->{
                 chineseTextPaint.textAlign = Paint.Align.CENTER
-                englishTextPaint.textAlign = Paint.Align.CENTER
                 codePaint.textAlign=Paint.Align.CENTER
 
-                canvas.drawText(stationName_TW, x -80f, y-60f, chineseTextPaint)
-                canvas.drawText(stationName_EN, x - 80f, y-30f, englishTextPaint)
-
-                canvas.drawText(stationCode, x - 80f, y, createCodeTextPaint(lineCode))
+                canvas.drawText(stationName_TW, x -80f, y-70f, chineseTextPaint)
+                canvas.drawText(stationCode, x - 80f, y-30f, createCodeTextPaint(lineCode))
             }
                 in "Y17","Y09"->{ //左下
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
-                    canvas.drawText(stationName_TW, x-80f , y+60f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x-80f , y+100f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x-80f , y+100f, chineseTextPaint)
                     canvas.drawText(stationCode, x-80f , y+140f, createCodeTextPaint(lineCode))
                 }
-                in "R06",in "BR15".."BR20","BL17"->{ //左上
+                in "R06",in "BR15".."BR20","BL17","G17"->{ //左上
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
-                    canvas.drawText(stationName_TW, x-70f , y-120f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x-70f , y-80f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x-70f , y-80f, chineseTextPaint)
                     canvas.drawText(stationCode, x-70f , y-40f, createCodeTextPaint(lineCode))
                 }
                 in "BL12",in "G04".."G07" ,in "BR03","BR06","G13",in "Y13".."Y16","R08",in "BR08","R05","O10"-> { //右上
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
-                    canvas.drawText(stationName_TW, x + 30f, y-100f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x + 30f, y-60f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x + 30f, y-60f, chineseTextPaint)
                     canvas.drawText(stationCode, x + 30f, y-20f, createCodeTextPaint(lineCode))
                 }
                 in "G12".."G13"->{ //左方
                     chineseTextPaint.textAlign = Paint.Align.RIGHT
-                    englishTextPaint.textAlign = Paint.Align.RIGHT
                     codePaint.textAlign=Paint.Align.RIGHT
 
-                    canvas.drawText(stationName_TW, x -40f, y, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x - 40f, y+40f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x -40f, y+40f, chineseTextPaint)
                     canvas.drawText(stationCode, x - 90f, y+80f, createCodeTextPaint(lineCode))
                 }
                 in "G11"->{
                     chineseTextPaint.textAlign = Paint.Align.RIGHT
-                    englishTextPaint.textAlign = Paint.Align.RIGHT
                     codePaint.textAlign=Paint.Align.RIGHT
 
-                    canvas.drawText(stationName_TW, x -40f, y-60f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x - 40f, y-20f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x -40f, y-20f, chineseTextPaint)
                     canvas.drawText(stationCode, x - 90f, y+20f, createCodeTextPaint(lineCode))
                 }
-                in "BL10".."BL16",in "BL18".."BL20" ,in "R02".."R04",in "R08" ,in "R20".."R24",in "G15".."G19","BR02",in "Y10".."Y12","Y08",in "BR07","O02"-> { // 下方
+                in "BL10".."BL16",in "BL18".."BL20" ,in "R02".."R04",in "R08" ,in "R20".."R24",in "G15","G16","G18","G19","BR02",in "Y10".."Y12","Y08",in "BR07","O02"-> { // 下方
                     chineseTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign = Paint.Align.LEFT
 
@@ -312,11 +283,9 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
                 else->{ //右方
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
 
-                    canvas.drawText(stationName_TW, x + 30f, y, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x + 30f, y+35f, englishTextPaint)
+                    canvas.drawText(stationName_TW, x + 30f, y+35f, chineseTextPaint)
                     canvas.drawText(stationCode, x + 30f, y + 70f, createCodeTextPaint(lineCode))
                 }
 
@@ -483,18 +452,17 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         isAntiAlias = true
     }
 
-    private val englishTextPaint: Paint = Paint().apply {
-        color = Color.WHITE
 
-        textSize = 0f
-        isAntiAlias = true
-    }
-    private fun updateTextSizeBasedOnLanguage() {
-        chineseTextPaint.textSize = if (savelanauge == "En") {
+    private fun updateTextSizeBasedOnLanguage(code: String) {
+        chineseTextPaint.textSize = if (
+            savelanauge == "En" ||
+            ((savelanauge == "Zh_tw" || savelanauge == "Zh-Hans" || savelanauge == "Ko") && code == "R06")
+        ) {
             25f
         } else {
-            40f
+            35f
         }
+
     }
     private fun createCodeTextPaint(lineCode: String): Paint {
         return Paint().apply {
