@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">集章達人</string>
+    /** Login Page **/
+    <string name="app_name">Metro Journey Stamp Collection</string>
     <string name="login">Log In</string>
-    <string name="email">Account Number</string>
+    <string name="email">Mailbox</string>
     <string name="password">Password</string>
+    <string name="forget_password">Forget The Password</string>
+    <string name="Guest_login">Guest Login</string>
     /** Register **/
-    <string name="bar_home">Home</string>
-    <string name="password_repeact">Confirm Password</string>
-    <string name="password_repeat">确认密码</string>
+    <string name="password_repeat">Confirm Password</string>
     <string name="back">Return</string>
     <string name="username">Username</string>
     <string name="user_Photo_stickers">Avatar Selection</string>
@@ -20,18 +21,21 @@
     <string name="logout">Sign Out</string>
     <string name="settiing_user">Personal Data</string>
     <string name="settiing_notifications">Notify</string>
-    <string name="settiing_moonmode">Moon Mode</string>
+    <string name="settiing_moonmode">Dark Mode</string>
     <string name="Gender_Male">Male</string>
     <string name="Gender_Female">Female</string>
     <string name="Gender_Other">Other/Not Convenient To Disclose</string>
-    <string name="register_left_text">Have not registered an account yet?</string>
-    <string name="wecome_text">Welcome, The Master Of Collecting Stamps</string>
+    <string name="register_left_text">Haven'T Registered An Account Yet?</string>
+    <string name="wecome_text">Welcome To Metro Journey Stamp Collection</string>
+    <string name="scan_result">Scan Results</string>
     <string name="route_BL">Bannan Line</string>
     <string name="route_BR">Wenhu Line</string>
-    <string name="route_G">Songshan Xindian Line</string>
-    <string name="route_O">Zhonghe Xinlu Line</string>
-    <string name="route_Y">Ring Line</string>
-    <string name="route_R">Tamsui Xinyi Line</string>
+    <string name="route_G">Songshan-Xindian Line</string>
+    <string name="route_O">Zhonghe-Xinlu Line</string>
+    <string name="route_Y">Circular Line</string>
+    <string name="route_R">Tamsui-Xinyi Line</string>
+    <string name="route_R22A">Xinbeitou Branch Line</string>
+    <string name="route_G03A">Xiaobitan Branch Line</string>
     <string name="route_BL_en">BL</string>
     <string name="route_BR_en">BR</string>
     <string name="route_G_en">G</string>
@@ -41,45 +45,67 @@
     <string name="scan">Scanning</string>
     <string name="Camera_verify_btn">Go Collect Stamps</string>
     /** Front Page **/
-    <string name="start_station">Starting Point</string>
-    <string name="end_station">End</string>
+    <string name="start_station">starting station</string>
+    <string name="end_station">terminal station</string>
     <string name="total_times">Estimated Travel Time</string>
     <string name="total_money">Fare</string>
-    <string name="station_data_btn">See More Site Information</string>
+    <string name="station_data_btn">See More Station Information</string>
     <string name="return_btn">Reset</string>
+    <string name="unanimous_vote">regular tickets</string>
+    <string name="Discount_tickets">concession tickets</string>
+    <string name="Taipei_City_Children_Ticket">Taipei Children'S Ticket</string>
+    <string name="dollar">New Taiwan Dollar</string>
+    /** Route Planning **/
+    <string name="route_planning_btn">Route Planning</string>
     /** Station Information Page **/
     <string name="Station_information">Station Information</string>
     <string name="Train_information">Train Information</string>
+    <string name="ExitType1_0">Stairs</string>
+    <string name="ExitType1_1">No Stairs</string>
+    <string name="ExitType2_0">No Escalator</string>
+    <string name="ExitType2_1">Two-Way Escalator</string>
+    <string name="ExitType2_2">Escalator Up</string>
+    <string name="ExitType2_3">Down Escalator</string>
+    <string name="ExitType3_0">Elevator</string>
+    <string name="ExitType3_1">No Elevator</string>
     /** Train Information Page **/
     <string name="Train_arrives">Train Arrives</string>
     <string name="Train_arrives_time">Update In Seconds</string>
-    <string name="Train_crowding">Car Crowding</string>
+    <string name="remindbtn">Arrival Reminder</string>
+    <string name="errorStation">Abnormality: Some Sections Of The Circular Line Were Damaged For Some Reason, So That The Information On This Section Cannot Be Displayed.</string>
+    <string name="errorStation2">Abnormality: The Mrt System Information Is Abnormal, And Trains Bound For Banqiao Section May Not Be Displayed Properly. And Some Information Is Read Abnormally</string>
+    <string name="ToStationText">To</string>
     /** Mall Page **/
     <string name="StoreName">Points Mall</string>
     <string name="ProductquantityName">Remaining Quantity</string>
     <string name="exchange">Exchange</string>
-    <string name="appwidget_text">Example</string>
-    <string name="add_widget">Add Widget</string>
-    <string name="app_widget_description">This Is An App Widget Description</string>
     /** Mall Bounce **/
     <string name="bottom_sheet_layout_title">Exchange</string>
     <string name="exchange_final">Confirm Exchange</string>
     <string name="Productquantity">Remaining Quantity</string>
     <string name="Redemption_successful">Redemption Successful</string>
+    <string name="Exchange_Instructions">Purchase Instructions: This Screen Only Provides Simulation Operations, Not Actual Exchange. \Nsome Pictures Of This Mall Are From Taipei Mrt Shopee Mall</string>
     /** Achievement **/
     <string name="Task_text">Task</string>
-    <string name="Today_task">Today\'S Task</string>
-    <string name="Tasks_of_the_week">This Week\'S Tasks</string>
-    <string name="This_month_tasks">This Month\'S Tasks</string>
+    <string name="Today_task">Today'S Task</string>
+    <string name="Tasks_of_the_week">This Week'S Tasks</string>
+    <string name="This_month_tasks">This Month'S Tasks</string>
     <string name="Deadline">Deadline:</string>
     <string name="Year">Year</string>
     <string name="moon">Moon</string>
     <string name="days">Day</string>
     <string name="hour">Hour</string>
-    <string name="minute">Point</string>
-    <string name="Second">Second</string>
+    <string name="minute">Minute</string>
+    <string name="Second">Seconds</string>
     /** Setting Page **/
+    <string name="Setting_default_name">Username</string>
+    <string name="Setting_tab_name">Name Modification</string>
+    <string name="Setting_tab_password">Password Change</string>
+    <string name="Setting_tab_Image">Photo Modification</string>
+    <string name="Setting_btnEmail">Send Verification Letter</string>
     /** Voucher Page **/
+    <string name="ProductName">Product Name:</string>
+    <string name="expiryTime">Expiry Date:</string>
     <string name="Not_used_information">Not Used</string>
     <string name="Expired_information">Expired</string>
     <string name="QR_quantity_Title">Quantity:</string>
@@ -87,21 +113,40 @@
     <string name="QR_Title">Scan To Redeem</string>
     <string name="QR_Change_btn">Confirm Exchange</string>
     <string name="Coupon_expired_text">Expired</string>
-    <string name="No_coupon_available">There Are Currently No Redemption Coupons Available</string>
-    <string name="No_expired_vouchers">There Are Currently No Expired Redemption Coupons</string>
+    <string name="No_coupon_available">No Voucher Available</string>
+    <string name="No_expired_vouchers">No Expired Redemption Coupons</string>
     /** Setting Menu **/
     <string name="Setting_user">Personal Data</string>
-    <string name="Setting_Station">Frequently Used Sites</string>
-    <string name="Setting_coupon">Redemption History</string>
+    <string name="Setting_Station">Gadget</string>
+    <string name="Setting_coupon">Redemption Record</string>
     <string name="Setting_language">Language</string>
     <string name="Setting_darkmode">Night Mode</string>
     <string name="Setting_FAQ">Faq</string>
     <string name="Setting_about">About Us</string>
     <string name="Setting_other">Other Settings</string>
     <string name="Setting_logout">Sign Out</string>
+    /** Personal Information **/
+    <string name="Setting_user_title">Personal Information Modification</string>
+    <string name="Setting_user_username">Username</string>
+    <string name="Setting_user_submit">Confirm Changes</string>
     /** Language Menu **/
     <string name="setting_language_title">Language</string>
     <string name="setting_language_btn">Change Language</string>
-    <string name="Store_info">Purchase Instructions: This Screen Only Provides Simulation Operations And Is Not An Actual Exchange.</string>
+    <string name="bar_home">Home</string>
     <string name="bar_store">Mall</string>
+    <string name="password_repeact">Confirm Password</string>
+    /** Common Site Menu **/
+    <string name="setting_stations_spinner_route">Choose A Route:</string>
+    <string name="setting_stations_spinner_station">Select Site:</string>
+    <string name="setting_stations_confirm">Confirm Site:</string>
+    <string name="setting_stations_btn">Save</string>
+    <string name="setting_stations_info">Gadget Introduction</string>
+    <string name="setting_stations_Title">Gadgets-Site Settings</string>
+    /** Faq Menu **/
+    <string name="setting_FAQ_Title">Faq</string>
+    /** Widget **/
+    <string name="Last_updated">Last Updated:</string>
+    /** Dialog **/
+    <string name="dialog_Previous">Previous</string>
+    <string name="dialog_Next">Next</string>
 </resources>

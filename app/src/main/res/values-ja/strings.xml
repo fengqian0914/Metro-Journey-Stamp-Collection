@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">集章達人</string>
+    /** ログインページ **/
+    <string name="app_name">台北Metroのスタンプ</string>
     <string name="login">ログイン</string>
-    <string name="email">口座番号</string>
+    <string name="email">メールボックス</string>
     <string name="password">パスワード</string>
+    <string name="forget_password">パスワードを忘れる</string>
+    <string name="Guest_login">ゲストログイン</string>
     /** 登録する **/
-    <string name="bar_home">ホームページ</string>
-    <string name="password_repeact">パスワードを認証する</string>
-    <string name="password_repeat">确认密码</string>
+    <string name="password_repeat">パスワードを認証する</string>
     <string name="back">戻る</string>
     <string name="username">ユーザー名</string>
     <string name="user_Photo_stickers">アバターの選択</string>
@@ -15,71 +16,96 @@
     <string name="register">アカウントの登録に進みます</string>
     <string name="register_r">アカウントを登録する</string>
     <string name="Task">タスク</string>
-    <string name="Achievement">成果</string>
+    <string name="Achievement">達成</string>
     <string name="setting_text">設定</string>
     <string name="logout">サインアウト</string>
     <string name="settiing_user">個人データ</string>
     <string name="settiing_notifications">通知する</string>
-    <string name="settiing_moonmode">ムーンモード</string>
+    <string name="settiing_moonmode">ダークモード</string>
     <string name="Gender_Male">男</string>
     <string name="Gender_Female">女性</string>
     <string name="Gender_Other">その他/開示するのが不都合な場合</string>
     <string name="register_left_text">まだアカウントを登録していませんか?</string>
-    <string name="wecome_text">ようこそ、スタンプ集めの達人</string>
+    <string name="wecome_text">台北Metroのスタンプへようこそ</string>
+    <string name="scan_result">スキャン結果</string>
     <string name="route_BL">板南線</string>
     <string name="route_BR">文湖線</string>
     <string name="route_G">松山新店線</string>
     <string name="route_O">中和新蘆線</string>
     <string name="route_Y">環状線</string>
     <string name="route_R">淡水信義線</string>
+    <string name="route_R22A">新北投支線</string>
+    <string name="route_G03A">小碧潭支線</string>
     <string name="route_BL_en">BL</string>
     <string name="route_BR_en">BR</string>
     <string name="route_G_en">G</string>
     <string name="route_O_en">O</string>
     <string name="route_Y_en">Y</string>
     <string name="route_R_en">R</string>
-    <string name="scan">走査</string>
+    <string name="scan">スキャン</string>
     <string name="Camera_verify_btn">スタンプを集めに行く</string>
     /** フロントページ **/
-    <string name="start_station">出発点</string>
-    <string name="end_station">終わり</string>
+    <string name="start_station">始発駅</string>
+    <string name="end_station">ターミナル駅</string>
     <string name="total_times">推定移動時間</string>
     <string name="total_money">運賃</string>
-    <string name="station_data_btn">サイト情報をもっと見る</string>
+    <string name="station_data_btn">駅情報をもっと見る</string>
     <string name="return_btn">リセット</string>
+    <string name="unanimous_vote">普通乗車券</string>
+    <string name="Discount_tickets">割引チケット</string>
+    <string name="Taipei_City_Children_Ticket">台北子供チケット</string>
+    <string name="dollar">新台湾ドル</string>
+    /** ルート計画 **/
+    <string name="route_planning_btn">ルート計画</string>
     /** 駅情報ページ **/
     <string name="Station_information">駅情報</string>
     <string name="Train_information">列車情報</string>
+    <string name="ExitType1_0">階段</string>
+    <string name="ExitType1_1">階段はありません</string>
+    <string name="ExitType2_0">エスカレーターなし</string>
+    <string name="ExitType2_1">双方向エスカレーター</string>
+    <string name="ExitType2_2">エスカレーターで上がる</string>
+    <string name="ExitType2_3">下りエスカレーター</string>
+    <string name="ExitType3_0">エレベーター</string>
+    <string name="ExitType3_1">エレベーターなし</string>
     /** 列車情報ページ **/
-    <string name="Train_arrives">電車が到着</string>
+    <string name="Train_arrives">列車が到着</string>
     <string name="Train_arrives_time">数秒で更新</string>
-    <string name="Train_crowding">車の混雑</string>
+    <string name="remindbtn">到着リマインダー</string>
+    <string name="errorStation">異常：環状線の一部区間が何らかの理由により損傷しており、当該区間の情報が表示できない状態となっています。</string>
+    <string name="errorStation2">異常：Mrtのシステム情報に異常があり、板橋区間行きの列車が正しく表示されない場合があります。そして一部の情報が異常に読み取られる</string>
+    <string name="ToStationText">行き</string>
     /** モールページ **/
-    <string name="StoreName">ポイントモール</string>
-    <string name="ProductquantityName">残量</string>
+    <string name="StoreName">ポイントショップ</string>
+    <string name="ProductquantityName">残り数量</string>
     <string name="exchange">交換</string>
-    <string name="appwidget_text">例</string>
-    <string name="add_widget">ウィジェットを追加する</string>
-    <string name="app_widget_description">これはアプリのウィジェットの説明です</string>
     /** モールバウンス **/
     <string name="bottom_sheet_layout_title">交換</string>
     <string name="exchange_final">交換の確認</string>
-    <string name="Productquantity">残量</string>
-    <string name="Redemption_successful">引き換えが成功しました</string>
+    <string name="Productquantity">残り数量</string>
+    <string name="Redemption_successful">交換成功</string>
+    <string name="Exchange_Instructions">購入手順: この画面ではシミュレーション操作のみが提供されており、実際の交換は行われません。 \Nこのモールの一部の写真は台北 Mrt Shopee Mall からのものです</string>
     /** 成果 **/
     <string name="Task_text">タスク</string>
     <string name="Today_task">今日のタスク</string>
     <string name="Tasks_of_the_week">今週のタスク</string>
     <string name="This_month_tasks">今月のタスク</string>
-    <string name="Deadline">締め切り：</string>
+    <string name="Deadline">締め切り時間：</string>
     <string name="Year">年</string>
     <string name="moon">月</string>
     <string name="days">日</string>
     <string name="hour">時間</string>
-    <string name="minute">ポイント</string>
-    <string name="Second">2番</string>
+    <string name="minute">分</string>
+    <string name="Second">秒</string>
     /** 設定ページ **/
+    <string name="Setting_default_name">ユーザー名</string>
+    <string name="Setting_tab_name">名前の変更</string>
+    <string name="Setting_tab_password">パスワードの変更</string>
+    <string name="Setting_tab_Image">写真の修正</string>
+    <string name="Setting_btnEmail">確認レターを送信する</string>
     /** クーポンページ **/
+    <string name="ProductName">製品名：</string>
+    <string name="expiryTime">有効期限：</string>
     <string name="Not_used_information">未使用</string>
     <string name="Expired_information">期限切れ</string>
     <string name="QR_quantity_Title">量：</string>
@@ -87,21 +113,40 @@
     <string name="QR_Title">スキャンして引き換える</string>
     <string name="QR_Change_btn">交換の確認</string>
     <string name="Coupon_expired_text">期限切れ</string>
-    <string name="No_coupon_available">現在利用可能な引き換えクーポンはありません</string>
-    <string name="No_expired_vouchers">現在、期限切れの引き換えクーポンはありません</string>
+    <string name="No_coupon_available">利用できるクーポンはありません</string>
+    <string name="No_expired_vouchers">期限切れの引き換えクーポンはありません</string>
     /** 設定メニュー **/
     <string name="Setting_user">個人データ</string>
-    <string name="Setting_Station">よく使うサイト</string>
-    <string name="Setting_coupon">引き換え履歴</string>
+    <string name="Setting_Station">ガジェット</string>
+    <string name="Setting_coupon">交換記録</string>
     <string name="Setting_language">言語</string>
     <string name="Setting_darkmode">ナイトモード</string>
     <string name="Setting_FAQ">よくある質問</string>
     <string name="Setting_about">私たちについて</string>
     <string name="Setting_other">その他の設定</string>
     <string name="Setting_logout">サインアウト</string>
+    /** 個人情報 **/
+    <string name="Setting_user_title">個人情報の変更</string>
+    <string name="Setting_user_username">ユーザー名</string>
+    <string name="Setting_user_submit">変更を確認する</string>
     /** 言語メニュー **/
     <string name="setting_language_title">言語</string>
     <string name="setting_language_btn">言語を変更する</string>
-    <string name="Store_info">購入手順: この画面はシミュレーション操作のみを提供しており、実際の交換ではありません。</string>
+    <string name="bar_home">ホーム</string>
     <string name="bar_store">モール</string>
+    <string name="password_repeact">パスワードを認証する</string>
+    /** サイト共通メニュー **/
+    <string name="setting_stations_spinner_route">ルートを選択してください:</string>
+    <string name="setting_stations_spinner_station">サイトを選択:</string>
+    <string name="setting_stations_confirm">サイトを確認:</string>
+    <string name="setting_stations_btn">保存</string>
+    <string name="setting_stations_info">ガジェットの紹介</string>
+    <string name="setting_stations_Title">ガジェット - サイト設定</string>
+    /** よくある質問メニュー **/
+    <string name="setting_FAQ_Title">よくある質問</string>
+    /** ウィジェット **/
+    <string name="Last_updated">最終更新日:</string>
+    /** ダイアログ **/
+    <string name="dialog_Previous">前の</string>
+    <string name="dialog_Next">次</string>
 </resources>
