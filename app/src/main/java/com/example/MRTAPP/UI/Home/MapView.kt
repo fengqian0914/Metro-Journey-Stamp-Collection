@@ -303,12 +303,10 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 }
                 in "BL10".."BL16",in "BL18".."BL20" ,in "R02".."R04",in "R08" ,in "R20".."R24",in "G15".."G19","BR02",in "Y10".."Y12","Y08",in "BR07","O02"-> { // 下方
                     chineseTextPaint.textAlign = Paint.Align.LEFT
-                    englishTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign = Paint.Align.LEFT
 
                     canvas.drawText(stationName_TW, x+20f , y+60f, chineseTextPaint)
-                    canvas.drawText(stationName_EN, x+20f , y+100f, englishTextPaint)
-                    canvas.drawText(stationCode, x+20f , y + 140f, createCodeTextPaint(lineCode))
+                    canvas.drawText(stationCode, x+20f , y + 100f, createCodeTextPaint(lineCode))
 
                 }
 
