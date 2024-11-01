@@ -116,7 +116,8 @@ class route_plannings : AppCompatActivity() {
                 Circular_Line_BanqiaoNext=true
                 Log.d("sectionedPath","1 station${station}")
 
-                pathStations.subList(startIdx , endIdx)
+//                continue
+                pathStations.subList(startIdx, endIdx)
 
             }else if(Circular_Line_BanqiaoNext==true){
                 Log.d("sectionedPath","2 station${station}")
@@ -124,7 +125,7 @@ class route_plannings : AppCompatActivity() {
                 Circular_Line_Banqiao=false
                 pathStations.subList(startIdx+2, endIdx)
             }else{
-                Log.d("sectionedPath","3 station${station}")
+                Log.d("sectionedPath","4 station${station}")
 
                 pathStations.subList(startIdx + 1, endIdx)
             }
