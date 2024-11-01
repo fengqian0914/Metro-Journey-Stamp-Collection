@@ -5,7 +5,7 @@
     android:minHeight="210dp"
     android:previewImage="@drawable/appwidget_example"
     android:initialLayout="@layout/item_app_widget"
-    android:description="@string/app_widget_description"
+    android:description="@string/app_name"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
     android:previewLayout="@layout/item_app_widget"

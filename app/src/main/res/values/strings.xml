@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    /** 登入頁面 **/
+    <!-- 登入頁面 -->
     <string name="app_name">捷旅印然</string>
     <string name="login">登入</string>
     <string name="email">信箱</string>
     <string name="password">密碼</string>
     <string name="forget_password">忘記密碼</string>
     <string name="Guest_login">遊客登入</string>
-    /** 註冊 **/
+    <!-- 註冊 -->
     <string name="password_repeat">確認密碼</string>
     <string name="back">返回</string>
     <string name="username">使用者名稱</string>
@@ -44,7 +44,7 @@
     <string name="route_R_en">R</string>
     <string name="scan">掃描</string>
     <string name="Camera_verify_btn">集章去</string>
-    /** 首頁 **/
+    <!-- 首頁 -->
     <string name="start_station">起點</string>
     <string name="end_station">終點</string>
     <string name="total_times">預計搭乘時間</string>
@@ -55,9 +55,9 @@
     <string name="Discount_tickets">優待票</string>
     <string name="Taipei_City_Children_Ticket">台北兒童票</string>
     <string name="dollar">元</string>
-    /** 路線規劃 **/
+    <!-- 路線規劃 -->
     <string name="route_planning_btn">路線規劃</string>
-    /** 車站資訊頁面 **/
+    <!-- 車站資訊頁面 -->
     <string name="Station_information">車站資訊</string>
     <string name="Train_information">列車資訊</string>
     <string name="ExitType1_0">樓梯</string>
@@ -68,24 +68,24 @@
     <string name="ExitType2_3">向下扶梯</string>
     <string name="ExitType3_0">電梯</string>
     <string name="ExitType3_1">無電梯</string>
-    /** 列車資訊頁面 **/
+    <!-- 列車資訊頁面 -->
     <string name="Train_arrives">列車到站</string>
     <string name="Train_arrives_time">秒後更新</string>
     <string name="remindbtn">到站提醒</string>
     <string name="errorStation">異常：環狀線部分路段因故損毀，以至於本路段資訊無法顯示</string>
     <string name="errorStation2">異常：捷運系統資訊異常，往板橋段列車可能無法正常顯示。且部分資訊讀取異常</string>
     <string name="ToStationText">往</string>
-    /** 商城頁面 **/
+    <!-- 商城頁面 -->
     <string name="StoreName">點數商城</string>
     <string name="ProductquantityName">剩餘數量</string>
     <string name="exchange">兌換</string>
-    /** 商城彈跳 **/
+    <!-- 商城彈跳 -->
     <string name="bottom_sheet_layout_title">兌換</string>
     <string name="exchange_final">確定兌換</string>
     <string name="Productquantity">剩餘數量</string>
     <string name="Redemption_successful">兌換成功</string>
     <string name="Exchange_Instructions">購買須知：本畫面僅提供模擬操作，非實際兌換。\n本商城部分圖片為台北捷運蝦皮商城</string>
-    /** 成就 **/
+    <!-- 成就 -->
     <string name="Task_text">任務</string>
     <string name="Today_task">本日任務</string>
     <string name="Tasks_of_the_week">本周任務</string>
@@ -97,13 +97,13 @@
     <string name="hour">時</string>
     <string name="minute">分鐘</string>
     <string name="Second">秒數</string>
-    /** 設定頁面 **/
+    <!-- 設定頁面 -->
     <string name="Setting_default_name">使用者名稱</string>
     <string name="Setting_tab_name">名稱修改</string>
     <string name="Setting_tab_password">密碼修改</string>
     <string name="Setting_tab_Image">照片修改</string>
     <string name="Setting_btnEmail">送出驗證信</string>
-    /** 兌換券頁面 **/
+    <!-- 兌換券頁面 -->
     <string name="ProductName">商品名稱：</string>
     <string name="expiryTime">到期日：</string>
     <string name="Not_used_information">未使用</string>
@@ -115,7 +115,7 @@
     <string name="Coupon_expired_text">已失效</string>
     <string name="No_coupon_available">無可用兌換券</string>
     <string name="No_expired_vouchers">無失效兌換券</string>
-    /** 設定選單 **/
+    <!-- 設定選單 -->
     <string name="Setting_user">個人資料</string>
     <string name="Setting_Station">小工具</string>
     <string name="Setting_coupon">兌換紀錄</string>
@@ -125,28 +125,28 @@
     <string name="Setting_about">關於我們</string>
     <string name="Setting_other">其他設定</string>
     <string name="Setting_logout">登出</string>
-    /** 個人資料 **/
+    <!-- 個人資料 -->
     <string name="Setting_user_title">個人資料修改</string>
     <string name="Setting_user_username">使用者名稱</string>
     <string name="Setting_user_submit">確定變更</string>
-    /** 語言選單 **/
+    <!-- 語言選單 -->
     <string name="setting_language_title">語言</string>
     <string name="setting_language_btn">變更語言</string>
     <string name="bar_home">首頁</string>
     <string name="bar_store">商城</string>
     <string name="password_repeact">確認密碼</string>
-    /** 常用站點選單 **/
+    <!-- 常用站點選單 -->
     <string name="setting_stations_spinner_route">選擇路線：</string>
     <string name="setting_stations_spinner_station">選擇站點：</string>
     <string name="setting_stations_confirm">確認站點：</string>
     <string name="setting_stations_btn">儲存</string>
     <string name="setting_stations_info">小工具介紹</string>
     <string name="setting_stations_Title">小工具-站點設置</string>
-    /** FAQ選單 **/
+    <!-- FAQ選單 -->
     <string name="setting_FAQ_Title">常見問題</string>
-    /** widget 小工具 **/
+    <!-- widget 小工具 -->
     <string name="Last_updated">最後更新時間：</string>
-    /** dialog **/
+    <!-- dialog -->
     <string name="dialog_Previous">上一個</string>
     <string name="dialog_Next">下一個</string>
 </resources>
