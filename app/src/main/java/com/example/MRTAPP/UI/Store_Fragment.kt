@@ -121,6 +121,9 @@ class Store_Fragment : Fragment() {
             productList.clear() // 清空列表，防重複
 
             if (snapshot != null) {
+                // 建立暫時的列表，將每個 product 放入以便排序
+                val tempProductList = mutableListOf<ProductList>()
+
                 for (productSnapshot in snapshot.documents) {
                     val productId = productSnapshot.id
                     val productName = productSnapshot.getString("ProductName")
@@ -132,8 +135,6 @@ class Store_Fragment : Fragment() {
                     Log.d("title", "Price: $productPrice")
 
                     if (productId.isNotEmpty() && productName != null && productPrice != null && productQuantity != null) {
-                        val imageResource = getImageResourceForProduct(productId)
-
                         val product = ProductList(
                             productId,
                             productName,
@@ -141,21 +142,25 @@ class Store_Fragment : Fragment() {
                             productPrice.toInt(),
                             productQuantity.toLong()
                         )
-                        productList.add(product)
+                        tempProductList.add(product)
                         Log.e("Store_Fragment", " data--> imageResource:${productImageUrl}: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity")
-
                     } else {
                         Log.e("Store_Fragment", "Invalid product data: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity")
                     }
                 }
+
+                // 根據 ProductId 中的數字進行排序
+                tempProductList.sortBy { product ->
+                    product.Id.replace("Product", "").toIntOrNull() ?: Int.MAX_VALUE
+                }
+
+                // 將排序好的產品加入到 productList
+                productList.addAll(tempProductList)
                 recyclerViewAdapter?.notifyDataSetChanged()
             } else {
                 Log.d("Store_Fragment", "Current data: null")
             }
         }
-
-
-
     }
 
     override fun onResume() {

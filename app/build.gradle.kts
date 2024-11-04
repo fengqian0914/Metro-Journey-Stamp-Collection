@@ -150,4 +150,7 @@ dependencies {
     //圖片載入
     implementation("com.github.bumptech.glide:glide:4.15.0")
     kapt("com.github.bumptech.glide:compiler:4.15.0") // 使用 kapt
+    //異步任務集合
+    implementation ("com.google.android.gms:play-services-tasks:18.0.2")
+
 }

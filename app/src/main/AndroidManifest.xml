@@ -33,15 +33,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Light"
         tools:targetApi="31">
-
-<!--        <activity-->
-<!--            android:name=".UI.Home.route_planning.Route_transfer_RecylerViewAdapter"-->
-<!--            android:exported="false"-->
-<!--            android:screenOrientation="portrait" />-->
-<!--        <activity-->
-<!--            android:name=".UI.Setting.FAQ.Setting_FAQ_RecylerViewAdapter"-->
-<!--            android:exported="false"-->
-<!--            android:screenOrientation="portrait" />-->
+        <activity
+            android:name=".UI.Star.Achievement_RecyclerViewAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Star.Achievement_List"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".UI.Home.route_planning.Route_transfer_RecylerViewAdapter" -->
+        <!-- android:exported="false" -->
+        <!-- android:screenOrientation="portrait" /> -->
+        <!-- <activity -->
+        <!-- android:name=".UI.Setting.FAQ.Setting_FAQ_RecylerViewAdapter" -->
+        <!-- android:exported="false" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".UI.Setting.FAQ.Setting_FAQ"
             android:exported="false"
@@ -66,12 +70,10 @@
         <activity
             android:name=".UI.Login.forget_password"
             android:exported="false"
-            android:screenOrientation="portrait" />
-<!--        <activity-->
-<!--            android:name=".Other.dialogs"-->
-<!--            android:exported="false"-->
-<!--            android:screenOrientation="portrait" />-->
-
+            android:screenOrientation="portrait" /> <!-- <activity -->
+        <!-- android:name=".Other.dialogs" -->
+        <!-- android:exported="false" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <service
             android:name=".Other.Widget.ListWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
@@ -89,8 +91,8 @@
         <activity
             android:name=".UI.Setting.Coupons.Coupons_data"
             android:exported="false"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".UI.Setting.User.Personal_information"
             android:exported="false"
@@ -102,8 +104,8 @@
         <activity
             android:name=".UI.Home.station_data"
             android:exported="false"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name=".UI.Cameras.Popup_route"
             android:exported="false"
@@ -111,23 +113,24 @@
         <activity
             android:name=".UI.Login.Register"
             android:exported="false"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name=".UI.Login.Login"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Material3.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".UI.Home.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
