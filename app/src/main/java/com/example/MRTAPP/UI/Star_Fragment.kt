@@ -81,21 +81,19 @@ class Star_Fragment : Fragment() {
     }
 
 
+
+
     private fun ListData() {
         val db = FirebaseFirestore.getInstance()
         val collectionRef = db.collection("Data").document("Achievement").collection("Item")
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
         var existsquantity = 0
-        collectionRef.addSnapshotListener { snapshot, e ->
-            Log.e("Achievement_Fragment", "Snapshot listener triggered") // 測試日誌
 
-            if (e != null) {
-                Log.w("Achievement_Fragment", "Listen failed.", e)
-                return@addSnapshotListener
-            }
+        // 使用 get() 進行單次資料讀取
+        collectionRef.get().addOnSuccessListener { snapshot ->
+            Log.e("Achievement_Fragment", "Snapshot contains data") // 測試日誌
 
             if (snapshot != null && !snapshot.isEmpty) {
-                Log.e("Achievement_Fragment", "Snapshot contains data") // 測試日誌
                 val tempAchievementList = mutableListOf<Achievement_List>()
                 val stationPath = db.collection("users")
                     .document(userId)
@@ -126,7 +124,7 @@ class Star_Fragment : Fragment() {
                             else -> continue
                         }
 
-                        val stationTask:Task<Void> = stationPath.get()
+                        val stationTask: Task<Void> = stationPath.get()
                             .addOnSuccessListener { documentSnapshot ->
                                 if (documentSnapshot.exists()) {
                                     val stationData = documentSnapshot.data?.get(route) as? Map<*, *>
@@ -188,6 +186,7 @@ class Star_Fragment : Fragment() {
                             Image = ImageJSONObject,
                             existsquantity = existsquantity
                         )
+                        existsquantity = 0
                         tempAchievementList.add(achievement)
                         Log.e("Achievement_Fragment", "Achievement loaded: ${achievement}") // 測試日誌
 
@@ -200,6 +199,8 @@ class Star_Fragment : Fragment() {
             } else {
                 Log.d("Achievement_Fragment", "No data found in snapshot") // 測試日誌
             }
+        }.addOnFailureListener { e ->
+            Log.w("Firestore", "獲取成就資料失敗", e)
         }
     }
 
