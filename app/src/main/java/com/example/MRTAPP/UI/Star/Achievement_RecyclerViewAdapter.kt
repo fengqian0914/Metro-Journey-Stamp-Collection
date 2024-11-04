@@ -39,7 +39,6 @@ class Achievement_RecyclerViewAdapter(
         val achievement = achievementList[position]
 
         // 綁定成就名稱
-        holder.achievementName.text = achievement.Name
 
 
         val stationdata=achievement.station
@@ -103,24 +102,32 @@ class Achievement_RecyclerViewAdapter(
         val goldName = goldData["Name"] as? String ?: ""
 
         val ImageJSONObject=achievement.Image
-        var Imageurl:String
+        var Imageurl="https://firebasestorage.googleapis.com/v0/b/mrt-app-55dac.appspot.com/o/Data%2FAchievement%2Fno.png?alt=media&token=69ba10f4-89f8-43b6-80e6-4071f9fff82b"
         var maxdemand:Long
 
-        val lavels:String
-        if (existsquantity < bronzeDemand) {
-            Imageurl = ImageJSONObject.getString("Bronze")
+        val LavelName:String
+        if (existsquantity < bronzeDemand) { //尚未解鎖
             maxdemand = bronzeDemand
-            lavels="銅"
-        } else if (existsquantity < silverDemand) {
-            Imageurl = ImageJSONObject.getString("Silver")
+            holder.achievementName.setBackgroundResource(R.drawable.ribbon_bg_nolavel)
+            LavelName = holder.itemView.context.getString(R.string.ribbonName)
+        } else
+            if (existsquantity < silverDemand) {//已達銅級
+            Imageurl = ImageJSONObject.getString("Bronze")
             maxdemand = silverDemand
-            lavels="銀"
-        } else {
-            Imageurl = ImageJSONObject.getString("Gold")
+            holder.achievementName.setBackgroundResource(R.drawable.ribbon_bg_bronze)
+            LavelName=bronzeName
+        } else if(existsquantity<goldDemand) {//已達銀級
+            Imageurl =ImageJSONObject.getString("Silver")
             maxdemand = goldDemand
-            lavels="金"
+            holder.achievementName.setBackgroundResource(R.drawable.ribbon_bg_silver)
+            LavelName=silverName
+        }else{//已達金級
+            Imageurl =ImageJSONObject.getString("Gold")
+            maxdemand = goldDemand
+            holder.achievementName.setBackgroundResource(R.drawable.ribbon_bg_gold)
+            LavelName=goldName
         }
-        Log.d("Achievement_CardView","等級${lavels}\n" +
+        Log.d("Achievement_CardView","等級${LavelName}\n" +
                 "image${Imageurl}\n" +
                 "持有${existsquantity}\n" +
                 "total${maxdemand}\n" +
@@ -136,13 +143,15 @@ class Achievement_RecyclerViewAdapter(
             .into(holder.achievementImage)
 
 //         綁定需求和完成數量
+        holder.achievementTitle.text=achievement.Name
+        holder.achievementName.text = LavelName
         holder.achievementDemand.text = maxdemand.toString()
         holder.achievementHave.text = achievement.existsquantity.toString() // 假設這個值從其他數據來源取得
         holder.achievementPercentage.text = calculatePercentage(existsquantity.toInt(), maxdemand.toInt()).toString()
 
         // 更新進度條
         holder.progressBar.progress = calculatePercentage(existsquantity.toInt(),maxdemand.toInt())
-
+        holder.progressBar.setScaleY(10f)
     }
 
     override fun getItemCount(): Int {
@@ -154,6 +163,8 @@ class Achievement_RecyclerViewAdapter(
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val achievementTitle: TextView = itemView.findViewById(R.id.Achievenent_Title)
+
         val achievementName: TextView = itemView.findViewById(R.id.Achievenent_Name)
         val achievementImage: ImageView = itemView.findViewById(R.id.Achievenent_Image)
         val achievementHave: TextView = itemView.findViewById(R.id.Achievement_Have)

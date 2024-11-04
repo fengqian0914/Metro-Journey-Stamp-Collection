@@ -97,6 +97,7 @@
     <string name="hour">時</string>
     <string name="minute">分鐘</string>
     <string name="Second">秒數</string>
+    <string name="ribbonName" translatable="false">尚未解鎖</string>
     <!-- 設定頁面 -->
     <string name="Setting_default_name">使用者名稱</string>
     <string name="Setting_tab_name">名稱修改</string>

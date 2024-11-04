@@ -1,0 +1,65 @@
+<!-- res/drawable/ribbon_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 左邊的尖角 -->
+
+    <item>
+        <rotate
+            android:fromDegrees="45"
+            android:pivotX="100%"
+            android:pivotY="0%">
+            <shape android:shape="rectangle">
+                <solid android:color="#ff9838" />
+                <size android:width="60dp" android:height="40dp" />
+            </shape>
+        </rotate>
+    </item>
+    <item>
+        <rotate
+            android:fromDegrees="45"
+            android:pivotX="0%"
+            android:pivotY="100%">
+            <shape android:shape="rectangle">
+                <solid android:color="#ff9838" />
+                <size android:width="60dp" android:height="40dp" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- 右邊的尖角 -->
+    <item>
+        <rotate
+            android:fromDegrees="-45"
+            android:pivotX="0%"
+            android:pivotY="0%">
+            <shape android:shape="rectangle">
+                <solid android:color="#ff9838" />
+                <size android:width="60dp" android:height="40dp" />
+            </shape>
+        </rotate>
+    </item>
+    <item>
+        <rotate
+            android:fromDegrees="-45"
+            android:pivotX="100%"
+            android:pivotY="100%">
+            <shape android:shape="rectangle">
+                <solid android:color="#ff9838" />
+                <size android:width="60dp" android:height="40dp" />
+            </shape>
+        </rotate>
+    </item>
+    <item android:left="20dp" android:right="20dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#ff9838" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    <!-- 中間的橫幅 -->
+    <item android:left="50dp" android:right="50dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#ce7430" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+
+</layer-list>
