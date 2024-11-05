@@ -32,15 +32,6 @@
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="進度 1/4"
-                android:textColor="@color/white"
-                android:textSize="16dp"
-                android:textStyle="bold"
-
-                />
         </LinearLayout>
 
         <LinearLayout
@@ -50,19 +41,13 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="right"
                 android:src="@drawable/goldbg" />
         </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Achievement_RecyclerVIew"

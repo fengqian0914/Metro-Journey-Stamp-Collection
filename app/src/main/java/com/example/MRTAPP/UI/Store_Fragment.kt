@@ -1,5 +1,7 @@
 package com.example.MRTAPP.UI
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.MRTAPP.UI.Mall.ProductList
 import com.example.MRTAPP.UI.Mall.Product_RecyclerViewAdapter
 import com.example.MRTAPP.R
+import com.example.MRTAPP.UI.Mall.exchange_layout
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -84,10 +87,21 @@ class Store_Fragment : Fragment() {
                     .show()
             }
         })
+
+
+
+        val sharedPreferences = context?.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val Guest = sharedPreferences?.getBoolean("Guest",false)
+        if(Guest==true){
+            prepareProductListData()
+            rootView.findViewById<TextView>(R.id.mycoin).text="0"
+        }
+
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         if (userId != null) {
             getUserData(rootView,userId)
         }
+
 
         return rootView
 
@@ -107,7 +121,7 @@ class Store_Fragment : Fragment() {
                     productList=ArrayList()
                     recyclerView=view.findViewById<RecyclerView>(R.id.StoreRecyclerView)
 
-                    recyclerViewAdapter = Product_RecyclerViewAdapter(userCoin!!.toInt(),this@Store_Fragment, productList)
+                    recyclerViewAdapter = Product_RecyclerViewAdapter(this@Store_Fragment, productList,userCoin!!.toInt())
                     val layoutManager:RecyclerView.LayoutManager=GridLayoutManager(context,2)
                     recyclerView!!.layoutManager=layoutManager
                     recyclerView!!.adapter= recyclerViewAdapter
@@ -126,61 +140,80 @@ class Store_Fragment : Fragment() {
 
 
     private fun prepareProductListData() {
-        // 獲取 Firestore 的實例
-        val db = FirebaseFirestore.getInstance()
 
-        // 獲取對應的集合
-        val collectionRef = db.collection("Data").document("Product").collection("Items")
+        try {
+            // 獲取 Firestore 的實例
+            val db = FirebaseFirestore.getInstance()
 
-        // 讀取數據
-        collectionRef.addSnapshotListener { snapshot, e ->
-            if (e != null) {
-                Log.w("Store_Fragment", "Listen failed.", e)
-                return@addSnapshotListener
-            }
+            // 獲取對應的集合
+            val collectionRef = db.collection("Data").document("Product").collection("Items")
 
-            productList.clear() // 清空列表，防重複
+            // 讀取數據
+            collectionRef.addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.w("Store_Fragment", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
 
-            if (snapshot != null) {
-                // 建立暫時的列表，將每個 product 放入以便排序
-                val tempProductList = mutableListOf<ProductList>()
+                productList.clear() // 清空列表，防重複
 
-                for (productSnapshot in snapshot.documents) {
-                    val productId = productSnapshot.id
-                    val productName = productSnapshot.getString("ProductName")
-                    val productPrice = productSnapshot.getLong("Price")
-                    val productQuantity = productSnapshot.getLong("quantity")
-                    val productImageUrl = productSnapshot.getString("ImageUrl").toString()
+                if (snapshot != null) {
+                    // 建立暫時的列表，將每個 product 放入以便排序
+                    val tempProductList = mutableListOf<ProductList>()
 
-                    Log.d("title", "Name: $productName")
-                    Log.d("title", "Price: $productPrice")
+                    for (productSnapshot in snapshot.documents) {
+                        val productId = productSnapshot.id
+                        val productName = productSnapshot.getString("ProductName")
+                        val productPrice = productSnapshot.getLong("Price")
+                        val productQuantity = productSnapshot.getLong("quantity")
+                        val productImageUrl = productSnapshot.getString("ImageUrl").toString()
 
-                    if (productId.isNotEmpty() && productName != null && productPrice != null && productQuantity != null) {
-                        val product = ProductList(
-                            productId,
-                            productName,
-                            productImageUrl,
-                            productPrice.toInt(),
-                            productQuantity.toLong()
-                        )
-                        tempProductList.add(product)
-                        Log.e("Store_Fragment", " data--> imageResource:${productImageUrl}: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity")
-                    } else {
-                        Log.e("Store_Fragment", "Invalid product data: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity")
+                        Log.d("title", "Name: $productName")
+                        Log.d("title", "Price: $productPrice")
+
+                        if (productId.isNotEmpty() && productName != null && productPrice != null && productQuantity != null) {
+                            val product = ProductList(
+                                productId,
+                                productName,
+                                productImageUrl,
+                                productPrice.toInt(),
+                                productQuantity.toLong()
+                            )
+                            tempProductList.add(product)
+                            Log.e(
+                                "Store_Fragment",
+                                " data--> imageResource:${productImageUrl}: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity"
+                            )
+                        } else {
+                            Log.e(
+                                "Store_Fragment",
+                                "Invalid product data: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity"
+                            )
+                        }
                     }
-                }
 
-                // 根據 ProductId 中的數字進行排序
-                tempProductList.sortBy { product ->
-                    product.Id.replace("Product", "").toIntOrNull() ?: Int.MAX_VALUE
-                }
+                    // 根據 ProductId 中的數字進行排序
+                    tempProductList.sortBy { product ->
+                        product.Id.replace("Product", "").toIntOrNull() ?: Int.MAX_VALUE
+                    }
+                    productList=ArrayList()
+                    recyclerView=view?.findViewById<RecyclerView>(R.id.StoreRecyclerView)
 
-                // 將排序好的產品加入到 productList
-                productList.addAll(tempProductList)
-                recyclerViewAdapter?.notifyDataSetChanged()
-            } else {
-                Log.d("Store_Fragment", "Current data: null")
+                    recyclerViewAdapter = Product_RecyclerViewAdapter(this@Store_Fragment, productList)
+                    val layoutManager:RecyclerView.LayoutManager=GridLayoutManager(context,2)
+                    recyclerView!!.layoutManager=layoutManager
+                    recyclerView!!.adapter= recyclerViewAdapter
+
+                    // 將排序好的產品加入到 productList
+                    productList.addAll(tempProductList)
+                    recyclerViewAdapter?.notifyDataSetChanged()
+                    Log.d("loginaa","adasda")
+                } else {
+                    Log.d("Store_Fragment", "Current data: null")
+                }
             }
+        }catch (e:Exception){
+            Log.d("loginaa","2${e}")
         }
     }
 

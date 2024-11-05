@@ -84,7 +84,7 @@
     <string name="exchange_final">確定兌換</string>
     <string name="Productquantity">剩餘數量</string>
     <string name="Redemption_successful">兌換成功</string>
-    <string name="Exchange_Instructions">購買須知：本畫面僅提供模擬操作，非實際兌換。\n本商城部分圖片為台北捷運蝦皮商城</string>
+    <string name="Exchange_Instructions">購買須知：本畫面僅提供模擬操作，非實際兌換。\n 本商城部分圖片為台北捷運蝦皮商城</string>
     <!-- 成就 -->
     <string name="Task_text">任務</string>
     <string name="Today_task">本日任務</string>
@@ -158,5 +158,8 @@
     <string name="backdialog_msg" translatable="false">你確定要離開嗎?</string>
     <string name="backdialog_y" translatable="false">是</string>
     <string name="backdialog_n" translatable="false">否</string>
+    <!-- Guest   -->
+    <string name="Guest_toast_msg" translatable="false">登入後查看</string>
+    <string name="Guest_Title" translatable="false">遊客帳戶</string>
 
 </resources>

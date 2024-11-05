@@ -183,7 +183,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="5dp"
                                         android:layout_margin="5dp"
-                                        android:progress="40"
+                                        android:progress="0"
                                         android:progressDrawable="@drawable/custom_progress_bar"
                                         android:progressTint="@color/mrt_route_BL" />
 
@@ -302,7 +302,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="5dp"
                                         android:layout_margin="5dp"
-                                        android:progress="25"
+                                        android:progress="0"
                                         android:progressDrawable="@drawable/custom_progress_bar"
                                         android:progressTint="@color/mrt_route_BR" />
 
@@ -422,7 +422,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="5dp"
                                         android:layout_margin="5dp"
-                                        android:progress="75"
+                                        android:progress="0"
                                         android:progressDrawable="@drawable/custom_progress_bar"
                                         android:progressTint="@color/mrt_route_G" />
 
@@ -542,7 +542,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="5dp"
                                         android:layout_margin="5dp"
-                                        android:progress="75"
+                                        android:progress="0"
                                         android:progressDrawable="@drawable/custom_progress_bar"
                                         android:progressTint="@color/mrt_route_R" />
 
@@ -663,7 +663,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="5dp"
                                         android:layout_margin="5dp"
-                                        android:progress="53"
+                                        android:progress="0"
                                         android:progressDrawable="@drawable/custom_progress_bar"
                                         android:progressTint="@color/mrt_route_O" />
 
@@ -785,7 +785,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="5dp"
                                         android:layout_margin="5dp"
-                                        android:progress="50"
+                                        android:progress="0"
                                         android:progressDrawable="@drawable/custom_progress_bar"
                                         android:progressTint="@color/mrt_route_Y" />
 

@@ -47,7 +47,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="@+id/Photo_stickers" />
+                    app:layout_constraintTop_toTopOf="@+id/Photo_stickers"
+                    android:autoSizeMaxTextSize="34sp"
+                    android:autoSizeMinTextSize="16sp"
+                    android:autoSizeStepGranularity="1sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="2"/>
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -65,7 +70,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="50"
+                    android:autoSizeMaxTextSize="24sp"
+                    android:autoSizeMinTextSize="8sp"
+                    android:autoSizeStepGranularity="1sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="2"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold"

@@ -133,68 +133,91 @@ class Camera : Fragment() {
                     .show()
             }
         })
+        val Loginshared = context?.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val Guest = Loginshared?.getBoolean("Guest",false)
+        if(Guest==true){
+            val toastMessage = view.context.getString(R.string.Guest_toast_msg)
 
-        initBinding()
-        val sharedPreferences_start = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-        // 從 SharedPreferences 中讀取資料
-        initViews(view)
-        val BL_route = view.findViewById<CardView>(R.id.BL_route)
-        val BR_route = view.findViewById<CardView>(R.id.BR_route)
-        val G_route = view.findViewById<CardView>(R.id.G_route)
-        val R_route = view.findViewById<CardView>(R.id.R_route)
-        val Y_route = view.findViewById<CardView>(R.id.Y_route)
-        val O_route = view.findViewById<CardView>(R.id.O_route)
-        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-
-        setButtonClickListeners(
-            BL_route to "BL",
-            BR_route to "BR",
-            G_route to "G",
-            R_route to "R",
-            Y_route to "Y",
-            O_route to "O"
-        ) { route ->
-            recyclerview_Fun(route,userId)
-
-        }
-        // 在 Fragment 中讀取 SharedPreferences
-        val sharedPreferences = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
-
-
-        val db = FirebaseFirestore.getInstance()
-
-        val path = db.collection("users")
-            .document(userId)
-            .collection("StationData")
-            .document("stationValue")
-
-        path.get()
-            .addOnSuccessListener { documentSnapshot ->
-                if (documentSnapshot != null && documentSnapshot.exists()) {
-                    // 將 stationValue 轉換為 Map<String, Int>
-                    val stationData = documentSnapshot.data as? Map<String, Int>
-                    if (stationData != null) {
-                           routeValue(stationData.toString())
-
-                    } else {
-                        Log.d("Firestore", "stationValue 格式不正確或為空")
-                    }
-                } else {
-                    Log.d("Firestore", "stationValue 文檔不存在")
+            view.findViewById<Button>(R.id.qrcodeScan_btn).apply {
+                setOnClickListener {
+                    Toast.makeText(view.context, toastMessage, Toast.LENGTH_LONG).show()
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.d("Firestore", "讀取失敗: ${exception.message}")
+
+            listOf(
+                R.id.BL_route, R.id.BR_route, R.id.R_route, R.id.G_route, R.id.O_route, R.id.Y_route
+            ).forEach { id ->
+                view.findViewById<CardView>(id).apply {
+                    setOnClickListener {
+                        Toast.makeText(view.context, toastMessage, Toast.LENGTH_LONG).show()
+                        return@setOnClickListener
+                    }
+                }
             }
 
+        }else {
+
+            initBinding()
+            val sharedPreferences_start =
+                requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+            // 從 SharedPreferences 中讀取資料
+            initViews(view)
+            val BL_route = view.findViewById<CardView>(R.id.BL_route)
+            val BR_route = view.findViewById<CardView>(R.id.BR_route)
+            val G_route = view.findViewById<CardView>(R.id.G_route)
+            val R_route = view.findViewById<CardView>(R.id.R_route)
+            val Y_route = view.findViewById<CardView>(R.id.Y_route)
+            val O_route = view.findViewById<CardView>(R.id.O_route)
+            val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
+            setButtonClickListeners(
+                BL_route to "BL",
+                BR_route to "BR",
+                G_route to "G",
+                R_route to "R",
+                Y_route to "Y",
+                O_route to "O"
+            ) { route ->
+                recyclerview_Fun(route, userId)
+
+            }
+            // 在 Fragment 中讀取 SharedPreferences
+            val sharedPreferences =
+                requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
 
 
+            val db = FirebaseFirestore.getInstance()
 
-        // 從 SharedPreferences 中讀取資料
+            val path = db.collection("users")
+                .document(userId)
+                .collection("StationData")
+                .document("stationValue")
+
+            path.get()
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot != null && documentSnapshot.exists()) {
+                        // 將 stationValue 轉換為 Map<String, Int>
+                        val stationData = documentSnapshot.data as? Map<String, Int>
+                        if (stationData != null) {
+                            routeValue(stationData.toString())
+
+                        } else {
+                            Log.d("Firestore", "stationValue 格式不正確或為空")
+                        }
+                    } else {
+                        Log.d("Firestore", "stationValue 文檔不存在")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("Firestore", "讀取失敗: ${exception.message}")
+                }
+
+
+            // 從 SharedPreferences 中讀取資料
 //        val stationvalue = sharedPreferences.getString("stationValue", "default_value_value")
 //        routeValue(stationvalue!!)
 //        Log.d("title","stationvalue$stationvalue")
-
+        }
         return view  //回傳view
     }
     private fun Resultverify(string: String) {

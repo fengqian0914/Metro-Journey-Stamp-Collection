@@ -137,7 +137,7 @@
                         android:textSize="16sp" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/Guest_login"
                         style="@style/Background_btn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

@@ -98,51 +98,65 @@ class Settings_Fragment : Fragment() {
         if (userId != null) {
             getUserData(view,userId)
         }
-        getUserData(view,userId.toString())
 
-        val User_btn=view.findViewById<LinearLayout>(R.id.setting_user_btn)
-        val Station_btn=view.findViewById<LinearLayout>(R.id.setting_Station_btn)
-        val Coupon_btn=view.findViewById<LinearLayout>(R.id.setting_Coupon_btn)
-        val Language_btn=view.findViewById<LinearLayout>(R.id.setting_language_btn)
-        val Darkmode_btn=view.findViewById<LinearLayout>(R.id.setting_darkmode_btn)
-        val FAQ_btn=view.findViewById<LinearLayout>(R.id.setting_FAQ_btn)
-        val About_btn=view.findViewById<LinearLayout>(R.id.setting_about_btn)
-        val Other_btn=view.findViewById<LinearLayout>(R.id.setting_other_btn)
-        val Logout_btn=view.findViewById<LinearLayout>(R.id.setting_logout_btn)
+        val sharedPreferences = context?.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val Guest = sharedPreferences?.getBoolean("Guest",false)
+        val User_btn = view.findViewById<LinearLayout>(R.id.setting_user_btn)
+        val Station_btn = view.findViewById<LinearLayout>(R.id.setting_Station_btn)
+        val Coupon_btn = view.findViewById<LinearLayout>(R.id.setting_Coupon_btn)
+        val Language_btn = view.findViewById<LinearLayout>(R.id.setting_language_btn)
+        val Darkmode_btn = view.findViewById<LinearLayout>(R.id.setting_darkmode_btn)
+        val FAQ_btn = view.findViewById<LinearLayout>(R.id.setting_FAQ_btn)
+        val About_btn = view.findViewById<LinearLayout>(R.id.setting_about_btn)
+        val Other_btn = view.findViewById<LinearLayout>(R.id.setting_other_btn)
+        val Logout_btn = view.findViewById<LinearLayout>(R.id.setting_logout_btn)
+
+        if(Guest==true){
+            val toastMessage = view.context.getString(R.string.Guest_toast_msg)
+            User_btn.setOnClickListener {
+                Toast.makeText(view.context, toastMessage, Toast.LENGTH_LONG).show()
+            }
+            Coupon_btn.setOnClickListener {
+                Toast.makeText(view.context, toastMessage, Toast.LENGTH_LONG).show()
+            }
+            view.findViewById<TextView>(R.id.user_name).text=view.context.getString(R.string.Guest_Title)
+            view.findViewById<TextView>(R.id.user_coin).text="0"
 
 
-        User_btn.setOnClickListener {
-            val intent = Intent(context,Personal_information::class.java)
-            startActivity(intent)
+        }else {
+            getUserData(view, userId.toString())
+
+            User_btn.setOnClickListener {
+                val intent = Intent(context, Personal_information::class.java)
+                startActivity(intent)
+            }
+            Coupon_btn.setOnClickListener {
+                val intent = Intent(context, Coupons_data::class.java)
+                startActivity(intent)
+            }
+
+            editor?.apply()
         }
 
         Station_btn.setOnClickListener {
             val intent = Intent(context, Setting_station::class.java)
             startActivity(intent)
         }
-
-        Coupon_btn.setOnClickListener {
-            val intent = Intent(context, Coupons_data::class.java)
-            startActivity(intent)
-        }
-
-        Language_btn.setOnClickListener {
-            val intent = Intent(context, Setting_Language::class.java)
-            startActivity(intent)
-        }
-
-        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        val currentNightMode =
+            resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         when (currentNightMode) {
             Configuration.UI_MODE_NIGHT_YES -> {
                 // 黑暗模式
-                nightMode=true
+                nightMode = true
                 Log.d("ModeCheck", "目前是黑暗模式")
             }
+
             Configuration.UI_MODE_NIGHT_NO -> {
                 // 白模式（淺色模式）
-                nightMode=false
+                nightMode = false
                 Log.d("ModeCheck", "目前是白模式")
             }
+
             Configuration.UI_MODE_NIGHT_UNDEFINED -> {
                 // 未定義的模式
                 Log.d("ModeCheck", "目前模式未定義")
@@ -150,25 +164,25 @@ class Settings_Fragment : Fragment() {
         }
 
 
-//        val switchmode=view.findViewById<SwitchCompat>(R.id.switch_mode)
-        if(nightMode){
-//            switchmode.isChecked=true
+        if (nightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
 
         Darkmode_btn.setOnClickListener {
-            if(nightMode){//是否開啟黑暗
+            if (nightMode) {//是否開啟黑暗
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                editor=sharedPreferences?.edit()
-                nightMode=false;
-            }else{
+                editor = sharedPreferences?.edit()
+                nightMode = false;
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                editor=sharedPreferences?.edit()
-                nightMode=true;
+                editor = sharedPreferences?.edit()
+                nightMode = true;
             }
         }
-
-
+        Language_btn.setOnClickListener {
+            val intent = Intent(context, Setting_Language::class.java)
+            startActivity(intent)
+        }
 
         FAQ_btn.setOnClickListener {
             val intent = Intent(context, Setting_FAQ::class.java)
@@ -182,20 +196,39 @@ class Settings_Fragment : Fragment() {
         }
 
         Logout_btn.setOnClickListener {
-            val sharedPreferences = requireContext().getSharedPreferences("Login", Context.MODE_PRIVATE)
+            val sharedPreferences =
+                requireContext().getSharedPreferences("Login", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("account", null)
             editor.putString("password", null)
+            editor.putBoolean("Guest",false)
+
             editor.apply()
             val intent = Intent(activity, Login::class.java)
             startActivity(intent)
 
+
+            clearAllSharedPreferences()
+
         }
 
-        editor?.apply()
 
         return view
     }
+
+    private fun clearAllSharedPreferences() {
+        // 列出所有需要清除的 SharedPreferences 名稱
+        val sharedPrefsNames = listOf("Login", "tdx", "my_prefs","stationInfo","AccessToken") // 根據實際專案情況增減
+
+        for (prefName in sharedPrefsNames) {
+            val sharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            sharedPreferences.edit().clear().apply()
+        }
+        // 登出 Firebase 使用者
+        FirebaseAuth.getInstance().signOut()
+
+    }
+
     override fun onResume() {
         super.onResume()
 

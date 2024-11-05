@@ -56,8 +56,20 @@ class Achievement_RecyclerViewAdapter(
         // 綁定等級數據
         updateData(holder, levelData, achievement.existsquantity.toLong(),position)
 
+
+
+
         holder.Achievement_CardView.setOnClickListener {
-            PopUpwindows(holder.itemView.context, achievement.station,holder)
+            val toastMessage = holder.itemView.context.getString(R.string.Guest_toast_msg)
+
+            val sharedPreferences = holder.itemView.context.getSharedPreferences("Login", Context.MODE_PRIVATE)
+            val Guest = sharedPreferences?.getBoolean("Guest",false)
+            if(Guest==true){
+                Toast.makeText(holder.itemView.context, toastMessage, Toast.LENGTH_LONG).show()
+            }else{
+                PopUpwindows(holder.itemView.context, achievement.station,holder)
+
+            }
         }
     }
 
@@ -146,7 +158,7 @@ class Achievement_RecyclerViewAdapter(
         val goldDemand = goldData["demand"] as? Long ?: 0
 
         val levelImageUrl = achievement.Image
-        var imageUrl = levelImageUrl.optString("no", "")
+        var imageUrl = "https://firebasestorage.googleapis.com/v0/b/mrt-app-55dac.appspot.com/o/Data%2FAchievement%2Fno.png?alt=media&token=69ba10f4-89f8-43b6-80e6-4071f9fff82b"
         var maxDemand: Long
         var levelName: String
         var backgroundResource = R.drawable.ribbon_bg_nolavel

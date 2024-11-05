@@ -228,7 +228,7 @@ class TDX_API(private val context: Context) {
                                 println("Error:${e}")
                             }
                         } else {
-                            println("Price:呼叫 API 失敗")
+                            println("Price:呼叫 API 失敗1")
                         }
                         callback(exitList)
                     }
@@ -339,7 +339,7 @@ class TDX_API(private val context: Context) {
                                     println("Error: ${e.message}")
                                 }
                             } else {
-                                println("Price: 呼叫 API 失敗")
+                                println("Price: 呼叫 API 失敗2")
                             }
                             callback(priceList)
                         }
@@ -398,7 +398,7 @@ class TDX_API(private val context: Context) {
                                 println("Error:${e}")
                             }
                         } else {
-                            println("Price:呼叫 API 失敗")
+                            println("Price:呼叫 API 失敗3")
                         }
                         callback(priceList)
                     }

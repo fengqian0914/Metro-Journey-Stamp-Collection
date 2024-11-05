@@ -109,6 +109,17 @@ class Login : AppCompatActivity() {
             val  intent= Intent(this, forget_password::class.java)
             startActivity(intent)
         }
+        binding.GuestLogin.setOnClickListener {
+            val sharedPreferences_login = getSharedPreferences("Login", Context.MODE_PRIVATE)
+            val editor_login = sharedPreferences_login.edit()
+            editor_login.putBoolean("Guest", true)
+            editor_login.apply()
+            val intent = Intent(this@Login, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            startActivity(intent)
+            finish()
+        }
 
 
 

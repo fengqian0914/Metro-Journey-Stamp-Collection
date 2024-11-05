@@ -1,5 +1,6 @@
 package com.example.MRTAPP.UI.Mall
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -16,9 +18,9 @@ import com.example.MRTAPP.UI.Store_Fragment
 import java.text.NumberFormat
 
 class Product_RecyclerViewAdapter constructor(
-    private  val coin:Int,
+
     private  val getActivity:Store_Fragment,
-    private val ProductList:List<ProductList>):
+    private val ProductList:List<ProductList>, private  val coin:Int?=0):
     RecyclerView.Adapter<Product_RecyclerViewAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -29,7 +31,32 @@ class Product_RecyclerViewAdapter constructor(
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val sharedPreferences = holder.itemView.context.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val Guest = sharedPreferences.getBoolean("Guest",false)
+        if(Guest==true){
+            holder.tProducteExchange.setOnClickListener {
+                val viewContext=holder.itemView.context
+                Toast.makeText(viewContext,viewContext.getString(R.string.Guest_toast_msg),Toast.LENGTH_LONG).show()
+            }
+        }else{
+            holder.tProducteExchange.setOnClickListener {
+                val intent = Intent(holder.itemView.context, exchange_layout::class.java)
+                intent.putExtra("ProductName", ProductList[position].title)
+                intent.putExtra("ProductImage", ProductList[position].Image)
+                intent.putExtra("Productprice", ProductList[position].price)
+                intent.putExtra("Productquantity", ProductList[position].quantity)
+                intent.putExtra("ProductId", ProductList[position].Id)
+
+                Log.d("ProductList", "ProductList${ProductList[position]}")
+                Log.d("logs", "id${ProductList[position].Id}")
+
+                intent.putExtra("Mycoin", coin)
+
+                holder.itemView.context.startActivity(intent)
+            }
+        }
         holder.tProductTitle.text = ProductList[position].title
+
         Log.d("ProductImage",ProductList[position].Image)
         // 使用 Glide 加載圖片
         Glide.with(holder.itemView.context)
@@ -47,21 +74,7 @@ class Product_RecyclerViewAdapter constructor(
         // 打印日誌以便調試
         Log.d("logs", ProductList[position].Image.toString())
 
-        holder.tProducteExchange.setOnClickListener {
-            val intent = Intent(holder.itemView.context, exchange_layout::class.java)
-            intent.putExtra("ProductName", ProductList[position].title)
-            intent.putExtra("ProductImage", ProductList[position].Image)
-            intent.putExtra("Productprice", ProductList[position].price)
-            intent.putExtra("Productquantity", ProductList[position].quantity)
-            intent.putExtra("ProductId", ProductList[position].Id)
 
-            Log.d("ProductList", "ProductList${ProductList[position]}")
-            Log.d("logs", "id${ProductList[position].Id}")
-
-            intent.putExtra("Mycoin", coin)
-
-            holder.itemView.context.startActivity(intent)
-        }
     }
 
     override fun getItemCount(): Int {

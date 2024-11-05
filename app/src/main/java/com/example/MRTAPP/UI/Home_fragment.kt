@@ -230,7 +230,23 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 
     private fun TDX_API_Price(view: View, Start_Station_code: String, End_Station_code: String) {
         val tdxApi = TDX_API(requireContext())
+        tdxApi.getAccessToken { response ->
+            if (response != null) {
+                println("API 回應：$response")
+                Log.d("title","LoginLayout:${response}")
+                // 取得 SharedPreferences 實例
+                val tdx_sharedPreferences = context?.getSharedPreferences("tdx", Context.MODE_PRIVATE)
 
+                // 編輯 SharedPreferences
+                val tdx_editor =  tdx_sharedPreferences?.edit()
+                tdx_editor?.putString("AccessToken",response)
+
+                tdx_editor?.apply()
+
+            } else {
+                println("呼叫 API 失敗")
+            }
+        }
         tdxApi.callApi(Start_Station_code, End_Station_code,"price") { response->
             if (response != null) {
                 println("API 回應：$response")
@@ -254,7 +270,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                     Log.d("title", "Error: $e")
                 }
             } else {
-                println("Price:呼叫 API 失敗")
+                println("Price:呼叫 API 失敗2-1")
             }
         }
         MRT_TIME(Start_Station_code, End_Station_code)
