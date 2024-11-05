@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -62,7 +64,26 @@ class Store_Fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_store_, container, false)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 創建並顯示確認對話框
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.backdialog_title))
+                    .setIcon(R.drawable.logo)
+                    .setMessage(getString(R.string.backdialog_msg))
+                    .setPositiveButton(getString(R.string.backdialog_y)) { dialog, _ ->
+                        // 使用者點選「是」時，關閉對話框並執行返回操作
+                        dialog.dismiss()
+                        requireActivity().finish() // 結束 Activity，關閉應用程式
 
+                    }
+                    .setNegativeButton(getString(R.string.backdialog_n)) { dialog, _ ->
+                        // 使用者點選「否」時，僅關閉對話框
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        })
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         if (userId != null) {
             getUserData(rootView,userId)

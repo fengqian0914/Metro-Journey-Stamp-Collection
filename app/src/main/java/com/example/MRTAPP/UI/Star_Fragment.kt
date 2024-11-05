@@ -12,6 +12,8 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -67,7 +69,26 @@ class Star_Fragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_star_, container, false)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 創建並顯示確認對話框
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.backdialog_title))
+                    .setIcon(R.drawable.logo)
+                    .setMessage(getString(R.string.backdialog_msg))
+                    .setPositiveButton(getString(R.string.backdialog_y)) { dialog, _ ->
+                        // 使用者點選「是」時，關閉對話框並執行返回操作
+                        dialog.dismiss()
+                        requireActivity().finish() // 結束 Activity，關閉應用程式
 
+                    }
+                    .setNegativeButton(getString(R.string.backdialog_n)) { dialog, _ ->
+                        // 使用者點選「否」時，僅關閉對話框
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        })
         // 初始化 RecyclerView
         recyclerView = view.findViewById(R.id.Achievement_RecyclerVIew)
         recyclerViewAdapter = Achievement_RecyclerViewAdapter(this, AchievementList)

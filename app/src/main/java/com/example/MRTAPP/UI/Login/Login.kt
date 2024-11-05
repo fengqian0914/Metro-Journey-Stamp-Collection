@@ -233,7 +233,11 @@ class Login : AppCompatActivity() {
                             println("呼叫 API 失敗")
                         }
                     }
-                    startActivity(Intent(this@Login, MainActivity::class.java))
+
+                    val intent = Intent(this@Login, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                    startActivity(intent)
                     finish()
 
 

@@ -13,6 +13,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.example.MRTAPP.API.MRT_API
 import com.example.MRTAPP.API.TDX_API
@@ -64,6 +66,26 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         val view = inflater.inflate(R.layout.fragment_home_fragment, container, false)
         views = view
 
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 創建並顯示確認對話框
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.backdialog_title))
+                    .setIcon(R.drawable.logo)
+                    .setMessage(getString(R.string.backdialog_msg))
+                    .setPositiveButton(getString(R.string.backdialog_y)) { dialog, _ ->
+                        // 使用者點選「是」時，關閉對話框並執行返回操作
+                        dialog.dismiss()
+                        requireActivity().finish() // 結束 Activity，關閉應用程式
+
+                    }
+                    .setNegativeButton(getString(R.string.backdialog_n)) { dialog, _ ->
+                        // 使用者點選「否」時，僅關閉對話框
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        })
         val startStation = view.findViewById<TextView>(R.id.start_station)
         val endStation = view.findViewById<TextView>(R.id.end_station)
         val mapView = view.findViewById<MapView>(R.id.mapView)

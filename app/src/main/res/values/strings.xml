@@ -153,5 +153,10 @@
     <!--  train_update   -->
     <string name="have_ended" translatable="false">營運時間已過</string>
     <string name="Train_is_arriving" translatable="false">列車進站中</string>
+    <!-- backdialog   -->
+    <string name="backdialog_title" translatable="false">確認離開</string>
+    <string name="backdialog_msg" translatable="false">你確定要離開嗎?</string>
+    <string name="backdialog_y" translatable="false">是</string>
+    <string name="backdialog_n" translatable="false">否</string>
 
 </resources>

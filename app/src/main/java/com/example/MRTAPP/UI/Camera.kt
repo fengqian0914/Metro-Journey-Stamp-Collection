@@ -14,6 +14,7 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.util.Log
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,9 @@ import android.widget.PopupWindow
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -108,6 +111,29 @@ class Camera : Fragment() {
     ): View?
     {
         view = inflater.inflate(R.layout.fragment_camera, container, false)
+
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 創建並顯示確認對話框
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.backdialog_title))
+                    .setIcon(R.drawable.logo)
+                    .setMessage(getString(R.string.backdialog_msg))
+                    .setPositiveButton(getString(R.string.backdialog_y)) { dialog, _ ->
+                        // 使用者點選「是」時，關閉對話框並執行返回操作
+                        dialog.dismiss()
+                        requireActivity().finish() // 結束 Activity，關閉應用程式
+
+                    }
+                    .setNegativeButton(getString(R.string.backdialog_n)) { dialog, _ ->
+                        // 使用者點選「否」時，僅關閉對話框
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        })
+
         initBinding()
         val sharedPreferences_start = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
         // 從 SharedPreferences 中讀取資料
@@ -376,7 +402,16 @@ class Camera : Fragment() {
         val dismiss_Btn=views.findViewById<Button>(R.id.dismiss_btn)
         val recyclerView=views.findViewById<RecyclerView>(R.id.route_recyclerView)
         val testData=ArrayList<MRT_Station_item>()
-
+        window.isFocusable = true
+        window.update()
+        views.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_BACK && event.action == KeyEvent.ACTION_UP) {
+                window.dismiss()
+                true
+            } else {
+                false
+            }
+        }
         // 讀取json檔案
         val jsonString = context?.assets?.open("mrt_language.json")?.bufferedReader().use { it?.readText() }
         val json = JSONObject(JSONObject(jsonString)[route].toString())

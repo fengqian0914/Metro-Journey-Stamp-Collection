@@ -12,7 +12,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.MRTAPP.R
 
-class recyclerViewAdapter(var  mlist:ArrayList<MRT_Station_item>, var route:String):RecyclerView.Adapter<recyclerViewAdapter.ViewHolder>()  {
+class recyclerViewAdapter(
+    var  mlist:ArrayList<MRT_Station_item>,
+    var route:String?=null):
+    RecyclerView.Adapter<recyclerViewAdapter.ViewHolder>()  {
     class ViewHolder(RecyclerView:View):RecyclerView.ViewHolder(RecyclerView) {
 
 
@@ -35,6 +38,7 @@ class recyclerViewAdapter(var  mlist:ArrayList<MRT_Station_item>, var route:Stri
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val myItem=mlist[position]
+
         holder.VH_item_card_route_text.text=myItem.Route
         holder.VH_item_station_name.text=myItem.station
 
