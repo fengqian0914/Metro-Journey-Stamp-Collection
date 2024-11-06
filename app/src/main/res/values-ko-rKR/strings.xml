@@ -84,7 +84,7 @@
     <string name="exchange_final">교환 확인</string>
     <string name="Productquantity">남은 수량</string>
     <string name="Redemption_successful">교환 성공</string>
-    <string name="Exchange_Instructions">구매 안내: 이 화면은 실제 교환이 아닌 시뮬레이션 작업만 제공합니다. \N이 쇼핑몰의 일부 사진은 타이페이 Mrt Shopee Mall에서 가져온 것입니다.</string>
+    <string name="Exchange_Instructions">구매 안내: 이 화면은 실제 교환이 아닌 시뮬레이션 작업만 제공합니다. \n 이 쇼핑몰의 일부 사진은 타이페이 Mrt Shopee Mall에서 가져온 것입니다.</string>
     <!-- 성취 -->
     <string name="Task_text">일</string>
     <string name="Today_task">오늘의 과제</string>

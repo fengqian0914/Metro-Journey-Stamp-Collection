@@ -69,7 +69,7 @@ class Setting_FAQ_RecylerViewAdapter (
                 )
                 text = "資料介接「台北捷運」"
                 textSize = 16f
-                setTextColor(ContextCompat.getColor(context, R.color.black))
+                setTextAppearance(R.style.TextColor_LightBlack_NightWhite)
             }
             val imageView1 = ImageView(holder.itemView.context).apply {
                 layoutParams = LinearLayout.LayoutParams(
@@ -94,7 +94,7 @@ class Setting_FAQ_RecylerViewAdapter (
                 )
                 text = "資料介接「交通部TDX平臺」"
                 textSize = 16f
-                setTextColor(ContextCompat.getColor(context, R.color.black))
+                setTextAppearance(R.style.TextColor_LightBlack_NightWhite)
             }
             val imageView2 = ImageView(holder.itemView.context).apply {
                 layoutParams = LinearLayout.LayoutParams(

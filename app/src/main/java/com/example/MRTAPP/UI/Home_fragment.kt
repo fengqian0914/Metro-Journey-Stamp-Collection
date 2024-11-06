@@ -116,7 +116,8 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 //            val stationname = startStation.text
 //            val stationname = GetLanguage.getStationName(requireContext(),startStation.text.toString())
 
-            val stationname = GetLanguage.getStationName2(requireContext(),startStation.text.toString(),InputLanguage,"Zh_tw")
+//            val stationname = GetLanguage.getStationName2(requireContext(),startStation.text.toString(),InputLanguage,"Zh_tw")
+            val stationname = startStation.text
 
             Log.d("clickInfo","輸入語言${InputLanguage} \n" +
                     "輸入文字${startStation.text}\n" +

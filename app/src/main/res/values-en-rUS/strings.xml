@@ -84,7 +84,7 @@
     <string name="exchange_final">Confirm Exchange</string>
     <string name="Productquantity">Remaining Quantity</string>
     <string name="Redemption_successful">Redemption Successful</string>
-    <string name="Exchange_Instructions">Purchase Instructions: This Screen Only Provides Simulation Operations, Not Actual Exchange. \Nsome Pictures Of This Mall Are From Taipei Mrt Shopee Mall</string>
+    <string name="Exchange_Instructions">Purchase Instructions: This Screen Only Provides Simulation Operations, Not Actual Exchange. \n some Pictures Of This Mall Are From Taipei Mrt Shopee Mall</string>
     <!-- Achievement -->
     <string name="Task_text">Task</string>
     <string name="Today_task">Today\'s Task</string>

@@ -84,7 +84,7 @@
     <string name="exchange_final">交換の確認</string>
     <string name="Productquantity">残り数量</string>
     <string name="Redemption_successful">交換成功</string>
-    <string name="Exchange_Instructions">購入手順: この画面ではシミュレーション操作のみが提供されており、実際の交換は行われません。 \Nこのモールの一部の写真は台北 Mrt Shopee Mall からのものです</string>
+    <string name="Exchange_Instructions">購入手順: この画面ではシミュレーション操作のみが提供されており、実際の交換は行われません。 \n このモールの一部の写真は台北 Mrt Shopee Mall からのものです</string>
     <!-- 成果 -->
     <string name="Task_text">タスク</string>
     <string name="Today_task">今日のタスク</string>

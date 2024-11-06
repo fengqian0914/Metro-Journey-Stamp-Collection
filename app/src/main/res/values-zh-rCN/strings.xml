@@ -84,7 +84,7 @@
     <string name="exchange_final">确定兑换</string>
     <string name="Productquantity">剩余数量</string>
     <string name="Redemption_successful">兑换成功</string>
-    <string name="Exchange_Instructions">购买须知：本画面仅提供模拟操作，非实际兑换。 \N本商城部分图片为台北捷运虾皮商城</string>
+    <string name="Exchange_Instructions">购买须知：本画面仅提供模拟操作，非实际兑换。 \n 本商城部分图片为台北捷运虾皮商城</string>
     <!-- 成就 -->
     <string name="Task_text">任务</string>
     <string name="Today_task">本日任务</string>
