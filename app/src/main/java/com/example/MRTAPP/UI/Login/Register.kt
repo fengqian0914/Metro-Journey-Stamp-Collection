@@ -82,7 +82,7 @@ class Register : AppCompatActivity() {
 
             // 確認是否有輸入信箱、名稱和密碼
             if (email.isEmpty() || name.isEmpty() || password.isEmpty()||password_Repeat.isEmpty()) {
-                Toast.makeText(this, "請輸入所有欄位", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.input_all_fields), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if(password!=password_Repeat) {
@@ -118,7 +118,7 @@ class Register : AppCompatActivity() {
                         db.collection("users").document(userId)
                             .set(userMap)
                             .addOnSuccessListener {
-                                Toast.makeText(this, "註冊成功", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, this.getString(R.string.registration_success), Toast.LENGTH_SHORT).show()
                                 // 上傳使用者圖片
                                 uploadImageToFirebase(imageUri ?: defaultImageUri) // 使用預設圖片
                                 startActivity(Intent(this@Register, Login::class.java))
@@ -128,7 +128,7 @@ class Register : AppCompatActivity() {
 
                             }
                             .addOnFailureListener {
-                                Toast.makeText(this, "保存使用者資料失敗", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, R.string.save_user_data_failed, Toast.LENGTH_SHORT).show()
                             }
                     }
                 } else {
@@ -136,9 +136,9 @@ class Register : AppCompatActivity() {
 
                     if (task.exception?.message=="The email address is already in use by another account.") {
                         // 郵箱已經被註冊過
-                        Toast.makeText(this, "該郵箱已被註冊", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, this.getString(R.string.email_already_registered), Toast.LENGTH_SHORT).show()
                     }else{ // 顯示其他錯誤訊息
-                        Toast.makeText(this, "註冊失敗: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, this.getString(R.string.registration_failed), Toast.LENGTH_SHORT).show()
 
                     }
 
@@ -204,7 +204,7 @@ class Register : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "圖片上傳失敗", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.image_upload_failed), Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -219,10 +219,10 @@ class Register : AppCompatActivity() {
         db.collection("users").document(userId)
             .update(userMap)
             .addOnSuccessListener {
-                Toast.makeText(this, "圖片 URL 已存儲到 Firestore", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.image_saved_successfully), Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "圖片 URL 儲存失敗", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.image_save_failed), Toast.LENGTH_SHORT).show()
             }
     }
 

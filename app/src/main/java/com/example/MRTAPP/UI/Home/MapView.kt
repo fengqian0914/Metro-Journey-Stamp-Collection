@@ -401,7 +401,7 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
 
                         }else{
-                            Toast.makeText(context,"請清除後再使用",Toast.LENGTH_LONG).show()
+                            Toast.makeText(context,context.getString(R.string.clear_and_retry),Toast.LENGTH_LONG).show()
                         }
 
 

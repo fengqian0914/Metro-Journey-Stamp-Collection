@@ -94,7 +94,7 @@ class Login : AppCompatActivity() {
                 if (account.isNotEmpty() && password.isNotEmpty()) {
                     loginUser(account, password)
                 } else {
-                    Toast.makeText(this@Login, "所有欄位皆必填", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@Login, this.getString(R.string.input_all_fields), Toast.LENGTH_LONG).show()
                 }
             }
             catch (e:Exception){

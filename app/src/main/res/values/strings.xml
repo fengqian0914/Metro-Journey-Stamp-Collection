@@ -175,7 +175,7 @@
     <string name="image_save_failed">儲存圖片失敗，重試或回報</string>
     <string name="operation_too_fast">操作過快，請稍後再試</string>
     <string name="station_already_visited">無法登記，站已到達</string>
-    <string name="station_not_exist">站不存在</string>
+    <string name="station_not_exist">該站不存在</string>
     <string name="document_not_exist">文件不存在，重試或回報</string>
     <string name="read_failed">讀取失敗，重試或回報</string>
     <string name="clear_and_retry">請清除後再試</string>
@@ -190,4 +190,14 @@
     <string name="change_name_failed">更改名字失敗，重試或回報</string>
     <string name="reset_password_email_sent">重置密碼郵件已發送</string>
     <string name="reset_password_email_failed">郵件發送失敗，重試或回報</string>
+    <string name="failure_retry_or_report">失敗，重試或回報</string>
+    <string name="qr_code_generation_failed">無法生成 QR 碼，重試或回報</string>
+    <string name="widget_added_to_home">小部件已添加到桌面</string>
+    <string name="registration_successful">登記成功</string>
+    <string name="registration_failed_retry_or_report">登記失敗，重試或回報</string>
+    <string name="camera_required">必須開啟相機才可使用</string>
+    <string name="please_select_station_name">請點選站名</string>
+    <string name="insufficient_coins">所需硬幣不夠</string>
+    <string name="coin_update_failed_retry_or_report">更新硬幣數量失敗，重試或回報</string>
+    <string name="coupon_save_failed_retry_or_report">儲存優惠券失敗，重試或回報</string>
 </resources>

@@ -58,7 +58,7 @@ class Setting_Fragment_Tab_Password : Fragment() {
             if(!TextUtils.isEmpty(Email)) {
                 ResetPassword(Email)
             }else{
-                Toast.makeText(requireContext(), "請輸入欲更改名稱", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), context?.getString(R.string.enter_new_name), Toast.LENGTH_SHORT).show()
 
             }
         }
@@ -72,11 +72,11 @@ class Setting_Fragment_Tab_Password : Fragment() {
                 if (task.isSuccessful) {
                     // 發送成功
                     Log.d("PasswordReset", "重置密碼郵件已發送至: $email")
-                    Toast.makeText(context, "重置密碼郵件已發送", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, this.getString(R.string.reset_password_email_sent), Toast.LENGTH_SHORT).show()
                 } else {
                     // 發送失敗
                     Log.d("PasswordReset", "密碼重置郵件發送失敗: ${task.exception?.message}")
-                    Toast.makeText(context, "密碼重置郵件發送失敗", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context?.getString(R.string.reset_password_email_failed), Toast.LENGTH_SHORT).show()
                 }
             }
     }

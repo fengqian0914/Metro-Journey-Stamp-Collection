@@ -76,10 +76,10 @@ class Setting_Fragment_Tab_Name : Fragment() {
 
                     }
                     .addOnFailureListener {
-                        Toast.makeText(requireContext(), "更改名字失敗", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), context?.getString(R.string.change_name_failed), Toast.LENGTH_SHORT).show()
                     }
             }else{
-                Toast.makeText(requireContext(), "請輸入欲更改名稱", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), context?.getString(R.string.enter_new_name), Toast.LENGTH_SHORT).show()
 
             }
 

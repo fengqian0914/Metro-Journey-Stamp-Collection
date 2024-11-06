@@ -188,4 +188,14 @@
     <string name="change_name_failed">名前変更失敗、再試行か報告</string>
     <string name="reset_password_email_sent">リセットメール送信済み</string>
     <string name="reset_password_email_failed">メール送信失敗、再試行か報告</string>
+    <string name="failure_retry_or_report">失敗、再試行か報告</string>
+    <string name="qr_code_generation_failed">QRコード生成失敗、再試行か報告</string>
+    <string name="widget_added_to_home">ウィジェットがホームに追加されました</string>
+    <string name="registration_successful">登録成功</string>
+    <string name="registration_failed_retry_or_report">登録失敗、再試行か報告</string>
+    <string name="camera_required">カメラを有効にしてください</string>
+    <string name="please_select_station_name">駅名を選択してください</string>
+    <string name="insufficient_coins">コイン不足</string>
+    <string name="coin_update_failed_retry_or_report">コイン更新失敗、再試行か報告</string>
+    <string name="coupon_save_failed_retry_or_report">クーポン保存失敗、再試行か報告</string>
 </resources>

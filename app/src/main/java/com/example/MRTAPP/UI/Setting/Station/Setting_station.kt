@@ -106,7 +106,7 @@ class Setting_station : AppCompatActivity() {
             editor.apply()
 
             if (isWidgetAdded) {
-                Toast.makeText(this, "已修改", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.modified), Toast.LENGTH_SHORT).show()
                 val appWidgetManager = getSystemService(AppWidgetManager::class.java)
                 val myProvider = ComponentName(this, ItemAppWidget::class.java)
                 val appWidgetIds = appWidgetManager.getAppWidgetIds(myProvider)
@@ -115,7 +115,7 @@ class Setting_station : AppCompatActivity() {
                     itemAppWidget.onUpdate(this, appWidgetManager, appWidgetIds)
                 }
             } else {
-                Toast.makeText(this, "建立中", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,this.getString(R.string.creating_widget), Toast.LENGTH_SHORT).show()
 
                 pinAppWidget()
             }
@@ -162,7 +162,7 @@ class Setting_station : AppCompatActivity() {
 
                 if (success) {
                     Log.d("pinAppWidget", "4 - Pin widget request sent successfully")
-                    Toast.makeText(this, "請求已發送，請確認添加小部件", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, this.getString(R.string.confirm_widget_request), Toast.LENGTH_SHORT).show()
 
                     // 記錄已添加小部件的狀態
                     val prefs = this.getSharedPreferences("WidgetPrefs", Context.MODE_PRIVATE)
@@ -171,14 +171,14 @@ class Setting_station : AppCompatActivity() {
                     editor.apply()
                 } else {
                     Log.d("pinAppWidget", "5 - Pin widget request failed")
-                    Toast.makeText(this, "請求失敗，可能不被支持", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, this.getString(R.string.request_failed), Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Log.d("pinAppWidget", "6 - Android version too low: ${Build.VERSION.SDK_INT}")
             }
         } else {
             Log.d("pinAppWidget", "7 - Device does not support pinning widgets")
-            Toast.makeText(this, "固定小部件不被支持", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, this.getString(R.string.widget_not_supported), Toast.LENGTH_SHORT).show()
         }
 
         Log.d("pinAppWidget", "8 - End pinAppWidget")

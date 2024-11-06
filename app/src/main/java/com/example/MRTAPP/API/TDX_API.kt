@@ -166,7 +166,7 @@ class TDX_API(private val context: Context) {
                                 val dialogs_msg="資料請求速度過快，請稍後再試"
                                 showdialog(dialog_title,dialogs_msg)
 
-                                Toast.makeText(context, "資料請求速度過快，請稍後再試", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, context.getString(R.string.operation_too_fast), Toast.LENGTH_LONG).show()
                             }
                         }
                         callback(null)
@@ -292,7 +292,7 @@ class TDX_API(private val context: Context) {
                             if (response.code == 429) {
                                 println("error2")
                                 (context as? Activity)?.runOnUiThread {
-                                    Toast.makeText(context, "資料請求速度過快，請稍後再試", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(context, context.getString(R.string.operation_too_fast), Toast.LENGTH_LONG).show()
                                 }
                             }
                             callback(null)
@@ -376,7 +376,7 @@ class TDX_API(private val context: Context) {
                         if (response.code == 429) {
                             println("error2")
                             (context as? Activity)?.runOnUiThread {
-                                Toast.makeText(context, "資料請求速度過快，請稍後再試", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, context.getString(R.string.operation_too_fast), Toast.LENGTH_LONG).show()
                             }
                         }
                         callback(null)

@@ -127,7 +127,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 
 //            val stationname = startStation.text
             if (stationname.isEmpty()){
-                Toast.makeText(context,"請點選站名",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
                 stationdata_layout(stationname.toString())
 
@@ -136,7 +136,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         view.findViewById<ImageView>(R.id.endInfo).setOnClickListener {
             val stationname = endStation.text
             if (stationname.isEmpty()){
-                Toast.makeText(context,"請點選站名",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
                 stationdata_layout(stationname.toString())
 
@@ -187,7 +187,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 
 
             if (startName.isEmpty()||EndName.isEmpty()){
-                Toast.makeText(context,"請點選站名",Toast.LENGTH_LONG).show()
+                Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
                 val intent = Intent(requireContext(), route_plannings::class.java)
 

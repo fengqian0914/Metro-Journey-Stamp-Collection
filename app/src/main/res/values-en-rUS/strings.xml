@@ -188,4 +188,15 @@
     <string name="change_name_failed">Name change failed, retry or report</string>
     <string name="reset_password_email_sent">Reset email sent</string>
     <string name="reset_password_email_failed">Email failed, retry or report</string>
+    <string name="failure_retry_or_report">Failure, retry or report</string>
+    <string name="qr_code_generation_failed">QR code generation failed, retry or report</string>
+    <string name="widget_added_to_home">Widget added to home screen</string>
+    <string name="registration_successful">Registration successful</string>
+    <string name="registration_failed_retry_or_report">Registration failed, retry or report</string>
+    <string name="camera_required">Camera must be enabled</string>
+    <string name="please_select_station_name">Please select station name</string>
+    <string name="insufficient_coins">Insufficient coins</string>
+    <string name="coin_update_failed_retry_or_report">Coin update failed, retry or report</string>
+    <string name="coupon_save_failed_retry_or_report">Saving coupon failed, retry or report</string>
+
 </resources>

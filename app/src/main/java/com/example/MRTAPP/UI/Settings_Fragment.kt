@@ -263,8 +263,6 @@ class Settings_Fragment : Fragment() {
                             .placeholder(R.drawable.default_photo) // 可選的占位符
                             .error(R.drawable.default_photo) // 可選的錯誤圖片
                             .into(imageView)
-                    } else {
-                        Toast.makeText(context, "圖片網址無效", Toast.LENGTH_SHORT).show()
                     }
 
                     view.findViewById<TextView>(R.id.user_name).text=userName
@@ -274,7 +272,7 @@ class Settings_Fragment : Fragment() {
                 }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "獲取用戶資料失敗: ${exception.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),context?.getString(R.string.get_user_data_failed), Toast.LENGTH_SHORT).show()
             }
     }
 

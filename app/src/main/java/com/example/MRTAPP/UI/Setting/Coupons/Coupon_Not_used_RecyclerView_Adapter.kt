@@ -102,7 +102,7 @@ class Coupon_Not_used_RecyclerView_Adapter(
                 adjustImageViewSize(Product_QRcode, bitmap)
             } catch (e: WriterException) {
                 Log.e("QRCodeError", "無法生成 QR 碼: ${e.message}")
-                Toast.makeText(context, "無法生成 QR 碼", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.qr_code_generation_failed), Toast.LENGTH_SHORT).show()
             }
 
             // 設置最終按鈕的點擊事件
@@ -121,7 +121,7 @@ class Coupon_Not_used_RecyclerView_Adapter(
 
                     }
                     .addOnFailureListener {
-                        Toast.makeText(context, "失敗", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, context.getString(R.string.failure_retry_or_report), Toast.LENGTH_SHORT).show()
                         Log.e("DatabaseError", "更新失敗")
                     }
 

@@ -90,7 +90,7 @@ class exchange_layout : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener { exception ->
-                    Toast.makeText(this, "獲取用戶資料失敗: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, this.getString(R.string.get_user_data_failed), Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -147,7 +147,7 @@ class exchange_layout : AppCompatActivity() {
         val spend_coins = Productprice * count
         Log.d("StoreData", "${Productquantity}.....${count}")
         if (spend_coins > usercoin || Productquantity < count) {
-            Toast.makeText(this, "所需硬幣不夠", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, this.getString(R.string.insufficient_coins), Toast.LENGTH_LONG).show()
         } else {
             // 生成隨機字母和數字的兌換碼（16碼）
             val QRrandom: String = (1..16)
@@ -234,12 +234,12 @@ class exchange_layout : AppCompatActivity() {
                         StoreDateChange(ProductId,quantity.toInt())
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this, "更新硬幣數量失敗", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, this.getString(R.string.coin_update_failed_retry_or_report), Toast.LENGTH_SHORT).show()
                     }
 
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(this, "儲存優惠券失敗: ${exception.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.coupon_save_failed_retry_or_report), Toast.LENGTH_SHORT).show()
             }
     }
     private fun StoreDateChange(ProductId: String, Purchase_quantity: Int) {
@@ -269,7 +269,7 @@ class exchange_layout : AppCompatActivity() {
 
                         }
                         .addOnFailureListener {
-                            Toast.makeText(this, "更新硬幣數量失敗", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, this.getString(R.string.coin_update_failed_retry_or_report), Toast.LENGTH_SHORT).show()
                         }
 
 

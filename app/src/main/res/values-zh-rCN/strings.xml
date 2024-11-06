@@ -191,4 +191,14 @@
     <string name="change_name_failed">更改名称失败，重试或反馈</string>
     <string name="reset_password_email_sent">重置邮件已发</string>
     <string name="reset_password_email_failed">邮件发送失败，重试或反馈</string>
+    <string name="failure_retry_or_report">失败，重试或反馈</string>
+    <string name="qr_code_generation_failed">无法生成 QR 码，重试或反馈</string>
+    <string name="widget_added_to_home">小部件已添加到桌面</string>
+    <string name="registration_successful">登记成功</string>
+    <string name="registration_failed_retry_or_report">登记失败，重试或反馈</string>
+    <string name="camera_required">必须开启相机才可使用</string>
+    <string name="please_select_station_name">请选择站名</string>
+    <string name="insufficient_coins">所需硬币不够</string>
+    <string name="coin_update_failed_retry_or_report">更新硬币数量失败，重试或反馈</string>
+    <string name="coupon_save_failed_retry_or_report">保存优惠券失败，重试或反馈</string>
 </resources>

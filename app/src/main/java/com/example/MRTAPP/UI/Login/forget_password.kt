@@ -31,7 +31,7 @@ class forget_password : AppCompatActivity() {
             if(!TextUtils.isEmpty(Email)) {
                 ResetPassword(Email)
             }else{
-                Toast.makeText(this, "請輸入欲更改名稱", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.enter_new_name), Toast.LENGTH_SHORT).show()
 
             }
         }
@@ -47,11 +47,11 @@ class forget_password : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // 發送成功
                     Log.d("PasswordReset", "重置密碼郵件已發送至: $email")
-                    Toast.makeText(this, "重置密碼郵件已發送", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, this.getString(R.string.reset_password_email_sent), Toast.LENGTH_SHORT).show()
                 } else {
                     // 發送失敗
                     Log.d("PasswordReset", "密碼重置郵件發送失敗: ${task.exception?.message}")
-                    Toast.makeText(this, "密碼重置郵件發送失敗", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, this.getString(R.string.reset_password_email_failed), Toast.LENGTH_SHORT).show()
                 }
             }
     }

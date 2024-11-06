@@ -260,7 +260,7 @@ class Camera : Fragment() {
                             // 若站點存在，檢查其是否為 true 或 false
                             val stationValue = stationData[stationName] as? Boolean ?: false
                             if (stationValue) {
-                                Toast.makeText(context, "無法登記，該站已抵達過", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, context?.getString(R.string.station_already_visited), Toast.LENGTH_LONG).show()
                                 Log.d("Firestore", "該站 $stationName 已經抵達過")
                             } else {
                                 // 若為 false，則可以更新為 true 並顯示登記成功
@@ -269,16 +269,16 @@ class Camera : Fragment() {
                                 registerStation(userId, route, stationName)
                             }
                         } else {
-                            Toast.makeText(context, "該站不存在", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, context?.getString(R.string.station_not_exist), Toast.LENGTH_LONG).show()
                             Log.d("Firestore", "該站 $stationName 不存在")
                         }
                     } else {
-                        Toast.makeText(context, "該文檔不存在", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, context?.getString(R.string.document_not_exist), Toast.LENGTH_LONG).show()
                         Log.d("Firestore", "該文檔不存在")
                     }
                 }
                 .addOnFailureListener { exception ->
-                    Toast.makeText(context, "讀取失敗: ${exception.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, context?.getString(R.string.read_failed), Toast.LENGTH_LONG).show()
                     Log.d("Firestore", "讀取失敗: ${exception.message}")
                 }
 
@@ -302,11 +302,11 @@ class Camera : Fragment() {
         // 更新 Firestore 中的站點數據
         stationPath.update(updatedStationData)
             .addOnSuccessListener {
-                Toast.makeText(context, "登記成功，$stationKey 的值已更新為 true", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "$stationKey${context?.getString(R.string.registration_successful)}", Toast.LENGTH_LONG).show()
                 Log.d("Firestore", "$stationKey 的值已更新為 true")
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(context, "登記失敗: ${exception.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context?.getString(R.string.registration_failed_retry_or_report), Toast.LENGTH_LONG).show()
                 Log.d("Firestore", "登記失敗: ${exception.message}")
             }
     }
@@ -329,23 +329,23 @@ class Camera : Fragment() {
                             .update(updatedStationValue) // 更新指定站點的值
                             .addOnSuccessListener {
                                 // 登記成功
-                                Toast.makeText(context, "登記成功！", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, context?.getString(R.string.registration_successful), Toast.LENGTH_LONG).show()
                             }
                             .addOnFailureListener {
                                 // 寫入失敗時的處理
-                                Toast.makeText(context, "登記失敗: ${it.message}", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, context?.getString(R.string.registration_failed_retry_or_report), Toast.LENGTH_LONG).show()
                                 Log.d("title", "登記失敗: ${it.message}")
                             }
 
                 } else {
                     // 如果該文檔不存在
-                    Toast.makeText(context, "該文檔不存在", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, context?.getString(R.string.document_not_exist), Toast.LENGTH_LONG).show()
                     Log.d("title", "該文檔不存在")
                 }
             }
             .addOnFailureListener { exception ->
                 // 處理讀取失敗錯誤
-                Toast.makeText(context, "讀取失敗: ${exception.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context?.getString(R.string.read_failed), Toast.LENGTH_LONG).show()
                 Log.d("title", "讀取失敗: ${exception.message}")
             }
     }
@@ -487,12 +487,12 @@ class Camera : Fragment() {
                     recyclerView.layoutManager = layoutManager
                     recyclerView.adapter = adapter
                 } else {
-                    Toast.makeText(context, "該文檔不存在", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, context?.getString(R.string.document_not_exist), Toast.LENGTH_LONG).show()
                     Log.d("Firestore", "該文檔不存在")
                 }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(context, "讀取失敗: ${exception.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context?.getString(R.string.read_failed), Toast.LENGTH_LONG).show()
                 Log.d("Firestore", "讀取失敗: ${exception.message}")
             }
 
@@ -540,7 +540,7 @@ class Camera : Fragment() {
         if(ContextCompat.checkSelfPermission(context_Fragment,Manifest.permission.CAMERA )== PackageManager.PERMISSION_GRANTED){
             showCamera(view)
         }else if(shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)){
-            Toast.makeText(activity,"必須開啟相機才可使用",Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,context.getString(R.string.camera_required),Toast.LENGTH_SHORT).show()
         }else{
             requestPermissionLauncher.launch(Manifest.permission.CAMERA)
         }

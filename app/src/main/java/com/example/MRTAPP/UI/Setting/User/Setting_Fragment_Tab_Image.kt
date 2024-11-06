@@ -74,7 +74,7 @@ class Setting_Fragment_Tab_Image : Fragment() {
             db.collection("users").document(userId)
                 .update("profileImageUrl",imageUri)
                 .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "更改成功", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), this.getString(R.string.change_successful), Toast.LENGTH_SHORT).show()
                     // 上傳使用者圖片
                     uploadImageToFirebase(imageUri ?: defaultImageUri) // 使用預設圖片
 
@@ -82,7 +82,7 @@ class Setting_Fragment_Tab_Image : Fragment() {
 
                 }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), "保存使用者資料失敗", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), context?.getString(R.string.save_user_data_failed), Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -112,7 +112,7 @@ class Setting_Fragment_Tab_Image : Fragment() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(requireContext(), "圖片上傳失敗", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), this.getString(R.string.image_upload_failed), Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -127,11 +127,11 @@ class Setting_Fragment_Tab_Image : Fragment() {
         db.collection("users").document(userId)
             .update(userMap)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "圖片 URL 已存儲到 Firestore", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), this.getString(R.string.image_saved_successfully), Toast.LENGTH_SHORT).show()
                 startActivity(Intent(requireContext(), MainActivity::class.java))
             }
             .addOnFailureListener {
-                Toast.makeText(requireContext(), "圖片 URL 儲存失敗", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), requireContext().getString(R.string.image_upload_failed), Toast.LENGTH_SHORT).show()
             }
     }
     companion object {

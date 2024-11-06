@@ -134,7 +134,7 @@ class Store_Fragment : Fragment() {
                 }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "獲取用戶資料失敗: ${exception.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), context?.getString(R.string.get_user_data_failed), Toast.LENGTH_SHORT).show()
             }
     }
 
