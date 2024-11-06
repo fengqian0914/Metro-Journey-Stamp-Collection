@@ -82,13 +82,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView30"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Last_updated"
-                        android:textColor="@color/white" />
-
-                    <TextView
                         android:id="@+id/Widget_updatetime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -113,15 +106,6 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="15dp">
-
-                <TextView
-                    android:id="@+id/textView34"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="設定站點"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

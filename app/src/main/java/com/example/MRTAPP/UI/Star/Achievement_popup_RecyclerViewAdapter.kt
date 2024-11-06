@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.MRTAPP.Other.GetStationNameLanguage
 import com.example.MRTAPP.R
 import com.example.MRTAPP.UI.Cameras.MRT_Station_item
 import com.example.MRTAPP.UI.Cameras.recyclerViewAdapter
@@ -37,10 +38,28 @@ class Achievement_popup_RecyclerViewAdapter(
     override fun getItemCount(): Int = mlist.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val myItem = mlist[position]
+        val GetLanguage = GetStationNameLanguage(holder.itemView.context)
+
+        val savelanauge=GetLanguage.getsaveLanguage(holder.itemView.context)
 
         holder.VH_item_card_route_text.text = myItem.Route
-        holder.VH_item_station_name.text = myItem.station
+        holder.VH_item_station_name.text = if(myItem.station.contains("（")==true)
+        {
+            Log.d("myItem.station.substringBefore(\"（\")","${myItem.station.substringBefore("（")}")
+            GetLanguage.getStationName2(holder.itemView.context,
+                myItem.station.substringBefore("（"),
+                "Zh_tw",savelanauge
+            )+"（"+myItem.station.substringAfter("（")
+        }else{
+            Log.d("myItem.station.substringBefore(\"（\")","2${myItem.station}")
+
+            GetLanguage.getStationName2(holder.itemView.context,
+                myItem.station,
+                "Zh_tw",savelanauge
+            )
+        }
 
         holder.VH_item_station_truefalseImage.setImageResource(
             if (myItem.condition == "未完成") R.drawable.station_false else R.drawable.station_true

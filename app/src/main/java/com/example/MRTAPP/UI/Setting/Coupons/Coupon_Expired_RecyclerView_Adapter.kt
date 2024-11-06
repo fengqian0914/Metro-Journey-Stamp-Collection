@@ -118,8 +118,8 @@ class Coupon_Expired_RecyclerView_Adapter(
 
     private fun formatCountDown(countDown: String): String {
         return when {
-            countDown.contains("列車進站") -> "列車進站中"
-            countDown.contains("資料讀取中") -> "資料讀取中"
+            countDown.contains("列車進站") ->context.getString(R.string.Train_Approaching)
+            countDown.contains("資料讀取中") -> context.getString(R.string.Loading_Data)
             countDown.contains(":") -> {
                 val parts = countDown.split(":")
                 val minutes = parts[0].toInt()

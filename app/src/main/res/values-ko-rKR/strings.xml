@@ -146,7 +146,46 @@
     <string name="setting_FAQ_Title">자주 묻는 질문</string>
     <!-- 위젯 -->
     <string name="Last_updated">마지막 업데이트:</string>
+    <string name="SetStation">Metro 역의 지점：</string>
+
     <!-- 대화상자 -->
     <string name="dialog_Previous">이전</string>
     <string name="dialog_Next">다음</string>
+    <!-- 열차 도착 정보   -->
+    <string name="Train_Approaching">열차가 도착 중입니다</string>
+    <string name="End_Service">영업시간 종료</string>
+    <string name="Loading_Data">데이터를 읽는 중입니다.</string>
+    <!--다른-->
+    <string name="after_login" >로그인 후 확인 가능</string>
+    <string name="backdialog_title">종료 확인</string>
+    <string name="backdialog_msg">정말로 종료하시겠습니까?</string>
+    <string name="backdialog_y">예</string>
+    <string name="backdialog_n">아니오</string>
+    <string name="Guest_Title">게스트 계정</string>
+    <string name="ribbonName">잠금 해제되지 않음</string>
+    <string name="input_all_fields">모든 항목 입력</string>
+    <string name="registration_success">등록 성공</string>
+    <string name="save_user_data_failed">저장 실패, 재시도 또는 보고</string>
+    <string name="email_already_registered">이메일 등록됨</string>
+    <string name="registration_failed">등록 실패, 재시도 또는 보고</string>
+    <string name="image_upload_failed">이미지 업로드 실패, 재시도 또는 보고</string>
+    <string name="image_saved_successfully">이미지 저장 성공</string>
+    <string name="image_save_failed">이미지 저장 실패, 재시도 또는 보고</string>
+    <string name="operation_too_fast">너무 빠름, 나중에 시도</string>
+    <string name="station_already_visited">이미 방문한 역</string>
+    <string name="station_not_exist">역이 존재하지 않음</string>
+    <string name="document_not_exist">문서 없음, 재시도 또는 보고</string>
+    <string name="read_failed">읽기 실패, 재시도 또는 보고</string>
+    <string name="clear_and_retry">지우고 다시 시도</string>
+    <string name="enter_new_name">새 이름 입력</string>
+    <string name="get_user_data_failed">데이터 가져오기 실패, 재시도 또는 보고</string>
+    <string name="modified">수정됨</string>
+    <string name="creating_widget">위젯 생성 중</string>
+    <string name="confirm_widget_request">위젯 요청 확인</string>
+    <string name="request_failed">요청 실패, 비지원</string>
+    <string name="widget_not_supported">위젯 비지원</string>
+    <string name="change_successful">변경 완료</string>
+    <string name="change_name_failed">이름 변경 실패, 재시도 또는 보고</string>
+    <string name="reset_password_email_sent">리셋 메일 발송됨</string>
+    <string name="reset_password_email_failed">메일 발송 실패, 재시도 또는 보고</string>
 </resources>

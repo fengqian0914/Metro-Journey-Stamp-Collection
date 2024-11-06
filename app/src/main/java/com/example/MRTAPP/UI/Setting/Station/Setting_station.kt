@@ -18,6 +18,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
+import com.example.MRTAPP.Other.GetStationNameLanguage
 import com.example.MRTAPP.Other.Widget.ItemAppWidget
 import com.example.MRTAPP.Other.Widget.MyPinnedWidgetReceiver
 import com.example.MRTAPP.Other.dialogs
@@ -40,12 +41,16 @@ class Setting_station : AppCompatActivity() {
 
         val routesSpinner = findViewById<Spinner>(R.id.spinner_routes)
         val stationsSpinner = findViewById<Spinner>(R.id.spinner_stations)
-
-        val routesLangusgeText = listOf("文湖線", "松山新店線", "淡水信義線", "板南線", "中和新蘆線", "環狀線")
+        val BRText=getString(R.string.route_BR)
+        val GText=getString(R.string.route_G)
+        val RText=getString(R.string.route_R)
+        val BLText=getString(R.string.route_BL)
+        val OText=getString(R.string.route_O)
+        val YText=getString(R.string.route_Y)
         val routes = listOf(
-            "BR ${routesLangusgeText[0]}", "G ${routesLangusgeText[1]}",
-            "R ${routesLangusgeText[2]}", "BL ${routesLangusgeText[3]}", "O ${routesLangusgeText[4]}",
-            "Y ${routesLangusgeText[5]}"
+            "BR ${BRText}", "G ${GText}",
+            "R ${RText}", "BL ${BLText}", "O ${OText}",
+            "Y ${YText}"
         )
 
         // 使用自定义的布局来创建 ArrayAdapter
@@ -195,13 +200,17 @@ class Setting_station : AppCompatActivity() {
         val jsons = JSONObject(json)
         val jsonkeys = jsons.keys()
         val stationNames = mutableListOf<String>()
-
+        val GetLanguage = GetStationNameLanguage(this)
+        val InputLanguage=GetLanguage.getsaveLanguage(this)
+        Log.d("InputLanguage","${InputLanguage}")
         while (jsonkeys.hasNext()) {
             val key = jsonkeys.next()
             val stationObject = jsons.getJSONObject(key)
             val stationName = stationObject.getString("Zh_tw")
             val stationName_en = stationObject.getString("En")
-            stationNames.add("$key\n$stationName\n$stationName_en")
+            val stationName_lang = stationObject.getString(InputLanguage)
+
+            stationNames.add("$key\n$stationName\n$stationName_lang")
         }
 
         val stationAdapter = ArrayAdapter(this, R.layout.spinner_item, stationNames)

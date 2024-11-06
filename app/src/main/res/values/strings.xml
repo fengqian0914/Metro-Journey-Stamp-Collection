@@ -97,7 +97,7 @@
     <string name="hour">時</string>
     <string name="minute">分鐘</string>
     <string name="Second">秒數</string>
-    <string name="ribbonName" translatable="false">尚未解鎖</string>
+    <string name="ribbonName">尚未解鎖</string>
     <!-- 設定頁面 -->
     <string name="Setting_default_name">使用者名稱</string>
     <string name="Setting_tab_name">名稱修改</string>
@@ -154,12 +154,40 @@
     <string name="have_ended" translatable="false">營運時間已過</string>
     <string name="Train_is_arriving" translatable="false">列車進站中</string>
     <!-- backdialog   -->
-    <string name="backdialog_title" translatable="false">確認離開</string>
-    <string name="backdialog_msg" translatable="false">你確定要離開嗎?</string>
-    <string name="backdialog_y" translatable="false">是</string>
-    <string name="backdialog_n" translatable="false">否</string>
-    <!-- Guest   -->
-    <string name="Guest_toast_msg" translatable="false">登入後查看</string>
-    <string name="Guest_Title" translatable="false">遊客帳戶</string>
-
+    <string name="backdialog_title">確認離開</string>
+    <string name="backdialog_msg">你確定要離開嗎?</string>
+    <string name="backdialog_y">是</string>
+    <string name="backdialog_n">否</string>
+    <!-- 其他  -->
+    <string name="Guest_Title">遊客帳戶</string>
+    <string name="SetStation">設定站點：</string>
+    <string name="Train_Approaching">列車進站中</string>
+    <string name="End_Service">營運時間已過</string>
+    <string name="Loading_Data">資料讀取中</string>
+    <string name="after_login">登入後查看</string>
+    <string name="input_all_fields">請輸入所有欄位</string>
+    <string name="registration_success">註冊成功</string>
+    <string name="save_user_data_failed">儲存資料失敗，重試或回報</string>
+    <string name="email_already_registered">郵箱已註冊</string>
+    <string name="registration_failed">註冊失敗，重試或回報</string>
+    <string name="image_upload_failed">圖片上傳失敗，重試或回報</string>
+    <string name="image_saved_successfully">圖片儲存成功</string>
+    <string name="image_save_failed">儲存圖片失敗，重試或回報</string>
+    <string name="operation_too_fast">操作過快，請稍後再試</string>
+    <string name="station_already_visited">無法登記，站已到達</string>
+    <string name="station_not_exist">站不存在</string>
+    <string name="document_not_exist">文件不存在，重試或回報</string>
+    <string name="read_failed">讀取失敗，重試或回報</string>
+    <string name="clear_and_retry">請清除後再試</string>
+    <string name="enter_new_name">輸入新名稱</string>
+    <string name="get_user_data_failed">獲取資料失敗，重試或回報</string>
+    <string name="modified">已修改</string>
+    <string name="creating_widget">建立小工具中</string>
+    <string name="confirm_widget_request">確認小部件申請</string>
+    <string name="request_failed">請求失敗，系統不支持</string>
+    <string name="widget_not_supported">小工具不支持</string>
+    <string name="change_successful">更改成功</string>
+    <string name="change_name_failed">更改名字失敗，重試或回報</string>
+    <string name="reset_password_email_sent">重置密碼郵件已發送</string>
+    <string name="reset_password_email_failed">郵件發送失敗，重試或回報</string>
 </resources>

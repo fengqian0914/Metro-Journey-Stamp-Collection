@@ -112,7 +112,8 @@ class Settings_Fragment : Fragment() {
         val Logout_btn = view.findViewById<LinearLayout>(R.id.setting_logout_btn)
 
         if(Guest==true){
-            val toastMessage = view.context.getString(R.string.Guest_toast_msg)
+            val toastMessage = view.context.getString(R.string.after_login)
+
             User_btn.setOnClickListener {
                 Toast.makeText(view.context, toastMessage, Toast.LENGTH_LONG).show()
             }

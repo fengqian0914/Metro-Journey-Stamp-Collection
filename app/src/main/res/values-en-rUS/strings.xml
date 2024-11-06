@@ -146,7 +146,46 @@
     <string name="setting_FAQ_Title">Faq</string>
     <!-- Widget -->
     <string name="Last_updated">Last Updated:</string>
+    <string name="SetStation">Metro Station Site：</string>
+
     <!-- Dialog -->
     <string name="dialog_Previous">Previous</string>
     <string name="dialog_Next">Next</string>
+    <!-- Train Arrival Information   -->
+    <string name="Train_Approaching">Train_Approaching</string>
+    <string name="End_Service">End of Service</string>
+    <string name="Loading_Data">Loading Data</string>
+    <!--Other-->
+    <string name="after_login">Available after login</string>
+    <string name="backdialog_title">Confirm Exit</string>
+    <string name="backdialog_msg">Are you sure you want to exit?</string>
+    <string name="backdialog_y">Yes</string>
+    <string name="backdialog_n">No</string>
+    <string name="Guest_Title">Guest Account</string>
+    <string name="ribbonName">Not Unlocked</string>
+    <string name="input_all_fields">Enter all fields</string>
+    <string name="registration_success">Registration successful</string>
+    <string name="save_user_data_failed">Save failed, retry or report</string>
+    <string name="email_already_registered">Email registered</string>
+    <string name="registration_failed">Registration failed, retry or report</string>
+    <string name="image_upload_failed">Image upload failed, retry or report</string>
+    <string name="image_saved_successfully">Image saved</string>
+    <string name="image_save_failed">Save image failed, retry or report</string>
+    <string name="operation_too_fast">Too fast, try later</string>
+    <string name="station_already_visited">Station visited</string>
+    <string name="station_not_exist">Station not found</string>
+    <string name="document_not_exist">Document not found, retry or report</string>
+    <string name="read_failed">Read failed, retry or report</string>
+    <string name="clear_and_retry">Clear and retry</string>
+    <string name="enter_new_name">Enter new name</string>
+    <string name="get_user_data_failed">Failed to get data, retry or report</string>
+    <string name="modified">Modified</string>
+    <string name="creating_widget">Creating widget</string>
+    <string name="confirm_widget_request">Confirm widget request</string>
+    <string name="request_failed">Request failed, unsupported</string>
+    <string name="widget_not_supported">Widget not supported</string>
+    <string name="change_successful">Change successful</string>
+    <string name="change_name_failed">Name change failed, retry or report</string>
+    <string name="reset_password_email_sent">Reset email sent</string>
+    <string name="reset_password_email_failed">Email failed, retry or report</string>
 </resources>

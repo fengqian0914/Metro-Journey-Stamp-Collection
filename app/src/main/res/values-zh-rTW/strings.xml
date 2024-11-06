@@ -146,7 +146,21 @@
     <string name="setting_FAQ_Title">常見問題</string>
     <!-- Widget 小工具 -->
     <string name="Last_updated">最後更新時間：</string>
+    <string name="SetStation">設定站點：</string>
+
     <!-- Dialog -->
     <string name="dialog_Previous">上一個</string>
     <string name="dialog_Next">下一個</string>
+    <!-- 列車進站資訊  -->
+    <string name="Train_Approaching">列車進站中</string>
+    <string name="End_Service">營運時間已過</string>
+    <string name="Loading_Data">資料讀取中</string>
+    <!-- 其他  -->
+    <string name="after_login">登入後查看</string>
+    <string name="backdialog_title" >確認離開</string>
+    <string name="backdialog_msg"   >你確定要離開嗎?</string>
+    <string name="backdialog_y"     >是</string>
+    <string name="backdialog_n"     >否</string>
+    <string name="Guest_Title"      >遊客帳戶</string>
+    <string name="ribbonName">尚未解鎖</string>
 </resources>

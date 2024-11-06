@@ -36,7 +36,7 @@ class Product_RecyclerViewAdapter constructor(
         if(Guest==true){
             holder.tProducteExchange.setOnClickListener {
                 val viewContext=holder.itemView.context
-                Toast.makeText(viewContext,viewContext.getString(R.string.Guest_toast_msg),Toast.LENGTH_LONG).show()
+                Toast.makeText(viewContext,viewContext.getString(R.string.after_login),Toast.LENGTH_LONG).show()
             }
         }else{
             holder.tProducteExchange.setOnClickListener {

@@ -144,9 +144,48 @@
     <string name="setting_stations_Title">ガジェット - サイト設定</string>
     <!-- よくある質問メニュー -->
     <string name="setting_FAQ_Title">よくある質問</string>
-    <!-- ウィジェット -->
     <string name="Last_updated">最終更新日:</string>
+    <string name="SetStation">Metro 駅の地点：</string>
     <!-- ダイアログ -->
     <string name="dialog_Previous">前の</string>
     <string name="dialog_Next">次</string>
+    <!-- 列車到着情報  -->
+    <string name="Train_Approaching">列車が到着します</string>
+    <string name="End_Service">営業時間終了</string>
+    <string name="Loading_Data">データの読み取り中。</string>
+
+
+    <!--他の-->
+    <string name="after_login" >ログイン後に確認</string>
+    <string name="backdialog_title">終了を確認</string>
+    <string name="backdialog_msg">終了してもよろしいですか？</string>
+    <string name="backdialog_y">はい</string>
+    <string name="backdialog_n">いいえ</string>
+    <string name="Guest_Title">ゲストアカウント</string>
+    <string name="ribbonName">未解除</string>
+    <string name="input_all_fields">全ての項目を入力</string>
+    <string name="registration_success">登録成功</string>
+    <string name="save_user_data_failed">保存失敗、再試行か報告</string>
+    <string name="email_already_registered">メール登録済み</string>
+    <string name="registration_failed">登録失敗、再試行か報告</string>
+    <string name="image_upload_failed">画像アップロード失敗、再試行か報告</string>
+    <string name="image_saved_successfully">画像保存成功</string>
+    <string name="image_save_failed">画像保存失敗、再試行か報告</string>
+    <string name="operation_too_fast">早すぎます、後ほど再試行</string>
+    <string name="station_already_visited">駅は既に訪問済み</string>
+    <string name="station_not_exist">駅が見つかりません</string>
+    <string name="document_not_exist">文書がありません、再試行か報告</string>
+    <string name="read_failed">読み込み失敗、再試行か報告</string>
+    <string name="clear_and_retry">クリアして再試行</string>
+    <string name="enter_new_name">新しい名前を入力</string>
+    <string name="get_user_data_failed">データ取得失敗、再試行か報告</string>
+    <string name="modified">修正済み</string>
+    <string name="creating_widget">ウィジェット作成中</string>
+    <string name="confirm_widget_request">ウィジェット申請確認</string>
+    <string name="request_failed">リクエスト失敗、非対応</string>
+    <string name="widget_not_supported">ウィジェット非対応</string>
+    <string name="change_successful">変更完了</string>
+    <string name="change_name_failed">名前変更失敗、再試行か報告</string>
+    <string name="reset_password_email_sent">リセットメール送信済み</string>
+    <string name="reset_password_email_failed">メール送信失敗、再試行か報告</string>
 </resources>
