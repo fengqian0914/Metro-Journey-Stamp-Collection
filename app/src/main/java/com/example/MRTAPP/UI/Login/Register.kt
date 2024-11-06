@@ -55,7 +55,7 @@ class Register : AppCompatActivity() {
         val passwordInput = findViewById<TextInputEditText>(R.id.register_password)
         val registerPasswordRepeat = findViewById<TextInputEditText>(R.id.register_password_repeat)
         val errorText=findViewById<TextView>(R.id.register_error_text)
-        val usercoin = 500 // 預設金幣
+        val usercoin = 500000 // 預設金幣
 
 
         val goback=findViewById<LinearLayout>(R.id.goback)
