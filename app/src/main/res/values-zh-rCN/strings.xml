@@ -156,6 +156,41 @@
     <string name="Train_Approaching">列车进站中</string>
     <string name="End_Service">营运时间已过</string>
     <string name="Loading_Data">资料读取中</string>
+    <!--FAQ-->
+    <string name="faq_title_1">这个 APP 有哪些功能？</string>
+    <string name="faq_ans_1">积分收集：用户可以通过扫描车站 QR 码来赚取积分。\n兑换商品：累积的积分可在 APP 中兑换精选商品。（模拟）\n地铁信息查询：提供即时车站信息、票价查询、预估行程时间、路线。\n小工具：提供地铁到站时间的即时查询，方便用户随时掌握行程。</string>
+
+    <string name="faq_title_2">是否可以修改资料？</string>
+    <string name="faq_ans_2">答案：用户可以修改个人资料，包括名称、密码和照片。请至“设置”页面选择“编辑个人资料”进行更新。</string>
+
+    <string name="faq_title_3">如何获取积分？</string>
+    <string name="faq_ans_3">方法一：在车站扫描 QR 码，每次扫描成功后将获得相应的积分。\n方法二：收集特定站点成就，例如完成名称有“山”的站点。\n注意：每个 QR 码一天只能扫描一次。扫描时请确保网络连接正常，并授权相机访问权限。</string>
+
+    <string name="faq_title_4">如何查询车站信息、列车信息或票价？</string>
+    <string name="faq_ans_4">车站信息：在 APP 中的首页中选择您的站点，点击“i”图标后至车站信息，即可查看每个车站的详细信息，包括出入口位置、便利设施等。\n列车信息：在 APP 中的首页中选择您的站点，点击“i”图标后至车站信息，向左滑动至列车信息后，即可查看该车站的列车到站时间。\n票价查询：在 APP 中的首页中选择起点和终点站，系统会自动计算票价和预估行程时间，帮助您规划行程。</string>
+
+    <string name="faq_title_5">无法扫描 QR 码怎么办？</string>
+    <string name="faq_ans_5">确认是否曾到达过该站点：确保您已到达指定站点，且该站点的 QR 码尚未被扫描，只有首次扫描的站点 QR 码才有效。\n确认 QR 码是否正确：请确认扫描的 QR 码对应该地铁站点。\n其他解决方法：\n1. 清洁相机镜头。\n2. 检查网络连接稳定性。\n3. 若仍无法扫描，请重启 APP 再次尝试。</string>
+
+    <string name="faq_title_6">小工具如何使用？</string>
+    <string name="faq_ans_6">添加小工具：首次使用时，需至“设置”页面选择“常用站点”，选择您要的路线和站点，按下保存并授权后，将小工具放置于桌面。\n站点修改：如需修改站点，可在“设置”页面中重新选择站点后保存。</string>
+
+    <string name="faq_title_7">如何使用兑换功能？</string>
+    <string name="faq_ans_7">进入兑换中心：打开 APP，选择“商城”页面，浏览可兑换商品。\n确认兑换：点击“立即兑换”按钮，获取商品兑换码或 QR 码。在兑换记录界面中，选择未使用商品，点击“兑换”，并确认兑换。\n如何查看我兑换的商品？：进入“设置”页面后，点击“兑换记录”即可查看尚未使用或已失效的商品。\n注意事项：商品兑换功能为模拟功能，并无法实际获得该商品。</string>
+
+    <string name="faq_title_8">环状线异常该怎么办？</string>
+    <string name="faq_ans_8">环状线地铁部分路段于 0403 地震中受损，导致板桥-中和路段无法运行，造成部分路段的列车到站信息异常，敬请谅解。</string>
+
+    <string name="faq_title_9">如何联系客服或提供意见？</string>
+    <string name="faq_ans_9">联系方式：在 APP 的“设置”页面中，点击“关于我们”选项，查看联系方式，并可通过问卷提交问题或建议。若遇到技术问题，建议附上屏幕截图或错误描述，以便我们更快速地协助您。</string>
+
+    <string name="faq_title_10">遇到问题或错误，该如何重启或重新安装？</string>
+    <string name="faq_ans_10">重启 APP：若 APP 无法正常使用，可尝试关闭后重新打开。\n清除缓存：在手机“设置”>“应用程序”> 找到该 APP，点击“存储空间”，然后点击“清除缓存”。\n重新安装：若问题依旧，建议移除 APP 并重新安装。重新安装后，请再次登录您的账户。\n报告我们：如问题持续发生，请联系客户服务并附上问题说明，让我们协助解决。</string>
+
+    <string name="faq_title_11">你们的 API 的数据来源是什么？</string>
+    <string name="faq_ans_11">我们主要从两个部分获取\n台北地铁API：台北地铁API提供了地铁的乘车所需时间、到站时间等信息，让我们可以通过调用API获取所需的站点信息。\n数据对接“交通部TDX平台”\n运输数据流通服务TDX API：运输数据流通服务TDX API提供了众多公共交通运输数据的API，我们使用了地铁的站点内设施、票价等信息，让我们可以通过调用API获取所需的站点信息。</string>
+    <string name="data_integration_taipei_metro">数据对接「台北捷运」</string>
+    <string name="data_integration_tdx_platform">数据对接「台湾交通部TDX平台」</string>
 
     <!-- 其他   -->
 

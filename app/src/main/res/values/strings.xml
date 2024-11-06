@@ -158,6 +158,52 @@
     <string name="backdialog_msg">你確定要離開嗎?</string>
     <string name="backdialog_y">是</string>
     <string name="backdialog_n">否</string>
+
+    <!--    FAQ-->
+    <string name="faq_title_1">這個 APP 有哪些功能？</string>
+    <string name="faq_ans_1">積分蒐集：使用者可以透過掃描車站 QR 碼來賺取積分。\n兌換商品：累積的積分可在 APP 中兌換精選商品。（模擬）\n捷運資訊查詢：提供即時車站資訊、票價查詢、預估行程時間、路線。\n小工具：提供捷運到站時間的即時查詢，方便用戶隨時掌握行程。</string>
+
+    <string name="faq_title_2">是否可以修改資料？</string>
+    <string name="faq_ans_2">答案：用戶可以修改個人資料，包括名稱、密碼和照片。請至「設定」頁面選擇「編輯個人資料」進行更新。</string>
+
+    <string name="faq_title_3">如何獲取積分？</string>
+    <string name="faq_ans_3">方法一：在車站掃描 QR 碼，每次掃描成功後將獲得相應的積分。\n方法二：蒐集特定站點成就，例如完成名稱有「山」的站點。\n注意：每個 QR 碼一天只能掃描一次。掃描時請確保網路連線正常，並授權相機訪問權限。</string>
+
+    <string name="faq_title_4">如何查詢車站資訊、列車資訊或票價？</string>
+    <string name="faq_ans_4">車站資訊：在 APP 中的首頁中選擇您的站點，點擊「i」圖示後至車站資訊，即可查看每個車站的詳細資訊，包括出入口位置、便利設施等。\n列車資訊：在 APP 中的首頁中選擇您的站點，點擊「i」圖示後至車站資訊，向左滑動至列車資訊後，即可查看該車站的列車到站時間。\n票價查詢：在 APP 中的首頁中選擇起點和終點站，系統會自動計算票價和預估行程時間，幫助您規劃旅程。</string>
+
+    <string name="faq_title_5">無法掃描 QR 碼怎麼辦？</string>
+    <string name="faq_ans_5">確認是否曾抵達過該站點：確保您已到達指定站點，且該站點的 QR 碼尚未被掃描，只有首次掃描的站點 QR 碼才有效。\n確認 QR 碼是否正確：請確認掃描的 QR 碼對應該捷運站點。\n其他解決方法：\n1. 清潔相機鏡頭。\n2. 檢查網路連線穩定性。\n3. 若仍無法掃描，請重啟 APP 再次嘗試。</string>
+
+    <string name="faq_title_6">小工具如何使用？</string>
+    <string name="faq_ans_6">添加小工具：首次使用時，需至「設定」頁面選擇「常用站點」，選擇您要的路線和站點，按下儲存並授權後，將小工具放置於桌面。\n站別修改：如需修改站點，可在「設定」頁面中重新選擇站別後儲存。</string>
+
+    <string name="faq_title_7">如何使用兌換功能？</string>
+    <string name="faq_ans_7">進入兌換中心：打開 APP，選擇「商城」頁面，瀏覽可兌換商品。\n確認兌換：點選「立即兌換」按鈕，取得商品兌換碼或 QR 碼。在兌換紀錄介面中，選擇未使用商品，按下「兌換」，並確定兌換。\n如何查看我兌換的商品？：進入「設定」頁面後，點選「兌換紀錄」即可查看尚未使用或已失效的商品。\n注意事項：商品兌換功能為模擬功能，並無法實際取得該商品。</string>
+
+    <string name="faq_title_8">環狀線異常該怎麼辦？</string>
+    <string name="faq_ans_8">環狀線捷運部分路段於 0403 地震中受損，導致板橋-中和路段無法運行，造成部分路段的列車到站資訊異常，敬請見諒。</string>
+
+    <string name="faq_title_9">如何聯絡客服或提供意見？</string>
+    <string name="faq_ans_9">聯絡方式：在 APP 的「設定」頁面中，點擊「關於我們」選項，查看聯繫方式，並可透過問卷提交問題或建議。若遇到技術問題，建議附上螢幕截圖或錯誤描述，以便我們更快速地協助您。</string>
+
+    <string name="faq_title_10">遇到問題或錯誤，該如何重啟或重新安裝？</string>
+    <string name="faq_ans_10">重啟 APP：若 APP 無法正常使用，可嘗試關閉後重新打開。\n清除快取：在手機「設定」>「應用程式」> 找到該 APP，點選「儲存空間」，然後點擊「清除快取」。\n重新安裝：若問題依舊，建議移除 APP 並重新安裝。重新安裝後，請再次登入您的帳戶。\n回報我們：如問題持續發生，請聯絡客服並附上問題說明，讓我們協助解決。</string>
+
+    <string name="faq_title_11">你們的API的資料來源為何處</string>
+    <string name="faq_ans_11">我們主要從兩個部分取得\n台北捷運API: 台北捷運API提供了捷運的搭乘所需時間、到站時間等資訊，讓我們可以透過呼叫API取得所需的站點資訊。\n資料介接「交通部TDX平臺」運輸資料流通服務TDX API： 運輸資料流通服務TDX API提供了提供眾多公共交通運輸數據的API，我們使用了捷運的站點內設施、票價等資訊，讓我們可以透過呼叫API取得所需的站點資訊。</string>
+    <string name="data_integration_taipei_metro">資料介接「台北捷運」</string>
+    <string name="data_integration_tdx_platform">資料介接「台灣交通部TDX平臺」</string>
+    <!--關於我們-->
+    <string name="about_mail_title">聯絡我們</string>
+    <string name="about_mail_text">如需協助或有任何疑問，歡迎隨時聯繫我們！我們的客戶服務團隊將在最短時間內回覆您。\n無論是應用功能、帳戶問題，還是其他疑問，我們都樂意提供幫助。</string>
+    <string name="about_mail_btn">立即聯繫</string>
+
+
+    <string name="about_form_title">意見回饋與問題回報</string>
+    <string name="about_form_text">您的意見是我們進步的動力！如果您有建議、反饋或遇到問題，請讓我們知道。填寫反饋表單後，我們會仔細閱讀每一條反饋，並努力改進，以提供更好的應用體驗。</string>
+    <string name="about_form_btn">立即回報</string>
+
     <!-- 其他  -->
     <string name="Guest_Title">遊客帳戶</string>
     <string name="SetStation">設定站點：</string>

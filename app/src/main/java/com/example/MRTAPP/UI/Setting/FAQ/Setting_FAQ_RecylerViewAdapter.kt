@@ -53,7 +53,7 @@ class Setting_FAQ_RecylerViewAdapter (
                 holder.tFAQAnsView.visibility = View.GONE
             }
         }
-        if(currentItem.FAQTitle=="你們的API的資料來源為何處"){
+        if(currentItem.FAQTitle==holder.itemView.context.getString(R.string.faq_title_11)){
             Ans_view_Image(holder,position,"API")
 
         }
@@ -67,7 +67,7 @@ class Setting_FAQ_RecylerViewAdapter (
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 )
-                text = "資料介接「台北捷運」"
+                text = context.getString(R.string.data_integration_taipei_metro)
                 textSize = 16f
                 setTextAppearance(R.style.TextColor_LightBlack_NightWhite)
             }
@@ -92,7 +92,7 @@ class Setting_FAQ_RecylerViewAdapter (
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 )
-                text = "資料介接「交通部TDX平臺」"
+                text = context.getString(R.string.data_integration_tdx_platform)
                 textSize = 16f
                 setTextAppearance(R.style.TextColor_LightBlack_NightWhite)
             }

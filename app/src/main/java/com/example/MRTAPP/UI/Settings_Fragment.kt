@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.MRTAPP.UI.Login.Login
 import com.example.MRTAPP.R
+import com.example.MRTAPP.UI.Setting.About_Us.Setting_About_Us
 import com.example.MRTAPP.UI.Setting.Coupons.Coupons_data
 import com.example.MRTAPP.UI.Setting.FAQ.Setting_FAQ
 import com.example.MRTAPP.UI.Setting.Language.Setting_Language
@@ -190,7 +191,8 @@ class Settings_Fragment : Fragment() {
             startActivity(intent)
         }
         About_btn.setOnClickListener {
-
+            val intent = Intent(context, Setting_About_Us::class.java)
+            startActivity(intent)
         }
         Other_btn.setOnClickListener {
 

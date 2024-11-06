@@ -155,6 +155,42 @@
     <string name="Train_Approaching">Train_Approaching</string>
     <string name="End_Service">End of Service</string>
     <string name="Loading_Data">Loading Data</string>
+    <!--    FAQ-->
+    <string name="faq_title_1">What functions does this app offer?</string>
+    <string name="faq_ans_1">Points Collection: Users can earn points by scanning station QR codes.\nReward Redemption: Accumulated points can be used to redeem selected items within the app. (Simulated)\nMRT Information: Provides real-time station information, fare inquiries, estimated travel time, and route guidance.\nWidget: Offers real-time arrival information for convenient trip planning.</string>
+
+    <string name="faq_title_2">Can I modify my information?</string>
+    <string name="faq_ans_2">Answer: Users can modify personal information, including name, password, and photo. Go to "Settings" and select "Edit Profile" to update.</string>
+
+    <string name="faq_title_3">How can I earn points?</string>
+    <string name="faq_ans_3">Method 1: Scan the QR code at the station to earn points.\nMethod 2: Collect achievements for specific stations, such as those containing "Mountain" in the name.\nNote: Each QR code can only be scanned once per day. Ensure a stable network connection and camera access permissions.</string>
+
+    <string name="faq_title_4">How do I check station, train information, or fares?</string>
+    <string name="faq_ans_4">Station Info: Choose your station on the app homepage, click the "i" icon, and access detailed station information, including entrances and facilities.\nTrain Info: On the homepage, select your station, click the "i" icon, and swipe left to see real-time train arrivals.\nFare Inquiry: Choose a start and end station, and the system will calculate the fare and estimated travel time to assist in planning your trip.</string>
+
+    <string name="faq_title_5">What should I do if I can’t scan the QR code?</string>
+    <string name="faq_ans_5">Verify station arrival: Ensure you have reached the specified station and the QR code has not yet been scanned.\nConfirm QR code: Ensure the QR code corresponds to the designated MRT station.\nAdditional solutions:\n1. Clean the camera lens.\n2. Check network stability.\n3. If scanning still fails, restart the app and try again.</string>
+
+    <string name="faq_title_6">How do I use the widget?</string>
+    <string name="faq_ans_6">Adding the widget: First, go to "Settings" and choose your preferred line and station, save it, and authorize access. Then, place the widget on the home screen.\nModifying stations: To change the station, reselect in "Settings" and save the new preferences.</string>
+
+    <string name="faq_title_7">How do I use the redemption feature?</string>
+    <string name="faq_ans_7">Access Redemption Center: Open the app, select the "Mall" section, and browse redeemable items.\nConfirm Redemption: Tap "Redeem Now" to receive a redemption code or QR code. In the redemption record, select an unused item, click "Redeem," and confirm.\nViewing redeemed items: Go to "Settings" and select "Redemption History" to view unused or expired items.\nNote: The redemption feature is simulated and cannot obtain the actual item.</string>
+
+    <string name="faq_title_8">What should I do if the Circular Line has issues?</string>
+    <string name="faq_ans_8">Some sections of the Circular Line were damaged in the April 3 earthquake, causing issues in the Banqiao-Zhonghe section. This may affect train arrival information. We apologize for the inconvenience.</string>
+
+    <string name="faq_title_9">How can I contact customer service or provide feedback?</string>
+    <string name="faq_ans_9">Contact method: In "Settings," tap "About Us" to find contact details and submit issues or suggestions via a survey. For technical issues, please attach a screenshot or error description to help us assist you faster.</string>
+
+    <string name="faq_title_10">How can I restart or reinstall the app if I encounter issues?</string>
+    <string name="faq_ans_10">Restart the app: If the app isn\'t functioning properly, try closing and reopening it.\n Clear cache: In phone "Settings" > "Apps" > select the app, go to "Storage," and tap "Clear Cache."\nReinstall: If the issue persists, uninstall and reinstall the app. After reinstalling, log in again.\nReport issue: If issues persist, please contact customer support with a description to help resolve the issue.</string>
+
+    <string name="faq_title_11">What are the data sources for the API?</string>
+    <string name="faq_ans_11">We obtain data from two main sources: \n Taipei MRT API: The Taipei MRT API provides required travel time, arrival information, etc., enabling access to essential station data.\nTDX Data Interface: The Ministry of Transport\'s TDX platform provides extensive public transportation data, including station facilities and fare details, through its API, helping us retrieve necessary station information.</string>
+    <string name="data_integration_taipei_metro">Data Integration with "Taipei Metro"</string>
+    <string name="data_integration_tdx_platform">Data Integration with "Taiwan MOTC TDX Platform"</string>
+
     <!--Other-->
     <string name="after_login">Available after login</string>
     <string name="backdialog_title">Confirm Exit</string>

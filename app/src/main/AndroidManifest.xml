@@ -34,6 +34,9 @@
         android:theme="@style/Theme.Material3.Light"
         tools:targetApi="31">
         <activity
+            android:name=".UI.Setting.About_Us.Setting_About_Us"
+            android:exported="false" />
+        <activity
             android:name=".UI.Star.Achievement_RecyclerViewAdapter"
             android:exported="false" />
         <activity
