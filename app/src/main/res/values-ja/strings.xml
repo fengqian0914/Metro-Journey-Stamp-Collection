@@ -146,7 +146,23 @@
     <string name="setting_FAQ_Title">よくある質問</string>
     <!-- ウィジェット -->
     <string name="Last_updated">最終更新日:</string>
+    <string name="SetStation">Metro 駅の地点：</string>
     <!-- ダイアログ -->
     <string name="dialog_Previous">前の</string>
     <string name="dialog_Next">次</string>
+    <!-- 列車到着情報  -->
+    <string name="Train_Approaching">列車が到着します</string>
+    <string name="End_Service">営業時間終了</string>
+    <string name="Loading_Data">データの読み取り中。</string>
+
+
+    <!--他の-->
+    <string name="after_login" >ログイン後に確認</string>
+    <string name="backdialog_title">終了を確認</string>
+    <string name="backdialog_msg">終了してもよろしいですか？</string>
+    <string name="backdialog_y">はい</string>
+    <string name="backdialog_n">いいえ</string>
+    <string name="Guest_Title">ゲストアカウント</string>
+    <string name="ribbonName">未解除</string>
+
 </resources>

@@ -58,6 +58,7 @@ class Register : AppCompatActivity() {
         val usercoin = 500000 // 預設金幣
 
 
+
         val goback=findViewById<LinearLayout>(R.id.goback)
 
         goback.setOnClickListener {

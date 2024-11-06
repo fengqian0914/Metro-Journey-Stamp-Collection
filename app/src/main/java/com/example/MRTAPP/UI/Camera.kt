@@ -136,7 +136,7 @@ class Camera : Fragment() {
         val Loginshared = context?.getSharedPreferences("Login", Context.MODE_PRIVATE)
         val Guest = Loginshared?.getBoolean("Guest",false)
         if(Guest==true){
-            val toastMessage = view.context.getString(R.string.Guest_toast_msg)
+            val toastMessage = view.context.getString(R.string.after_login)
 
             view.findViewById<Button>(R.id.qrcodeScan_btn).apply {
                 setOnClickListener {

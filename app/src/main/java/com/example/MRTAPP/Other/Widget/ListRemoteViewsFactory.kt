@@ -65,7 +65,7 @@ class ListRemoteViewsFactory(private val context: Context, private val intent: I
         when{
             trainInfo.countDown.contains("列車進站")-> {
                 views.setFloat(R.id.Train_Info_Station_Time, "setTextSize", 14f)
-                views.setTextViewText(R.id.Train_Info_Station_Time, "列    車\n進站中")
+                views.setTextViewText(R.id.Train_Info_Station_Time, context.getString(R.string.Train_Approaching))
 
             }
             trainInfo.countDown.contains("營運時間已過")-> {

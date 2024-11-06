@@ -6,6 +6,8 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.os.Build
 import android.os.SystemClock
 import android.util.Log
 import android.widget.RemoteViews
@@ -17,10 +19,12 @@ import com.example.MRTAPP.UI.Setting.Station.Setting_station
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
+import java.util.Locale
 
 class ItemAppWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         val views = RemoteViews(context.packageName, R.layout.item_app_widget)
+        setLanguage(context)
 
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
@@ -45,6 +49,34 @@ class ItemAppWidget : AppWidgetProvider() {
         }
 
     }
+
+    private fun setLanguage(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("Settings",
+            Context.MODE_PRIVATE
+        )
+        val savedLanguage = sharedPreferences.getString("My_Lang", "default_language")
+
+        // 根據保存的語言設置 Locale
+        val locale = when (savedLanguage) {
+            "TW" -> Locale("zh", "TW")
+            "CN" -> Locale("zh", "CN")
+            "US" ->    Locale("en", "US")
+            "JP" ->    Locale("ja", "JP")
+            "KR" ->    Locale("ko", "KR")
+            else    ->    Locale("zh", "TW")
+        }
+
+        // 設置配置以強制更新小工具的語言
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(locale)
+        val localizedContext = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            context.createConfigurationContext(config)
+        } else {
+            context.resources.updateConfiguration(config, context.resources.displayMetrics)
+            context
+        }
+    }
+
     override fun onDisabled(context: Context) {
         // 取消定時任務
         val intent = Intent(context, ItemAppWidget::class.java).apply {

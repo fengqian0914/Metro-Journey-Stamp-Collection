@@ -60,7 +60,7 @@ class Achievement_RecyclerViewAdapter(
 
 
         holder.Achievement_CardView.setOnClickListener {
-            val toastMessage = holder.itemView.context.getString(R.string.Guest_toast_msg)
+            val toastMessage = holder.itemView.context.getString(R.string.after_login)
 
             val sharedPreferences = holder.itemView.context.getSharedPreferences("Login", Context.MODE_PRIVATE)
             val Guest = sharedPreferences?.getBoolean("Guest",false)

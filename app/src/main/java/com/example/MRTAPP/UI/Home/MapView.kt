@@ -71,7 +71,7 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private var lastTouchY = 0f
 
     private val MIN_SCALE = 0.2f
-    private val MAX_SCALE = 3.0f
+    private val MAX_SCALE = 1.3f
     private var currentScale = 1f
     private var previousDistance = 1f
      var savelanauge:String?=null

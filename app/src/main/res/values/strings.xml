@@ -97,7 +97,7 @@
     <string name="hour">時</string>
     <string name="minute">分鐘</string>
     <string name="Second">秒數</string>
-    <string name="ribbonName" translatable="false">尚未解鎖</string>
+    <string name="ribbonName" >尚未解鎖</string>
     <!-- 設定頁面 -->
     <string name="Setting_default_name">使用者名稱</string>
     <string name="Setting_tab_name">名稱修改</string>
@@ -147,19 +147,21 @@
     <string name="setting_FAQ_Title">常見問題</string>
     <!-- widget 小工具 -->
     <string name="Last_updated">最後更新時間：</string>
+    <string name="SetStation">設定站點：</string>
+
     <!-- dialog -->
     <string name="dialog_Previous">上一個</string>
     <string name="dialog_Next">下一個</string>
-    <!--  train_update   -->
-    <string name="have_ended" translatable="false">營運時間已過</string>
-    <string name="Train_is_arriving" translatable="false">列車進站中</string>
-    <!-- backdialog   -->
-    <string name="backdialog_title" translatable="false">確認離開</string>
-    <string name="backdialog_msg" translatable="false">你確定要離開嗎?</string>
-    <string name="backdialog_y" translatable="false">是</string>
-    <string name="backdialog_n" translatable="false">否</string>
-    <!-- Guest   -->
-    <string name="Guest_toast_msg" translatable="false">登入後查看</string>
-    <string name="Guest_Title" translatable="false">遊客帳戶</string>
 
+    <!-- 列車進站資訊  -->
+    <string name="Train_Approaching">列車進站中</string>
+    <string name="End_Service">營運時間已過</string>
+    <string name="Loading_Data">資料讀取中</string>
+    <!-- 其他  -->
+    <string name="after_login">登入後查看</string>
+    <string name="backdialog_title" >確認離開</string>
+    <string name="backdialog_msg"   >你確定要離開嗎?</string>
+    <string name="backdialog_y"     >是</string>
+    <string name="backdialog_n"     >否</string>
+    <string name="Guest_Title"      >遊客帳戶</string>
 </resources>

@@ -146,7 +146,22 @@
     <string name="setting_FAQ_Title">자주 묻는 질문</string>
     <!-- 위젯 -->
     <string name="Last_updated">마지막 업데이트:</string>
+    <string name="SetStation">Metro 역의 지점：</string>
+
     <!-- 대화상자 -->
     <string name="dialog_Previous">이전</string>
     <string name="dialog_Next">다음</string>
+    <!-- 열차 도착 정보   -->
+    <string name="Train_Approaching">열차가 도착 중입니다</string>
+    <string name="End_Service">영업시간 종료</string>
+    <string name="Loading_Data">데이터를 읽는 중입니다.</string>
+    <!--다른-->
+    <string name="after_login" >로그인 후 확인 가능</string>
+    <string name="backdialog_title">종료 확인</string>
+    <string name="backdialog_msg">정말로 종료하시겠습니까?</string>
+    <string name="backdialog_y">예</string>
+    <string name="backdialog_n">아니오</string>
+    <string name="Guest_Title">게스트 계정</string>
+    <string name="ribbonName">잠금 해제되지 않음</string>
+
 </resources>

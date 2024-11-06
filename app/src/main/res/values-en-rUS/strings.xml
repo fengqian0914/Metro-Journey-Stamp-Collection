@@ -146,7 +146,23 @@
     <string name="setting_FAQ_Title">Faq</string>
     <!-- Widget -->
     <string name="Last_updated">Last Updated:</string>
+    <string name="SetStation">Metro Station Site：</string>
+
     <!-- Dialog -->
     <string name="dialog_Previous">Previous</string>
     <string name="dialog_Next">Next</string>
+    <!-- Train Arrival Information   -->
+    <string name="Train_Approaching">Train_Approaching</string>
+    <string name="End_Service">End of Service</string>
+    <string name="Loading_Data">Loading Data</string>
+    <!--Other-->
+    <string name="after_login">Available after login</string>
+    <string name="backdialog_title">Confirm Exit</string>
+    <string name="backdialog_msg">Are you sure you want to exit?</string>
+    <string name="backdialog_y">Yes</string>
+    <string name="backdialog_n">No</string>
+    <string name="Guest_Title">Guest Account</string>
+    <string name="ribbonName">Not Unlocked</string>
+
+
 </resources>

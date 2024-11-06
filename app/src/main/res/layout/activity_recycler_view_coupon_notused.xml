@@ -31,8 +31,11 @@
             <ImageView
                 android:id="@+id/NotUsed_CouponImage"
                 android:layout_width="100dp"
+
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+
+
                 android:src="@drawable/product1" />
 
             <LinearLayout
