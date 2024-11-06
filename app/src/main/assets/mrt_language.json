@@ -1,0 +1,959 @@
+{
+  "BR": {
+    "BR01": {
+      "Zh_tw": "動物園",
+      "En": "Taipei Zoo",
+      "Ja": "動物園",
+      "Ko": "동물원",
+      "Zh_Hans": "动物园"
+    },
+    "BR02": {
+      "Zh_tw": "木柵",
+      "En": "Muzha",
+      "Ja": "木柵",
+      "Ko": "무자",
+      "Zh_Hans": "木栅"
+    },
+    "BR03": {
+      "Zh_tw": "萬芳社區",
+      "En": "Wanfang Community",
+      "Ja": "万芳コミュニティ",
+      "Ko": "완팡 단지",
+      "Zh_Hans": "万芳社区"
+    },
+    "BR04": {
+      "Zh_tw": "萬芳醫院",
+      "En": "Wanfang Hospital",
+      "Ja": "万芳病院",
+      "Ko": "완팡 병원",
+      "Zh_Hans": "万芳医院"
+    },
+    "BR05": {
+      "Zh_tw": "辛亥",
+      "En": "Xinhai",
+      "Ja": "辛亥",
+      "Ko": "신하이",
+      "Zh_Hans": "辛亥"
+    },
+    "BR06": {
+      "Zh_tw": "麟光",
+      "En": "Linguang",
+      "Ja": "麟光",
+      "Ko": "링광",
+      "Zh_Hans": "麟光"
+    },
+    "BR07": {
+      "Zh_tw": "六張犁",
+      "En": "Liuzhangli",
+      "Ja": "六張犁",
+      "Ko": "류장리",
+      "Zh_Hans": "六张犁"
+    },
+    "BR08": {
+      "Zh_tw": "科技大樓",
+      "En": "Technology Building",
+      "Ja": "テクノロジービル",
+      "Ko": "테크놀로지 빌딩",
+      "Zh_Hans": "科技大楼"
+    },
+    "BR09": {
+      "Zh_tw": "大安",
+      "En": "Daan",
+      "Ja": "大安",
+      "Ko": "다안",
+      "Zh_Hans": "大安"
+    },
+    "BR10": {
+      "Zh_tw": "忠孝復興",
+      "En": "Zhongxiao Fuxing",
+      "Ja": "忠孝復興",
+      "Ko": "중샤오푸싱",
+      "Zh_Hans": "忠孝复兴"
+    },
+    "BR11": {
+      "Zh_tw": "南京復興",
+      "En": "Nanjing Fuxing",
+      "Ja": "南京復興",
+      "Ko": "난징 푸싱",
+      "Zh_Hans": "南京复兴"
+    },
+    "BR12": {
+      "Zh_tw": "中山國中",
+      "En": "Zhongshan Junior High School",
+      "Ja": "中山中学校",
+      "Ko": "중산 중학교",
+      "Zh_Hans": "中山国中"
+    },
+    "BR13": {
+      "Zh_tw": "松山機場",
+      "En": "Songshan Airport",
+      "Ja": "松山空港",
+      "Ko": "송산 공항",
+      "Zh_Hans": "松山机场"
+    },
+    "BR14": {
+      "Zh_tw": "大直",
+      "En": "Dazhi",
+      "Ja": "大直",
+      "Ko": "다즈",
+      "Zh_Hans": "大直"
+    },
+    "BR15": {
+      "Zh_tw": "劍南路",
+      "En": "Jiannan Rd. (Miramar)",
+      "Ja": "剣南路",
+      "Ko": "젠난루",
+      "Zh_Hans": "剑南路"
+    },
+    "BR16": {
+      "Zh_tw": "西湖",
+      "En": "Xihu (Takming Univ.)",
+      "Ja": "西湖",
+      "Ko": "시후",
+      "Zh_Hans": "西湖"
+    },
+    "BR17": {
+      "Zh_tw": "港墘",
+      "En": "Gangqian",
+      "Ja": "港墘",
+      "Ko": "강첸",
+      "Zh_Hans": "港墘"
+    },
+    "BR18": {
+      "Zh_tw": "文德",
+      "En": "Wende (Bihu Park)",
+      "Ja": "文徳",
+      "Ko": "원더",
+      "Zh_Hans": "文德"
+    },
+    "BR19": {
+      "Zh_tw": "內湖",
+      "En": "Neihu",
+      "Ja": "内湖",
+      "Ko": "네이후",
+      "Zh_Hans": "内湖"
+    },
+    "BR20": {
+      "Zh_tw": "大湖公園",
+      "En": "Dahu Park",
+      "Ja": "大湖公園",
+      "Ko": "다후 공원",
+      "Zh_Hans": "大湖公园"
+    },
+    "BR21": {
+      "Zh_tw": "葫洲",
+      "En": "Huzhou",
+      "Ja": "葫洲",
+      "Ko": "후저우",
+      "Zh_Hans": "葫洲"
+    },
+    "BR22": {
+      "Zh_tw": "東湖",
+      "En": "Donghu",
+      "Ja": "東湖",
+      "Ko": "둥후",
+      "Zh_Hans": "东湖"
+    },
+    "BR23": {
+      "Zh_tw": "南港軟體園區",
+      "En": "Nangang Software Park",
+      "Ja": "南港ソフトウェアパーク",
+      "Ko": "난강 소프트웨어 단지",
+      "Zh_Hans": "南港软体园区"
+    },
+    "BR24": {
+      "Zh_tw": "南港展覽館",
+      "En": "Taipei Nangang Exhibition Center",
+      "Ja": "南港展覧館",
+      "Ko": "난강 전람관",
+      "Zh_Hans": "南港展览馆"
+    }
+  },
+  "G": {
+    "G01": {
+      "Zh_tw": "新店",
+      "En": "Xindian",
+      "Ja": "新店",
+      "Ko": "신덴",
+      "Zh_Hans": "新店"
+    },
+    "G02": {
+      "Zh_tw": "新店區公所",
+      "En": "Xindian District Office",
+      "Ja": "新店区役所",
+      "Ko": "신뎬구청",
+      "Zh_Hans": "新店区公所"
+    },
+    "G03": {
+      "Zh_tw": "七張",
+      "En": "Qizhang",
+      "Ja": "七張",
+      "Ko": "치장",
+      "Zh_Hans": "七张"
+    },
+    "G03A": {
+      "Zh_tw": "小碧潭",
+      "En": "Xiaobitan",
+      "Ja": "小碧潭",
+      "Ko": "샤오비탄",
+      "Zh_Hans": "小碧潭"
+    },
+    "G04": {
+      "Zh_tw": "大坪林",
+      "En": "Dapinglin",
+      "Ja": "大坪林",
+      "Ko": "다핑린",
+      "Zh_Hans": "大坪林"
+    },
+    "G05": {
+      "Zh_tw": "景美",
+      "En": "Jingmei",
+      "Ja": "景美",
+      "Ko": "징메이",
+      "Zh_Hans": "景美"
+    },
+    "G06": {
+      "Zh_tw": "萬隆",
+      "En": "Wanlong",
+      "Ja": "万隆",
+      "Ko": "완롱",
+      "Zh_Hans": "万隆"
+    },
+    "G07": {
+      "Zh_tw": "公館",
+      "En": "Gongguan",
+      "Ja": "公館",
+      "Ko": "공관",
+      "Zh_Hans": "公馆"
+    },
+    "G08": {
+      "Zh_tw": "台電大樓",
+      "En": "Taipower Building",
+      "Ja": "台湾電力ビル",
+      "Ko": "대만 전력공사 빌딩",
+      "Zh_Hans": "台电大楼"
+    },
+    "G09": {
+      "Zh_tw": "古亭",
+      "En": "Guting",
+      "Ja": "古亭",
+      "Ko": "구팅",
+      "Zh_Hans": "古亭"
+    },
+    "G10": {
+      "Zh_tw": "中正紀念堂",
+      "En": "Chiang Kai-Shek Memorial Hall",
+      "Ja": "中正紀念堂",
+      "Ko": "중정 기념당",
+      "Zh_Hans": "中正纪念堂"
+    },
+    "G11": {
+      "Zh_tw": "小南門",
+      "En": "Xiaonanmen",
+      "Ja": "小南門",
+      "Ko": "샤오난먼",
+      "Zh_Hans": "小南门"
+    },
+    "G12": {
+      "Zh_tw": "西門",
+      "En": "Ximen",
+      "Ja": "西門",
+      "Ko": "시먼",
+      "Zh_Hans": "西门"
+    },
+    "G13": {
+      "Zh_tw": "北門",
+      "En": "Beimen",
+      "Ja": "北門",
+      "Ko": "베이먼",
+      "Zh_Hans": "北门"
+    },
+    "G14": {
+      "Zh_tw": "中山",
+      "En": "Zhongshan",
+      "Ja": "中山",
+      "Ko": "중산",
+      "Zh_Hans": "中山"
+    },
+    "G15": {
+      "Zh_tw": "松江南京",
+      "En": "Songjiang Nanjing",
+      "Ja": "松江南京",
+      "Ko": "송장 난징",
+      "Zh_Hans": "松江南京"
+    },
+    "G16": {
+      "Zh_tw": "南京復興",
+      "En": "Nanjing Fuxing",
+      "Ja": "南京復興",
+      "Ko": "난징 푸싱",
+      "Zh_Hans": "南京复兴"
+    },
+    "G17": {
+      "Zh_tw": "台北小巨蛋",
+      "En": "Taipei Arena",
+      "Ja": "台北アリーナ",
+      "Ko": "타이베이 아레나",
+      "Zh_Hans": "台北小巨蛋"
+    },
+    "G18": {
+      "Zh_tw": "南京三民",
+      "En": "Nanjing Sanmin",
+      "Ja": "南京三民",
+      "Ko": "난징 싼민",
+      "Zh_Hans": "南京三民"
+    },
+    "G19": {
+      "Zh_tw": "松山",
+      "En": "Songshan",
+      "Ja": "松山",
+      "Ko": "송산",
+      "Zh_Hans": "松山"
+    }
+  },
+  "R": {
+    "R02": {
+      "Zh_tw": "象山",
+      "En": "Xiangshan",
+      "Ja": "象山",
+      "Ko": "샹산",
+      "Zh_Hans": "象山"
+    },
+    "R03": {
+      "Zh_tw": "台北101/世貿",
+      "En": "Taipei 101/World Trade Center",
+      "Ja": "台北101/世界貿易センター",
+      "Ko": "타이베이101/ 세계무역센터",
+      "Zh_Hans": "台北101/世贸"
+    },
+    "R04": {
+      "Zh_tw": "信義安和",
+      "En": "Xinyi Anhe",
+      "Ja": "信義安和",
+      "Ko": "신이 안허",
+      "Zh_Hans": "信义安和"
+    },
+    "R05": {
+      "Zh_tw": "大安",
+      "En": "Daan",
+      "Ja": "大安",
+      "Ko": "다안",
+      "Zh_Hans": "大安"
+    },
+    "R06": {
+      "Zh_tw": "大安森林公園",
+      "En": "Daan Park",
+      "Ja": "大安森林公園",
+      "Ko": "다안 삼림 공원",
+      "Zh_Hans": "大安森林公园"
+    },
+    "R07": {
+      "Zh_tw": "東門",
+      "En": "Dongmen",
+      "Ja": "東門",
+      "Ko": "둥먼",
+      "Zh_Hans": "东门"
+    },
+    "R08": {
+      "Zh_tw": "中正紀念堂",
+      "En": "Chiang Kai-Shek Memorial Hall",
+      "Ja": "中正紀念堂",
+      "Ko": "중정 기념당",
+      "Zh_Hans": "中正纪念堂"
+    },
+    "R09": {
+      "Zh_tw": "台大醫院",
+      "En": "NTU Hospital",
+      "Ja": "台湾大学病院",
+      "Ko": "대만 대학 병원",
+      "Zh_Hans": "台大医院"
+    },
+    "R10": {
+      "Zh_tw": "台北車站",
+      "En": "Taipei Main Station",
+      "Ja": "台北駅",
+      "Ko": "타이베이 역",
+      "Zh_Hans": "台北车站"
+    },
+    "R11": {
+      "Zh_tw": "中山",
+      "En": "Zhongshan",
+      "Ja": "中山",
+      "Ko": "중산",
+      "Zh_Hans": "中山"
+    },
+    "R12": {
+      "Zh_tw": "雙連",
+      "En": "Shuanglian",
+      "Ja": "双連",
+      "Ko": "솽롄",
+      "Zh_Hans": "双连"
+    },
+    "R13": {
+      "Zh_tw": "民權西路",
+      "En": "Minquan W. Rd.",
+      "Ja": "民権西路",
+      "Ko": "민취안시루",
+      "Zh_Hans": "民权西路"
+    },
+    "R14": {
+      "Zh_tw": "圓山",
+      "En": "Yuanshan",
+      "Ja": "圓山",
+      "Ko": "위안샨",
+      "Zh_Hans": "圆山"
+    },
+    "R15": {
+      "Zh_tw": "劍潭",
+      "En": "Jiantan",
+      "Ja": "剣潭",
+      "Ko": "젠탄",
+      "Zh_Hans": "剑潭"
+    },
+    "R16": {
+      "Zh_tw": "士林",
+      "En": "Shilin",
+      "Ja": "士林",
+      "Ko": "스린",
+      "Zh_Hans": "士林"
+    },
+    "R17": {
+      "Zh_tw": "芝山",
+      "En": "Zhishan",
+      "Ja": "芝山",
+      "Ko": "즈산",
+      "Zh_Hans": "芝山"
+    },
+    "R18": {
+      "Zh_tw": "明德",
+      "En": "Mingde",
+      "Ja": "明徳",
+      "Ko": "밍더",
+      "Zh_Hans": "明德"
+    },
+    "R19": {
+      "Zh_tw": "石牌",
+      "En": "Shipai",
+      "Ja": "石牌",
+      "Ko": "스파이",
+      "Zh_Hans": "石牌"
+    },
+    "R20": {
+      "Zh_tw": "唭哩岸",
+      "En": "Qilian",
+      "Ja": "唭哩岸",
+      "Ko": "치리안",
+      "Zh_Hans": "唭哩岸"
+    },
+    "R21": {
+      "Zh_tw": "奇岩",
+      "En": "Qiyan",
+      "Ja": "奇岩",
+      "Ko": "치옌",
+      "Zh_Hans": "奇岩"
+    },
+    "R22": {
+      "Zh_tw": "北投",
+      "En": "Beitou",
+      "Ja": "北投",
+      "Ko": "베이터우",
+      "Zh_Hans": "北投"
+    },
+    "R22A": {
+      "Zh_tw": "新北投",
+      "En": "Xinbeitou",
+      "Ja": "新北投",
+      "Ko": "신베이터우",
+      "Zh_Hans": "新北投"
+    },
+    "R23": {
+      "Zh_tw": "復興崗",
+      "En": "Fuxinggang",
+      "Ja": "復興崗",
+      "Ko": "푸싱강",
+      "Zh_Hans": "复兴岗"
+    },
+    "R24": {
+      "Zh_tw": "忠義",
+      "En": "Zhongyi",
+      "Ja": "忠義",
+      "Ko": "종이",
+      "Zh_Hans": "忠义"
+    },
+    "R25": {
+      "Zh_tw": "關渡",
+      "En": "Guandu",
+      "Ja": "関渡",
+      "Ko": "관두",
+      "Zh_Hans": "关渡"
+    },
+    "R26": {
+      "Zh_tw": "竹圍",
+      "En": "Zhuwei",
+      "Ja": "竹囲",
+      "Ko": "주웨이",
+      "Zh_Hans": "竹围"
+    },
+    "R27": {
+      "Zh_tw": "紅樹林",
+      "En": "Hongshulin",
+      "Ja": "紅樹林",
+      "Ko": "홍수림",
+      "Zh_Hans": "红树林"
+    },
+    "R28": {
+      "Zh_tw": "淡水",
+      "En": "Tamsui",
+      "Ja": "淡水",
+      "Ko": "단수이",
+      "Zh_Hans": "淡水"
+    }
+  },
+  "BL": {
+    "BL01": {
+      "Zh_tw": "頂埔",
+      "En": "Dingpu",
+      "Ja": "頂埔",
+      "Ko": "딩푸",
+      "Zh_Hans": "顶埔"
+    },
+    "BL02": {
+      "Zh_tw": "永寧",
+      "En": "Yongning",
+      "Ja": "永寧",
+      "Ko": "용닝",
+      "Zh_Hans": "永宁"
+    },
+    "BL03": {
+      "Zh_tw": "土城",
+      "En": "Tucheng",
+      "Ja": "土城",
+      "Ko": "투청",
+      "Zh_Hans": "土城"
+    },
+    "BL04": {
+      "Zh_tw": "海山",
+      "En": "Haishan",
+      "Ja": "海山",
+      "Ko": "하이산",
+      "Zh_Hans": "海山"
+    },
+    "BL05": {
+      "Zh_tw": "亞東醫院",
+      "En": "Far Eastern Hospital",
+      "Ja": "亜東病院",
+      "Ko": "야둥 병원",
+      "Zh_Hans": "亚东医院"
+    },
+    "BL06": {
+      "Zh_tw": "府中",
+      "En": "Fuzhong",
+      "Ja": "府中",
+      "Ko": "푸중",
+      "Zh_Hans": "府中"
+    },
+    "BL07": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao",
+      "Ja": "板橋",
+      "Ko": "반차오",
+      "Zh_Hans": "板桥"
+    },
+    "BL08": {
+      "Zh_tw": "新埔",
+      "En": "Xinpu",
+      "Ja": "新埔",
+      "Ko": "신푸",
+      "Zh_Hans": "新埔"
+    },
+    "BL09": {
+      "Zh_tw": "江子翠",
+      "En": "Jiangzicui",
+      "Ja": "江子翠",
+      "Ko": "장쯔추이",
+      "Zh_Hans": "江子翠"
+    },
+    "BL10": {
+      "Zh_tw": "龍山寺",
+      "En": "Longshan Temple",
+      "Ja": "龍山寺",
+      "Ko": "용산사",
+      "Zh_Hans": "龙山寺"
+    },
+    "BL11": {
+      "Zh_tw": "西門",
+      "En": "Ximen",
+      "Ja": "西門",
+      "Ko": "시먼",
+      "Zh_Hans": "西门"
+    },
+    "BL12": {
+      "Zh_tw": "台北車站",
+      "En": "Taipei Main Station",
+      "Ja": "台北駅",
+      "Ko": "타이베이 역",
+      "Zh_Hans": "台北车站"
+    },
+    "BL13": {
+      "Zh_tw": "善導寺",
+      "En": "Shandao Temple",
+      "Ja": "善導寺",
+      "Ko": "산다오사",
+      "Zh_Hans": "善导寺"
+    },
+    "BL14": {
+      "Zh_tw": "忠孝新生",
+      "En": "Zhongxiao Xinsheng",
+      "Ja": "忠孝新生",
+      "Ko": "종샤오 신셩",
+      "Zh_Hans": "忠孝新生"
+    },
+    "BL15": {
+      "Zh_tw": "忠孝復興",
+      "En": "Zhongxiao Fuxing",
+      "Ja": "忠孝復興",
+      "Ko": "종샤오 푸싱",
+      "Zh_Hans": "忠孝复兴"
+    },
+    "BL16": {
+      "Zh_tw": "忠孝敦化",
+      "En": "Zhongxiao Dunhua",
+      "Ja": "忠孝敦化",
+      "Ko": "종샤오 둔화",
+      "Zh_Hans": "忠孝敦化"
+    },
+    "BL17": {
+      "Zh_tw": "國父紀念館",
+      "En": "Sun Yat-Sen Memorial Hall",
+      "Ja": "国父紀念館",
+      "Ko": "국부기념관",
+      "Zh_Hans": "国父纪念馆"
+    },
+    "BL18": {
+      "Zh_tw": "市政府",
+      "En": "Taipei City Hall",
+      "Ja": "台北市政府",
+      "Ko": "타이베이 시청",
+      "Zh_Hans": "台北市政府"
+    },
+    "BL19": {
+      "Zh_tw": "永春",
+      "En": "Yongchun",
+      "Ja": "永春",
+      "Ko": "융춘",
+      "Zh_Hans": "永春"
+    },
+    "BL20": {
+      "Zh_tw": "後山埤",
+      "En": "Houshanpi",
+      "Ja": "後山埤",
+      "Ko": "허우산피",
+      "Zh_Hans": "后山埤"
+    },
+    "BL21": {
+      "Zh_tw": "昆陽",
+      "En": "Kunyang",
+      "Ja": "昆陽",
+      "Ko": "쿤양",
+      "Zh_Hans": "昆阳"
+    },
+    "BL22": {
+      "Zh_tw": "南港",
+      "En": "Nangang",
+      "Ja": "南港",
+      "Ko": "난강",
+      "Zh_Hans": "南港"
+    },
+    "BL23": {
+      "Zh_tw": "南港展覽館",
+      "En": "Taipei Nangang Exhibition Center",
+      "Ja": "南港展覧館",
+      "Ko": "난강 전람관",
+      "Zh_Hans": "南港展览馆"
+    }
+  },
+  "O": {
+    "O01": {
+      "Zh_tw": "南勢角",
+      "En": "Nanshijiao",
+      "Ja": "南勢角",
+      "Ko": "난시자오",
+      "Zh_Hans": "南势角"
+    },
+    "O02": {
+      "Zh_tw": "景安",
+      "En": "Jingan",
+      "Ja": "景安",
+      "Ko": "징안",
+      "Zh_Hans": "景安"
+    },
+    "O03": {
+      "Zh_tw": "永安市場",
+      "En": "Yongan Market",
+      "Ja": "永安市場",
+      "Ko": "융안 시장",
+      "Zh_Hans": "永安市场"
+    },
+    "O04": {
+      "Zh_tw": "頂溪",
+      "En": "Dingxi",
+      "Ja": "頂溪",
+      "Ko": "딩시",
+      "Zh_Hans": "顶溪"
+    },
+    "O05": {
+      "Zh_tw": "古亭",
+      "En": "Guting",
+      "Ja": "古亭",
+      "Ko": "구팅",
+      "Zh_Hans": "古亭"
+    },
+    "O06": {
+      "Zh_tw": "東門",
+      "En": "Dongmen",
+      "Ja": "東門",
+      "Ko": "둥먼",
+      "Zh_Hans": "东门"
+    },
+    "O07": {
+      "Zh_tw": "忠孝新生",
+      "En": "Zhongxiao Xinsheng",
+      "Ja": "忠孝新生",
+      "Ko": "종샤오 신셩",
+      "Zh_Hans": "忠孝新生"
+    },
+    "O08": {
+      "Zh_tw": "松江南京",
+      "En": "Songjiang Nanjing",
+      "Ja": "松江南京",
+      "Ko": "송장 난징",
+      "Zh_Hans": "松江南京"
+    },
+    "O09": {
+      "Zh_tw": "行天宮",
+      "En": "Xingtian Temple",
+      "Ja": "行天宮",
+      "Ko": "싱톈궁",
+      "Zh_Hans": "行天宫"
+    },
+    "O10": {
+      "Zh_tw": "中山國小",
+      "En": "Zhongshan Elementary School",
+      "Ja": "中山小学校",
+      "Ko": "중산 초등학교",
+      "Zh_Hans": "中山国小"
+    },
+    "O11": {
+      "Zh_tw": "民權西路",
+      "En": "Minquan W. Rd.",
+      "Ja": "民権西路",
+      "Ko": "민취안시루",
+      "Zh_Hans": "民权西路"
+    },
+    "O12": {
+      "Zh_tw": "大橋頭",
+      "En": "Daqiaotou",
+      "Ja": "大橋頭",
+      "Ko": "다차오터우",
+      "Zh_Hans": "大桥头"
+    },
+    "O13": {
+      "Zh_tw": "台北橋",
+      "En": "Taipei Bridge",
+      "Ja": "台北橋",
+      "Ko": "타이페이 대교",
+      "Zh_Hans": "台北桥"
+    },
+    "O14": {
+      "Zh_tw": "菜寮",
+      "En": "Cailiao",
+      "Ja": "菜寮",
+      "Ko": "차이랴오",
+      "Zh_Hans": "菜寮"
+    },
+    "O15": {
+      "Zh_tw": "三重",
+      "En": "Sanchong",
+      "Ja": "三重",
+      "Ko": "싼충",
+      "Zh_Hans": "三重"
+    },
+    "O16": {
+      "Zh_tw": "先嗇宮",
+      "En": "Xianse Temple",
+      "Ja": "先嗇宮",
+      "Ko": "셴써궁",
+      "Zh_Hans": "先啬宫"
+    },
+    "O17": {
+      "Zh_tw": "頭前庄",
+      "En": "Touqianzhuang",
+      "Ja": "頭前庄",
+      "Ko": "터우첸좡",
+      "Zh_Hans": "头前庄"
+    },
+    "O18": {
+      "Zh_tw": "新莊",
+      "En": "Xinzhuang",
+      "Ja": "新莊",
+      "Ko": "신좡",
+      "Zh_Hans": "新庄"
+    },
+    "O19": {
+      "Zh_tw": "輔大",
+      "En": "Fu Jen University",
+      "Ja": "輔仁大学",
+      "Ko": "푸런 대학교",
+      "Zh_Hans": "辅大"
+    },
+    "O20": {
+      "Zh_tw": "丹鳳",
+      "En": "Danfeng",
+      "Ja": "丹鳳",
+      "Ko": "단펑",
+      "Zh_Hans": "丹凤"
+    },
+    "O21": {
+      "Zh_tw": "迴龍",
+      "En": "Huilong",
+      "Ja": "迴龍",
+      "Ko": "후이룽",
+      "Zh_Hans": "回龙"
+    },
+    "O50": {
+      "Zh_tw": "三重國小",
+      "En": "Sanchong Elementary School",
+      "Ja": "三重小学校",
+      "Ko": "싼충 초등학교",
+      "Zh_Hans": "三重国小"
+    },
+    "O51": {
+      "Zh_tw": "三和國中",
+      "En": "Sanhe Junior High School",
+      "Ja": "三和中学校",
+      "Ko": "싼허 중학교",
+      "Zh_Hans": "三和国中"
+    },
+    "O52": {
+      "Zh_tw": "徐匯中學",
+      "En": "St. Ignatius High School",
+      "Ja": "徐匯高校",
+      "Ko": "쉬후이 고등학교",
+      "Zh_Hans": "徐汇中学"
+    },
+    "O53": {
+      "Zh_tw": "三民高中",
+      "En": "Sanmin Senior High School",
+      "Ja": "三民高校",
+      "Ko": "산민 고등학교",
+      "Zh_Hans": "三民高中"
+    },
+    "O54": {
+      "Zh_tw": "蘆洲",
+      "En": "Luzhou",
+      "Ja": "蘆洲",
+      "Ko": "루저우",
+      "Zh_Hans": "芦洲"
+    }
+  },
+  "Y": {
+    "Y07": {
+      "Zh_tw": "大坪林",
+      "En": "Dapinglin",
+      "Ja": "大坪林",
+      "Ko": "다핑린",
+      "Zh_Hans": "大坪林"
+    },
+    "Y08": {
+      "Zh_tw": "十四張",
+      "En": "Shisijhang",
+      "Ja": "十四張",
+      "Ko": "스쓰진",
+      "Zh_Hans": "十四张"
+    },
+    "Y09": {
+      "Zh_tw": "秀朗橋",
+      "En": "Xiulang Bridge",
+      "Ja": "秀朗橋",
+      "Ko": "시우랑챠오",
+      "Zh_Hans": "秀朗桥"
+    },
+    "Y10": {
+      "Zh_tw": "景平",
+      "En": "Jingping",
+      "Ja": "景平",
+      "Ko": "징핑",
+      "Zh_Hans": "景平"
+    },
+    "Y11": {
+      "Zh_tw": "景安",
+      "En": "Jingan",
+      "Ja": "景安",
+      "Ko": "징안",
+      "Zh_Hans": "景安"
+    },
+    "Y12": {
+      "Zh_tw": "中和",
+      "En": "Zhonghe",
+      "Ja": "中和",
+      "Ko": "중허",
+      "Zh_Hans": "中和"
+    },
+    "Y13": {
+      "Zh_tw": "橋和",
+      "En": "Qiaohe",
+      "Ja": "橋和",
+      "Ko": "챠오허",
+      "Zh_Hans": "桥和"
+    },
+    "Y14": {
+      "Zh_tw": "中原",
+      "En": "Zhongyuan",
+      "Ja": "中原",
+      "Ko": "종위안",
+      "Zh_Hans": "中原"
+    },
+    "Y15": {
+      "Zh_tw": "板新",
+      "En": "Banxin",
+      "Ja": "板新",
+      "Ko": "반신",
+      "Zh_Hans": "板新"
+    },
+    "Y16": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao",
+      "Ja": "板橋",
+      "Ko": "반차오",
+      "Zh_Hans": "板桥"
+    },
+    "Y17": {
+      "Zh_tw": "新埔民生",
+      "En": "Xinpu Minsheng",
+      "Ja": "新埔民生",
+      "Ko": "신푸민성",
+      "Zh_Hans": "新埔民生"
+    },
+    "Y18": {
+      "Zh_tw": "頭前庄",
+      "En": "Touqianzhuang",
+      "Ja": "頭前庄",
+      "Ko": "터우첸좡",
+      "Zh_Hans": "头前庄"
+    },
+    "Y19": {
+      "Zh_tw": "幸福",
+      "En": "Xingfu",
+      "Ja": "幸福",
+      "Ko": "씽푸",
+      "Zh_Hans": "幸福"
+    },
+    "Y20": {
+      "Zh_tw": "新北產業園區",
+      "En": "Xinbei Industrial Park",
+      "Ja": "新北産業団地",
+      "Ko": "신베이 산업원 단지",
+      "Zh_Hans": "新北产业园区"
+    }
+  }
+}

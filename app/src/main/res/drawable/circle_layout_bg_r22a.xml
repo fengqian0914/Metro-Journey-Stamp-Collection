@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 定義圓角 -->
+    <corners android:radius="10dp" />
+
+    <!-- 先使用透明背景，稍後在程式中動態設置顏色 -->
+    <solid android:color="@color/mrt_route_R22A" />
+</shape>

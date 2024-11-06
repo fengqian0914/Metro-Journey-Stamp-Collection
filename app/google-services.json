@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "906060627228",
+    "firebase_url": "https://mrt-app-55dac-default-rtdb.firebaseio.com",
+    "project_id": "mrt-app-55dac",
+    "storage_bucket": "mrt-app-55dac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906060627228:android:14c90521c4ac32d6344ed9",
+        "android_client_info": {
+          "package_name": "com.example.MRTAPP"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906060627228-9cre27f69ivu9q060lrov8mobbo3ih1v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.MRTAPP",
+            "certificate_hash": "bbead293c3a46fb255c9df4429ac843c79f4f1b4"
+          }
+        },
+        {
+          "client_id": "906060627228-10j6nbvmki4ilq6omjkqeu6b52h5e954.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc5PAT1npvJ6KSavLBQJWzC0XBjd2Nblg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906060627228-10j6nbvmki4ilq6omjkqeu6b52h5e954.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 登入页面 -->
+    <string name="app_name">捷旅印然</string>
+    <string name="login">登录</string>
+    <string name="email">信箱</string>
+    <string name="password">密码</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="Guest_login">游客登入</string>
+    <!-- 注册 -->
+    <string name="password_repeat">确认密码</string>
+    <string name="back">返回</string>
+    <string name="username">用户名</string>
+    <string name="user_Photo_stickers">头像选择</string>
+    <string name="Submit_registration">送出注册</string>
+    <string name="register">前往注册帐号</string>
+    <string name="register_r">注册帐号</string>
+    <string name="Task">任务</string>
+    <string name="Achievement">成就</string>
+    <string name="setting_text">设置</string>
+    <string name="logout">登出</string>
+    <string name="settiing_user">个人资料</string>
+    <string name="settiing_notifications">通知</string>
+    <string name="settiing_moonmode">黑暗模式</string>
+    <string name="Gender_Male">男性</string>
+    <string name="Gender_Female">女性</string>
+    <string name="Gender_Other">其他/不方便透露</string>
+    <string name="register_left_text">尚未注册帐号?</string>
+    <string name="wecome_text">欢迎来到，捷旅印然</string>
+    <string name="scan_result">扫描结果</string>
+    <string name="route_BL">板南线</string>
+    <string name="route_BR">文湖线</string>
+    <string name="route_G">松山新店线</string>
+    <string name="route_O">中和新芦线</string>
+    <string name="route_Y">环状线</string>
+    <string name="route_R">淡水信义线</string>
+    <string name="route_R22A">新北投支线</string>
+    <string name="route_G03A">小碧潭支线</string>
+    <string name="route_BL_en">BL</string>
+    <string name="route_BR_en">BR</string>
+    <string name="route_G_en">G</string>
+    <string name="route_O_en">O</string>
+    <string name="route_Y_en">Y</string>
+    <string name="route_R_en">R</string>
+    <string name="scan">扫描</string>
+    <string name="Camera_verify_btn">集章去</string>
+    <!-- 首页 -->
+    <string name="start_station">出发站</string>
+    <string name="end_station">终点站</string>
+    <string name="total_times">预计搭乘时间</string>
+    <string name="total_money">票价</string>
+    <string name="station_data_btn">看更多车站资讯</string>
+    <string name="return_btn">重置</string>
+    <string name="unanimous_vote">普通票</string>
+    <string name="Discount_tickets">优惠票</string>
+    <string name="Taipei_City_Children_Ticket">台北儿童票</string>
+    <string name="dollar">元</string>
+    <!-- 路线规划 -->
+    <string name="route_planning_btn">路线规划</string>
+    <!-- 车站资讯页面 -->
+    <string name="Station_information">车站资讯</string>
+    <string name="Train_information">列车资讯</string>
+    <string name="ExitType1_0">楼梯</string>
+    <string name="ExitType1_1">无楼梯</string>
+    <string name="ExitType2_0">无手扶梯</string>
+    <string name="ExitType2_1">双向扶梯</string>
+    <string name="ExitType2_2">向上扶梯</string>
+    <string name="ExitType2_3">向下扶梯</string>
+    <string name="ExitType3_0">电梯</string>
+    <string name="ExitType3_1">无电梯</string>
+    <!-- 列车资讯页面 -->
+    <string name="Train_arrives">列车到站</string>
+    <string name="Train_arrives_time">秒后更新</string>
+    <string name="remindbtn">到站提醒</string>
+    <string name="errorStation">异常：环状线部分路段因故损毁，以至于本路段资讯无法显示</string>
+    <string name="errorStation2">异常：捷运系统资讯异常，往板桥段列车可能无法正常显示。且部分资讯读取异常</string>
+    <string name="ToStationText">往</string>
+    <!-- 商城页面 -->
+    <string name="StoreName">点数商城</string>
+    <string name="ProductquantityName">剩余数量</string>
+    <string name="exchange">兑换</string>
+    <!-- 商城弹跳 -->
+    <string name="bottom_sheet_layout_title">兑换</string>
+    <string name="exchange_final">确定兑换</string>
+    <string name="Productquantity">剩余数量</string>
+    <string name="Redemption_successful">兑换成功</string>
+    <string name="Exchange_Instructions">购买须知：本画面仅提供模拟操作，非实际兑换。 \N本商城部分图片为台北捷运虾皮商城</string>
+    <!-- 成就 -->
+    <string name="Task_text">任务</string>
+    <string name="Today_task">本日任务</string>
+    <string name="Tasks_of_the_week">本周任务</string>
+    <string name="This_month_tasks">本月任务</string>
+    <string name="Deadline">截止时间：</string>
+    <string name="Year">年</string>
+    <string name="moon">月</string>
+    <string name="days">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分钟</string>
+    <string name="Second">秒数</string>
+    <!-- 设定页面 -->
+    <string name="Setting_default_name">用户名</string>
+    <string name="Setting_tab_name">名称修改</string>
+    <string name="Setting_tab_password">密码修改</string>
+    <string name="Setting_tab_Image">照片修改</string>
+    <string name="Setting_btnEmail">送出验证信</string>
+    <!-- 兑换券页面 -->
+    <string name="ProductName">商品名称：</string>
+    <string name="expiryTime">到期日：</string>
+    <string name="Not_used_information">未使用</string>
+    <string name="Expired_information">已失效</string>
+    <string name="QR_quantity_Title">数量：</string>
+    <string name="QR_redeemCode_Title">兑换码：</string>
+    <string name="QR_Title">扫描兑换</string>
+    <string name="QR_Change_btn">确定兑换</string>
+    <string name="Coupon_expired_text">已失效</string>
+    <string name="No_coupon_available">无可用兑换券</string>
+    <string name="No_expired_vouchers">无失效兑换券</string>
+    <!-- 设定选单 -->
+    <string name="Setting_user">个人资料</string>
+    <string name="Setting_Station">小工具</string>
+    <string name="Setting_coupon">兑换纪录</string>
+    <string name="Setting_language">语言</string>
+    <string name="Setting_darkmode">夜间模式</string>
+    <string name="Setting_FAQ">常见问题</string>
+    <string name="Setting_about">关于我们</string>
+    <string name="Setting_other">其他设定</string>
+    <string name="Setting_logout">登出</string>
+    <!-- 个人资料 -->
+    <string name="Setting_user_title">个人资料修改</string>
+    <string name="Setting_user_username">用户名</string>
+    <string name="Setting_user_submit">确定变更</string>
+    <!-- 语言选单 -->
+    <string name="setting_language_title">语言</string>
+    <string name="setting_language_btn">变更语言</string>
+    <string name="bar_home">首页</string>
+    <string name="bar_store">商城</string>
+    <string name="password_repeact">确认密码</string>
+    <!-- 常用站点选单 -->
+    <string name="setting_stations_spinner_route">选择路线：</string>
+    <string name="setting_stations_spinner_station">选择站点：</string>
+    <string name="setting_stations_confirm">确认站点：</string>
+    <string name="setting_stations_btn">储存</string>
+    <string name="setting_stations_info">小工具介绍</string>
+    <string name="setting_stations_Title">小工具-站点设置</string>
+    <!-- Faq选单 -->
+    <string name="setting_FAQ_Title">常见问题</string>
+    <!-- Widget 小工具 -->
+    <string name="Last_updated">最后更新时间：</string>
+    <!-- Dialog -->
+    <string name="dialog_Previous">上一个</string>
+    <string name="dialog_Next">下一个</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#2c76ff</color>
+    <color name="main_color_night">#2c76ff</color>
+    <color name="background_maincolor">#BAD5D2</color>
+    <color name="background_color">#c8e1ff</color>
+    <color name="star_menubg">#6C6C6C</color>
+
+    <color name="gray">#aaa</color>
+    <color name="darkGray">#ff424242</color>
+    <color name="lightgray">#D9D9D9</color>
+    <color name="transparent">#00000000</color>
+    <color name="card_background_color">#FFFFFF</color>
+
+    <color name="startgradient">#2C3E50</color>
+    <color name="Endgradient">#1C2833</color>
+
+    <color name="mrt_blue">#007cac</color>
+    <color name="mrt_green">#4eb94b</color>
+
+    <color name="mrt_route_BL">#0070bd</color>
+    <color name="mrt_route_BR">#c48c31</color>
+    <color name="mrt_route_G">#008659</color>
+    <color name="mrt_route_R">#e3002c</color>
+    <color name="mrt_route_O">#f8b61c</color>
+    <color name="mrt_route_Y">#DBC43B</color>
+    <color name="mrt_route_G03A">#d0dc00</color>
+    <color name="mrt_route_R22A">#fd93a4</color>
+
+
+
+
+
+    <color name="colorAccent">#EBD23E</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="grayColor">#2C2C2C</color>
+
+
+    <color name="nav_item_icon_tint">#2c76ff</color> <!-- 預設顏色 -->
+    <color name="nav_item_icon_tint_dark">@color/gray</color> <!-- 未被點擊顏色 -->
+
+</resources>

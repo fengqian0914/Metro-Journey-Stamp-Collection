@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="20dp"
+    tools:context=".Other.dialogs">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minWidth="500dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_color"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:padding="@dimen/_15ssp">
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/dialog_wait_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="@dimen/_8ssp"
+                android:text="集章達人"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/dialog_close"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_close_24"
+                android:tint="@color/white" />
+        </LinearLayout>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/dialog_wait_title"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="TextView"-->
+        <!--            android:textSize="@dimen/_24ssp"-->
+        <!--            android:textStyle="bold" />-->
+
+        <ImageView
+            android:id="@+id/dialog_wait_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/flag_zh"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/dialog_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_15ssp">
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/dialog_wait_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="@dimen/_16ssp" />
+
+            <LinearLayout
+                android:id="@+id/video_btn_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/dialog_Previous_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="@string/dialog_Previous"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/dialog_Next_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="@string/dialog_Next"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

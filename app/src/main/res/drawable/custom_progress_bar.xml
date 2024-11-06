@@ -1,0 +1,18 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 灰色底部 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#929292" />
+            <corners android:radius="5dp" /> <!-- 设置圆角半径为 5dp -->
+        </shape>
+    </item>
+    <!-- 白色进度 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#FFFFFF" />
+                <corners android:radius="5dp" /> <!-- 设置圆角半径为 5dp -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

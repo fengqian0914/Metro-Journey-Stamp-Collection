@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 로그인 페이지 -->
+    <string name="app_name">타이페이 Metro 스탬프</string>
+    <string name="login">로그인</string>
+    <string name="email">사서함</string>
+    <string name="password">비밀번호</string>
+    <string name="forget_password">비밀번호를 잊어버려</string>
+    <string name="Guest_login">게스트 로그인</string>
+    <!-- 등록하다 -->
+    <string name="password_repeat">비밀번호 확인</string>
+    <string name="back">반품</string>
+    <string name="username">사용자 이름</string>
+    <string name="user_Photo_stickers">아바타 선택</string>
+    <string name="Submit_registration">등록 제출</string>
+    <string name="register">계정등록하러가기</string>
+    <string name="register_r">계정 등록</string>
+    <string name="Task">미션</string>
+    <string name="Achievement">업적</string>
+    <string name="setting_text">설정</string>
+    <string name="logout">사인아웃</string>
+    <string name="settiing_user">개인 데이터</string>
+    <string name="settiing_notifications">통지하다</string>
+    <string name="settiing_moonmode">다크 모드</string>
+    <string name="Gender_Male">남성</string>
+    <string name="Gender_Female">여성</string>
+    <string name="Gender_Other">기타/공개하기 불편함</string>
+    <string name="register_left_text">아직 계정을 등록하지 않으셨나요?</string>
+    <string name="wecome_text">타이페이 Metro 스탬프</string>
+    <string name="scan_result">스캔 결과</string>
+    <string name="route_BL">반난선</string>
+    <string name="route_BR">원후선</string>
+    <string name="route_G">송산 신뎬선</string>
+    <string name="route_O">중허신루선</string>
+    <string name="route_Y">순환 선</string>
+    <string name="route_R">단수이 신이선</string>
+    <string name="route_R22A">신베이터우 지선</string>
+    <string name="route_G03A">샤오비탄 지선</string>
+    <string name="route_BL_en">BL</string>
+    <string name="route_BR_en">BR</string>
+    <string name="route_G_en">G</string>
+    <string name="route_O_en">O</string>
+    <string name="route_Y_en">Y</string>
+    <string name="route_R_en">R</string>
+    <string name="scan">스캔</string>
+    <string name="Camera_verify_btn">우표 모으러 가세요</string>
+    <!-- 첫 페이지 -->
+    <string name="start_station">출발역</string>
+    <string name="end_station">종착역</string>
+    <string name="total_times">예상 이동 시간</string>
+    <string name="total_money">요금</string>
+    <string name="station_data_btn">더 많은 역 정보 보기</string>
+    <string name="return_btn">재설정</string>
+    <string name="unanimous_vote">일반 티켓</string>
+    <string name="Discount_tickets">할인 티켓</string>
+    <string name="Taipei_City_Children_Ticket">타이베이 어린이 티켓</string>
+    <string name="dollar">신 대만 달러</string>
+    <!-- 경로 계획 -->
+    <string name="route_planning_btn">경로 계획</string>
+    <!-- 역 정보 페이지 -->
+    <string name="Station_information">역정보</string>
+    <string name="Train_information">열차정보</string>
+    <string name="ExitType1_0">계단</string>
+    <string name="ExitType1_1">계단 없음</string>
+    <string name="ExitType2_0">에스컬레이터 없음</string>
+    <string name="ExitType2_1">양방향 에스컬레이터</string>
+    <string name="ExitType2_2">에스컬레이터 위로</string>
+    <string name="ExitType2_3">에스컬레이터 아래로</string>
+    <string name="ExitType3_0">엘리베이터</string>
+    <string name="ExitType3_1">엘리베이터 없음</string>
+    <!-- 열차 정보 페이지 -->
+    <string name="Train_arrives">열차 도착</string>
+    <string name="Train_arrives_time">몇 초 만에 업데이트</string>
+    <string name="remindbtn">도착 알림</string>
+    <string name="errorStation">이상 : 어떤 이유로 인해 원형 라인의 일부 구간이 손상되어 해당 구간의 정보가 표시되지 않습니다.</string>
+    <string name="errorStation2">이상: Mrt 시스템 정보가 이상하여 반차오(Banqiao) 구간으로 향하는 열차가 제대로 표시되지 않을 수 있습니다. 그리고 일부 정보가 비정상적으로 읽혀집니다.</string>
+    <string name="ToStationText">향해</string>
+    <!-- 쇼핑몰 페이지 -->
+    <string name="StoreName">포인트 상점</string>
+    <string name="ProductquantityName">남은 수량</string>
+    <string name="exchange">교환</string>
+    <!-- 몰 바운스 -->
+    <string name="bottom_sheet_layout_title">교환</string>
+    <string name="exchange_final">교환 확인</string>
+    <string name="Productquantity">남은 수량</string>
+    <string name="Redemption_successful">교환 성공</string>
+    <string name="Exchange_Instructions">구매 안내: 이 화면은 실제 교환이 아닌 시뮬레이션 작업만 제공합니다. \N이 쇼핑몰의 일부 사진은 타이페이 Mrt Shopee Mall에서 가져온 것입니다.</string>
+    <!-- 성취 -->
+    <string name="Task_text">일</string>
+    <string name="Today_task">오늘의 과제</string>
+    <string name="Tasks_of_the_week">이번주 과제</string>
+    <string name="This_month_tasks">이번달의 과제</string>
+    <string name="Deadline">마감 시간</string>
+    <string name="Year">년도</string>
+    <string name="moon">월</string>
+    <string name="days">일</string>
+    <string name="hour">시간</string>
+    <string name="minute">분</string>
+    <string name="Second">초 수</string>
+    <!-- 설정 페이지 -->
+    <string name="Setting_default_name">사용자 이름</string>
+    <string name="Setting_tab_name">이름 수정</string>
+    <string name="Setting_tab_password">비밀번호 변경</string>
+    <string name="Setting_tab_Image">사진 수정</string>
+    <string name="Setting_btnEmail">확인 편지 보내기</string>
+    <!-- 바우처 페이지 -->
+    <string name="ProductName">제품 이름:</string>
+    <string name="expiryTime">만료일:</string>
+    <string name="Not_used_information">사용되지 않음</string>
+    <string name="Expired_information">만료됨</string>
+    <string name="QR_quantity_Title">수량:</string>
+    <string name="QR_redeemCode_Title">코드 사용:</string>
+    <string name="QR_Title">스캔하여 교환하세요</string>
+    <string name="QR_Change_btn">교환 확인</string>
+    <string name="Coupon_expired_text">만료됨</string>
+    <string name="No_coupon_available">이용 가능한 바우처가 없습니다.</string>
+    <string name="No_expired_vouchers">만료된 교환 쿠폰이 없습니다.</string>
+    <!-- 설정 메뉴 -->
+    <string name="Setting_user">개인 데이터</string>
+    <string name="Setting_Station">간단한 기계 장치</string>
+    <string name="Setting_coupon">교환 기록</string>
+    <string name="Setting_language">언어</string>
+    <string name="Setting_darkmode">야간 모드</string>
+    <string name="Setting_FAQ">Faq</string>
+    <string name="Setting_about">회사 소개</string>
+    <string name="Setting_other">기타 설정</string>
+    <string name="Setting_logout">사인아웃</string>
+    <!-- 개인 정보 -->
+    <string name="Setting_user_title">개인정보 수정</string>
+    <string name="Setting_user_username">사용자 이름</string>
+    <string name="Setting_user_submit">변경사항 확인</string>
+    <!-- 언어 메뉴 -->
+    <string name="setting_language_title">언어</string>
+    <string name="setting_language_btn">언어 변경</string>
+    <string name="bar_home">홈</string>
+    <string name="bar_store">쇼핑 센터</string>
+    <string name="password_repeact">비밀번호 확인</string>
+    <!-- 공통 사이트 메뉴 -->
+    <string name="setting_stations_spinner_route">경로를 선택하세요:</string>
+    <string name="setting_stations_spinner_station">사이트 선택:</string>
+    <string name="setting_stations_confirm">사이트 확인:</string>
+    <string name="setting_stations_btn">저장</string>
+    <string name="setting_stations_info">가젯 소개</string>
+    <string name="setting_stations_Title">가젯-사이트 설정</string>
+    <!-- Faq 메뉴 -->
+    <string name="setting_FAQ_Title">자주 묻는 질문</string>
+    <!-- 위젯 -->
+    <string name="Last_updated">마지막 업데이트:</string>
+    <!-- 대화상자 -->
+    <string name="dialog_Previous">이전</string>
+    <string name="dialog_Next">다음</string>
+</resources>
