@@ -13,6 +13,8 @@ class Setting_About_Us : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_about_us)
+        supportActionBar?.hide()
+
         findViewById<Button>(R.id.FormBtn).setOnClickListener {
             val formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdFGEyJZhjmDWIYHoy8tMTRqzUM_wkN1EuZwnxEG74pDRQtEg/viewform?usp=sf_link"
             val intent = Intent(Intent.ACTION_VIEW).apply {

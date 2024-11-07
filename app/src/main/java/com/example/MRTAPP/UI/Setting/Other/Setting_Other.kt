@@ -11,6 +11,8 @@ class Setting_Other : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_other)
+        supportActionBar?.hide()
+
         val goback = findViewById<LinearLayout>(R.id.goback)
         goback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
