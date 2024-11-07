@@ -250,6 +250,15 @@
     <string name="error">错误</string>
     <string name="Version">版本号：</string>
     <string name="Coin">金币</string>
+    <string name="Received">已领取</string>
+    <string name="Failed_to_collect">领取失败，请重试或反馈</string>
+    <string name="Successfully_received">领取成功</string>
+    <string name="Not_qualified">不符合资格</string>
+    <string name="error_account_not_exist">账户不存在</string>
+    <string name="error_invalid_credentials">账户或密码错误</string>
+    <string name="error_account_exists">账户已存在</string>
+    <string name="error_network">网络连接问题，请检查您的连接</string>
+    <string name="error_unknown">发生未知错误</string>
 
 
 </resources>

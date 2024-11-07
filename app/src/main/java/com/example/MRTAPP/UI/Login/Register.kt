@@ -185,7 +185,6 @@ class Register : AppCompatActivity() {
 
     private fun AchievementData(userId: String) {
         // 初始化 Firestore
-// 初始化 Firestore
         val db = FirebaseFirestore.getInstance()
 
         // 讀取 `/Data/Achievement/Item/` 集合的項目長度

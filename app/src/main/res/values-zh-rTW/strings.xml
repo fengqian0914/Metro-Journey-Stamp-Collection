@@ -160,9 +160,7 @@
     <!-- dialog -->
     <string name="dialog_Previous">上一個</string>
     <string name="dialog_Next">下一個</string>
-    <!--  train_update   -->
-    <string name="have_ended" translatable="false">營運時間已過</string>
-    <string name="Train_is_arriving" translatable="false">列車進站中</string>
+
     <!-- backdialog   -->
     <string name="backdialog_title">確認離開</string>
     <string name="backdialog_msg">你確定要離開嗎?</string>
@@ -258,5 +256,10 @@
     <string name="Failed_to_collect">領取失敗，重測或回報</string>
     <string name="Successfully_received">成功領取</string>
     <string name="Not_qualified">資格不符</string>
+    <string name="error_account_not_exist">帳戶不存在</string>
+    <string name="error_invalid_credentials">帳號或密碼錯誤</string>
+    <string name="error_account_exists">帳戶已存在</string>
+    <string name="error_network">網路連線問題，請檢查您的連接</string>
+    <string name="error_unknown">發生未知錯誤</string>
 
 </resources>

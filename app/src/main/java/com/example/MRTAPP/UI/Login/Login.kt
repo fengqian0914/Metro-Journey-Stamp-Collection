@@ -26,6 +26,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
@@ -108,11 +111,16 @@ class Login : AppCompatActivity() {
                         navigateToMainActivity()
                     } else {
                         // 登入失敗
-                        Toast.makeText(this, "登入失敗：${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                    }
+                        val errorMessage = when (task.exception) {
+                            is FirebaseAuthInvalidUserException -> getString(R.string.error_account_not_exist) // 帳戶不存在
+                            is FirebaseAuthInvalidCredentialsException -> getString(R.string.error_invalid_credentials) // 帳號或密碼錯誤
+                            is FirebaseAuthUserCollisionException -> getString(R.string.error_account_exists) // 帳戶已存在（一般發生於註冊）
+                            else -> task.exception?.localizedMessage ?: getString(R.string.error_unknown) // 其他錯誤
+                        }
+                        Toast.makeText(this, "登入失敗：$errorMessage", Toast.LENGTH_SHORT).show()                    }
                 }
         } catch (e: Exception) {
-            Log.d("LoginError", "2:${e.message}")
+            Toast.makeText(this, "登入失敗：", Toast.LENGTH_SHORT).show()
         }
     }
 
