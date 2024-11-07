@@ -3,7 +3,7 @@
     <!-- Login Page -->
     <string name="app_name">Metro Journey Stamp Collection</string>
     <string name="login">Log In</string>
-    <string name="email">Mailbox</string>
+    <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="forget_password">Forget The Password</string>
     <string name="Guest_login">Guest Login</string>
@@ -55,6 +55,8 @@
     <string name="Discount_tickets">concession tickets</string>
     <string name="Taipei_City_Children_Ticket">Taipei Children\'s Ticket</string>
     <string name="dollar">New Taiwan Dollar</string>
+    <string name="tickey_type">Ticket Type</string>
+
     <!-- Route Planning -->
     <string name="route_planning_btn">Route Planning</string>
     <!-- Station Information Page -->
@@ -66,6 +68,8 @@
     <string name="ExitType2_1">Two-Way Escalator</string>
     <string name="ExitType2_2">Escalator Up</string>
     <string name="ExitType2_3">Down Escalator</string>
+    <string name="ExitType2_4">Schedule Adjustment</string>
+
     <string name="ExitType3_0">Elevator</string>
     <string name="ExitType3_1">No Elevator</string>
     <!-- Train Information Page -->
@@ -97,6 +101,10 @@
     <string name="hour">Hour</string>
     <string name="minute">Minute</string>
     <string name="Second">Seconds</string>
+    <string name="Bronze_Award">Bronze Reward</string>
+    <string name="Silver_Award">Silver Reward</string>
+    <string name="Gold_Award">Gold Reward</string>
+
     <!-- Setting Page -->
     <string name="Setting_default_name">Username</string>
     <string name="Setting_tab_name">Name Modification</string>
@@ -122,8 +130,8 @@
     <string name="Setting_language">Language</string>
     <string name="Setting_darkmode">Night Mode</string>
     <string name="Setting_FAQ">Faq</string>
-    <string name="Setting_about">About Us</string>
-    <string name="Setting_other">Other Settings</string>
+    <string name="Setting_about">Contact Us</string>
+    <string name="Setting_other">Other</string>
     <string name="Setting_logout">Sign Out</string>
     <!-- Personal Information -->
     <string name="Setting_user_title">Personal Information Modification</string>
@@ -190,6 +198,10 @@
     <string name="faq_ans_11">We obtain data from two main sources: \n Taipei MRT API: The Taipei MRT API provides required travel time, arrival information, etc., enabling access to essential station data.\nTDX Data Interface: The Ministry of Transport\'s TDX platform provides extensive public transportation data, including station facilities and fare details, through its API, helping us retrieve necessary station information.</string>
     <string name="data_integration_taipei_metro">Data Integration with "Taipei Metro"</string>
     <string name="data_integration_tdx_platform">Data Integration with "Taiwan MOTC TDX Platform"</string>
+    <!--Contact Us-->
+    <string name="about_form_title">Feedback and Issue Reporting</string>
+    <string name="about_form_text">Your feedback is our driving force for improvement! If you have suggestions, feedback, or encounter any issues, please let us know. After filling out the feedback form, we will carefully read each submission and strive to make improvements to provide a better app experience.</string>
+    <string name="about_form_btn">Report Now</string>
 
     <!--Other-->
     <string name="after_login">Available after login</string>
@@ -234,5 +246,8 @@
     <string name="insufficient_coins">Insufficient coins</string>
     <string name="coin_update_failed_retry_or_report">Coin update failed, retry or report</string>
     <string name="coupon_save_failed_retry_or_report">Saving coupon failed, retry or report</string>
+    <string name="error">Error</string>
+    <string name="Version">Version：</string>
+    <string name="Coin">Coin</string>
 
 </resources>

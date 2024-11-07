@@ -155,7 +155,7 @@ class Register : AppCompatActivity() {
 
         // 將 JSON 字串解析為 JSONObject
         val stationData = JSONObject(json)
-
+        AchievementData(userId)
 
         // 獲取站點資料
         val stations = stationData.getJSONObject("station").toMap().toTypedMap()
@@ -180,6 +180,44 @@ class Register : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "寫入 StationValue 出錯", e)
+            }
+    }
+
+    private fun AchievementData(userId: String) {
+        // 初始化 Firestore
+// 初始化 Firestore
+        val db = FirebaseFirestore.getInstance()
+
+        // 讀取 `/Data/Achievement/Item/` 集合的項目長度
+        db.collection("/Data/Achievement/Item")
+            .get()
+            .addOnSuccessListener { result ->
+                val itemCount = result.size() // 獲取集合的文檔數量
+                println("Item count: $itemCount")
+
+                // 構建巢狀結構的初始資料
+                val achievementData = mutableMapOf<String, Map<String, Boolean>>()
+                for (i in 1..itemCount) {
+                    val key = "Achievement%02d".format(i) // 格式化鍵，例如 "Achievement01"
+                    achievementData[key] = mapOf(
+                        "Bronze" to false,
+                        "Silver" to false,
+                        "Gold" to false
+                    )
+                }
+
+                // 將資料寫入 `/users/a0T5uR8cfhVBIVmrTnxOHkpo47m2/Achievement/Items/`
+                db.document("/users/a0T5uR8cfhVBIVmrTnxOHkpo47m2/Achievement/Items")
+                    .set(achievementData)
+                    .addOnSuccessListener {
+                        println("Document successfully written!")
+                    }
+                    .addOnFailureListener { e ->
+                        println("Error writing document: ${e.message}")
+                    }
+            }
+            .addOnFailureListener { e ->
+                println("Error reading items: ${e.message}")
             }
     }
 

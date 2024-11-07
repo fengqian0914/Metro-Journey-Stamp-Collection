@@ -30,6 +30,7 @@ import com.example.MRTAPP.UI.Cameras.MRT_Station_item
 import com.example.MRTAPP.UI.Cameras.recyclerViewAdapter
 import com.example.MRTAPP.UI.Mall.Product_RecyclerViewAdapter
 import com.example.MRTAPP.UI.Star_Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.json.JSONObject
 import kotlin.math.max
@@ -57,19 +58,173 @@ class Achievement_RecyclerViewAdapter(
         updateData(holder, levelData, achievement.existsquantity.toLong(),position)
 
 
+        val toastMessage = holder.itemView.context.getString(R.string.after_login)
+        val context=holder.itemView.context
+        val sharedPreferences = context.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val Guest = sharedPreferences?.getBoolean("Guest",false)
+
+
+        val bronzeData = levelData["Bronze"] as? Map<String, Any> ?: emptyMap()
+        val silverData = levelData["Silver"] as? Map<String, Any> ?: emptyMap()
+        val goldData = levelData["Gold"] as? Map<String, Any> ?: emptyMap()
+
+        val bronzeDemand = bronzeData["demand"] as? Long ?: 0
+        val silverDemand = silverData["demand"] as? Long ?: 0
+        val goldDemand = goldData["demand"] as? Long ?: 0
+        val coinText=holder.itemView.context.getString(R.string.Coin)
+        val existsquantity=achievement.existsquantity
+        val achievementId=achievement.id
+        holder.Bronze_btn.text=""
+        holder.Silver_btn.text=""
+        holder.Gold_btn.text=""
+        holder.Bronze_btn.text="${context.getString(R.string.Bronze_Award)} \n ${coinText} * ${bronzeDemand*60}"
+        holder.Silver_btn.text="${context.getString(R.string.Silver_Award)} \n ${coinText} * ${silverDemand*80}"
+        holder.Gold_btn.text="${context.getString(R.string.Gold_Award)} \n ${coinText} * ${goldDemand*100}"
+
+
+
+
+        if(bronzeDemand>achievement.existsquantity){
+            holder.Bronze_btn.visibility=View.GONE
+            holder.Bronze_btn.setOnClickListener {
+                Log.d("asdd","bronzeDemand${bronzeDemand} achievement.existsquantity${achievement.existsquantity}")
+                Toast.makeText(context,context.getString(R.string.Not_qualified),Toast.LENGTH_LONG).show()
+            }
+        }else{
+            holder.Bronze_btn.setBackgroundColor(context.getColor(R.color.main_color))
+            holder.Bronze_btn.visibility=View.VISIBLE
+
+            holder.Bronze_btn.setOnClickListener {
+                if(Guest==true){
+                    Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
+                }else{
+
+                    award(holder, levelData,bronzeDemand.toInt()*60,"Bronze",achievementId,context)
+                }
+            }
+        }
+        if(silverDemand>achievement.existsquantity){
+            holder.Silver_btn.visibility=View.GONE
+            holder.Silver_btn.setOnClickListener {
+                Toast.makeText(context,context.getString(R.string.Not_qualified),Toast.LENGTH_LONG).show()
+            }
+        }else{
+            holder.Silver_btn.visibility=View.VISIBLE
+
+            holder.Silver_btn.setOnClickListener {
+                if(Guest==true){
+                    Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
+                }else{
+                    award(holder, levelData,silverDemand.toInt()*80,"Silver",achievementId,context)
+                }
+            }
+        }
+        if(goldDemand>achievement.existsquantity){
+            holder.Gold_btn.visibility=View.GONE
+            holder.Gold_btn.setOnClickListener {
+                Toast.makeText(context,context.getString(R.string.Not_qualified),Toast.LENGTH_LONG).show()
+            }
+        }else{
+            holder.Gold_btn.visibility=View.VISIBLE
+
+            holder.Gold_btn.setOnClickListener {
+                if(Guest==true){
+                    Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
+                }else{
+                    award(holder, levelData,goldDemand.toInt()*100,"Gold",achievementId,context)
+                }
+            }
+
+        }
+
 
 
         holder.Achievement_CardView.setOnClickListener {
-            val toastMessage = holder.itemView.context.getString(R.string.after_login)
-
-            val sharedPreferences = holder.itemView.context.getSharedPreferences("Login", Context.MODE_PRIVATE)
-            val Guest = sharedPreferences?.getBoolean("Guest",false)
             if(Guest==true){
                 Toast.makeText(holder.itemView.context, toastMessage, Toast.LENGTH_LONG).show()
             }else{
                 PopUpwindows(holder.itemView.context, achievement.station,holder)
-
             }
+        }
+
+
+
+
+
+
+
+    }
+
+    private fun award(holder: MyViewHolder, levelData:Map<String,Any>,CoinAdd:Int, type: String,achievementId:String,context: Context) {
+
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
+        val Datas = levelData[type] as? Map<String, Any> ?: emptyMap()
+        val Demand = Datas["demand"] as? Long ?: 0
+        Log.d("showAward","levelData${levelData}\n" +
+                "existsquantity${CoinAdd}\n" +
+                "Demand${Demand}\n" +
+                "achievementId${achievementId}")
+
+        if (userId != null) {
+            val db = FirebaseFirestore.getInstance()
+            db.collection("users").document(userId).collection("Achievement").document("Items").get()
+                .addOnSuccessListener {document ->
+                    if(document!=null&&document.exists()){
+                        val IDmap = document.get(achievementId) as? Map<*, *>
+                        val IDValue = IDmap?.get(type) as? Boolean
+                        if(IDValue==false){
+                            getCoin(userId,CoinAdd,achievementId,type,context)
+                        }else{
+                            Toast.makeText(context,context.getString(R.string.Received),Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+        }
+    }
+
+    private fun getCoin(userId: String,CoinAdd: Int,achievementId: String,type: String,context: Context) {
+        var usercoin:Int=0
+        val updateData = mapOf(
+            "${achievementId}.${type}" to true // 使用點表示法更新巢狀結構中的欄位
+        )
+        if (userId != null) {
+            val db = FirebaseFirestore.getInstance()
+            db.collection("users").document(userId).get()
+                .addOnSuccessListener { document ->
+                    if (document != null && document.exists()) {
+                        usercoin = document.getLong("usercoin")!!.toInt()
+                        // 將資料傳回
+                        db.collection("users").document(userId)
+                            .update("usercoin", usercoin + CoinAdd)
+                            .addOnSuccessListener {
+                                db.collection("users").document(userId)
+                                    .collection("Achievement")
+                                    .document("Items")
+                                    .update(updateData)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(context,"${context.getString(R.string.Successfully_received)} ：${CoinAdd}",Toast.LENGTH_LONG).show()
+
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Toast.makeText(context,"${context.getString(R.string.Failed_to_collect)} ：${e}",Toast.LENGTH_LONG).show()
+                                        Log.d("showAward","e${e}")
+
+                                    }
+
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(context,"${context.getString(R.string.Failed_to_collect)} ${it}",Toast.LENGTH_LONG).show()
+                                Log.d("showAward","it${it}")
+
+                            }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(context,"${context.getString(R.string.Failed_to_collect)} ${exception}",Toast.LENGTH_LONG).show()
+                    Log.d("showAward","exception${exception}")
+
+                }
         }
     }
 
@@ -221,6 +376,11 @@ class Achievement_RecyclerViewAdapter(
         val achievementPercentage: TextView = itemView.findViewById(R.id.Achievement_percentage)
         val progressBar: ProgressBar = itemView.findViewById(R.id.progressBar)
         val Achievement_CardView: CardView = itemView.findViewById(R.id.Achievement_CardView)
+        val Bronze_btn: Button = itemView.findViewById(R.id.Bronze_btn)
+        val Silver_btn: Button = itemView.findViewById(R.id.Silver_btn)
+        val Gold_btn: Button = itemView.findViewById(R.id.Gold_btn)
+
+
     }
 
 }

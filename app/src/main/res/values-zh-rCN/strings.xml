@@ -55,6 +55,7 @@
     <string name="Discount_tickets">优惠票</string>
     <string name="Taipei_City_Children_Ticket">台北儿童票</string>
     <string name="dollar">元</string>
+    <string name="tickey_type">票种</string>
     <!-- 路线规划 -->
     <string name="route_planning_btn">路线规划</string>
     <!-- 车站资讯页面 -->
@@ -66,6 +67,8 @@
     <string name="ExitType2_1">双向扶梯</string>
     <string name="ExitType2_2">向上扶梯</string>
     <string name="ExitType2_3">向下扶梯</string>
+    <string name="ExitType2_4">时段调整</string>
+
     <string name="ExitType3_0">电梯</string>
     <string name="ExitType3_1">无电梯</string>
     <!-- 列车资讯页面 -->
@@ -95,8 +98,12 @@
     <string name="moon">月</string>
     <string name="days">日</string>
     <string name="hour">时</string>
-    <string name="minute">分钟</string>
-    <string name="Second">秒数</string>
+    <string name="minute">分</string>
+    <string name="Second">秒</string>
+    <string name="Bronze_Award">铜牌奖励</string>
+    <string name="Silver_Award">银牌奖励</string>
+    <string name="Gold_Award">金牌奖励</string>
+
     <!-- 设定页面 -->
     <string name="Setting_default_name">用户名</string>
     <string name="Setting_tab_name">名称修改</string>
@@ -122,8 +129,8 @@
     <string name="Setting_language">语言</string>
     <string name="Setting_darkmode">夜间模式</string>
     <string name="Setting_FAQ">常见问题</string>
-    <string name="Setting_about">关于我们</string>
-    <string name="Setting_other">其他设定</string>
+    <string name="Setting_about">联系我们</string>
+    <string name="Setting_other">设定</string>
     <string name="Setting_logout">登出</string>
     <!-- 个人资料 -->
     <string name="Setting_user_title">个人资料修改</string>
@@ -191,6 +198,10 @@
     <string name="faq_ans_11">我们主要从两个部分获取\n台北地铁API：台北地铁API提供了地铁的乘车所需时间、到站时间等信息，让我们可以通过调用API获取所需的站点信息。\n数据对接“交通部TDX平台”\n运输数据流通服务TDX API：运输数据流通服务TDX API提供了众多公共交通运输数据的API，我们使用了地铁的站点内设施、票价等信息，让我们可以通过调用API获取所需的站点信息。</string>
     <string name="data_integration_taipei_metro">数据对接「台北捷运」</string>
     <string name="data_integration_tdx_platform">数据对接「台湾交通部TDX平台」</string>
+    <!--联系我们-->
+    <string name="about_form_title">意见反馈与问题报告</string>
+    <string name="about_form_text">您的意见是我们进步的动力！如果您有建议、反馈或遇到问题，请让我们知道。填写反馈表单后，我们会仔细阅读每一条反馈，并努力改进，以提供更好的应用体验。</string>
+    <string name="about_form_btn">立即反馈</string>
 
     <!-- 其他   -->
 
@@ -236,4 +247,9 @@
     <string name="insufficient_coins">所需硬币不够</string>
     <string name="coin_update_failed_retry_or_report">更新硬币数量失败，重试或反馈</string>
     <string name="coupon_save_failed_retry_or_report">保存优惠券失败，重试或反馈</string>
+    <string name="error">错误</string>
+    <string name="Version">版本号：</string>
+    <string name="Coin">金币</string>
+
+
 </resources>

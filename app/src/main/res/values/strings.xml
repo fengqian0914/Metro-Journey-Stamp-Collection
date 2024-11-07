@@ -49,6 +49,8 @@
     <string name="end_station">終點</string>
     <string name="total_times">預計搭乘時間</string>
     <string name="total_money">票價</string>
+    <string name="tickey_type">票種</string>
+
     <string name="station_data_btn">看更多車站資訊</string>
     <string name="return_btn">重置</string>
     <string name="unanimous_vote">全票</string>
@@ -66,6 +68,8 @@
     <string name="ExitType2_1">雙向扶梯</string>
     <string name="ExitType2_2">向上扶梯</string>
     <string name="ExitType2_3">向下扶梯</string>
+    <string name="ExitType2_4">時段調整</string>
+
     <string name="ExitType3_0">電梯</string>
     <string name="ExitType3_1">無電梯</string>
     <!-- 列車資訊頁面 -->
@@ -95,9 +99,15 @@
     <string name="moon">月</string>
     <string name="days">日</string>
     <string name="hour">時</string>
-    <string name="minute">分鐘</string>
-    <string name="Second">秒數</string>
+    <string name="minute">分</string>
+    <string name="Second">秒</string>
     <string name="ribbonName">尚未解鎖</string>
+    <string name="Bronze_Award">銅牌獎勵</string>
+    <string name="Silver_Award">銀牌獎勵</string>
+    <string name="Gold_Award">金牌獎勵</string>
+
+
+
     <!-- 設定頁面 -->
     <string name="Setting_default_name">使用者名稱</string>
     <string name="Setting_tab_name">名稱修改</string>
@@ -123,8 +133,8 @@
     <string name="Setting_language">語言</string>
     <string name="Setting_darkmode">夜間模式</string>
     <string name="Setting_FAQ">常見問題</string>
-    <string name="Setting_about">關於我們</string>
-    <string name="Setting_other">其他設定</string>
+    <string name="Setting_about">聯絡我們</string>
+    <string name="Setting_other">其他</string>
     <string name="Setting_logout">登出</string>
     <!-- 個人資料 -->
     <string name="Setting_user_title">個人資料修改</string>
@@ -194,12 +204,7 @@
     <string name="faq_ans_11">我們主要從兩個部分取得\n台北捷運API: 台北捷運API提供了捷運的搭乘所需時間、到站時間等資訊，讓我們可以透過呼叫API取得所需的站點資訊。\n資料介接「交通部TDX平臺」運輸資料流通服務TDX API： 運輸資料流通服務TDX API提供了提供眾多公共交通運輸數據的API，我們使用了捷運的站點內設施、票價等資訊，讓我們可以透過呼叫API取得所需的站點資訊。</string>
     <string name="data_integration_taipei_metro">資料介接「台北捷運」</string>
     <string name="data_integration_tdx_platform">資料介接「台灣交通部TDX平臺」</string>
-    <!--關於我們-->
-    <string name="about_mail_title">聯絡我們</string>
-    <string name="about_mail_text">如需協助或有任何疑問，歡迎隨時聯繫我們！我們的客戶服務團隊將在最短時間內回覆您。\n無論是應用功能、帳戶問題，還是其他疑問，我們都樂意提供幫助。</string>
-    <string name="about_mail_btn">立即聯繫</string>
-
-
+    <!--聯絡我們-->
     <string name="about_form_title">意見回饋與問題回報</string>
     <string name="about_form_text">您的意見是我們進步的動力！如果您有建議、反饋或遇到問題，請讓我們知道。填寫反饋表單後，我們會仔細閱讀每一條反饋，並努力改進，以提供更好的應用體驗。</string>
     <string name="about_form_btn">立即回報</string>
@@ -246,4 +251,13 @@
     <string name="insufficient_coins">所需硬幣不夠</string>
     <string name="coin_update_failed_retry_or_report">更新硬幣數量失敗，重試或回報</string>
     <string name="coupon_save_failed_retry_or_report">儲存優惠券失敗，重試或回報</string>
+    <string name="error">錯誤</string>
+    <string name="Version">版本號：</string>
+    <string name="Coin">金幣</string>
+    <string name="Received">已領取</string>
+    <string name="Failed_to_collect">領取失敗，重測或回報</string>
+    <string name="Successfully_received">成功領取</string>
+    <string name="Not_qualified">資格不符</string>
+
+
 </resources>

@@ -162,8 +162,8 @@ class TDX_API(private val context: Context) {
                         if (response.code == 429) {
                             println("error2")
                             (context as? Activity)?.runOnUiThread {
-                                val dialog_title="錯誤"
-                                val dialogs_msg="資料請求速度過快，請稍後再試"
+                                val dialog_title=context.getString(R.string.error)
+                                val dialogs_msg=context.getString(R.string.operation_too_fast)
                                 showdialog(dialog_title,dialogs_msg)
 
                                 Toast.makeText(context, context.getString(R.string.operation_too_fast), Toast.LENGTH_LONG).show()

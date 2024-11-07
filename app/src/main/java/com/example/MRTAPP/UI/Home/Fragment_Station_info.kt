@@ -86,6 +86,7 @@ class Fragment_Station_info : Fragment() {
                         var ExitListDataArray = JSONArray()
                         for (i in 0 until response_Array.length()) {
                             val jsonObject = response_Array.getJSONObject(i)
+                            Log.d("出口資訊",jsonObject.toString())
                             val LocationDescription = jsonObject.getString("LocationDescription")
                             val Stair = jsonObject.getBoolean("Stair")
                             val Escalator = jsonObject.getInt("Escalator")
@@ -109,7 +110,7 @@ class Fragment_Station_info : Fragment() {
                                 1 -> "雙向扶梯"
                                 2 -> "向上扶梯"
                                 3 -> "向下扶梯"
-                                else -> ""
+                                else -> "動態調整"
                             }
                             var ElevatorText = if (Elevator) "有電梯" else "無電梯"
                             text += "${stationName}出口${i + 1} ${LocationDescription} \n 樓梯:${StairText} 手扶梯:${EscalatorText} 電梯:${ElevatorText} \n\n"
@@ -182,9 +183,10 @@ class Fragment_Station_info : Fragment() {
             stationID.contains("G03A") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_G03A)
 
             stationID.contains("BL") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_BL)
+            stationID.contains("BR") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_BR)
+
             stationID.contains("R") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_R)
             stationID.contains("G") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_G)
-            stationID.contains("BR") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_BR)
             stationID.contains("O") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_O)
             stationID.contains("Y") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_Y)
             else -> ContextCompat.getColor(requireContext(),R.color.mrt_route_BL)

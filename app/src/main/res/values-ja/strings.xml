@@ -55,6 +55,8 @@
     <string name="Discount_tickets">割引チケット</string>
     <string name="Taipei_City_Children_Ticket">台北子供チケット</string>
     <string name="dollar">新台湾ドル</string>
+    <string name="tickey_type">チケット種類</string>
+
     <!-- ルート計画 -->
     <string name="route_planning_btn">ルート計画</string>
     <!-- 駅情報ページ -->
@@ -66,6 +68,8 @@
     <string name="ExitType2_1">双方向エスカレーター</string>
     <string name="ExitType2_2">エスカレーターで上がる</string>
     <string name="ExitType2_3">下りエスカレーター</string>
+    <string name="ExitType2_4">時間帯調整</string>
+
     <string name="ExitType3_0">エレベーター</string>
     <string name="ExitType3_1">エレベーターなし</string>
     <!-- 列車情報ページ -->
@@ -97,6 +101,10 @@
     <string name="hour">時間</string>
     <string name="minute">分</string>
     <string name="Second">秒</string>
+    <string name="Bronze_Award">銅メダル報酬</string>
+    <string name="Silver_Award">銀メダル報酬</string>
+    <string name="Gold_Award">金メダル報酬</string>
+
     <!-- 設定ページ -->
     <string name="Setting_default_name">ユーザー名</string>
     <string name="Setting_tab_name">名前の変更</string>
@@ -122,8 +130,8 @@
     <string name="Setting_language">言語</string>
     <string name="Setting_darkmode">ナイトモード</string>
     <string name="Setting_FAQ">よくある質問</string>
-    <string name="Setting_about">私たちについて</string>
-    <string name="Setting_other">その他の設定</string>
+    <string name="Setting_about">お問い合わせ</string>
+    <string name="Setting_other">他の</string>
     <string name="Setting_logout">サインアウト</string>
     <!-- 個人情報 -->
     <string name="Setting_user_title">個人情報の変更</string>
@@ -190,6 +198,10 @@
     <string name="faq_ans_11">主に次の2つのソースからデータを取得しています：\n台北MRT API：台北MRT APIは、所要時間や到着時間などの情報を提供します。\n交通部TDXプラットフォーム：公共交通データのAPIを提供しており、駅内の施設や運賃情報を取得できます。</string>
     <string name="data_integration_taipei_metro">データ連携「台北メトロ」</string>
     <string name="data_integration_tdx_platform">データ連携「台湾交通部TDXプラットフォーム」</string>
+    <!--お問い合わせ-->
+    <string name="about_form_title">フィードバックと問題報告</string>
+    <string name="about_form_text">あなたのフィードバックは私たちの進歩の原動力です！ご意見、ご提案、または問題がございましたら、お知らせください。フィードバックフォームにご記入いただいた後、すべてのフィードバックを丁寧に読み、より良いアプリ体験を提供できるよう努力いたします。</string>
+    <string name="about_form_btn">今すぐ報告</string>
 
     <!--他の-->
     <string name="after_login" >ログイン後に確認</string>
@@ -234,4 +246,9 @@
     <string name="insufficient_coins">コイン不足</string>
     <string name="coin_update_failed_retry_or_report">コイン更新失敗、再試行か報告</string>
     <string name="coupon_save_failed_retry_or_report">クーポン保存失敗、再試行か報告</string>
+    <string name="error">エラー</string>
+
+    <string name="Version">バージョン：</string>
+    <string name="Coin">コイン</string>
+
 </resources>

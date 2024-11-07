@@ -107,7 +107,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             endStation.text = ""
             view.findViewById<TextView>(R.id.Home_Arrivaltime).text=""
             view.findViewById<TextView>(R.id.Home_Price).text=""
-            view.findViewById<TextView>(R.id.Home_Price_grade).text=""
+            view.findViewById<TextView>(R.id.Home_Price_type).text=""
             mapView.returnbtn()
 
         }
@@ -116,8 +116,8 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 //            val stationname = startStation.text
 //            val stationname = GetLanguage.getStationName(requireContext(),startStation.text.toString())
 
-//            val stationname = GetLanguage.getStationName2(requireContext(),startStation.text.toString(),InputLanguage,"Zh_tw")
-            val stationname = startStation.text
+            val stationname = GetLanguage.getStationName2(requireContext(),startStation.text.toString(),InputLanguage,"Zh_tw")
+//            val stationname = startStation.text
 
             Log.d("clickInfo","輸入語言${InputLanguage} \n" +
                     "輸入文字${startStation.text}\n" +
@@ -135,7 +135,10 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             }
         }
         view.findViewById<ImageView>(R.id.endInfo).setOnClickListener {
-            val stationname = endStation.text
+//            val stationname = endStation.text
+
+            val stationname = GetLanguage.getStationName2(requireContext(), endStation.text.toString(),InputLanguage,"Zh_tw")
+
             if (stationname.isEmpty()){
                 Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
@@ -151,16 +154,16 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             if (Price_grade_index == -1) {
                 Price_grade_index = 2
             }
-            view.findViewById<TextView>(R.id.Home_Price).text = priceList[Price_grade_index].toString() + requireContext().getString(R.string.dollar)
+            view.findViewById<TextView>(R.id.Home_Price).text = priceList[Price_grade_index].toString() + " "+requireContext().getString(R.string.dollar)
             when (Price_grade_index) {
                 0 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.unanimous_vote)
+                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.unanimous_vote)
                 }
                 1 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.Discount_tickets)
+                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Discount_tickets)
                 }
                 2 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
+                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
                 }
             }
         }
@@ -169,16 +172,16 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             if (Price_grade_index == 3) {
                 Price_grade_index = 0
             }
-            view.findViewById<TextView>(R.id.Home_Price).text = priceList[Price_grade_index].toInt().toString() + requireContext().getString(R.string.dollar)
+            view.findViewById<TextView>(R.id.Home_Price).text = priceList[Price_grade_index].toInt().toString() + " " + requireContext().getString(R.string.dollar)
             when (Price_grade_index) {
                 0 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.unanimous_vote)
+                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.unanimous_vote)
                 }
                 1 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.Discount_tickets)
+                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Discount_tickets)
                 }
                 2 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
+                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
                 }
             }
         }
@@ -254,16 +257,16 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                 try {
                     priceList=response
                     activity?.runOnUiThread {
-                        views?.findViewById<TextView>(R.id.Home_Price)?.text = priceList[0].toInt().toString() + requireContext().getString(R.string.dollar)
+                        views?.findViewById<TextView>(R.id.Home_Price)?.text = priceList[0].toInt().toString()  + " "+ requireContext().getString(R.string.dollar)
                         when (Price_grade_index) {
                             0 -> {
-                                view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.unanimous_vote)
+                                view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.unanimous_vote)
                             }
                             1 -> {
-                                view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.Discount_tickets)
+                                view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Discount_tickets)
                             }
                             2 -> {
-                                view?.findViewById<TextView>(R.id.Home_Price_grade)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
+                                view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
                             }
                         }
                     }
@@ -348,4 +351,5 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                 }
             }
     }
+
 }

@@ -55,6 +55,8 @@
     <string name="Discount_tickets">할인 티켓</string>
     <string name="Taipei_City_Children_Ticket">타이베이 어린이 티켓</string>
     <string name="dollar">신 대만 달러</string>
+    <string name="tickey_type">티켓 종류</string>
+
     <!-- 경로 계획 -->
     <string name="route_planning_btn">경로 계획</string>
     <!-- 역 정보 페이지 -->
@@ -66,6 +68,8 @@
     <string name="ExitType2_1">양방향 에스컬레이터</string>
     <string name="ExitType2_2">에스컬레이터 위로</string>
     <string name="ExitType2_3">에스컬레이터 아래로</string>
+    <string name="ExitType2_4">시간 조정</string>
+
     <string name="ExitType3_0">엘리베이터</string>
     <string name="ExitType3_1">엘리베이터 없음</string>
     <!-- 열차 정보 페이지 -->
@@ -97,6 +101,10 @@
     <string name="hour">시간</string>
     <string name="minute">분</string>
     <string name="Second">초 수</string>
+    <string name="Bronze_Award">브론즈 보상</string>
+    <string name="Silver_Award">실버 보상</string>
+    <string name="Gold_Award">골드 보상</string>
+
     <!-- 설정 페이지 -->
     <string name="Setting_default_name">사용자 이름</string>
     <string name="Setting_tab_name">이름 수정</string>
@@ -122,8 +130,8 @@
     <string name="Setting_language">언어</string>
     <string name="Setting_darkmode">야간 모드</string>
     <string name="Setting_FAQ">Faq</string>
-    <string name="Setting_about">회사 소개</string>
-    <string name="Setting_other">기타 설정</string>
+    <string name="Setting_about">문의하기</string>
+    <string name="Setting_other">다른</string>
     <string name="Setting_logout">사인아웃</string>
     <!-- 개인 정보 -->
     <string name="Setting_user_title">개인정보 수정</string>
@@ -190,6 +198,10 @@
     <string name="faq_ans_11">주로 두 가지 출처에서 데이터를 얻습니다:\n타이베이 MRT API: 타이베이 MRT API는 필요한 이동 시간, 도착 정보 등을 제공합니다.\nTDX 데이터 플랫폼: 대중 교통 데이터 API를 제공하여 역 내 시설, 요금 정보를 얻을 수 있습니다.</string>
     <string name="data_integration_taipei_metro">데이터 연동 "타이베이 메트로"</string>
     <string name="data_integration_tdx_platform">데이터 연동 "대만 교통부 TDX 플랫폼"</string>
+    <!--문의하기-->
+    <string name="about_form_title">피드백 및 문제 보고</string>
+    <string name="about_form_text">여러분의 피드백은 저희의 발전을 위한 원동력입니다! 제안이나 피드백이 있거나 문제가 발생한 경우 알려주세요. 피드백 양식을 작성하신 후, 모든 피드백을 꼼꼼히 읽고 개선하여 더 나은 앱 경험을 제공할 수 있도록 노력하겠습니다.</string>
+    <string name="about_form_btn">지금 보고</string>
 
     <!--다른-->
     <string name="after_login" >로그인 후 확인 가능</string>
@@ -234,4 +246,9 @@
     <string name="insufficient_coins">코인 부족</string>
     <string name="coin_update_failed_retry_or_report">코인 업데이트 실패, 재시도 또는 보고</string>
     <string name="coupon_save_failed_retry_or_report">쿠폰 저장 실패, 재시도 또는 보고</string>
+    <string name="error">오류</string>
+
+    <string name="Version">버전：</string>
+    <string name="Coin">코인</string>
+
 </resources>

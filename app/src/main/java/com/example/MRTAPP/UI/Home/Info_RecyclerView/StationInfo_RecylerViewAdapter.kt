@@ -98,7 +98,11 @@ class StationInfo_RecylerViewAdapter(
                 holder.tExitType2.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.escalator_3))
                 holder.tExitType2.visibility = View.VISIBLE
                 holder.tExitTypeText2.text = context.getString(R.string.ExitType2_3)
-
+            }
+            else->{
+                holder.tExitType2.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.escalator_4))
+                holder.tExitType2.visibility = View.VISIBLE
+                holder.tExitTypeText2.text = context.getString(R.string.ExitType2_4)
             }
         }
 

@@ -456,7 +456,7 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private fun updateTextSizeBasedOnLanguage(code: String) {
         chineseTextPaint.textSize = if (
             savelanauge == "En" ||
-            ((savelanauge == "Zh_tw" || savelanauge == "Zh-Hans" || savelanauge == "Ko") && code == "R06")
+            ((savelanauge == "Zh_tw" || savelanauge == "Zh-Hans" || savelanauge == "Ko"||savelanauge == "Ja") && code == "R06")
         ) {
             25f
         } else {

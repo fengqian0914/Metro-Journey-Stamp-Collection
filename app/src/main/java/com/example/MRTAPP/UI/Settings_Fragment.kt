@@ -23,6 +23,7 @@ import com.example.MRTAPP.UI.Setting.About_Us.Setting_About_Us
 import com.example.MRTAPP.UI.Setting.Coupons.Coupons_data
 import com.example.MRTAPP.UI.Setting.FAQ.Setting_FAQ
 import com.example.MRTAPP.UI.Setting.Language.Setting_Language
+import com.example.MRTAPP.UI.Setting.Other.Setting_Other
 import com.example.MRTAPP.UI.Setting.Station.Setting_station
 import com.example.MRTAPP.UI.Setting.User.Personal_information
 import com.google.firebase.auth.FirebaseAuth
@@ -195,7 +196,8 @@ class Settings_Fragment : Fragment() {
             startActivity(intent)
         }
         Other_btn.setOnClickListener {
-
+            val intent = Intent(context, Setting_Other::class.java)
+            startActivity(intent)
         }
 
         Logout_btn.setOnClickListener {

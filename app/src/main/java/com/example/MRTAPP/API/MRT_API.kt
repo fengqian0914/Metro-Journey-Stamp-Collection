@@ -215,7 +215,7 @@ class MRT_API(private val context: Context) {
                                     Log.d("JSON Result", "TransferStations: $transferStations")
 
                                     if (time.toInt() < 60) {
-                                        time += context.getString(R.string.minute)
+                                        time = time+" "+ context.getString(R.string.minute)
                                     } else {
                                         time = "1小時" + (time.toInt() - 60).toString() + "分"
                                     }
