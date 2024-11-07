@@ -143,31 +143,43 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                 Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
                 stationdata_layout(stationname.toString())
-
             }
 
         }
         mapView.setStationTextListener(this)
 
         view.findViewById<ImageView>(R.id.home_grade_left).setOnClickListener {
-            Price_grade_index--
-            if (Price_grade_index == -1) {
-                Price_grade_index = 2
+
+            val  startStation = startStation.text
+            val endStation = endStation.text
+            if (startStation.isEmpty()||endStation.isEmpty()){
+                Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
+            }else{
+                Price_grade_index--
+                if (Price_grade_index == -1) {
+                    Price_grade_index = 2
+                }
+                view.findViewById<TextView>(R.id.Home_Price).text = priceList[Price_grade_index].toString() + " "+requireContext().getString(R.string.dollar)
+                when (Price_grade_index) {
+                    0 -> {
+                        view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.unanimous_vote)
+                    }
+                    1 -> {
+                        view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Discount_tickets)
+                    }
+                    2 -> {
+                        view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
+                    }
+                }
             }
-            view.findViewById<TextView>(R.id.Home_Price).text = priceList[Price_grade_index].toString() + " "+requireContext().getString(R.string.dollar)
-            when (Price_grade_index) {
-                0 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.unanimous_vote)
-                }
-                1 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Discount_tickets)
-                }
-                2 -> {
-                    view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
-                }
-            }
+
         }
         view.findViewById<ImageView>(R.id.home_grade_right).setOnClickListener {
+            val  startStation = startStation.text
+            val endStation = endStation.text
+            if (startStation.isEmpty()||endStation.isEmpty()){
+                Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
+            }else{
             Price_grade_index++
             if (Price_grade_index == 3) {
                 Price_grade_index = 0
@@ -183,6 +195,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                 2 -> {
                     view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.Taipei_City_Children_Ticket)
                 }
+            }
             }
         }
         view.findViewById<Button>(R.id.route_planning_btn).setOnClickListener {
