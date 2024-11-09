@@ -40,9 +40,7 @@ class Fragment_Train_info : Fragment() {
         super.onResume()
         // 當 Fragment 可見時開始計時
         // startTimer() // 可以選擇保留這行，如果你希望在 Fragment 可見時自動開始計時
-        val sharedPreferences = requireContext().getSharedPreferences("stationInfo",
-            Context.MODE_PRIVATE
-        )
+        val sharedPreferences = requireContext().getSharedPreferences("stationInfo", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("ErrorStation",null)
         editor.apply()
@@ -61,33 +59,23 @@ class Fragment_Train_info : Fragment() {
         val view = inflater.inflate(R.layout.fragment__train_info, container, false)
 
 
-        val sharedPreferences = requireContext().getSharedPreferences("stationInfo",
-            Context.MODE_PRIVATE
-        )
+        val sharedPreferences = requireContext().getSharedPreferences("stationInfo", Context.MODE_PRIVATE)
         val stationName = sharedPreferences.getString("stationName", null).toString()
-        Log.d("ErrorStation",stationName)
         val errorText=view.findViewById<TextView>(R.id.ErrorStation)
-
         if(stationName=="板新"||stationName=="中原"||stationName=="橋和"||stationName=="板橋(環狀)"){
             errorText.visibility=View.VISIBLE
             errorText.text=getString(R.string.errorStation)
             view.findViewById<RecyclerView>(R.id.Train_Station_Recyclerview).visibility=View.GONE
             errorText.isSelected = true
-
-            Log.d("ErrorStation","1")
         }else if(stationName=="板橋(環狀)"||stationName=="新埔民生"||stationName=="頭前庄"||
             stationName=="幸福"||stationName=="新北產業園區"){
             errorText.visibility=View.VISIBLE
-            Log.d("ErrorStation","2")
             errorText.isSelected = true
-
             errorText.text=getString(R.string.errorStation2)
             view.findViewById<RecyclerView>(R.id.Train_Station_Recyclerview).visibility=View.VISIBLE
-
             recyclerView = view.findViewById(R.id.Train_Station_Recyclerview)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            trainInfoRecyclerViewAdapter =
-                TrainInfo_RecyclerViewAdapter(requireContext(), trainInfoList)
+            trainInfoRecyclerViewAdapter = TrainInfo_RecyclerViewAdapter(requireContext(), trainInfoList)
             recyclerView.adapter = trainInfoRecyclerViewAdapter
         }
         else{
@@ -96,27 +84,17 @@ class Fragment_Train_info : Fragment() {
             view.findViewById<RecyclerView>(R.id.Train_Station_Recyclerview).visibility=View.VISIBLE
             recyclerView = view.findViewById(R.id.Train_Station_Recyclerview)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            trainInfoRecyclerViewAdapter =
-                TrainInfo_RecyclerViewAdapter(requireContext(), trainInfoList)
+            trainInfoRecyclerViewAdapter = TrainInfo_RecyclerViewAdapter(requireContext(), trainInfoList)
             recyclerView.adapter = trainInfoRecyclerViewAdapter
         }
-
-
-
-
-
         return view
     }
-
     fun startTimer() {
         // 確保計時器不會重複啟動
         if (timer_10s == null) {
-            val sharedPreferences = requireContext().getSharedPreferences("stationInfo",
-                Context.MODE_PRIVATE
-            )
+            val sharedPreferences = requireContext().getSharedPreferences("stationInfo", Context.MODE_PRIVATE)
             val stationName = sharedPreferences.getString("stationName", null).toString()
             val dynamicUrl = "https://api.metro.taipei/metroapi/TrackInfo.asmx"
-
             // 設定 10 秒的計時器
             timer_10s = Timer()
             val timerTask_10s = object : TimerTask() {
@@ -126,7 +104,6 @@ class Fragment_Train_info : Fragment() {
             }
             timer_10s?.schedule(timerTask_10s, 0, 10000)
         }
-
         // 設定 1 秒的倒數計時器
         if (timer_1s == null) {
             timer_1s = Timer()
@@ -136,10 +113,8 @@ class Fragment_Train_info : Fragment() {
                         val timeTextView = view?.findViewById<TextView>(R.id.Train_arrives_times)
                         try {
                             val timeText = timeTextView?.text.toString().toInt()
-                            Log.d("titles", "時間倒數${timeText}")
                             timeTextView?.text = if (timeText <= 0) "10" else (timeText - 1).toString()
                         } catch (e: Exception) {
-                            Log.d("titles", "倒數錯誤" + e.toString())
                         }
                     }
                 }
@@ -159,7 +134,6 @@ class Fragment_Train_info : Fragment() {
         val MRTApi = MRT_API(requireContext())
         MRTApi.update_Arrival_time(dynamicUrl, stationName) { response ->
             val jsons = convertJsonArrayToList(response)
-            Log.d("MRT_API_data", jsons.toString())
             trainInfoList.clear() // 清空之前的資料
             trainInfoList.addAll(jsons) // 添加新的資料
             trainInfoRecyclerViewAdapter.notifyDataSetChanged() // 更新 RecyclerView

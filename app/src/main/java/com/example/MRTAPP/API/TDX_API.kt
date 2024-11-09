@@ -118,11 +118,7 @@ class TDX_API(private val context: Context) {
                 }
             }
         } else {
-
-            Log.d("title", "AccessToken:${accessToken}")
             when(type) {
-//                "price" ->
-//                    ApiCallPrice(destinationStationId, originStationId, accessToken!!, callback)
                 "exit" ->
                     ApiCallExit(destinationStationId, accessToken!!, callback)
             }
@@ -169,14 +165,12 @@ class TDX_API(private val context: Context) {
                         }
                         callback(null)
                     } else {
-                        Log.d("titles","EXIT"+response.toString())
                         val responseBody = response.body?.string()
                         if (responseBody != null) {
                             try {
                                 val jsonArray = JSONArray(responseBody)
                                 val pattern = "Exit\\s*[A-Za-z]*\\s*(\\d+)".toRegex()  // 提取 Exit 後的數字，並允許 M1 類型
                                 val tempExitList = mutableListOf<Map<String, Any>>()  // 暫存未排序的列表
-
                                 for (i in 0 until jsonArray.length()) {
                                     val firstObject = jsonArray.getJSONObject(i)
                                     val locationDescription = firstObject.getString("LocationDescription")
@@ -185,17 +179,11 @@ class TDX_API(private val context: Context) {
                                     val StationName_zh = StationName.getString("Zh_tw")
                                     val StationName_En = StationName.getString("En")
                                     val stair = firstObject.getBoolean("Stair")
-
                                     val escalator = firstObject.getInt("Escalator")
                                     val elevator = firstObject.getBoolean("Elevator")
                                     val ExitName = firstObject.getJSONObject("ExitName").getString("En")
-
-                                    // 提取 Exit 後的數字，並將其轉換為 Int，用於排序
-                                    val matchResult = pattern.find(ExitName)
+                                    val matchResult = pattern.find(ExitName) // 提取 Exit 後的數字，並將其轉換為 Int，用於排序
                                     val exitNumber = matchResult?.groupValues?.get(1)?.toIntOrNull() ?: 1  // 如果無法匹配，設為最大值
-//                                    val exitNumber = firstObject.getString("ExitID")
-                                    Log.d("ExitId",exitNumber.toString())
-
                                     val exitMap = mapOf(
                                         "StationID" to StationID,
                                         "StationName_zh" to StationName_zh,
@@ -207,7 +195,6 @@ class TDX_API(private val context: Context) {
                                         "Escalator" to escalator,
                                         "Elevator" to elevator
                                     )
-
                                     tempExitList.add(exitMap)
                                 }
 // 根據 ExitNumber 排序

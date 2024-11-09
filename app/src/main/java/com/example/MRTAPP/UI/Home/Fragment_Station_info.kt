@@ -1,15 +1,26 @@
 package com.example.MRTAPP.UI.Home
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.content.res.Resources
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.PopupWindow
 import android.widget.TextView
+import android.widget.VideoView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,10 +28,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.MRTAPP.API.TDX_API
 import com.example.MRTAPP.Other.GetStationNameLanguage
 import com.example.MRTAPP.R
+import com.example.MRTAPP.UI.Cameras.MRT_Station_item
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.StationInfoList
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.StationInfo_RecylerViewAdapter
 import com.example.MRTAPP.UI.Home.Info_RecyclerView.TrainInfoList
 import com.example.MRTAPP.UI.Home_fragment
+import com.example.MRTAPP.UI.Star.Achievement_RecyclerViewAdapter
+import com.example.MRTAPP.UI.Star.Achievement_popup_RecyclerViewAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
@@ -62,12 +76,17 @@ class Fragment_Station_info : Fragment() {
         var startID:String?=null
         val getlanguage=GetStationNameLanguage(requireContext())
         val getsavelanguage=getlanguage.getsaveLanguage(requireContext())
+        val stationInfoTextBtn=views.findViewById<ImageView>(R.id.stationInfoTextBtn)
+        val languageText=getlanguage.getsaveLanguage2(requireContext())
         if(stationName=="板橋(環狀)"){
             startID = "Y16"
         }else{
             startID = getStationIdForScame(requireContext(), stationName).toString()
         }
-        Log.d("title", "stationName${stationName}, startID${startID}")
+
+        stationInfoTextBtn.setOnClickListener {
+            getStationInfoText(requireContext(),views,startID,languageText)
+        }
 
         val tdxApi = TDX_API(requireContext())
         tdxApi.callApiExit(startID, stationName, "exit") { response ->
@@ -76,17 +95,14 @@ class Fragment_Station_info : Fragment() {
                     exitList = response
                     activity?.runOnUiThread {
                         val response_Array = JSONArray(response)
-                        var text = ""
                         var StationID = ""
                         var StationName_Zh_tw = ""
                         var StationName_en = ""
                         var StationName_Exit_number = ""
-
                         recyclerView = views.findViewById(R.id.ExitRecyclerView)
                         var ExitListDataArray = JSONArray()
                         for (i in 0 until response_Array.length()) {
                             val jsonObject = response_Array.getJSONObject(i)
-                            Log.d("出口資訊",jsonObject.toString())
                             val LocationDescription = jsonObject.getString("LocationDescription")
                             val Stair = jsonObject.getBoolean("Stair")
                             val Escalator = jsonObject.getInt("Escalator")
@@ -94,35 +110,15 @@ class Fragment_Station_info : Fragment() {
                             StationID = jsonObject.getString("StationID")
                             if(StationID=="Y16"){
                                 StationName_Zh_tw = "板橋(環狀)"
-
                             }else{
                                 StationName_Zh_tw = jsonObject.getString("StationName_zh")
                             }
                             if(getsavelanguage=="Zh_tw"){
                                 StationName_en = jsonObject.getString("StationName_En")
-
                             }else{
                                 StationName_en = getlanguage.getStationName2(requireContext(),jsonObject.getString("StationName_En"),"En",getsavelanguage)
-
                             }
-//                            StationName_en = getlanguage.getStationName2(requireContext(),jsonObject.getString("StationName_En"),"En",getsavelanguage)
-
-//                                jsonObject.getString("StationName_En"),getsavelanguage)
-
-
-//                                jsonObject.getString("StationName_En"),"Zh_tw",getsavelanguage)
                             StationName_Exit_number=jsonObject.getString("ExitNumber")
-                            var StairText = if (Stair) "有樓梯" else "無樓梯"
-                            var EscalatorText = when (Escalator) {
-                                0 -> "無手扶梯"
-                                1 -> "雙向扶梯"
-                                2 -> "向上扶梯"
-                                3 -> "向下扶梯"
-                                else -> "動態調整"
-                            }
-                            var ElevatorText = if (Elevator) "有電梯" else "無電梯"
-                            text += "${stationName}出口${i + 1} ${LocationDescription} \n 樓梯:${StairText} 手扶梯:${EscalatorText} 電梯:${ElevatorText} \n\n"
-
                             val ExitListDataObject = JSONObject()
                             ExitListDataObject.put("ExitId", StationName_Exit_number)
                             ExitListDataObject.put("ExitName", LocationDescription)
@@ -130,18 +126,11 @@ class Fragment_Station_info : Fragment() {
                             ExitListDataObject.put("ExitType2", Escalator)
                             ExitListDataObject.put("ExitType3", Elevator)
                             ExitListDataObject.put("StationName", StationName_Zh_tw)
-
                             ExitListDataArray.put(ExitListDataObject)
                         }
-
                         val data = convertJsonArrayToList(ExitListDataArray)
                         try {
-                            StationInfoRecyclerViewAdapter = StationInfo_RecylerViewAdapter(
-                                requireContext(),
-                                data,
-                                StationName_Zh_tw
-                            )
-
+                            StationInfoRecyclerViewAdapter = StationInfo_RecylerViewAdapter(requireContext(), data, StationName_Zh_tw)
                             recyclerView.layoutManager = LinearLayoutManager(requireContext())
                             recyclerView.adapter = StationInfoRecyclerViewAdapter
                             StationInfoList.addAll(StationInfoList)
@@ -151,40 +140,62 @@ class Fragment_Station_info : Fragment() {
                         }
 
                         try {
-                            views.findViewById<TextView>(R.id.ExitText).text = text
                             views.findViewById<TextView>(R.id.station_ID).text = StationID
 
                             views.findViewById<TextView>(R.id.station_name).text = StationName_Zh_tw
                             views.findViewById<TextView>(R.id.station_name_en).text = StationName_en
-
-                            Log.d("title", views.findViewById<TextView>(R.id.ExitText).text.toString())
                         } catch (e: Exception) {
                             Log.d("titlesy", "textess${e.toString()}")
                         }
                         val station_ID_view=views.findViewById<LinearLayout>(R.id.station_ID_layout)
                         var bgcolor=StationIDbackground(StationID)
-                        Log.d("bgcolor",bgcolor.toString())
                         station_ID_view.backgroundTintList= ColorStateList.valueOf(bgcolor)
-
-
-                        Log.d("title", "轉換結果:" + text)
                     }
                 } catch (e: Exception) {
                     Log.d("title", "Error: $e")
                 }
             }
-            else  {
-                ApiError()
 
-            }
         }
         return views
     }
 
-    private fun ApiError() {
-
+    private fun getStationInfoText(context: Context,views: View?,Id:String,Language:String) {
+        val json=context.assets.open("station_info.json").bufferedReader().use { it.readText() }
+        val jsonObject=JSONObject(json)
+        val StationData=jsonObject.getJSONObject(Id)
+        val StationText=StationData.getString(Language)
+        showdialog(context,StationText,context.getString(R.string.Station_informationText))
     }
+    private fun showdialog(context: Context,StationText:String,Title:String) {
+        val dialog= Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.activity_dialogs)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.transparent)))
+        val dialog_title=dialog.findViewById<TextView>(R.id.dialog_wait_title)
+        val dialog_msg=dialog.findViewById<TextView>(R.id.dialog_wait_msg)
+        val dialog_close=dialog.findViewById<ImageView>(R.id.dialog_close)
+        val dialogs_videoview=dialog.findViewById<VideoView>(R.id.videoView)
+        val dialog_bg=dialog.findViewById<LinearLayout>(R.id.dialog_bg)
+        val dialog_video_layout=dialog.findViewById<LinearLayout>(R.id.video_btn_layout)
+        val Previousbtn=dialog.findViewById<Button>(R.id.dialog_Previous_btn)
+        val Nextbtn=dialog.findViewById<Button>(R.id.dialog_Next_btn)
+        dialog_bg.setBackgroundResource(R.color.startgradient)
+        dialog_title.text=Title
+        dialog_msg.text=StationText
+        dialog_msg.gravity = Gravity.LEFT
+        dialog_msg.setTextColor(Color.WHITE)
+        dialogs_videoview.visibility=View.GONE
+        dialog_video_layout.visibility=View.GONE
+        Previousbtn.visibility=View.GONE
+        Nextbtn.visibility=View.GONE
+        dialog_close.setOnClickListener {
+            dialog.dismiss()
 
+        }
+        dialog.show()
+    }
     private fun StationIDbackground(stationID: String):Int{
         return when {
             stationID.contains("R22A") -> ContextCompat.getColor(requireContext(),R.color.mrt_route_R22A)

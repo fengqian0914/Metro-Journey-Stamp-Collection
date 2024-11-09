@@ -109,28 +109,19 @@ class Store_Fragment : Fragment() {
 
     private fun getUserData(view: View, userId: String) {
         val db = FirebaseFirestore.getInstance()
-
-
         db.collection("users").document(userId).get()
             .addOnSuccessListener { document ->
                 if (document != null && document.exists()) {
                     val userCoin = document.getLong("usercoin")?.toInt()
-
-
                     view.findViewById<TextView>(R.id.mycoin).text=userCoin.toString()
                     productList=ArrayList()
                     recyclerView=view.findViewById<RecyclerView>(R.id.StoreRecyclerView)
-
                     recyclerViewAdapter = Product_RecyclerViewAdapter(this@Store_Fragment, productList,userCoin!!.toInt())
                     val layoutManager:RecyclerView.LayoutManager=GridLayoutManager(context,2)
                     recyclerView!!.layoutManager=layoutManager
                     recyclerView!!.adapter= recyclerViewAdapter
-
                     prepareProductListData()
-
-
                     // 將資料傳回
-                } else {
                 }
             }
             .addOnFailureListener { exception ->
@@ -140,76 +131,44 @@ class Store_Fragment : Fragment() {
 
 
     private fun prepareProductListData() {
-
         try {
             // 獲取 Firestore 的實例
             val db = FirebaseFirestore.getInstance()
-
             // 獲取對應的集合
             val collectionRef = db.collection("Data").document("Product").collection("Items")
-
             // 讀取數據
             collectionRef.addSnapshotListener { snapshot, e ->
                 if (e != null) {
-                    Log.w("Store_Fragment", "Listen failed.", e)
                     return@addSnapshotListener
                 }
-
                 productList.clear() // 清空列表，防重複
 
                 if (snapshot != null) {
                     // 建立暫時的列表，將每個 product 放入以便排序
                     val tempProductList = mutableListOf<ProductList>()
-
                     for (productSnapshot in snapshot.documents) {
                         val productId = productSnapshot.id
                         val productName = productSnapshot.getString("ProductName")
                         val productPrice = productSnapshot.getLong("Price")
                         val productQuantity = productSnapshot.getLong("quantity")
                         val productImageUrl = productSnapshot.getString("ImageUrl").toString()
-
-                        Log.d("title", "Name: $productName")
-                        Log.d("title", "Price: $productPrice")
-
                         if (productId.isNotEmpty() && productName != null && productPrice != null && productQuantity != null) {
-                            val product = ProductList(
-                                productId,
-                                productName,
-                                productImageUrl,
-                                productPrice.toInt(),
-                                productQuantity.toLong()
-                            )
+                            val product = ProductList(productId, productName, productImageUrl, productPrice.toInt(), productQuantity.toLong())
                             tempProductList.add(product)
-                            Log.e(
-                                "Store_Fragment",
-                                " data--> imageResource:${productImageUrl}: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity"
-                            )
-                        } else {
-                            Log.e(
-                                "Store_Fragment",
-                                "Invalid product data: ID: $productId, Name: $productName, Price: $productPrice, Quantity: $productQuantity"
-                            )
                         }
                     }
-
-                    // 根據 ProductId 中的數字進行排序
-                    tempProductList.sortBy { product ->
-                        product.Id.replace("Product", "").toIntOrNull() ?: Int.MAX_VALUE
-                    }
+                    // 根據 ProductId 中的數字進行排 序
+                    tempProductList.sortBy { product -> product.Id.replace("Product", "").toIntOrNull() ?: Int.MAX_VALUE }
                     productList=ArrayList()
                     recyclerView=view?.findViewById<RecyclerView>(R.id.StoreRecyclerView)
-
                     recyclerViewAdapter = Product_RecyclerViewAdapter(this@Store_Fragment, productList)
                     val layoutManager:RecyclerView.LayoutManager=GridLayoutManager(context,2)
                     recyclerView!!.layoutManager=layoutManager
                     recyclerView!!.adapter= recyclerViewAdapter
-
                     // 將排序好的產品加入到 productList
                     productList.addAll(tempProductList)
                     recyclerViewAdapter?.notifyDataSetChanged()
-                    Log.d("loginaa","adasda")
                 } else {
-                    Log.d("Store_Fragment", "Current data: null")
                 }
             }
         }catch (e:Exception){
@@ -226,17 +185,6 @@ class Store_Fragment : Fragment() {
         }
     }
 
-
-
-    private fun getImageResourceForProduct(productId: String?): Int {
-        if (productId.isNullOrEmpty()) {
-            return 0
-        }
-        val resourceName = "product" + productId?.replace("Product", "")
-        return context?.let { ctx ->
-            ctx.resources.getIdentifier(resourceName, "drawable", ctx.packageName)
-        } ?: 0
-    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -256,8 +204,6 @@ class Store_Fragment : Fragment() {
                 }
             }
 
-        fun showBottomSheet() {
-            showBottomSheet()
-        }
+
     }
 }

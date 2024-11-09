@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 登入页面 -->
+    <string name="app_versions">1.0</string>
     <string name="app_name">捷旅印然</string>
     <string name="login">登录</string>
     <string name="email">信箱</string>
@@ -60,6 +61,8 @@
     <string name="route_planning_btn">路线规划</string>
     <!-- 车站资讯页面 -->
     <string name="Station_information">车站资讯</string>
+    <string name="Station_informationText">车站介绍</string>
+
     <string name="Train_information">列车资讯</string>
     <string name="ExitType1_0">楼梯</string>
     <string name="ExitType1_1">无楼梯</string>

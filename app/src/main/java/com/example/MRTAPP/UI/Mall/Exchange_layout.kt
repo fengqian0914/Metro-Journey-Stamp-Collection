@@ -55,19 +55,17 @@ class exchange_layout : AppCompatActivity() {
         val ProductId = intent.getStringExtra("ProductId").toString()
         Productquantity = getProductQuantity(ProductId)
 
-        Log.d("ProductList_2", "Productprice: $Productprice, Productquantity: $Productquantity")
 
         findViewById<TextView>(R.id.ExchangeProductName).text = ProductName
         val imageView = findViewById<ImageView>(R.id.ExchangeProductImageView)
         Glide.with(imageView)
             .load(ProductImage) // 這裡是 Firebase Storage 的圖片 URL
-            .placeholder(R.drawable.placeholder) // 請替換為你的佔位符圖片
-            .error(R.drawable.loading_error) // 請替換為你的錯誤圖片
+            .placeholder(R.drawable.placeholder) // 暫時圖片
+            .error(R.drawable.loading_error) // 錯誤圖片
             .into(imageView)
 
         findViewById<TextView>(R.id.ExchangeProductPrice).text = Productprice.toString()
         findViewById<TextView>(R.id.ExchangeProductquantity).text = Productquantity.toString()
-        Log.d("ProductList_3", "Productquantity: ${Productquantity}")
 
         findViewById<TextView>(R.id.TotalPrice).text = (Productprice * count).toString()
 
@@ -85,8 +83,6 @@ class exchange_layout : AppCompatActivity() {
                     if (document != null && document.exists()) {
                         usercoin = document.getLong("usercoin")!!.toInt()
                         findViewById<TextView>(R.id.Exchange_MyCoin).text = usercoin.toString()
-                    } else {
-                        // 用户信息未找到
                     }
                 }
                 .addOnFailureListener { exception ->
@@ -114,38 +110,10 @@ class exchange_layout : AppCompatActivity() {
             addCoupon(usercoin, Productprice, count, ProductId, ProductName, ProductImage)
         }
     }
-
-    private fun getProductQuantity(productId: String): Int {
-        val db = FirebaseFirestore.getInstance()
-        val productRef = db.collection("Data").document("Product").collection("Items").document(productId)
-        Log.d("ProductList_id",productId.toString())
-
-        productRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null && document.exists()) {
-                    // 獲取最新數量
-                    val productQuantity = document.getLong("quantity") ?: 0
-                    // 更新 UI
-                    findViewById<TextView>(R.id.ExchangeProductquantity).text = productQuantity.toString()
-                    Productquantity = productQuantity.toString().toInt()
-                    Log.d("ProductList_S","aaa"+productQuantity.toString())
-                } else {
-                    Log.e("Firestore", "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("Firestore", "Error getting document", exception)
-            }
-        return Productquantity
-    }
-
-
-
     private fun addCoupon(usercoin: Int, Productprice: Int, count: Int, ProductId: String, ProductName: String, ProductImage: String) {
         // 更新值（加 1）
         findViewById<TextView>(R.id.Exchange_MyCoin).text = usercoin.toString()
         val spend_coins = Productprice * count
-        Log.d("StoreData", "${Productquantity}.....${count}")
         if (spend_coins > usercoin || Productquantity < count) {
             Toast.makeText(this, this.getString(R.string.insufficient_coins), Toast.LENGTH_LONG).show()
         } else {
@@ -159,26 +127,37 @@ class exchange_layout : AppCompatActivity() {
             showBottomSheet(ProductId, ProductName, usercoin.toLong(), spend_coins, QRrandom, count.toString(), ProductImage)
         }
     }
-
+    private fun getProductQuantity(productId: String): Int {
+        val db = FirebaseFirestore.getInstance()
+        val productRef = db.collection("Data").document("Product").collection("Items").document(productId)
+        productRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    // 獲取最新數量
+                    val productQuantity = document.getLong("quantity") ?: 0
+                    // 更新 UI
+                    findViewById<TextView>(R.id.ExchangeProductquantity).text = productQuantity.toString()
+                    Productquantity = productQuantity.toString().toInt()
+                }
+            }
+            .addOnFailureListener { exception ->
+            }
+        return Productquantity
+    }
     private fun showBottomSheet(ProductId: String, ProductName: String, original_coin: Long, spend_coins: Int, QRrandom: String, quantity: String, ProductImage: String) {
-        // 載入佈局
+        // 彈跳視窗
         val dialogView = layoutInflater.inflate(R.layout.qrcode_product, null)
-
-        // 找到佈局中的 TextView 並設置文字
         val productNameTextView = dialogView.findViewById<TextView>(R.id.QR_ProductName)
         productNameTextView.text = ProductName
-
         val Product_QRcode = dialogView.findViewById<ImageView>(R.id.Product_QRcode)
         try {
             val barcodeEncoder = BarcodeEncoder()
             val bitmap = barcodeEncoder.encodeBitmap(QRrandom, BarcodeFormat.QR_CODE, 400, 400)
             Product_QRcode.setImageBitmap(bitmap)
             adjustImageViewSize(Product_QRcode, bitmap)
-
         } catch (e: WriterException) {
             e.printStackTrace()
         }
-
         couponExchange(ProductId, ProductName, quantity, original_coin, spend_coins, dialogView, ProductImage, QRrandom)
         // 建立 BottomSheetDialog
         dialog = BottomSheetDialog(this, R.style.BottomsheetDialogTheme)
@@ -188,23 +167,16 @@ class exchange_layout : AppCompatActivity() {
 
     private fun couponExchange(ProductId: String, ProductName: String, quantity: String, original_coin: Long, spend_coins: Int, dialogView: View, ProductImage: String, QRrandom: String) {
         val userId = auth.currentUser?.uid ?: return
-        val couponId= (1..16)
-            .map { ('A'..'Z') + ('0'..'9') }
-            .flatten()
-            .shuffled()
-            .take(16)
-            .joinToString("")
+        val couponId= (1..16).map { ('A'..'Z') + ('0'..'9') }.flatten().shuffled().take(16).joinToString("")
         val couponRef = db.collection("users").document(userId).collection("coupons").document(couponId) // 使用 couponId 作为文档 ID
         // 獲取當前日期和時間
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val currentDate = dateFormat.format(Date())
-
-        // 計算過期時間，設置為 redeemTime 加 365 天
+        // 計算模擬的過期時間，為 現在 加 365 天
         val calendar = Calendar.getInstance()
         calendar.time = dateFormat.parse(currentDate) // 使用 redeemTime 作為基準時間
         calendar.add(Calendar.DAY_OF_YEAR, 365)
         val expiryTime: String = dateFormat.format(calendar.time)
-
         // 儲存兌換資訊
         val couponData = hashMapOf(
             "productId" to ProductId,
@@ -221,7 +193,6 @@ class exchange_layout : AppCompatActivity() {
         couponRef.set(couponData)
             .addOnSuccessListener {
                 val remaining_coins = original_coin-spend_coins
-
                 db.collection("users").document(userId)
                     .update("usercoin", remaining_coins)
                     .addOnSuccessListener {
@@ -236,60 +207,36 @@ class exchange_layout : AppCompatActivity() {
                     .addOnFailureListener {
                         Toast.makeText(this, this.getString(R.string.coin_update_failed_retry_or_report), Toast.LENGTH_SHORT).show()
                     }
-
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(this, this.getString(R.string.coupon_save_failed_retry_or_report), Toast.LENGTH_SHORT).show()
             }
     }
     private fun StoreDateChange(ProductId: String, Purchase_quantity: Int) {
-
-
         val db = FirebaseFirestore.getInstance()
         val productRef = db.collection("Data").document("Product").collection("Items").document(ProductId)
         Log.d("ProductList_id",ProductId.toString())
-        val userRef = db.collection("Data").document("Product").collection("Items").document(ProductId)
-
         productRef.get()
             .addOnSuccessListener { document ->
                 if (document != null && document.exists()) {
                     // 獲取最新數量
                     val productQuantity = document.getLong("quantity") ?: 0
-                    Log.d("StoreData", "原先數量: $productQuantity")
-                    Log.d("StoreData", "購買數量: $Purchase_quantity")
-
                     // 計算更新後的庫存數量
                     val newquantity = productQuantity - Purchase_quantity
                     val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-                    Log.d("newquantity",newquantity.toString())
-
-
                     productRef.update("quantity", newquantity)
                         .addOnSuccessListener {
-
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, this.getString(R.string.coin_update_failed_retry_or_report), Toast.LENGTH_SHORT).show()
                         }
-
-
-
                     // 更新 UI
                     findViewById<TextView>(R.id.ExchangeProductquantity).text = newquantity.toString()
                     Productquantity = productQuantity.toString().toInt()
-                    Log.d("ProductList_S","aaa"+productQuantity.toString())
-                } else {
-                    Log.e("Firestore", "No such document")
                 }
             }
             .addOnFailureListener { exception ->
-                Log.e("Firestore", "Error getting document", exception)
             }
-
-
-
-
-
     }
 
     private fun adjustImageViewSize(imageView: ImageView, bitmap: Bitmap) {

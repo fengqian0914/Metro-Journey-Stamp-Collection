@@ -61,17 +61,8 @@ class Camera : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-//    private var activityResultLauncher: ActivityResultLauncher<Array<String>>
-    lateinit var cameraManager: CameraManager
-    lateinit var cameraCaptureSession:CameraDevice
-    lateinit var cameraRequest: CaptureRequest
-    lateinit var handler: Handler
-    lateinit var handlerThread: HandlerThread
-    lateinit var texttureView: TextView
-    private lateinit var layout: View
+
     private lateinit var view: View
-//  private  var stationFinish=false;
-    private lateinit var databaseReference: DatabaseReference
 
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()){
@@ -214,10 +205,6 @@ class Camera : Fragment() {
                 }
 
 
-            // 從 SharedPreferences 中讀取資料
-//        val stationvalue = sharedPreferences.getString("stationValue", "default_value_value")
-//        routeValue(stationvalue!!)
-//        Log.d("title","stationvalue$stationvalue")
         }
         return view  //回傳view
     }
@@ -225,31 +212,21 @@ class Camera : Fragment() {
         val jsonObject = JSONObject(string)
         val qrDataObject = jsonObject.getJSONObject("QrData")
         val name = qrDataObject.getString("name")
-        val verify = qrDataObject.optString("verify") // 使用 optString 進行空值檢查
+        val verify = qrDataObject.optString("verify") // 保留未來動態亂碼偵測
         val station = JSONObject(qrDataObject.getString("station"))
-
         // 獲取所有鍵
         val keys = station.keys()
-
         while (keys.hasNext()) {
             val route = keys.next() // 獲取當前鍵
-            Log.d("title", "鍵: $route") // 打印鍵
             // 如果你想要獲取該鍵對應的值
             val stationName = station.getString(route)
-            Log.d("title", "值: $stationName") // 打印值
-
-            Log.d("title", "!!!name$name station$station verify$verify }")
             val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
             // 讀取指定路徑的數據
             val db = FirebaseFirestore.getInstance()
-
             val stationPath = db.collection("users")
                 .document(userId)
                 .collection("StationData")
                 .document("stations")
-
-
-
             stationPath.get()
                 .addOnSuccessListener { documentSnapshot ->
                     if (documentSnapshot.exists()) {
@@ -261,7 +238,6 @@ class Camera : Fragment() {
                             val stationValue = stationData[stationName] as? Boolean ?: false
                             if (stationValue) {
                                 Toast.makeText(context, context?.getString(R.string.station_already_visited), Toast.LENGTH_LONG).show()
-                                Log.d("Firestore", "該站 $stationName 已經抵達過")
                             } else {
                                 // 若為 false，則可以更新為 true 並顯示登記成功
                                 updateStationValue(userId,route)
@@ -270,16 +246,13 @@ class Camera : Fragment() {
                             }
                         } else {
                             Toast.makeText(context, context?.getString(R.string.station_not_exist), Toast.LENGTH_LONG).show()
-                            Log.d("Firestore", "該站 $stationName 不存在")
                         }
                     } else {
                         Toast.makeText(context, context?.getString(R.string.document_not_exist), Toast.LENGTH_LONG).show()
-                        Log.d("Firestore", "該文檔不存在")
                     }
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(context, context?.getString(R.string.read_failed), Toast.LENGTH_LONG).show()
-                    Log.d("Firestore", "讀取失敗: ${exception.message}")
                 }
 
         }
@@ -311,12 +284,10 @@ class Camera : Fragment() {
             }
     }
     private fun updateStationValue(userId:String,route:String) {
-
         val db = FirebaseFirestore.getInstance()
 
         // 定義 Firestore 路徑
         val stationPath = "users/$userId/StationData/stationValue"
-
         // 讀取指定路徑的數據
         db.document(stationPath).get()
             .addOnSuccessListener { documentSnapshot ->
@@ -336,7 +307,6 @@ class Camera : Fragment() {
                                 Toast.makeText(context, context?.getString(R.string.registration_failed_retry_or_report), Toast.LENGTH_LONG).show()
                                 Log.d("title", "登記失敗: ${it.message}")
                             }
-
                 } else {
                     // 如果該文檔不存在
                     Toast.makeText(context, context?.getString(R.string.document_not_exist), Toast.LENGTH_LONG).show()
@@ -361,17 +331,14 @@ class Camera : Fragment() {
                         db.collection("users").document(userId)
                             .update("usercoin", usercoin+100)
                             .addOnSuccessListener {
-
                             }
                             .addOnFailureListener {
                             }
                     }
                 }
                 .addOnFailureListener { exception ->
-
                 }
         }
-
     }
     private fun routeValue(stationvalue:String) {
         // 將 JSON 解析成 Map
@@ -436,17 +403,6 @@ class Camera : Fragment() {
                 false
             }
         }
-        // 讀取json檔案
-        val jsonString = context?.assets?.open("mrt_language.json")?.bufferedReader().use { it?.readText() }
-        val json = JSONObject(JSONObject(jsonString)[route].toString())
-        val jsonkeys = json.keys()
-
-        val db = FirebaseFirestore.getInstance()
-        val stationPath = db.collection("users")
-            .document(userId)
-            .collection("StationData")
-            .document("stations")
-
         val sharedPreferences = requireContext().getSharedPreferences("Settings", MODE_PRIVATE)
         val savedLanguage = sharedPreferences.getString("My_Lang", "default_language")
         val savedCountry = sharedPreferences.getString("My_Country", "default_country")
@@ -459,7 +415,15 @@ class Camera : Fragment() {
             "KR"->language="Ko"
             else ->language="Zh_tw"
         }
-        Log.d("language","language${language} savedLanguage${savedLanguage}")
+        // 讀取json檔案
+        val jsonString = context?.assets?.open("mrt_language.json")?.bufferedReader().use { it?.readText() }
+        val json = JSONObject(JSONObject(jsonString)[route].toString())
+        val jsonkeys = json.keys()
+        val db = FirebaseFirestore.getInstance()
+        val stationPath = db.collection("users")
+            .document(userId)
+            .collection("StationData")
+            .document("stations")
         stationPath.get()
             .addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot.exists()) {
@@ -467,33 +431,22 @@ class Camera : Fragment() {
                     for (key in jsonkeys) {
                         val valueObject = json.optJSONObject(key)
                         val Translation = valueObject?.optString(language)
-
                         if (stationData != null && stationData.containsKey(key)) {
                             val stationCondition = stationData[key] as? Boolean ?: false
                             val status = if (stationCondition) "已完成" else "未完成"
-
-                            // 將站點資料加入列表
-                            testData.add(MRT_Station_item(route, Translation.toString(), status))
-
-
-                        } else {
-                            Log.d("Firestore", "站點 $key 不存在於路線 $route 中")
+                            testData.add(MRT_Station_item(route, Translation.toString(), status))  // 將站點資料加入列表
                         }
                     }
-
-                    // 完成資料讀取後設置 RecyclerView 的適配器
-                    val layoutManager = LinearLayoutManager(context)
+                    val layoutManager = LinearLayoutManager(context)  // 完成資料讀取後設置 RecyclerView 的適配器
                     val adapter = recyclerViewAdapter(testData, route)
                     recyclerView.layoutManager = layoutManager
                     recyclerView.adapter = adapter
                 } else {
                     Toast.makeText(context, context?.getString(R.string.document_not_exist), Toast.LENGTH_LONG).show()
-                    Log.d("Firestore", "該文檔不存在")
                 }
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(context, context?.getString(R.string.read_failed), Toast.LENGTH_LONG).show()
-                Log.d("Firestore", "讀取失敗: ${exception.message}")
             }
 
 
@@ -535,8 +488,6 @@ class Camera : Fragment() {
     private fun checkPermissionCamera(context: Camera,view: View) {
     // 這是透過 getActivity() 來取得 fragment 所在的 activity
         val context_Fragment = requireContext()
-
-
         if(ContextCompat.checkSelfPermission(context_Fragment,Manifest.permission.CAMERA )== PackageManager.PERMISSION_GRANTED){
             showCamera(view)
         }else if(shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)){
@@ -548,9 +499,6 @@ class Camera : Fragment() {
 
     private fun initBinding() {
             binding=FragmentCameraBinding.inflate(layoutInflater)
-
-//            setContentView(binding.root)
-
     }
 
     companion object {

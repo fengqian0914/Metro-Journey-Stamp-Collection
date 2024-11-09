@@ -107,68 +107,47 @@ class MRT_API(private val context: Context) {
             </soap:Envelope>
         """.trimIndent()
         val client = OkHttpClient.Builder().build()
-
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
-
         val service = retrofit.create(ApiService::class.java)
         val mediaType = "text/xml; charset=utf-8".toMediaTypeOrNull()
         val requestBody = RequestBody.create(mediaType, soapRequest)
-
         val call = service.getRecommendedRoute(baseUrl, requestBody)
         call.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     responseBody?.let {
-                        Log.d("SOAP Response", it)
                         try{
-
-
                             var newresopse=it.substring(0,it.indexOf("""<?xml version="1.0" encoding="utf-8"?>"""))
-                            Log.d("titles",it.indexOf("""<?xml version="1.0" encoding="utf-8"?>""").toString())
-                            Log.d("titles",newresopse)
                             val jsonArray = JSONArray(newresopse)
                             var name=stationName
                             if(name.indexOf("站")==-1){
                                 name+="站"
                             }
-                            Log.d("titles","想查站別${name}")
-                            Log.d("titles","到站資訊"+jsonArray.toString())
-
-                            TrainInfoList.clear() // 清空列表，防止重复添加数据
+                            TrainInfoList.clear() // 清空列表，防重複增加
                             val filteredJsonArray = JSONArray()
-
                             for (i in 0 until jsonArray.length()) {
                                 val jsonObject = jsonArray.getJSONObject(i)
                                 if(jsonObject.getString("StationName")==name){
-                                    Log.d("titles","\n到站資訊:")
-                                    Log.d("titles",jsonObject.toString())
                                     val filteredJsonObject = JSONObject()
                                     filteredJsonObject.put("TrainNumber", jsonObject.getString("TrainNumber"))
                                     filteredJsonObject.put("StationName", jsonObject.getString("StationName"))
                                     filteredJsonObject.put("DestinationName", jsonObject.getString("DestinationName"))
                                     filteredJsonObject.put("countDown", jsonObject.getString("CountDown"))
                                     filteredJsonObject.put("NowDateTime", jsonObject.getString("NowDateTime"))
-
                                     filteredJsonArray.put(filteredJsonObject)
                                 }
                             }
-                            Log.d("titles","gggg${TrainInfoList}")
-//                            recyclerViewAdapter?.notifyDataSetChanged()
                             callback(filteredJsonArray)
-
                         }catch (e:Exception){
-                            Log.d("titles","出錯1${e}")
                         }
                     }
                 } else {
                     callback(null)
-                    Log.d("titles","出錯2")
-
                 }
             }
 

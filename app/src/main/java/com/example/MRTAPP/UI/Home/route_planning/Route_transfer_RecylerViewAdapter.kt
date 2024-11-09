@@ -82,7 +82,7 @@ class Route_transfer_RecylerViewAdapter(
         holder.listView.adapter = innerAdapter
 
         // 動態設置 ListView 的高度
-//        setListViewHeightBasedOnChildren(holder.listView)
+
         holder.tStationView.visibility = View.GONE
         holder.tTransfetView.setOnClickListener {
             if (holder.tStationView.visibility == View.GONE) {
@@ -119,31 +119,28 @@ class Route_transfer_RecylerViewAdapter(
 
     fun determineRouteLine(holder: MyViewHolder,position: Int): String {
         val routeLineName: String = when {
-            // 检查新北投支線
+            // 檢查新北投支線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
                 holder.transferStationID_3.text,
                 holder.transferStationID_4.text
             ).count { it.contains("R22A") } >= 1 -> "R22A ${context.getString(R.string.route_R22A) }"
-
-            // 检查小碧潭支線
+            // 檢查小碧潭支線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
                 holder.transferStationID_3.text,
                 holder.transferStationID_4.text
             ).count { it.contains("G03A") } >= 1 -> "G03A ${context.getString(R.string.route_G03A) }"
-
-            // 检查板南線（至少两个 "BL"）
+            // 檢查板南線（至少两个 "BL"）
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
                 holder.transferStationID_3.text,
                 holder.transferStationID_4.text
             ).count { it.contains("BL") } >= 2 -> "BL ${context.getString(R.string.route_BL) }"
-
-            // 检查文湖線
+            // 檢查文湖線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
@@ -151,7 +148,7 @@ class Route_transfer_RecylerViewAdapter(
                 holder.transferStationID_4.text
             ).count { it.contains("BR") } >= 2 -> "BR ${context.getString(R.string.route_BR) }"
 
-            // 检查淡水信義線
+            // 檢查淡水信義線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
@@ -159,7 +156,7 @@ class Route_transfer_RecylerViewAdapter(
                 holder.transferStationID_4.text
             ).count { it.contains("R") } >= 2 -> "R ${context.getString(R.string.route_R) }"
 
-            // 检查新店線
+            // 檢查新店線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
@@ -167,7 +164,7 @@ class Route_transfer_RecylerViewAdapter(
                 holder.transferStationID_4.text
             ).count { it.contains("G") } >= 2 -> "G ${context.getString(R.string.route_G) }"
 
-            // 检查中和蘆洲線
+            // 檢查中和蘆洲線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
@@ -175,7 +172,7 @@ class Route_transfer_RecylerViewAdapter(
                 holder.transferStationID_4.text
             ).count { it.contains("O") } >= 2 -> "O ${context.getString(R.string.route_O) }"
 
-            // 检查環狀線
+            // 檢查環狀線
             listOf(
                 holder.transferStationID_1.text,
                 holder.transferStationID_2.text,
@@ -194,7 +191,7 @@ class Route_transfer_RecylerViewAdapter(
     }
 
 
-    private fun transfetView(holder: Route_transfer_RecylerViewAdapter.MyViewHolder, position: Int, dualStationNames: Set<String>) {
+    private fun transfetView(holder:MyViewHolder, position: Int, dualStationNames: Set<String>) {
         val currentItem = mlist[position]
         val pathArray = currentItem.TransferStation.split("-").filter { it.isNotEmpty() }
         holder.tPath.text = pathArray[0]
@@ -211,9 +208,6 @@ class Route_transfer_RecylerViewAdapter(
             setStationBgcolor(holder.transferStationID_1,getColor(holder.transferStationID_1.text.toString()))
             setStationBgcolor(holder.transferStationID_2,getColor(holder.transferStationID_2.text.toString()))
 
-
-
-
         } else if (pathArray[1] == "板橋") {
             var colorStateList: ColorStateList? = null
 
@@ -222,10 +216,7 @@ class Route_transfer_RecylerViewAdapter(
             val pathArray_Circular_Line =
                 currentItem_Circular_Line.TransferStation.split("-").filter { it.isNotEmpty() }
 
-            Log.d(
-                "currentItem_Circular_Line",
-                "currentItem_Circular_Line:${pathArray_Circular_Line[1]}"
-            )
+
             var BanqiaoID: String
             if (findParentKeyByZhTwValue(context, pathArray_Circular_Line[1]).toString()
                     .contains("BL") && Circular_Line_Banqiao == false
@@ -283,7 +274,6 @@ class Route_transfer_RecylerViewAdapter(
         holder.tPath2.text = pathArray2?.getOrNull(0) ?: ""
         holder.transferStationID_4.visibility = View.GONE
 
-
         if (pathArray2 != null && pathArray2.size > 1 && pathArray2[1] in dualStationNames) {
             val stationIds = twostations(pathArray2[1])
             holder.transferStationID_3.text = stationIds[0].toString()
@@ -300,16 +290,14 @@ class Route_transfer_RecylerViewAdapter(
 
         } else {
             val transferStationID = if (pathArray2 != null && pathArray2.size > 1) {
-                findParentKeyByZhTwValue(context, pathArray2[1]) // 安全访问 pathArray2[1]
+                findParentKeyByZhTwValue(context, pathArray2[1]) //
             } else {
-                null // 如果条件不满足，返回 null 或默认值
+                null
             }
 
-            holder.transferStationID_3.text = transferStationID ?: "" // 设置默认值为空字符串
+            holder.transferStationID_3.text = transferStationID ?: ""
 
         }
-
-
         val backgroundTint = getColor(holder.transferStationID_3.text.toString())
 
         // 設置背景顏色
@@ -335,10 +323,8 @@ class Route_transfer_RecylerViewAdapter(
             val pathArray_Circular_Line =
                 currentItem_Circular_Line.TransferStation.split("-").filter { it.isNotEmpty() }
 
-            Log.d("cItem_CLine", "cItem_CLine:${pathArray_Circular_Line[1]}")
             var BanqiaoID: String
-            var temp = findParentKeyByZhTwValue(context, pathArray_Circular_Line[1]).toString()
-                .contains("BL")
+            var temp = findParentKeyByZhTwValue(context, pathArray_Circular_Line[1]).toString().contains("BL")
             if (temp && Circular_Line_Banqiao == false) {
                 BanqiaoID = "BL07"
                 colorStateList = ContextCompat.getColorStateList(context, R.color.mrt_route_BL)
@@ -353,12 +339,7 @@ class Route_transfer_RecylerViewAdapter(
             if (colorStateList != null) {
                 ViewCompat.setBackgroundTintList(holder.transferStationID_3, colorStateList)
             } else {
-
-                setStationBgcolor(
-                    holder.transferStationID_3,
-                    getColor(holder.transferStationID_3.text.toString())
-                )
-
+                setStationBgcolor(holder.transferStationID_3, getColor(holder.transferStationID_3.text.toString()))
             }
         }
     }
@@ -376,12 +357,6 @@ class Route_transfer_RecylerViewAdapter(
             }else{
                 findParentKeyByZhTwValue(context, pathArray_Circular_Line[1]).toString()
             }
-
-
-
-
-
-
         }
         catch (e:Exception){
             Log.d("RouteId", "e${e}")
@@ -404,14 +379,13 @@ class Route_transfer_RecylerViewAdapter(
         listView.requestLayout()
     }
     fun findParentKeyByZhTwValue(context: Context, targetZhTw: String): String? {
-        // 从 assets 文件夹中读取 mrt_language.json 文件
+        // 讀取mrt_language.json
         val inputStream: InputStream = context.assets.open("mrt_language.json")
         val jsonString = inputStream.bufferedReader().use { it.readText() }
 
-        // 将字符串内容转换为 JSONObject
         val json = JSONObject(jsonString)
 
-        // 遍历 JSON 对象查找目标站名
+        // 找目標站
         for (lineKey in json.keys()) {
             val line = json.getJSONObject(lineKey)
             for (stationKey in line.keys()) {

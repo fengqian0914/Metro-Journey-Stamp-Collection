@@ -41,14 +41,10 @@ class TrainInfo_RecyclerViewAdapter(
         val currentItem = mList[position]
 
         val GetStationNameLanguage = GetStationNameLanguage(context)
-//        GetStationNameLanguage.getStationName(context,currentItem.DestinationName.dropLast(1))
-
         when{
             currentItem.DestinationName.contains("南港展覽館")->{
                 holder.tTrain_Info_Station_Id.setTextSize(14f)
                 holder.tTrain_Info_Station_Id_2.setTextSize(14f)
-
-
                 holder.tTrain_Info_Station_Id_2.visibility=View.VISIBLE
                 holder.tTrain_Info_Station_Id.text="BL23"
                 holder.tTrain_Info_Station_Id_2.text="BR24"
@@ -90,9 +86,6 @@ class TrainInfo_RecyclerViewAdapter(
         } else {
             holder.tTrain_Info_Station_Id.setBackgroundColor(ContextCompat.getColor(context, backgroundTint))
         }
-
-
-
         holder.tTrain_Info_Station_Name.text = GetStationNameLanguage.getStationName(context,currentItem.DestinationName.dropLast(1))
         holder.tTrain_Info_Station_Time.text = formatCountDown(currentItem.countDown)
 
@@ -100,20 +93,16 @@ class TrainInfo_RecyclerViewAdapter(
         holder.tTrain_Remind_Btn.setOnClickListener {
             val EndName = currentItem.DestinationName
             val Time = currentItem.countDown
-            Log.d("倒數時間", "Time: $Time")
             if (Time.contains(":")) {
                 // 解析並計算觸發時間
                 val parts = Time.split(":")
                 val minutes = parts[0].toInt()
                 val seconds = parts[1].toInt()
                 val totalSeconds = minutes * 60 + seconds
-
                 // 計算倒數時間減去60秒的觸發時間
                 if (totalSeconds > 60) {
                     val triggerTimeInMillis = (totalSeconds - 60) * 1000L + System.currentTimeMillis()
-                    Log.d("倒數時間", "totalSeconds: $totalSeconds, triggerTimeInMillis: $triggerTimeInMillis")
                     Toast.makeText(context,context.getString(R.string.setting_success_reminder),Toast.LENGTH_LONG).show()
-
                     setMRTArrivalAlarm(context, EndName, Time, triggerTimeInMillis)
                     showMRTArrivalNotification(EndName, Time)
                 } else {
@@ -123,7 +112,6 @@ class TrainInfo_RecyclerViewAdapter(
                 Toast.makeText(context,context.getString(R.string.Train_Approaching),Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(context,context.getString(R.string.train_reciprocal_error),Toast.LENGTH_LONG).show()
-
             }
         }
     }
@@ -192,9 +180,7 @@ class TrainInfo_RecyclerViewAdapter(
     private fun showMRTArrivalNotification(EndName: String, Time: String) {
         val getLanguage=GetStationNameLanguage(context)
         val language=getLanguage.getsaveLanguage2(context)
-        val languageStationName=getLanguage
-            .getStationName2(
-            context,EndName.dropLast(1),"Zh_tw",language)
+        val languageStationName=getLanguage.getStationName2(context,EndName.dropLast(1),"Zh_tw",language)
         Log.d("languages","EndName${EndName.dropLast(1)}language${language}\n")
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.logo)

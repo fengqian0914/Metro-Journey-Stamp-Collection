@@ -265,8 +265,6 @@ class Setting_station : AppCompatActivity() {
         val Previousbtn=dialog.findViewById<Button>(R.id.dialog_Previous_btn)
         val Nextbtn=dialog.findViewById<Button>(R.id.dialog_Next_btn)
         dialog_bg.setBackgroundResource(R.color.startgradient)
-
-
         dialog_title.text=getString(R.string.app_name)
         dialog_msg.visibility=View.GONE
         dialogs_videoview.visibility=View.VISIBLE

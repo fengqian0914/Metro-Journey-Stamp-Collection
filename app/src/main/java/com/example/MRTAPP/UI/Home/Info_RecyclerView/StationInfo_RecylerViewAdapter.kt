@@ -49,7 +49,6 @@ class StationInfo_RecylerViewAdapter(
         } else {
             when (currentItem.ExitId) {
                 0 -> holder.tExitImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.exit_1))
-
                 1 -> holder.tExitImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.exit_1))
                 2 -> holder.tExitImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.exit_2))
                 3 -> holder.tExitImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.exit_3))
@@ -73,26 +72,21 @@ class StationInfo_RecylerViewAdapter(
             holder.tExitTypeText1.text = context.getString(R.string.ExitType1_1)
             View.INVISIBLE
         }
-
-
         // 設定手扶梯圖像
         when (currentItem.ExitType2) {
             0 -> {
                 holder.tExitType2.visibility = View.INVISIBLE
                 holder.tExitTypeText2.text = context.getString(R.string.ExitType2_0)
-
             }
             1 -> {
                 holder.tExitType2.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.escalator_1))
                 holder.tExitType2.visibility = View.VISIBLE
                 holder.tExitTypeText2.text = context.getString(R.string.ExitType2_1)
-
             }
             2 -> {
                 holder.tExitType2.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.escalator_2))
                 holder.tExitType2.visibility = View.VISIBLE
                 holder.tExitTypeText2.text = context.getString(R.string.ExitType2_2)
-
             }
             3 -> {
                 holder.tExitType2.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.escalator_3))

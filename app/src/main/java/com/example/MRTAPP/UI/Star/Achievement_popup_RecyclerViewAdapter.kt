@@ -65,12 +65,12 @@ class Achievement_popup_RecyclerViewAdapter(
             if (myItem.condition == "未完成") R.drawable.station_false else R.drawable.station_true
         )
 
-        // 根据站名设置文本大小
+
         val textSize = getTextSizeForTextLength(myItem.station.length)
         holder.VH_item_station_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
         holder.VH_item_card_route_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
 
-        // 设置背景颜色
+
         setStationBgColor(holder.itemView.context, holder.VH_item_card_bg, getColor(myItem.Route))
         Log.d("color","postion${position}\n" +
                 "getColor(myItem.station)${getColor(myItem.Route)}\n" +

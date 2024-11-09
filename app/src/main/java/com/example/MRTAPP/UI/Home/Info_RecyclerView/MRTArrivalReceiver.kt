@@ -17,24 +17,14 @@ import com.example.MRTAPP.Other.GetStationNameLanguage
 class MRTArrivalReceiver : BroadcastReceiver() {
     private val CHANNEL_ID = "MRT_CHANNEL_ID"
     private val notificationId = 1
-
     override fun onReceive(context: Context, intent: Intent) {
-        val endName = intent.getStringExtra("EndName") ?: "未知目的地"
-        val time = intent.getStringExtra("Time") ?: "未知時間"
-
-        // Log 到站信息
-        Log.d("MRTArrivalReceiver", "列車到達: $endName, 預計到達時間: $time")
-
-
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        if (vibrator.hasVibrator()) {
-            vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE)) // 震动500毫秒
-        }
-        // 發送到站通知
-        showMRTArrivalNotification(context, endName, time)
+        if (vibrator.hasVibrator())
+            vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE)) // 震動0.5秒
+        // 啟動到站通知
+        showMRTArrivalNotification(context)
     }
-
-    private fun showMRTArrivalNotification(context: Context, endName: String, time: String) {
+    private fun showMRTArrivalNotification(context: Context) {
         val getLanguage= GetStationNameLanguage(context)
         val language=getLanguage.getsaveLanguage2(context)
         var title=""
@@ -70,16 +60,9 @@ class MRTArrivalReceiver : BroadcastReceiver() {
             .setContentTitle(title)
             .setContentText(text)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
         with(NotificationManagerCompat.from(context)) {
-            if (ActivityCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)
                 return
-            }
             notify(notificationId, builder.build())
         }
     }

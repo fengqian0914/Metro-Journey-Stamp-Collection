@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ログインページ -->
+    <string name="app_versions">1.0</string>
     <string name="app_name">台北Metroのスタンプ</string>
     <string name="login">ログイン</string>
     <string name="email">メールボックス</string>
@@ -62,6 +63,8 @@
     <!-- 駅情報ページ -->
     <string name="Station_information">駅情報</string>
     <string name="Train_information">列車情報</string>
+    <string name="Station_informationText">駅の紹介</string>
+
     <string name="ExitType1_0">階段</string>
     <string name="ExitType1_1">階段はありません</string>
     <string name="ExitType2_0">エスカレーターなし</string>

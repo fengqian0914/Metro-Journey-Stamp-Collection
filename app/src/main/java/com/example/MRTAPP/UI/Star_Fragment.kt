@@ -108,11 +108,8 @@ class Star_Fragment : Fragment() {
         val db = FirebaseFirestore.getInstance()
         val collectionRef = db.collection("Data").document("Achievement").collection("Item")
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-
         // 使用 get() 進行單次資料讀取
         collectionRef.get().addOnSuccessListener { snapshot ->
-            Log.e("Achievement_Fragment", "Snapshot contains data") // 測試日誌
-
             if (snapshot != null && !snapshot.isEmpty) {
                 val tempAchievementList = mutableListOf<Achievement_List>()
                 val stationPath = db.collection("users")
@@ -120,16 +117,11 @@ class Star_Fragment : Fragment() {
                     .collection("StationData")
                     .document("stations")
 
-                val DataObject = JSONObject()
                 val achievementTasks = mutableListOf<Task<Void>>() // 用於追蹤所有的 Firebase 異步操作
-
                 for (AchievementSnapshot in snapshot.documents) {
                     var existsquantity = 0 // 每次處理新成就前重置 existsquantity
-
                     val achievementId = AchievementSnapshot.id
                     val achievementName = AchievementSnapshot.getString("Name").toString()
-                    Log.d("增加", "換成就名為${achievementName}")
-
                     val StationData = AchievementSnapshot.get("Station") as? Map<String, Any> ?: emptyMap()
                     val StationObject = JSONObject(StationData)
 
@@ -155,7 +147,6 @@ class Star_Fragment : Fragment() {
                                         val stationValue = stationData[key] as? Boolean ?: false
                                         if (stationValue) {
                                             existsquantity += 1 // 更新 existsquantity
-                                            Log.d("增加", "成就名${achievementName} name${value} existsquantity ${existsquantity}")
 
                                             val stationDetails = JSONObject().apply {
                                                 put("Name", value)
@@ -203,7 +194,6 @@ class Star_Fragment : Fragment() {
                     // 等所有異步操作完成後執行
                     Tasks.whenAllComplete(achievementTasks).addOnCompleteListener {
                         // 所有異步操作完成後再添加 Achievement_List 項目
-
                         val achievement = Achievement_List(
                             id = achievementId,
                             Name = achievementName,

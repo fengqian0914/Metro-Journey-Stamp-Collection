@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 로그인 페이지 -->
+    <string name="app_versions">1.0</string>
     <string name="app_name">타이페이 Metro 스탬프</string>
     <string name="login">로그인</string>
     <string name="email">사서함</string>
@@ -61,6 +62,9 @@
     <string name="route_planning_btn">경로 계획</string>
     <!-- 역 정보 페이지 -->
     <string name="Station_information">역정보</string>
+    <string name="Station_informationText">역 소개</string>
+
+
     <string name="Train_information">열차정보</string>
     <string name="ExitType1_0">계단</string>
     <string name="ExitType1_1">계단 없음</string>

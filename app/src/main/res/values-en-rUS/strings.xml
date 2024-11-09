@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Login Page -->
+    <string name="app_versions">1.0</string>
     <string name="app_name">Metro Journey Stamp Collection</string>
     <string name="login">Log In</string>
     <string name="email">Email</string>
@@ -62,6 +63,8 @@
     <!-- Station Information Page -->
     <string name="Station_information">Station Information</string>
     <string name="Train_information">Train Information</string>
+    <string name="Station_informationText">Station Introduction</string>
+
     <string name="ExitType1_0">Stairs</string>
     <string name="ExitType1_1">No Stairs</string>
     <string name="ExitType2_0">No Escalator</string>
