@@ -43,7 +43,8 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private  var EndStatiodId=""
 
     var click_count=0;
-    private val linePaints: Map<String, Paint> = mapOf(
+
+    private val ColorData: Map<String, Paint> = mapOf(
         "R22A" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_R22A) },
         "G03A" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_G03A)},
         "BL" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_BL) },
@@ -53,28 +54,18 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         "O" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_O)},
         "Y" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_Y)}
     )
-
-    private val stationCodePaints: Map<String, Paint> = mapOf(
-        "R22A" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_R22A) },
-        "G03A" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_G03A)},
-        "BL" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_BL) },
-        "R" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_R)},
-        "G" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_G)},
-        "BR" to Paint().apply { color =ContextCompat.getColor(context,R.color.mrt_route_BR) },
-        "O" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_O)},
-        "Y" to Paint().apply { color = ContextCompat.getColor(context,R.color.mrt_route_Y)}
-    )
-
+    //計算移動距離
     private var offsetX = 0.0f
     private var offsetY = 0.0f
     private var lastTouchX = 0f
     private var lastTouchY = 0f
 
-    private val MIN_SCALE = 0.5f
-    private val MAX_SCALE = 1.3f
-    private var currentScale = 1f
+    private val MIN_SCALE = 0.9f
+    private val MAX_SCALE = 1.1f
+    private var currentScale = 1f //當前縮放比例
     private var previousDistance = 1f
-     var savelanauge:String?=null
+
+    var savelanauge:String?=null
     private var selectedStation: Station? = null
 
 
@@ -82,74 +73,51 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         super.onDraw(canvas)
 
         canvas.save()
-//        canvas.scale(currentScale, currentScale)
-        //中心點
-        val centerX = (width / 2).toFloat()
-        val centerY = (height / 2).toFloat()
-        canvas.scale(currentScale, currentScale, centerX, centerY)
         canvas.scale(currentScale, currentScale)
-
+        //移動平順
         canvas.translate(offsetX / currentScale, offsetY / currentScale)
-
-        // Draw blue line
+        // 畫 BL
         drawLine(canvas, blueLineStations, "BL")
-
-        // Draw red line
+        // 畫 R
         drawLine(canvas, redLineStations, "R")
         drawLine(canvas, red_2_LineStations, "R22A")
-
-        // Draw green line
+        // 畫 G
         drawLine(canvas, greenLineStations, "G")
         drawLine(canvas, green_2_LineStations, "G03A")
-
-        // Draw brown line
+        // 畫 BR
         drawLine(canvas, brownLineStations, "BR")
-
-        // Draw orange line
+        // 畫 O
         drawLine(canvas, orangeLineStations, "O")
         drawLine(canvas, orange_2_LineStations, "O")
-
-        // Draw yellow line
+        // 畫 Y
         drawLine(canvas, yellowLineStations, "Y")
-
         canvas.restore()
 
         selectedStation?.let {
-            // Draw selected station name
+            // 原位置/放大比例+移動距離/放大比例
             val x = it.position.x / currentScale + offsetX / currentScale
             val y = it.position.y / currentScale + offsetY / currentScale
-
-
-
-
-            stationCodePaints[it.code]?.let { paint ->
+            ColorData[it.code]?.let { paint ->
                 canvas.drawText(it.code, x, y + Alltextsize, paint)
             }
         }
     }
 
     private fun drawLine(canvas: Canvas, lineStations: List<Station>, lineCode: String) {
-        val paint = linePaints[lineCode] ?: return
-        val codePaint = stationCodePaints[lineCode] ?: return
+        val codePaint = ColorData[lineCode] ?: return
         val path = Path()
-
         for ((index, station) in lineStations.withIndex()) {
             val x = station.position.x
             val y = station.position.y
 
-            if (index == 0) {
+            if (index == 0) { //如是第一個站點則移動到那個點
                 path.moveTo(x, y)
-            } else {
+            } else {// 不是則畫線
                 path.lineTo(x, y)
             }
 
-//            canvas.drawCircle(x, y, 1f, stationPaint)
             val GetLanguage = GetStationNameLanguage(context)
-//            GetLanguage.getStationName(this,station)
-
-//            val stationName_TW = "${GetLanguage.getStationName(context,station.chineseName)}"
-//            val stationName_EN = "${station.englishName}"
-            savelanauge=GetLanguage.getsaveLanguage(context)
+            savelanauge=GetLanguage.getsaveLanguage2(context)
 
             val LanguageText=when(savelanauge){
                 "Zh_tw"->station.chineseName
@@ -160,7 +128,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 else->station.englishName
             }
             val stationName_TW = "${LanguageText}"
-            val stationName_EN= "${LanguageText}"
 
             val stationCode = station.code
             updateTextSizeBasedOnLanguage(station.code)
@@ -171,7 +138,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             canvas.drawCircle(station.position.x, station.position.y, 15f, stationPaint)
             canvas.drawCircle(station.position.x, station.position.y, 15f, linePaint)
             when (stationCode) {
-
                 in "R07"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign = Paint.Align.LEFT
@@ -301,10 +267,7 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     }
 
     private fun linePaint(lineCode: String): Paint=Paint().apply {
-
-
         when(lineCode) {
-
             "R22A" -> color = ContextCompat.getColor(context,R.color.mrt_route_R22A)
             "G03A"-> color = ContextCompat.getColor(context,R.color.mrt_route_G03A)
             "BL"->  color = ContextCompat.getColor(context,R.color.mrt_route_BL)
@@ -323,16 +286,13 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action and MotionEvent.ACTION_MASK) {
-            MotionEvent.ACTION_DOWN -> {
+            MotionEvent.ACTION_DOWN -> { //偵測點擊時
                 lastTouchX = event.x
                 lastTouchY = event.y
                 selectedStation = findStation(event.x, event.y)
-
-
-
             }
             MotionEvent.ACTION_MOVE -> {
-                if (event.pointerCount == 1) {
+                if (event.pointerCount == 1) { //一根手指的時候移動
                     val dx = event.x - lastTouchX
                     val dy = event.y - lastTouchY
                     offsetX += dx
@@ -340,7 +300,7 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                     lastTouchX = event.x
                     lastTouchY = event.y
                     invalidate()
-                } else if (event.pointerCount == 2) {
+                } else if (event.pointerCount == 2) { //兩根手指放大縮小
                     val currentDistance = getDistance(event)
                     if (previousDistance != 0f) {
                         val scale = currentDistance / previousDistance
@@ -370,7 +330,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         val adjustedX = (x - offsetX) / currentScale
         val adjustedY = (y - offsetY) / currentScale
         val touchRadius = 50f / currentScale // 設置觸摸半徑，根據縮放比例調整
-
         // 遍歷所有站點，查找是否有站點被觸摸到
         for (lineStations in listOf(blueLineStations, redLineStations,red_2_LineStations, greenLineStations, brownLineStations, orangeLineStations, yellowLineStations,green_2_LineStations,orange_2_LineStations)) {
             for (station in lineStations) {
@@ -378,38 +337,25 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                     adjustedY >= station.position.y - touchRadius && adjustedY <= station.position.y + touchRadius
                 ) {
                     try{
-                        Log.d("asd","click_count${click_count}")
                         val GetLanguage = GetStationNameLanguage(context)
                         if(click_count==0){
                             startStatiodId=station.code
-                            listener?.onStationTextChanged(GetLanguage.getStationName(context,station.chineseName),"start",station.code)
-                            Log.d("title","0$station.chineseName")
+                            listener?.onStationTextChanged(GetLanguage.getStationName(context,station.chineseName),
+                                "start",station.code)
                             click_count++
-
                         }else if(click_count==1){
                             EndStatiodId=station.code
-
                             if(startStatiodId==EndStatiodId){
-                                Log.d("title","重複.chineseName")
                             }else {
-
-                                listener?.onStationTextChanged(GetLanguage.getStationName(context,station.chineseName), "end", station.code)
+                                listener?.onStationTextChanged(GetLanguage.getStationName(context,station.chineseName),
+                                    "end", station.code)
                                 click_count++
-                                Log.d("title","1$station.chineseName")
-                                Log.d("title","1${station.code}.chineseName")
                             }
-
-
                         }else{
                             Toast.makeText(context,context.getString(R.string.clear_and_retry),Toast.LENGTH_LONG).show()
                         }
-
-
-
                     }catch (e:Exception){
-                        Log.d("title",e.message.toString())
                     }
-
                     return station
                 }
             }
@@ -469,15 +415,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             textSize = Alltextsize
             isAntiAlias = true
             color = Color.WHITE
-//            when (lineCode) {
-//                "BL" ->color = Color.parseColor("#0070bd")
-//                "R" -> color = Color.parseColor("#e3002c")
-//                "G" -> color = Color.parseColor("#008659")
-//                "BR" -> color = Color.parseColor("#c48c31")
-//                "O" -> color = Color.parseColor("#f8b61c")
-//                "Y" -> color = Color.parseColor("#EBD23E")
-//                else -> color = Color.BLACK
-//            }
         }
     }
 
@@ -490,9 +427,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     fun setLinePaint(lineCode: String) {
         when (lineCode) {
-
-
-
             "R22A" -> linePaint.color = ContextCompat.getColor(context,R.color.mrt_route_R22A)
             "G03A"-> linePaint.color = ContextCompat.getColor(context,R.color.mrt_route_G03A)
             "BL"->  linePaint.color = ContextCompat.getColor(context,R.color.mrt_route_BL)
@@ -521,10 +455,6 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
 
     init {
-        // Populate station lists based on JSON data
-        // You need to parse the JSON data and populate these lists accordingly
-        // For now, I'm just populating some dummy data for demonstration purposes
-
         blueLineStations.addAll(
             listOf(
                 Station("頂埔", "Dingpu", "頂埔", "딩푸", "顶埔", "BL01", PointF(100f * enlarge_size, screenHeight.toFloat())),

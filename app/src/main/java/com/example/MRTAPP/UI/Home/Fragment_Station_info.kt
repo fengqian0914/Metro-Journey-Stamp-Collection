@@ -98,7 +98,15 @@ class Fragment_Station_info : Fragment() {
                             }else{
                                 StationName_Zh_tw = jsonObject.getString("StationName_zh")
                             }
-                            StationName_en = getlanguage.getStationName2(requireContext(),jsonObject.getString("StationName_En"),"En",getsavelanguage)
+                            if(getsavelanguage=="Zh_tw"){
+                                StationName_en = jsonObject.getString("StationName_En")
+
+                            }else{
+                                StationName_en = getlanguage.getStationName2(requireContext(),jsonObject.getString("StationName_En"),"En",getsavelanguage)
+
+                            }
+//                            StationName_en = getlanguage.getStationName2(requireContext(),jsonObject.getString("StationName_En"),"En",getsavelanguage)
+
 //                                jsonObject.getString("StationName_En"),getsavelanguage)
 
 

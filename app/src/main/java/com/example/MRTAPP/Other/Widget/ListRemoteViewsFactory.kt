@@ -60,17 +60,44 @@ class ListRemoteViewsFactory(private val context: Context, private val intent: I
         val views = RemoteViews(context.packageName, R.layout.widget_list_item)
         val trainInfo = trainList[position]
         val GetLanguage = GetStationNameLanguage(context)
-
+        val languages=GetLanguage.getsaveLanguage2(context)
         views.setTextViewText(R.id.Train_Info_Station_Name, trainInfo.DestinationName.dropLast(1))
+        var text=""
+        when (languages) {
+            "Zh_tw" -> {
+                text = "To"
+            }
+            "Zh-Hans" -> {
+                text = "往"
+            }
+            "En" -> {
+                text = "To"
+            }
+            "Ja" -> {
+                text = "行き"
+            }
+            "Ko" -> {
+                text = "향해"
+            }
+            else -> {
+                text = "To"
+            }
+        }
+        views.setTextViewText(R.id.To_language,text)
         when{
-            trainInfo.countDown.contains("列車進站")-> {
+            trainInfo.countDown.contains("列車進站中")-> {
                 views.setFloat(R.id.Train_Info_Station_Time, "setTextSize", 14f)
                 views.setTextViewText(R.id.Train_Info_Station_Time, context.getString(R.string.Train_Approaching))
 
             }
             trainInfo.countDown.contains("營運時間已過")-> {
                 views.setFloat(R.id.Train_Info_Station_Time, "setTextSize", 14f)
-                views.setTextViewText(R.id.Train_Info_Station_Time, "結束\n營運")
+                views.setTextViewText(R.id.Train_Info_Station_Time, context.getString(R.string.End_Service))
+
+            }
+            trainInfo.countDown.contains("資料擷取中")-> {
+                views.setFloat(R.id.Train_Info_Station_Time, "setTextSize", 14f)
+                views.setTextViewText(R.id.Train_Info_Station_Time, context.getString(R.string.Loading_Data))
 
             }
             trainInfo.countDown.contains(":")-> {
@@ -113,10 +140,17 @@ class ListRemoteViewsFactory(private val context: Context, private val intent: I
         }
         Log.d("newback","trainInfo.DestinationName${trainInfo.DestinationName}\n" +
                 "ormatDestinationName(trainInfo.DestinationName${formatDestinationName(trainInfo.DestinationName)}")
-        val englishName = GetLanguage.getStationName(context, trainInfo.DestinationName.dropLast(1))
+        var englishName = ""
+
+        if(languages=="Zh_tw"){
+            englishName = GetLanguage.getStationName2(context,trainInfo.DestinationName.dropLast(1),"Zh_tw","En")
+
+        }else{
+            englishName = GetLanguage.getStationName(context, trainInfo.DestinationName.dropLast(1))
+        }
 
 //            getStationName(context, trainInfo.DestinationName.dropLast(1), "En")
-        Log.d("englishName","englishName${trainInfo.DestinationName.dropLast(1)}" +
+        Log.d("englishName","languages${languages}\nenglishName${trainInfo.DestinationName.dropLast(1)}" +
                 " englishName:${englishName}")
 
 

@@ -79,6 +79,11 @@
     <string name="errorStation">Abnormality: Some Sections Of The Circular Line Were Damaged For Some Reason, So That The Information On This Section Cannot Be Displayed.</string>
     <string name="errorStation2">Abnormality: The Mrt System Information Is Abnormal, And Trains Bound For Banqiao Section May Not Be Displayed Properly. And Some Information Is Read Abnormally</string>
     <string name="ToStationText">To</string>
+    <string name="arriving_in_minutes">The train to %1$s will arrive in %2$s minutes</string>
+    <string name="train_approaching">The train is approaching!!!</string>
+    <string name="train_reciprocal_error">Countdown time error</string>
+    <string name="setting_success_reminder">Successfully set. You will be reminded before arrival.</string>
+
     <!-- Mall Page -->
     <string name="StoreName">Points Mall</string>
     <string name="ProductquantityName">Remaining Quantity</string>

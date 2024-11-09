@@ -453,7 +453,7 @@ class Camera : Fragment() {
         var language="zh_tw"
         when(savedCountry){
             "TW" -> language="Zh_tw"// zh-TW
-            "CN" -> language="Zh-Hans" // zh-CN
+            "CN" -> language="Zh_Hans" // zh-CN
             "US"-> language="En"
             "JP"->language="Ja"
             "KR"->language="Ko"

@@ -184,17 +184,14 @@ class MRT_API(private val context: Context) {
 
     private fun sendSoapRequest(type:String,baseUrl: String, soapRequest: String, callback: (String?) -> Unit) {
         val client = OkHttpClient.Builder().build()
-
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
-
         val service = retrofit.create(ApiService::class.java)
         val mediaType = "text/xml; charset=utf-8".toMediaTypeOrNull()
         val requestBody = RequestBody.create(mediaType, soapRequest)
-
         val call = service.getRecommendedRoute(baseUrl, requestBody)
         call.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -209,19 +206,12 @@ class MRT_API(private val context: Context) {
                                     val path = jsonObject.getString("Path")
                                     var time = jsonObject.getString("Time")
                                     val transferStations = jsonObject.getString("TransferStations")
-
-                                    Log.d("JSON Result", "Path: $path")
-                                    Log.d("JSON Result", "Time: $time")
-                                    Log.d("JSON Result", "TransferStations: $transferStations")
-
                                     if (time.toInt() < 60) {
                                         time = time+" "+ context.getString(R.string.minute)
                                     } else {
                                         time = "1小時" + (time.toInt() - 60).toString() + "分"
                                     }
-
                                     callback(time) // 使用回调返回结果
-
                                 } catch (e: JSONException) {
                                     e.printStackTrace()
                                     Log.e("JSON Result", "Error parsing JSON result", e)

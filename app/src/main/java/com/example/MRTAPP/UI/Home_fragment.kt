@@ -35,21 +35,11 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 
     private var param1: String? = null
     private var param2: String? = null
-    private var nightMode: Boolean = false
     private var Price_grade_index: Int = 0
     private var start_code: String = ""
     private var end_code: String = ""
     private var priceList = mutableListOf<Double>()
     private var views: View? = null
-
-    lateinit var imageView: SubsamplingScaleImageView
-
-    // XML
-    // `ApiService` 介面已經放在 Data 目錄中的 ApiService.kt 文件中
-
-    // `GetRecommandRouteResponse` 類別已經放在 Data 目錄中的 GetRecommandRouteResponse.kt 文件中
-
-    //XML
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +55,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home_fragment, container, false)
         views = view
-
+        //離開 跳通知確定
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 // 創建並顯示確認對話框
@@ -77,7 +67,6 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                         // 使用者點選「是」時，關閉對話框並執行返回操作
                         dialog.dismiss()
                         requireActivity().finish() // 結束 Activity，關閉應用程式
-
                     }
                     .setNegativeButton(getString(R.string.backdialog_n)) { dialog, _ ->
                         // 使用者點選「否」時，僅關閉對話框
@@ -91,9 +80,9 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         val mapView = view.findViewById<MapView>(R.id.mapView)
         val GetLanguage = GetStationNameLanguage(requireContext())
         val InputLanguage=GetLanguage.getsaveLanguage(requireContext())
-
+        //將在Mapview所抓到的點寫回來
         mapView.setStationTexts(startStation.text.toString(), endStation.text.toString())
-
+        //兩者交換
         view.findViewById<ImageView>(R.id.change_btn).setOnClickListener {
             val tempstr = startStation.text
             startStation.text = endStation.text
@@ -102,31 +91,19 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             start_code = end_code
             end_code=temp
         }
+        //清空資料
         view.findViewById<Button>(R.id.return_station_btn).setOnClickListener {
             startStation.text = ""
             endStation.text = ""
             view.findViewById<TextView>(R.id.Home_Arrivaltime).text=""
             view.findViewById<TextView>(R.id.Home_Price).text=""
             view.findViewById<TextView>(R.id.Home_Price_type).text=""
-            mapView.returnbtn()
+            mapView.returnbtn()  //寫回Mapview重置
 
         }
-
         view.findViewById<ImageView>(R.id.startInfo).setOnClickListener {
-//            val stationname = startStation.text
-//            val stationname = GetLanguage.getStationName(requireContext(),startStation.text.toString())
-
+            //轉換文字語系
             val stationname = GetLanguage.getStationName2(requireContext(),startStation.text.toString(),InputLanguage,"Zh_tw")
-//            val stationname = startStation.text
-
-            Log.d("clickInfo","輸入語言${InputLanguage} \n" +
-                    "輸入文字${startStation.text}\n" +
-                    "輸出語言${"Zh_tw"} \n" +
-                    "輸出文字${stationname}")
-
-
-
-//            val stationname = startStation.text
             if (stationname.isEmpty()){
                 Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
@@ -135,10 +112,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             }
         }
         view.findViewById<ImageView>(R.id.endInfo).setOnClickListener {
-//            val stationname = endStation.text
-
             val stationname = GetLanguage.getStationName2(requireContext(), endStation.text.toString(),InputLanguage,"Zh_tw")
-
             if (stationname.isEmpty()){
                 Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
@@ -146,10 +120,9 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             }
 
         }
-        mapView.setStationTextListener(this)
-
+        mapView.setStationTextListener(this) //監聽
+        //調整票種
         view.findViewById<ImageView>(R.id.home_grade_left).setOnClickListener {
-
             val  startStation = startStation.text
             val endStation = endStation.text
             if (startStation.isEmpty()||endStation.isEmpty()){
@@ -198,24 +171,19 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
             }
             }
         }
+        //路線規劃
         view.findViewById<Button>(R.id.route_planning_btn).setOnClickListener {
             val startName = startStation.text
             val EndName = endStation.text
-
-
             if (startName.isEmpty()||EndName.isEmpty()){
                 Toast.makeText(context,context?.getString(R.string.please_select_station_name),Toast.LENGTH_LONG).show()
             }else{
                 val intent = Intent(requireContext(), route_plannings::class.java)
-
+                //存入兩點
                 intent.putExtra("startStation", start_code)
                 intent.putExtra("EndStation", end_code)
                 startActivity(intent)
             }
-
-
-
-
 
         }
         return view
@@ -226,17 +194,15 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         val SID: String
     )
 
+//    取得站點在API的編號
     fun getSIDForStation(context: Context, stationId: String): String? {
         return try {
             // 讀取 JSON 檔案
             val jsonString = context.assets.open("mrt_time_number.json").bufferedReader().use { it.readText() }
-
             // 定義 JSON 資料的類型
             val type: Type = object : TypeToken<Map<String, StationInfo>>() {}.type
-
             // 使用 Gson 解析 JSON 資料
             val stationMap: Map<String, StationInfo> = Gson().fromJson(jsonString, type)
-
             // 根據 stationId 查找對應的 SID
             stationMap[stationId]?.SID
         } catch (e: Exception) {
@@ -247,26 +213,8 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
 
     private fun TDX_API_Price(view: View, Start_Station_code: String, End_Station_code: String) {
         val tdxApi = TDX_API(requireContext())
-        tdxApi.getAccessToken { response ->
-            if (response != null) {
-                println("API 回應：$response")
-                Log.d("title","LoginLayout:${response}")
-                // 取得 SharedPreferences 實例
-                val tdx_sharedPreferences = context?.getSharedPreferences("tdx", Context.MODE_PRIVATE)
-
-                // 編輯 SharedPreferences
-                val tdx_editor =  tdx_sharedPreferences?.edit()
-                tdx_editor?.putString("AccessToken",response)
-
-                tdx_editor?.apply()
-
-            } else {
-                println("呼叫 API 失敗")
-            }
-        }
         tdxApi.callApi(Start_Station_code, End_Station_code,"price") { response->
             if (response != null) {
-                println("API 回應：$response")
                 try {
                     priceList=response
                     activity?.runOnUiThread {
@@ -284,17 +232,15 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                         }
                     }
                 } catch (e: Exception) {
-                    Log.d("title", "Error: $e")
+                    Toast.makeText(context,getString(R.string.read_failed),Toast.LENGTH_LONG).show()
                 }
             } else {
-                println("Price:呼叫 API 失敗2-1")
+                Toast.makeText(context,getString(R.string.read_failed),Toast.LENGTH_LONG).show()
             }
         }
-        MRT_TIME(Start_Station_code, End_Station_code)
     }
 
     private fun MRT_TIME(startName: String, endName: String) {
-
         val startID = getSIDForStation(requireContext(), startName).toString()
         val endID = getSIDForStation(requireContext(), endName).toString()
         val MRTApi = MRT_API(requireContext())
@@ -302,43 +248,19 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
         var type="total_time"
         MRTApi.ApiCall(type,dynamicUrl, startID, endID) { response ->
             views?.findViewById<TextView>(R.id.Home_Arrivaltime)?.text = response ?: "無法獲取時間"
-            Log.d("ApiCall","h type${type} dynamicUrl${dynamicUrl} startID${startID} endID${endID} startName${startName} endName${endName}")
-
-            Log.d("ApiCall","h response${response}")
         }
-
-//        dynamicUrl = "https://api.metro.taipei/metroapi/CarWeight.asmx"
-//        type="Crowding"
-//        MRTApi.ApiCall(type,dynamicUrl, startID, endID) { response ->
-//            println("Crowding:${response}")
-////            views?.findViewById<TextView>(R.id.Home_Arrivaltime)?.text = response ?: "無法獲取時間"
-//        }
-
-        dynamicUrl = "https://api.metro.taipei/metroapi/TrackInfo.asmx"
-        type="TrackInfo"
-//        MRTApi.ApiCall(type,dynamicUrl, startID, endID) { response ->
-//            println("Crowding:${response}")
-////            views?.findViewById<TextView>(R.id.Home_Arrivaltime)?.text = response ?: "無法獲取時間"
-//        }
-
-
-
-
     }
     private fun stationdata_layout(name: String) {
         val intent = Intent(requireContext(), station_data::class.java)
         intent.putExtra("name", name)
         val sharedPreferences = requireContext().getSharedPreferences("stationInfo", Context.MODE_PRIVATE)
-
         val editor = sharedPreferences.edit()
         editor.putString("stationName",name)
         editor.apply()
-
         startActivity(intent)
     }
 
     override fun onStationTextChanged(Station: String, location: String, code: String) {
-        Log.d("title", "main_onStationTextChanged")
         activity?.runOnUiThread {
             if (location == "start") {
                 view?.findViewById<TextView>(R.id.start_station)?.text = Station
@@ -349,6 +271,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                 end_code = code
                 view?.let {
                     TDX_API_Price(it, start_code, end_code)
+                    MRT_TIME(start_code, end_code)
                 }
             }
         }

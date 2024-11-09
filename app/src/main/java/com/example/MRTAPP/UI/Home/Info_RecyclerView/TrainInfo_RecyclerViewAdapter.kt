@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -111,13 +112,18 @@ class TrainInfo_RecyclerViewAdapter(
                 if (totalSeconds > 60) {
                     val triggerTimeInMillis = (totalSeconds - 60) * 1000L + System.currentTimeMillis()
                     Log.d("倒數時間", "totalSeconds: $totalSeconds, triggerTimeInMillis: $triggerTimeInMillis")
+                    Toast.makeText(context,context.getString(R.string.setting_success_reminder),Toast.LENGTH_LONG).show()
+
                     setMRTArrivalAlarm(context, EndName, Time, triggerTimeInMillis)
                     showMRTArrivalNotification(EndName, Time)
                 } else {
-                    Log.d("倒數時間", "倒數時間不足60秒，無法設定提醒")
+                    Toast.makeText(context,context.getString(R.string.train_approaching),Toast.LENGTH_LONG).show()
                 }
-            } else {
-                Log.d("倒數時間", "倒數時間格式錯誤")
+            } else if(Time=="列車進站") {
+                Toast.makeText(context,context.getString(R.string.Train_Approaching),Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(context,context.getString(R.string.train_reciprocal_error),Toast.LENGTH_LONG).show()
+
             }
         }
     }
@@ -171,7 +177,7 @@ class TrainInfo_RecyclerViewAdapter(
     private fun formatCountDown(countDown: String): String {
         return when {
             countDown.contains("列車進站") ->context.getString(R.string.Train_Approaching)
-            countDown.contains("資料讀取中") -> context.getString(R.string.Loading_Data)
+            countDown.contains("資料擷取中") -> context.getString(R.string.Loading_Data)
             countDown.contains(":") -> {
                 val parts = countDown.split(":")
                 val minutes = parts[0].toInt()
@@ -184,14 +190,20 @@ class TrainInfo_RecyclerViewAdapter(
 
     // 顯示捷運到站提醒通知
     private fun showMRTArrivalNotification(EndName: String, Time: String) {
+        val getLanguage=GetStationNameLanguage(context)
+        val language=getLanguage.getsaveLanguage2(context)
+        val languageStationName=getLanguage
+            .getStationName2(
+            context,EndName.dropLast(1),"Zh_tw",language)
+        Log.d("languages","EndName${EndName.dropLast(1)}language${language}\n")
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.logos)
-            .setContentTitle("捷運到站提醒")
-            .setContentText("往${EndName} 將於 ${Time} 後到達")
+            .setSmallIcon(R.drawable.logo)
+            .setContentTitle(context.getString(R.string.remindbtn))
+            .setContentText( context.getString(R.string.arriving_in_minutes, languageStationName, Time))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         // 設置大圖示（圖片資源或位圖）
-        val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.bl)
+        val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.logo)
         builder.setLargeIcon(bitmap)
 
         with(NotificationManagerCompat.from(context)) {

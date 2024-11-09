@@ -39,6 +39,25 @@ class GetStationNameLanguage(context: Context) {
         var language="zh_tw"
         when(savedCountry){
             "TW" -> language="Zh_tw"// zh-TW
+            "CN" -> language="Zh_Hans" // zh-CN
+            "US"-> language="En"
+            "JP"->language="Ja"
+            "KR"->language="Ko"
+            else ->language="Zh_tw"
+        }
+        Log.d("savedCountry","savedCountry${savedCountry}language${language}")
+        return language.toString()
+
+    }
+    fun getsaveLanguage2(context: Context):String{
+        val sharedPreferences = context.getSharedPreferences("Settings",
+            Context.MODE_PRIVATE
+        )
+        val savedLanguage = sharedPreferences.getString("My_Lang", "default_language")
+        val savedCountry = sharedPreferences.getString("My_Country", "default_country")
+        var language="zh_tw"
+        when(savedCountry){
+            "TW" -> language="Zh_tw"// zh-TW
             "CN" -> language="Zh-Hans" // zh-CN
             "US"-> language="En"
             "JP"->language="Ja"
@@ -75,10 +94,10 @@ class GetStationNameLanguage(context: Context) {
                 val stationObject = lineObject.getJSONObject(stationKey)
 
                 val OutputName = stationObject.getString(InputLanguage_temp.toString())
-                Log.d("clickInfo","InputName${InputName} \n" +
-                        "OutputName${OutputName} \n" +
-                        "InputLanguage_temp${InputLanguage_temp} \n" +
-                        "Outputlanguage_temp${Outputlanguage_temp} \n")
+//                Log.d("clickInfo","InputName${InputName} \n" +
+//                        "OutputName${OutputName} \n" +
+//                        "InputLanguage_temp${InputLanguage_temp} \n" +
+//                        "Outputlanguage_temp${Outputlanguage_temp} \n")
                 if (OutputName == InputName) {
                     return when (Outputlanguage_temp) {
                         "TW" -> stationObject.getString("Zh_tw")
@@ -86,6 +105,13 @@ class GetStationNameLanguage(context: Context) {
                         "JP" -> stationObject.getString("Ja")
                         "CN" -> stationObject.getString("Zh_Hans")
                         "KR" -> stationObject.getString("Ko")
+                        "Zh_tw" -> stationObject.getString("Zh_tw")
+                        "En" -> stationObject.getString("En")
+                        "Ja" -> stationObject.getString("Ja")
+                        "Zh-Hans" -> stationObject.getString("Zh_Hans")
+                        "Ko" -> stationObject.getString("Ko")
+                        "CN" -> stationObject.getString("Zh_Hans")
+                        "Zh_Hans" -> stationObject.getString("Zh_Hans")
                         else -> OutputName  // 默认返回中文
                     }
                 }
@@ -116,6 +142,9 @@ class GetStationNameLanguage(context: Context) {
                         "Ja" -> stationObject.getString("Ja")
                         "Zh-Hans" -> stationObject.getString("Zh_Hans")
                         "Ko" -> stationObject.getString("Ko")
+                        "CN" -> stationObject.getString("Zh_Hans")
+                        "Zh_Hans" -> stationObject.getString("Zh_Hans")
+
                         else -> "not found"  // 默认返回中文
                     }
                 }

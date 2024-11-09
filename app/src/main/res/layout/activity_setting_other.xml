@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:text="@string/app_version"
+                    android:text="@string/app_versions"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>

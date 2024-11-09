@@ -199,10 +199,10 @@ class exchange_layout : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val currentDate = dateFormat.format(Date())
 
-        // 計算過期時間，設置為 redeemTime 加 30 天
+        // 計算過期時間，設置為 redeemTime 加 365 天
         val calendar = Calendar.getInstance()
         calendar.time = dateFormat.parse(currentDate) // 使用 redeemTime 作為基準時間
-        calendar.add(Calendar.DAY_OF_YEAR, 30)
+        calendar.add(Calendar.DAY_OF_YEAR, 365)
         val expiryTime: String = dateFormat.format(calendar.time)
 
         // 儲存兌換資訊

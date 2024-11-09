@@ -71,7 +71,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/To_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ToStationText"

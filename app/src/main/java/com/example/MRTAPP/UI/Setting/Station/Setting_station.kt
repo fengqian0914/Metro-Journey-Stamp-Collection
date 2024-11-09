@@ -100,9 +100,20 @@ class Setting_station : AppCompatActivity() {
             val strArray = stationName.split("\n")
             val sharedPreferences = this.getSharedPreferences("widgetStationName", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
+
+            val getLanguage=GetStationNameLanguage(this)
+            val language=getLanguage.getsaveLanguage2(this)
             editor.putString("widgetStationName_Id", strArray[0])
             editor.putString("widgetStationName", strArray[1])
-            editor.putString("widgetStationName_en", strArray[2])
+            if(language=="Zh_tw"){
+                editor.putString("widgetStationName_en", getLanguage
+                    .getStationName2(
+                        this,strArray[2],"Zh_tw","En"))
+            }else{
+                editor.putString("widgetStationName_en", strArray[2])
+            }
+
+
             editor.apply()
 
             if (isWidgetAdded) {
@@ -207,8 +218,15 @@ class Setting_station : AppCompatActivity() {
             val key = jsonkeys.next()
             val stationObject = jsons.getJSONObject(key)
             val stationName = stationObject.getString("Zh_tw")
-            val stationName_en = stationObject.getString("En")
-            val stationName_lang = stationObject.getString(InputLanguage)
+            var stationName_lang=""
+            if(InputLanguage=="Zh_tw"){
+                stationName_lang = stationObject.getString("En")
+
+            }else{
+                stationName_lang = stationObject.getString(InputLanguage)
+
+            }
+
 
             stationNames.add("$key\n$stationName\n$stationName_lang")
         }

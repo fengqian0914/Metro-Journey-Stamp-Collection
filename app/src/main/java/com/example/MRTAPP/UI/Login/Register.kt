@@ -103,7 +103,6 @@ class Register : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // 註冊成功，獲取使用者 ID
                     val userId = auth.currentUser?.uid.toString()
-
                     if (userId != null) {
                         // 建立使用者資料的 HashMap
                         val userMap = hashMapOf(
@@ -111,9 +110,7 @@ class Register : AppCompatActivity() {
                             "userName" to name,
                             "email" to email,
                             "usercoin" to usercoin,
-
                         )
-
                         // 將使用者資料儲存到 Firestore
                         db.collection("users").document(userId)
                             .set(userMap)
@@ -122,7 +119,6 @@ class Register : AppCompatActivity() {
                                 // 上傳使用者圖片
                                 uploadImageToFirebase(imageUri ?: defaultImageUri) // 使用預設圖片
                                 startActivity(Intent(this@Register, Login::class.java))
-
                                 addStation_value(userId)
                                 finish()
 
@@ -133,7 +129,6 @@ class Register : AppCompatActivity() {
                     }
                 } else {
                     // 註冊失敗，顯示錯誤訊息
-
                     if (task.exception?.message=="The email address is already in use by another account.") {
                         // 郵箱已經被註冊過
                         Toast.makeText(this, this.getString(R.string.email_already_registered), Toast.LENGTH_SHORT).show()

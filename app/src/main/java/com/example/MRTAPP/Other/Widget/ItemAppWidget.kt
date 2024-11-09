@@ -171,11 +171,17 @@ fun Start_Staion_Title(views: RemoteViews,context: Context) {
     val GetLanguage = GetStationNameLanguage(context)
 
     views.setTextViewText(R.id.start_station_title_zh,stationName)
-    views.setTextViewText(R.id.start_station_title_en,GetLanguage.getStationName(context,stationName))
+    if(GetLanguage.getsaveLanguage2(context)=="Zh_tw"){
+        views.setTextViewText(R.id.start_station_title_en,
+            GetLanguage.getStationName2(context,stationName,"Zh_tw","En"))
+
+    }else{
+        views.setTextViewText(R.id.start_station_title_en,GetLanguage.getStationName(context,stationName))
+    }
     views.setTextViewText(R.id.train_Info_Station_Id_widget_title,stationNameId)
     val backgroundResource = when {
-        stationNameId.contains("R22A") -> R.color.mrt_route_R22A
-        stationNameId.contains("G03A") -> R.color.mrt_route_G03A
+        stationNameId.contains("R22A") -> R.drawable.circle_layout_bg_r22a
+        stationNameId.contains("G03A") -> R.drawable.circle_layout_bg_g03a
         stationNameId.contains("BL") -> R.drawable.circle_layout_bg_bl
         stationNameId.contains("BR") -> R.drawable.circle_layout_bg_br
         stationNameId.contains("R" )-> R.drawable.circle_layout_bg_r

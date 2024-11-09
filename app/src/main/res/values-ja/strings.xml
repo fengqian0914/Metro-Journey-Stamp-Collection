@@ -79,6 +79,11 @@
     <string name="errorStation">異常：環状線の一部区間が何らかの理由により損傷しており、当該区間の情報が表示できない状態となっています。</string>
     <string name="errorStation2">異常：Mrtのシステム情報に異常があり、板橋区間行きの列車が正しく表示されない場合があります。そして一部の情報が異常に読み取られる</string>
     <string name="ToStationText">行き</string>
+    <string name="arriving_in_minutes">%1$s 行きの電車はあと %2$s 分で到着します</string>
+    <string name="train_approaching">列車がまもなく到着します!!!</string>
+    <string name="train_reciprocal_error">カウントダウン時間エラー</string>
+    <string name="setting_success_reminder">正常に設定されました。到着前に通知されます。</string>
+
     <!-- モールページ -->
     <string name="StoreName">ポイントショップ</string>
     <string name="ProductquantityName">残り数量</string>

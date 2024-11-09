@@ -31,7 +31,7 @@ class forget_password : AppCompatActivity() {
             if(!TextUtils.isEmpty(Email)) {
                 ResetPassword(Email)
             }else{
-                Toast.makeText(this, this.getString(R.string.enter_new_name), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.reset_password_email_failed), Toast.LENGTH_SHORT).show()
 
             }
         }

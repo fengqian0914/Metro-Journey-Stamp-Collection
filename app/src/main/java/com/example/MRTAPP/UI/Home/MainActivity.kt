@@ -30,46 +30,19 @@ import org.osmdroid.config.Configuration
 
 class MainActivity : AppCompatActivity(), MapView.StationTextListener {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var navview: BottomNavigationView
-
     private lateinit var navbar_camera: FloatingActionButton
-    lateinit var imageView: SubsamplingScaleImageView
-    lateinit var imageViewbg: SubsamplingScaleImageView
-    lateinit var imagemap: ImageView
-
-    private lateinit var subwayMap: ImageView
-
-
-    lateinit var taskbtn: Button
-    private lateinit var bitmap: Bitmap
-
     private lateinit var startStation: TextView
     private lateinit var endStation: TextView
     private lateinit var mapView: MapView
 
 
-    private var REQUEST_CAMERA_CODE = 100
     private val CHANNEL_ID = "MRT_CHANNEL_ID"
-    private val notificationId = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        startStation = findViewById(R.id.start_station)
-        endStation = findViewById(R.id.end_station)
-        mapView = findViewById(R.id.mapView)
-
-        // 设置初始值
-        mapView.setStationTexts(startStation.text.toString(), endStation.text.toString())
-
-
-
-
-
-
-        navview = findViewById(R.id.bottomNavigationView)
         val selectedColor = ContextCompat.getColor(this, R.color.nav_item_icon_tint)
         val unselectedColor = ContextCompat.getColor(this, R.color.nav_item_icon_tint_dark)
         // 使用 ColorStateList 設定顏色
@@ -81,6 +54,8 @@ class MainActivity : AppCompatActivity(), MapView.StationTextListener {
             intArrayOf(selectedColor, unselectedColor)
         )
 
+        mapView = findViewById(R.id.mapView)
+        navview = findViewById(R.id.bottomNavigationView)
         navview.itemIconTintList = colorStateList
         navview.itemTextColor = colorStateList
         navview.background = null;
@@ -92,62 +67,22 @@ class MainActivity : AppCompatActivity(), MapView.StationTextListener {
                 R.id.navbar_setting -> replece(Settings_Fragment())
                 R.id.navbar_star -> replece(Star_Fragment())
                 R.id.navbar_store -> replece(Store_Fragment())
-                R.id.fab -> replece(Camera())
-
             }
-
             true
         }
-
         navbar_camera = findViewById(R.id.fab)
         navbar_camera.setOnClickListener {
             replece(Camera())
         }
+
+
         createNotificationChannel()
 
 
 
-        val value = intent.getStringExtra("UserData")
-        Log.d("title", value.toString())
 
-
-
-
-
-        // 初始化 osmdroid 配置
-        Configuration.getInstance().load(
-            applicationContext,
-            PreferenceManager.getDefaultSharedPreferences(applicationContext)
-        )
-
-
-
-        // 设置回调
+        // 回調
         mapView.setStationTextListener(this)
-    }
-
-
-
-    private fun loadSettingsFragment() {
-        try {
-            val settingsFragment = Settings_Fragment()
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.fragment_container,
-                    settingsFragment
-                ) // fragment_container 是你顯示 Fragment 的容器
-                .commit()
-        }catch (e:Error){
-            Log.d("loaderror", e.toString())
-        }
-    }
-    private fun stationdata_layout(name: String) {
-
-
-        val intent = Intent(this, station_data::class.java)
-        intent.putExtra("name", name)
-
-        startActivity(intent)
     }
 
     private fun replece(fragment: Fragment) {

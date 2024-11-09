@@ -78,6 +78,11 @@
     <string name="errorStation">异常：环状线部分路段因故损毁，以至于本路段资讯无法显示</string>
     <string name="errorStation2">异常：捷运系统资讯异常，往板桥段列车可能无法正常显示。且部分资讯读取异常</string>
     <string name="ToStationText">往</string>
+    <string name="arriving_in_minutes">%1$s 将在 %2$s 分钟后到达</string>
+    <string name="train_approaching">列车即将到达!!!</string>
+    <string name="train_reciprocal_error">倒计时时间错误</string>
+    <string name="setting_success_reminder">成功设置，将在到站前提醒。</string>
+
     <!-- 商城页面 -->
     <string name="StoreName">点数商城</string>
     <string name="ProductquantityName">剩余数量</string>

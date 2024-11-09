@@ -53,9 +53,9 @@ class Login : AppCompatActivity() {
         storage = FirebaseStorage.getInstance()
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
-
+        //起始動畫載入
         setupAnimation()
-
+        //登入
         binding.btnLogin.setOnClickListener {
             val account = binding.loginAccount.text.toString()
             val password = binding.loginPassword.text.toString()
@@ -66,38 +66,34 @@ class Login : AppCompatActivity() {
                     Toast.makeText(this@Login, this.getString(R.string.input_all_fields), Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
-                Log.d("LoginError", "1:${e.message}")
             }
         }
-
+//        註冊
         binding.btnLoginRegister.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
         }
-
+//        忘記密碼
         binding.forgetPassword.setOnClickListener {
             startActivity(Intent(this, forget_password::class.java))
         }
-
+//        遊客登入
         binding.GuestLogin.setOnClickListener {
             val sharedPreferences_login = getSharedPreferences("Login", Context.MODE_PRIVATE)
             val editor_login = sharedPreferences_login.edit()
-            editor_login.putBoolean("Guest", true)
+            editor_login.putBoolean("Guest", true) //存是遊客的紀錄
             editor_login.apply()
             navigateToMainActivity()
         }
     }
     override fun onStart() {
         super.onStart()
+        // 若有記錄在自動登入
         val sharedPreferences_login = getSharedPreferences("Login", Context.MODE_PRIVATE)
         val account = sharedPreferences_login.getString("account", null)
         val password = sharedPreferences_login.getString("password", null)
-        Log.d("UserData","${account}....${password}")
         if (account != null && password != null) {
             loginUser(account,password)
-
         }
-        Log.d("title","Login username$account password$password")
-
     }
     private fun loginUser(account: String, password: String) {
         try {
@@ -125,6 +121,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun saveLoginDetails(account: String, password: String) {
+//        存使用者帳號紀錄
         val sharedPreferences_login = getSharedPreferences("Login", Context.MODE_PRIVATE)
         val editor_login = sharedPreferences_login.edit()
         editor_login.putString("account", account)
@@ -133,6 +130,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun fetchApiToken() {
+//        取得Token
         val tdxApi = TDX_API(this@Login)
         tdxApi.getAccessToken { response ->
             if (response != null) {
@@ -148,6 +146,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun navigateToMainActivity() {
+//        跳轉登入
         val intent = Intent(this@Login, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -156,6 +155,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun setupAnimation() {
+//        執行動畫
         val animationView = findViewById<LottieAnimationView>(R.id.animation_view)
         animationView.setAnimation(R.raw.anis)
         animationView.loop(false)
@@ -182,6 +182,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun setLocale(locale: Locale) {
+//        存入語系
         val config = resources.configuration
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             config.setLocale(locale)
@@ -199,6 +200,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun loadLocale() {
+//        載入語系
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
         val language = sharedPreferences.getString("My_Lang", Locale.getDefault().language)
         val country = sharedPreferences.getString("My_Country", Locale.getDefault().country)

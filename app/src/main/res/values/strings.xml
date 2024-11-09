@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 登入頁面 -->
+    <string name="app_versions">1.0</string>
     <string name="app_name">捷旅印然</string>
     <string name="login">登入</string>
     <string name="email">信箱</string>
@@ -79,6 +80,12 @@
     <string name="errorStation">異常：環狀線部分路段因故損毀，以至於本路段資訊無法顯示</string>
     <string name="errorStation2">異常：捷運系統資訊異常，往板橋段列車可能無法正常顯示。且部分資訊讀取異常</string>
     <string name="ToStationText">往</string>
+    <string name="arriving_in_minutes">%1$s 將在 %2$s 後到達</string>
+    <string name="train_approaching">列車即將抵達!</string>
+    <string name="train_reciprocal_error">倒數時間錯誤</string>
+    <string name="setting_success_reminder">成功設定，將在到站前提醒。</string>
+
+
     <!-- 商城頁面 -->
     <string name="StoreName">點數商城</string>
     <string name="ProductquantityName">剩餘數量</string>
@@ -212,7 +219,7 @@
     <string name="SetStation">設定站點：</string>
     <string name="Train_Approaching">列車進站中</string>
     <string name="End_Service">營運時間已過</string>
-    <string name="Loading_Data">資料讀取中</string>
+    <string name="Loading_Data">資料擷取中</string>
     <string name="after_login">登入後查看</string>
     <string name="input_all_fields">請輸入所有欄位</string>
     <string name="registration_success">註冊成功</string>

@@ -101,8 +101,6 @@ class TDX_API(private val context: Context) {
             when(type) {
                 "price" ->
                     ApiCallPrice(destinationStationId, originStationId, accessToken!!, callback)
-//                "exit" ->
-//                    ApiCallExit(destinationStationId, accessToken!!, callback)
             }
         }
     }
@@ -257,36 +255,24 @@ class TDX_API(private val context: Context) {
         dialog.show()
     }
 
-    private fun ApiCallPrice(destinationStationId: String, originStationId: String,token: String, callback: (MutableList<Double>?) -> Unit) {
+    private fun ApiCallPrice(destinationStationId: String, originStationId: String,token: String,
+                             callback: (MutableList<Double>?) -> Unit) {
         val urltype:String
         if(destinationStationId.substring(0,1)=="Y" || originStationId.substring(0,1)=="Y"){
-            urltype="NTMC"
             val url = "https://11f252d4-ebba-44c2-8c42-a897af956c2d.mock.pstmn.io/API_Price_Y"
             var SID=destinationStationId
             var EndID=originStationId
-            if(destinationStationId.substring(0,1)!="Y" && originStationId.substring(0,1)=="Y" ){
-                val temp=destinationStationId
-                SID=originStationId
-                EndID=destinationStationId
-            }
             val startID = getSIDForStation(context, SID).toString()
             val endID = getSIDForStation(context, EndID).toString()
-
-            val request = Request.Builder()
-                .url(url)
-                .get()
-                .build()
-
+            val request = Request.Builder().url(url).get().build()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     println("呼叫 API 失敗，原因：${e.message}")
                     callback(null)
                 }
-
                 override fun onResponse(call: Call, response: Response) {
                     response.use {
                         val priceList = mutableListOf<Double>()
-
                         if (!it.isSuccessful) {
                             println("呼叫 API 失敗，原因：HTTP ${response.code}")
                             if (response.code == 429) {
@@ -300,25 +286,14 @@ class TDX_API(private val context: Context) {
                             val responseBody = response.body?.string()
                             if (responseBody != null) {
                                 try {
-                                    Log.d("logs", "response: $responseBody")
-                                    // 解析为 JSONObject
                                     val jsonArray = JSONArray(responseBody)
-                                    Log.d("logs", "jsonArray: $jsonArray")
-                                    Log.d("logs", "sssssss: $startID $endID")
-
-                                    // 提取价格信息
+                                    // 抓價格
                                     for (i in 0 until jsonArray.length()) {
                                         val item = jsonArray.getJSONObject(i)
                                         if(item.getString("起站")==startID){
-//                                          Log.d("logs", "destinationStationId: $startID")
                                             if(item.getString("訖站")==endID) {
-                                                Log.d("logs","起站"+item.getString("起站"))
-                                                Log.d("logs","訖站"+item.getString("訖站"))
-                                                Log.d("logs","全票"+item.getDouble("全票"))
-
                                                 val price_1 = item.getDouble("全票")
-                                                val price_2 =
-                                                    item.getDouble("敬老")
+                                                val price_2 = item.getDouble("敬老")
                                                 val price_3 = item.getDouble("臺北")
                                                 priceList.add(price_1)
                                                 priceList.add(price_2)
@@ -326,10 +301,6 @@ class TDX_API(private val context: Context) {
                                             }
                                             i+130
                                         }else{
-//                                            Log.d("logs","起站"+item.getString("起站"))
-//                                            Log.d("logs","訖站"+item.getString("訖站"))
-
-
                                         }
 
                                     }
@@ -389,7 +360,6 @@ class TDX_API(private val context: Context) {
                                 val faresArray = firstObject.getJSONArray("Fares")
                                 val fare = faresArray.getJSONObject(0)
                                 val price = fare.getDouble("Price")
-
                                 priceList.add(price)
                                 priceList.add(price * 0.4)
                                 priceList.add(price * 0.6)
