@@ -47,29 +47,22 @@ class Setting_station : AppCompatActivity() {
         val BLText=getString(R.string.route_BL)
         val OText=getString(R.string.route_O)
         val YText=getString(R.string.route_Y)
-        val routes = listOf(
-            "BR ${BRText}", "G ${GText}",
-            "R ${RText}", "BL ${BLText}", "O ${OText}",
-            "Y ${YText}"
-        )
-
-        // 使用自定义的布局来创建 ArrayAdapter
+        val routes = listOf("BR ${BRText}", "G ${GText}", "R ${RText}", "BL ${BLText}", "O ${OText}", "Y ${YText}")
+        // 創建 ArrayAdapter
         val routesAdapter = ArrayAdapter(this, R.layout.spinner_item, routes)
         routesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
         routesSpinner.adapter = routesAdapter
 
         stationItem(routeIndex, stationsSpinner)
-
+        //路線清單
         routesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 stationItem(position, stationsSpinner)
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // 当没有选中任何选项时
+            override fun onNothingSelected(parent: AdapterView<*>) {//沒點選
             }
         }
-
+        //站點清單
         stationsSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 widgetStationName = parent.getItemAtPosition(position).toString()
@@ -77,9 +70,7 @@ class Setting_station : AppCompatActivity() {
                 confirmText.text = widgetStationName
                 stationIndex = position
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // 当没有选中任何选项时
+            override fun onNothingSelected(parent: AdapterView<*>) {//沒點選
             }
         }
 
@@ -106,13 +97,10 @@ class Setting_station : AppCompatActivity() {
             editor.putString("widgetStationName_Id", strArray[0])
             editor.putString("widgetStationName", strArray[1])
             if(language=="Zh_tw"){
-                editor.putString("widgetStationName_en", getLanguage
-                    .getStationName2(
-                        this,strArray[2],"Zh_tw","En"))
+                editor.putString("widgetStationName_en", getLanguage.getStationName2(this,strArray[2],"Zh_tw","En"))
             }else{
                 editor.putString("widgetStationName_en", strArray[2])
             }
-
 
             editor.apply()
 
@@ -127,127 +115,14 @@ class Setting_station : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(this,this.getString(R.string.creating_widget), Toast.LENGTH_SHORT).show()
-
                 pinAppWidget()
             }
         }
+        appWidgetHost = AppWidgetHost(this, 1) // 初始化 AppWidgetHost
         val setting_station_widgetInfo_btn = findViewById<Button>(R.id.setting_station_widgetInfo_btn)
         setting_station_widgetInfo_btn.setOnClickListener {
             showdialog()
-
-
         }
-
-        appWidgetHost = AppWidgetHost(this, 1) // 初始化 AppWidgetHost
-    }
-
-    private fun pinAppWidget() {
-        val appWidgetManager = getSystemService(AppWidgetManager::class.java)
-        val myProvider = ComponentName(this, ItemAppWidget::class.java)
-
-        Log.d("pinAppWidget", "1 - Start pinAppWidget")
-
-        // 檢查裝置是否支持固定小部件功能
-        if (appWidgetManager.isRequestPinAppWidgetSupported) {
-            Log.d("pinAppWidget", "2 - Device supports pinning widgets")
-
-            // 檢查 Android 版本是否 >= O (API 26)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Log.d("pinAppWidget", "3 - Android version: ${Build.VERSION.SDK_INT}")
-
-                val pinnedWidgetCallbackIntent = Intent(this, MyPinnedWidgetReceiver::class.java)
-                val pinnedWidgetCallbackPendingIntent: PendingIntent = PendingIntent.getBroadcast(
-                    this,
-                    0,
-                    pinnedWidgetCallbackIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                )
-                val intentSender = pinnedWidgetCallbackPendingIntent.intentSender
-
-                // 請求固定小部件，傳遞 IntentSender 作為回調
-                val success = appWidgetManager.requestPinAppWidget(
-                    myProvider,
-                    null,  // 可選：傳遞 Bundle 用於小部件配置
-                    pinnedWidgetCallbackPendingIntent
-                )
-
-                if (success) {
-                    Log.d("pinAppWidget", "4 - Pin widget request sent successfully")
-                    Toast.makeText(this, this.getString(R.string.confirm_widget_request), Toast.LENGTH_SHORT).show()
-
-                    // 記錄已添加小部件的狀態
-                    val prefs = this.getSharedPreferences("WidgetPrefs", Context.MODE_PRIVATE)
-                    val editor = prefs.edit()
-                    editor.putBoolean("isWidgetAdded", true)
-                    editor.apply()
-                } else {
-                    Log.d("pinAppWidget", "5 - Pin widget request failed")
-                    Toast.makeText(this, this.getString(R.string.request_failed), Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Log.d("pinAppWidget", "6 - Android version too low: ${Build.VERSION.SDK_INT}")
-            }
-        } else {
-            Log.d("pinAppWidget", "7 - Device does not support pinning widgets")
-            Toast.makeText(this, this.getString(R.string.widget_not_supported), Toast.LENGTH_SHORT).show()
-        }
-
-        Log.d("pinAppWidget", "8 - End pinAppWidget")
-    }
-
-    fun stationItem(routeIndex: Int, stationsSpinner: Spinner) {
-        routeText = when (routeIndex) {
-            0 -> "BR"
-            1 -> "G"
-            2 -> "R"
-            3 -> "BL"
-            4 -> "O"
-            5 -> "Y"
-            else -> ""
-        }
-
-        val jsonString = this.assets?.open("mrt_language.json")?.bufferedReader().use { it?.readText() }
-        val json = JSONObject(jsonString)[routeText].toString()
-        val jsons = JSONObject(json)
-        val jsonkeys = jsons.keys()
-        val stationNames = mutableListOf<String>()
-        val GetLanguage = GetStationNameLanguage(this)
-        val InputLanguage=GetLanguage.getsaveLanguage(this)
-        Log.d("InputLanguage","${InputLanguage}")
-        while (jsonkeys.hasNext()) {
-            val key = jsonkeys.next()
-            val stationObject = jsons.getJSONObject(key)
-            val stationName = stationObject.getString("Zh_tw")
-            var stationName_lang=""
-            if(InputLanguage=="Zh_tw"){
-                stationName_lang = stationObject.getString("En")
-
-            }else{
-                stationName_lang = stationObject.getString(InputLanguage)
-
-            }
-
-
-            stationNames.add("$key\n$stationName\n$stationName_lang")
-        }
-
-        val stationAdapter = ArrayAdapter(this, R.layout.spinner_item, stationNames)
-        stationAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
-        stationsSpinner.adapter = stationAdapter
-
-        // 設置下拉選單的高度，只顯示10個選項，超過則滾動
-        stationsSpinner.viewTreeObserver.addOnGlobalLayoutListener {
-            try {
-                val popup = Spinner::class.java.getDeclaredField("mPopup")
-                popup.isAccessible = true
-                val popupWindow = popup.get(stationsSpinner) as ListPopupWindow
-                popupWindow.height = (60 * 3).toInt()  // 每行 60dp，顯示10個選項
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-
-        Log.d("station_datas", "json: $json")
     }
     private fun showdialog() {
         val dialog= Dialog(this)
@@ -310,13 +185,77 @@ class Setting_station : AppCompatActivity() {
         }
         dialog.show()
     }
+
+    private fun pinAppWidget() {
+        val appWidgetManager = getSystemService(AppWidgetManager::class.java)
+        val myProvider = ComponentName(this, ItemAppWidget::class.java)
+        // 檢查裝置是否支持固定小工具功能
+        if (appWidgetManager.isRequestPinAppWidgetSupported) {
+            // 檢查 Android 版本是否 >= O (API 26)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+                val pinnedWidgetCallbackIntent = Intent(this, MyPinnedWidgetReceiver::class.java)
+                val pinnedWidgetCallbackPendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, pinnedWidgetCallbackIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+                val intentSender = pinnedWidgetCallbackPendingIntent.intentSender
+
+                // 請求固定小工具，傳遞 IntentSender 作為回調
+                val success = appWidgetManager.requestPinAppWidget(myProvider, null, pinnedWidgetCallbackPendingIntent)
+
+                if (success) {
+                    Toast.makeText(this, this.getString(R.string.confirm_widget_request), Toast.LENGTH_SHORT).show()
+                    // 記錄小工具的狀態
+                    val prefs = this.getSharedPreferences("WidgetPrefs", Context.MODE_PRIVATE)
+                    val editor = prefs.edit()
+                    editor.putBoolean("isWidgetAdded", true)
+                    editor.apply()
+                } else {
+                    Toast.makeText(this, this.getString(R.string.request_failed), Toast.LENGTH_SHORT).show()
+                }
+            } else {
+            }
+        } else {
+            Toast.makeText(this, this.getString(R.string.widget_not_supported), Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    fun stationItem(routeIndex: Int, stationsSpinner: Spinner) {
+        routeText = when (routeIndex) {
+            0 -> "BR"
+            1 -> "G"
+            2 -> "R"
+            3 -> "BL"
+            4 -> "O"
+            5 -> "Y"
+            else -> ""
+        }
+        val jsonString = this.assets?.open("mrt_language.json")?.bufferedReader().use { it?.readText() }
+        val json = JSONObject(jsonString)[routeText].toString()
+        val jsons = JSONObject(json)
+        val jsonkeys = jsons.keys()
+        val stationNames = mutableListOf<String>()
+        val InputLanguage = GetStationNameLanguage(this).getsaveLanguage(this)
+        while (jsonkeys.hasNext()) {
+            val key = jsonkeys.next()
+            val stationObject = jsons.getJSONObject(key)
+            val stationName = stationObject.getString("Zh_tw")
+            var stationName_lang=""
+            if(InputLanguage=="Zh_tw"){
+                stationName_lang = stationObject.getString("En")
+            }else
+                stationName_lang = stationObject.getString(InputLanguage)
+            stationNames.add("$key\n$stationName\n$stationName_lang")
+        }
+        val stationAdapter = ArrayAdapter(this, R.layout.spinner_item, stationNames)
+        stationAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        stationsSpinner.adapter = stationAdapter
+    }
     fun video(dialogs_videoview:VideoView,VideoIndex:Int){
         var videoUri:Uri?=null
         when(VideoIndex){
             0-> videoUri=Uri.parse("android.resource://" + packageName + "/" + R.raw.widget_1)
             1-> videoUri=Uri.parse("android.resource://" + packageName + "/" + R.raw.widget_2)
             2-> videoUri=Uri.parse("android.resource://" + packageName + "/" + R.raw.widget_3)
-
         }
         dialogs_videoview.setVideoURI(videoUri)
         // 設置控制器

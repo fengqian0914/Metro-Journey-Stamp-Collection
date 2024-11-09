@@ -238,7 +238,7 @@
     <string name="get_user_data_failed">获取资料失败，重试或反馈</string>
     <string name="modified">已修改</string>
     <string name="creating_widget">建立小工具中</string>
-    <string name="confirm_widget_request">确认小部件请求</string>
+    <string name="confirm_widget_request">确认小工具请求</string>
     <string name="request_failed">请求失败，系统不支持</string>
     <string name="widget_not_supported">不支持小工具</string>
     <string name="change_successful">更改成功</string>
@@ -247,7 +247,7 @@
     <string name="reset_password_email_failed">邮件发送失败，重试或反馈</string>
     <string name="failure_retry_or_report">失败，重试或反馈</string>
     <string name="qr_code_generation_failed">无法生成 QR 码，重试或反馈</string>
-    <string name="widget_added_to_home">小部件已添加到桌面</string>
+    <string name="widget_added_to_home">小工具已添加到桌面</string>
     <string name="registration_successful">登记成功</string>
     <string name="registration_failed_retry_or_report">登记失败，重试或反馈</string>
     <string name="camera_required">必须开启相机才可使用</string>

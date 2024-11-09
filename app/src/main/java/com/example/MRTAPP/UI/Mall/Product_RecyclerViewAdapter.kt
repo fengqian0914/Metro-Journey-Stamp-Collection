@@ -60,8 +60,8 @@ class Product_RecyclerViewAdapter constructor(
         Log.d("ProductImage",ProductList[position].Image)
         // 使用 Glide 加載圖片
         Glide.with(holder.itemView.context)
-            .load(ProductList[position].Image) // 這裡是 Firebase Storage 的圖片 URL
-            .placeholder(R.drawable.placeholder) // 請替換為你的佔位符圖片
+            .load(ProductList[position].Image) // 圖片 URL
+            .placeholder(R.drawable.placeholder) // 暫時圖片
             .error(R.drawable.loading_error) // 請替換為你的錯誤圖片
             .into(holder.tProductImage)
 

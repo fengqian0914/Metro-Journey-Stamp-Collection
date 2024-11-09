@@ -240,7 +240,7 @@
     <string name="get_user_data_failed">獲取資料失敗，重試或回報</string>
     <string name="modified">已修改</string>
     <string name="creating_widget">建立小工具中</string>
-    <string name="confirm_widget_request">確認小部件申請</string>
+    <string name="confirm_widget_request">確認小工具申請</string>
     <string name="request_failed">請求失敗，系統不支持</string>
     <string name="widget_not_supported">小工具不支持</string>
     <string name="change_successful">更改成功</string>
@@ -249,7 +249,7 @@
     <string name="reset_password_email_failed">郵件發送失敗，重試或回報</string>
     <string name="failure_retry_or_report">失敗，重試或回報</string>
     <string name="qr_code_generation_failed">無法生成 QR 碼，重試或回報</string>
-    <string name="widget_added_to_home">小部件已添加到桌面</string>
+    <string name="widget_added_to_home">小工具已添加到桌面</string>
     <string name="registration_successful">登記成功</string>
     <string name="registration_failed_retry_or_report">登記失敗，重試或回報</string>
     <string name="camera_required">必須開啟相機才可使用</string>

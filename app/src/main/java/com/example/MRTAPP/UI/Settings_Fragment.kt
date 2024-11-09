@@ -145,28 +145,20 @@ class Settings_Fragment : Fragment() {
             val intent = Intent(context, Setting_station::class.java)
             startActivity(intent)
         }
-        val currentNightMode =
-            resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         when (currentNightMode) {
             Configuration.UI_MODE_NIGHT_YES -> {
                 // 黑暗模式
                 nightMode = true
-                Log.d("ModeCheck", "目前是黑暗模式")
             }
-
             Configuration.UI_MODE_NIGHT_NO -> {
                 // 白模式（淺色模式）
                 nightMode = false
-                Log.d("ModeCheck", "目前是白模式")
             }
-
             Configuration.UI_MODE_NIGHT_UNDEFINED -> {
                 // 未定義的模式
-                Log.d("ModeCheck", "目前模式未定義")
             }
         }
-
-
         if (nightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }

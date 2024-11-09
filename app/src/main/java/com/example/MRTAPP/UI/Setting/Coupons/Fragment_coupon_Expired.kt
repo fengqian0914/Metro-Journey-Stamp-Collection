@@ -78,77 +78,35 @@ class Fragment_coupon_Expired : Fragment() {
             .addOnSuccessListener { querySnapshot ->
                         try {
                             // 遍歷每個子節點（每筆優惠券）
-                            val outputTextView = view.findViewById<TextView>(R.id.EmptyData_Expired)
-                            val stringBuilder = StringBuilder()
                             recyclerView = view.findViewById(R.id.coupon_Expired_RecylerView)
-
                             val CouponListDataArray = JSONArray()
-
                             for (document in querySnapshot.documents) {
-                                val couponData =document as? Map<*, *>
-                                // 取得文件資料為 Map 格式
                                 val data = document.data
                                 if (data != null) {
-                                    // 列印每筆優惠券的數據
-                                    stringBuilder.append("兌換碼: ${data["QRcode"]}\n")
-                                    stringBuilder.append("過期時間: ${data["expiryTime"]}\n")
-                                    stringBuilder.append("商品ID: ${data["productId"]}\n")
-                                    stringBuilder.append("圖片: ${data["productImage"]}\n\n")
-
-                                    stringBuilder.append("商品名稱: ${data["productName"]}\n")
-                                    stringBuilder.append("數量: ${data["quantity"]}\n")
-                                    stringBuilder.append("兌換時間: ${data["timestamp"]}\n")
-                                    stringBuilder.append("狀態: ${data["status"]}\n\n")
-                                    stringBuilder.append("優惠券Id: ${data["CouponId"]}\n\n")
-
-
                                     val CouponListDataObject = JSONObject()
                                     if (data["status"] != "未兌換") {
                                         CouponListDataObject.put("redeemCode", data["QRcode"])
                                         CouponListDataObject.put("expiryTime", data["expiryTime"])
                                         CouponListDataObject.put("productId", data["productId"])
                                         CouponListDataObject.put("productImage", data["productImage"])
-
                                         CouponListDataObject.put("productName", data["productName"])
                                         CouponListDataObject.put("quantity", data["quantity"])
                                         CouponListDataObject.put("timestamp", data["timestamp"])
                                         CouponListDataObject.put("status", data["status"])
                                         CouponListDataObject.put("CouponId", data["CouponId"])
-
                                     }
-
-
                                     CouponListDataArray.put(CouponListDataObject)
-                                    Log.d("filedatas", "CouponListDataObject: $CouponListDataObject")
-                                    Log.d("filedatas", "CouponListDataArray: $CouponListDataArray")
-
                                 } else {
-                                    Log.d("filedatas", "優惠券數據為空或格式不正確")
                                 }
                             }
-
                             val data_list = convertJsonArrayToList(CouponListDataArray)
-                            Log.d("filedatas", "data: $data_list")
-                            Log.d("filedatas", "CouponListDataArray: $CouponListDataArray")
-
-                            CouponRecyclerViewAdapter =
-                                Coupon_Expired_RecyclerView_Adapter(requireContext(), data_list)
-
+                            CouponRecyclerViewAdapter = Coupon_Expired_RecyclerView_Adapter(requireContext(), data_list)
                             recyclerView.layoutManager = LinearLayoutManager(requireContext())
                             recyclerView.adapter = CouponRecyclerViewAdapter
-                            Log.d("filedatas", "CouponListDataArray.length(): ${CouponListDataArray.length()}")
-
-
                             if (CouponListDataArray.length() == 0) {
-                                Log.d("filedatas", "顯示")
-//                        recyclerView.visibility=View.GONE
-                                view.findViewById<TextView>(R.id.EmptyData_Expired).visibility =
-                                    View.VISIBLE
-
+                                view.findViewById<TextView>(R.id.EmptyData_Expired).visibility = View.VISIBLE
                             } else {
-                                view.findViewById<TextView>(R.id.EmptyData_Expired).visibility =
-                                    View.GONE
-
+                                view.findViewById<TextView>(R.id.EmptyData_Expired).visibility = View.GONE
                             }
                             // 添加到列表
                             Coupon_list.clear()

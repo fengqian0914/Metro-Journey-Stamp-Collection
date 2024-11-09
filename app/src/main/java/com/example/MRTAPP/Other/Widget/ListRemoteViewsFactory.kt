@@ -230,34 +230,7 @@ class ListRemoteViewsFactory(private val context: Context, private val intent: I
             else -> destinationName
         }
     }
-    fun loadStationJson(context: Context): JSONObject {
-        val inputStream: InputStream = context.assets.open("mrt_language.json")
-        val jsonString = inputStream.bufferedReader().use { it.readText() }
-        return JSONObject(jsonString)
-    }
-    fun getStationName(context: Context, chineseName: String, language: String): String {
-        val stationJson = loadStationJson(context)
 
-        stationJson.keys().forEach { lineKey ->
-            val lineObject = stationJson.getJSONObject(lineKey)
 
-            lineObject.keys().forEach { stationKey ->
-                val stationObject = lineObject.getJSONObject(stationKey)
-                val zhTwName = stationObject.getString("Zh_tw")
-
-                if (zhTwName == chineseName) {
-                    return when (language) {
-                        "En" -> stationObject.getString("En")
-                        "Ja" -> stationObject.getString("Ja")
-                        "zh-Hans" -> stationObject.getString("zh-Hans")
-                        "ko" -> stationObject.getString("ko")
-
-                        else -> zhTwName  // 默认返回中文
-                    }
-                }
-            }
-        }
-        return "Station not found"
-    }
 
 }

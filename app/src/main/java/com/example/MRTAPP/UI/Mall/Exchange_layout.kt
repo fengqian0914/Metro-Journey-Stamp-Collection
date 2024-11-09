@@ -59,7 +59,7 @@ class exchange_layout : AppCompatActivity() {
         findViewById<TextView>(R.id.ExchangeProductName).text = ProductName
         val imageView = findViewById<ImageView>(R.id.ExchangeProductImageView)
         Glide.with(imageView)
-            .load(ProductImage) // 這裡是 Firebase Storage 的圖片 URL
+            .load(ProductImage) // 圖片 URL
             .placeholder(R.drawable.placeholder) // 暫時圖片
             .error(R.drawable.loading_error) // 錯誤圖片
             .into(imageView)

@@ -64,7 +64,6 @@ class Setting_Fragment_Tab_Name : Fragment() {
             val NewNameText = NewNameView.text.toString().trim()
             if(!TextUtils.isEmpty(NewNameText)) {
                 val userId = auth.currentUser?.uid.toString()
-                Log.d("SSSS", "userId${userId}")
                 db.collection("users").document(userId)
                     .update("userName", NewNameText)
                     .addOnSuccessListener {

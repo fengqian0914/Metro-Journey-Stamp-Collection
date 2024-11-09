@@ -64,7 +64,6 @@ class Setting_Language : AppCompatActivity() {
     // 設定語言並儲存
     private fun setLocale(locale: Locale) {
         val config = resources.configuration  // 獲取當前的配置
-
         // 根據 Android 版本，設定語言
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             config.setLocale(locale)
@@ -72,16 +71,13 @@ class Setting_Language : AppCompatActivity() {
             @Suppress("DEPRECATION")
             config.locale = locale
         }
-
         @Suppress("DEPRECATION")
         resources.updateConfiguration(config, resources.displayMetrics)  // 更新配置
-
         // 儲存用戶選擇的語言到 SharedPreferences
         val editor = getSharedPreferences("Settings", MODE_PRIVATE).edit()
         editor.putString("My_Lang", locale.language)
         editor.putString("My_Country", locale.country)
         editor.apply()
-
         // 重新啟動 Activity 來使更改生效
         restartActivity()
     }
@@ -91,14 +87,5 @@ class Setting_Language : AppCompatActivity() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)  // 清除當前 Activity 堆棧
         startActivity(intent)  // 啟動 Activity
         finish()  // 結束當前 Activity
-    }
-
-    // 加載已儲存的語言設定
-    private fun loadLocale() {
-        val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
-        val language = sharedPreferences.getString("My_Lang", Locale.getDefault().language)
-        val country = sharedPreferences.getString("My_Country", Locale.getDefault().country)
-        val locale = Locale(language ?: Locale.getDefault().language, country ?: Locale.getDefault().country)
-        setLocale(locale)  // 設定語言
     }
 }

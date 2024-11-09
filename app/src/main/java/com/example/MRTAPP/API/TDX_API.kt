@@ -6,7 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
+import android.view.View
 import android.view.Window
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -232,6 +234,11 @@ class TDX_API(private val context: Context) {
         val dialog_title=dialog.findViewById<TextView>(R.id.dialog_wait_title)
         val dialog_msg=dialog.findViewById<TextView>(R.id.dialog_wait_msg)
         val dialog_close=dialog.findViewById<ImageView>(R.id.dialog_close)
+        val dialog_Previous_btn=dialog_close.findViewById<Button>(R.id.dialog_Previous_btn)
+        val dialog_Next_btn=dialog_Previous_btn.findViewById<Button>(R.id.dialog_Next_btn)
+        dialog_Previous_btn.visibility=View.GONE
+        dialog_Next_btn.visibility=View.GONE
+
         dialog_title.text=dialogTitle
         dialog_msg.text=dialogsMsg
         dialog_close.setOnClickListener {

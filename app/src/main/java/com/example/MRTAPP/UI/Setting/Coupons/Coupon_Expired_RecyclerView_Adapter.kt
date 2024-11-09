@@ -54,9 +54,9 @@ class Coupon_Expired_RecyclerView_Adapter(
 
 
             Glide.with(holder.tCouponImage)
-                .load(currentItem.productImage) // 這裡是 Firebase Storage 的圖片 URL
-                .placeholder(R.drawable.placeholder) // 請替換為你的佔位符圖片
-                .error(R.drawable.loading_error) // 請替換為你的錯誤圖片
+                .load(currentItem.productImage) // 圖片 URL
+                .placeholder(R.drawable.placeholder) // 暫時圖片
+                .error(R.drawable.loading_error) // 錯誤圖片
                 .into(holder.tCouponImage)
 
 

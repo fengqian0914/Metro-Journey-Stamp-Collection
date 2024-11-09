@@ -53,9 +53,9 @@ class Coupon_Not_used_RecyclerView_Adapter(
 
             // 載入圖片
             Glide.with(holder.tCouponImage)
-                .load(currentItem.productImage) // 這裡是 Firebase Storage 的圖片 URL
-                .placeholder(R.drawable.placeholder) // 替換為你的佔位符圖片
-                .error(R.drawable.loading_error) // 替換為你的錯誤圖片
+                .load(currentItem.productImage) // 圖片 URL
+                .placeholder(R.drawable.placeholder) // 暫時圖片
+                .error(R.drawable.loading_error) // 錯誤圖片
                 .into(holder.tCouponImage)
 
             // 檢查列表是否為空
@@ -66,9 +66,7 @@ class Coupon_Not_used_RecyclerView_Adapter(
                 holder.tEmptyDatas.visibility = View.GONE
             }
 
-            // 設置按鈕的點擊事件
             holder.tCouponBtn.setOnClickListener {
-                Log.d("CouponID", currentItem.CouponId)
                 showBottomSheet_recyclerview(
                     currentItem.productName,
                     currentItem.quantity.toString(),
@@ -77,58 +75,38 @@ class Coupon_Not_used_RecyclerView_Adapter(
                 )
             }
         } catch (e: Exception) {
-            Log.e("BindingError", e.message.toString())
+            Log.e("error", e.message.toString())
         }
     }
 
     private fun showBottomSheet_recyclerview(ProductName: String, quantity: String, redeemCode: String, CouponId: String) {
-        // 載入佈局
         try {
             val inflater = LayoutInflater.from(context)
             val dialogView = inflater.inflate(R.layout.activity_qrcode_coupon_recyclerview, null)
-
-            // 設置文本
             dialogView.findViewById<TextView>(R.id.QR_ProductName_recyclerview).text = ProductName
             dialogView.findViewById<TextView>(R.id.QR_quantity).text = quantity
             dialogView.findViewById<TextView>(R.id.QR_redeemCode).text = redeemCode
-
             val Product_QRcode = dialogView.findViewById<ImageView>(R.id.Product_QRcode_recyclerview)
-
-            // 生成 QR 碼
             try {
-                val barcodeEncoder = BarcodeEncoder()
+                val barcodeEncoder = BarcodeEncoder()            // 生成 QR 碼
                 val bitmap = barcodeEncoder.encodeBitmap(redeemCode, BarcodeFormat.QR_CODE, 400, 400)
                 Product_QRcode.setImageBitmap(bitmap)
                 adjustImageViewSize(Product_QRcode, bitmap)
             } catch (e: WriterException) {
-                Log.e("QRCodeError", "無法生成 QR 碼: ${e.message}")
                 Toast.makeText(context, context.getString(R.string.qr_code_generation_failed), Toast.LENGTH_SHORT).show()
             }
-
-            // 設置最終按鈕的點擊事件
             val final_qrcodebtn = dialogView.findViewById<Button>(R.id.final_qrcodebtn)
             val userId = auth.currentUser?.uid
-
             final_qrcodebtn.setOnClickListener {
                 db.collection("users").document(userId.toString()).collection("coupons").document(CouponId)
                     .update("status", "已兌換")
                     .addOnSuccessListener {
                         dialog.dismiss()
-
-
-
-
-
                     }
                     .addOnFailureListener {
                         Toast.makeText(context, context.getString(R.string.failure_retry_or_report), Toast.LENGTH_SHORT).show()
-                        Log.e("DatabaseError", "更新失敗")
                     }
-
             }
-
-
-            // 建立 BottomSheetDialog
             dialog = BottomSheetDialog(context, R.style.BottomsheetDialogTheme)
             dialog.setContentView(dialogView)
             dialog.show()
