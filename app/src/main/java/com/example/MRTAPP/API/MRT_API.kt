@@ -177,20 +177,17 @@ class MRT_API(private val context: Context) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     responseBody?.let {
-                        Log.d("SOAP Response", it)
                         when(type){
                             "total_time"->
                                 try {
                                     val jsonObject = JSONObject(it)
-                                    val path = jsonObject.getString("Path")
                                     var time = jsonObject.getString("Time")
-                                    val transferStations = jsonObject.getString("TransferStations")
                                     if (time.toInt() < 60) {
                                         time = time+" "+ context.getString(R.string.minute)
                                     } else {
-                                        time = "1小時" + (time.toInt() - 60).toString() + "分"
+                                        time = "1${context.getString(R.string.hour)}" + (time.toInt() - 60).toString() + context.getString(R.string.minute)
                                     }
-                                    callback(time) // 使用回调返回结果
+                                    callback(time) // 返回结果
                                 } catch (e: JSONException) {
                                     e.printStackTrace()
                                     Log.e("JSON Result", "Error parsing JSON result", e)

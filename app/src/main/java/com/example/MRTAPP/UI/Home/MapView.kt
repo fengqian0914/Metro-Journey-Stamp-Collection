@@ -109,16 +109,13 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         for ((index, station) in lineStations.withIndex()) {
             val x = station.position.x
             val y = station.position.y
-
             if (index == 0) { //如是第一個站點則移動到那個點
                 path.moveTo(x, y)
             } else {// 不是則畫線
                 path.lineTo(x, y)
             }
-
             val GetLanguage = GetStationNameLanguage(context)
             savelanauge=GetLanguage.getsaveLanguage2(context)
-
             val LanguageText=when(savelanauge){
                 "Zh_tw"->station.chineseName
                 "En" -> station.englishName
@@ -128,8 +125,8 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 else->station.englishName
             }
             val stationName_TW = "${LanguageText}"
-
             val stationCode = station.code
+
             updateTextSizeBasedOnLanguage(station.code)
 
             setLinePaint(lineCode)
@@ -141,21 +138,18 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 in "R07"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign = Paint.Align.LEFT
-
                     canvas.drawText(stationName_TW, x , y+60f, chineseTextPaint)
                     canvas.drawText(stationCode, x , y + 100f, createCodeTextPaint(lineCode))
                 }
                 in "G08"->{
                     chineseTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
-
                     canvas.drawText(stationName_TW, x-80f , y+105f, chineseTextPaint)
                     canvas.drawText(stationCode, x-80f , y+145f, createCodeTextPaint(lineCode))
                 }
                 in "G09","G03A"->{
                     chineseTextPaint.textAlign = Paint.Align.RIGHT
                     codePaint.textAlign=Paint.Align.RIGHT
-
                     canvas.drawText(stationName_TW, x -70f, y, chineseTextPaint)
                     canvas.drawText(stationCode, x - 120f, y+35f, createCodeTextPaint(lineCode))
                 }
@@ -207,14 +201,12 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 in "Y17","Y09"->{ //左下
                     chineseTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
-
                     canvas.drawText(stationName_TW, x-80f , y+100f, chineseTextPaint)
                     canvas.drawText(stationCode, x-80f , y+140f, createCodeTextPaint(lineCode))
                 }
                 in "R06",in "BR15".."BR20","BL17","G17"->{ //左上
                     chineseTextPaint.textAlign = Paint.Align.LEFT
                     codePaint.textAlign=Paint.Align.LEFT
-
                     canvas.drawText(stationName_TW, x-70f , y-80f, chineseTextPaint)
                     canvas.drawText(stationCode, x-70f , y-40f, createCodeTextPaint(lineCode))
                 }

@@ -148,15 +148,10 @@ class Settings_Fragment : Fragment() {
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         when (currentNightMode) {
             Configuration.UI_MODE_NIGHT_YES -> {
-                // 黑暗模式
-                nightMode = true
+                nightMode = true// 黑暗模式
             }
             Configuration.UI_MODE_NIGHT_NO -> {
-                // 白模式（淺色模式）
-                nightMode = false
-            }
-            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                // 未定義的模式
+                nightMode = false // 白模式（淺色模式）
             }
         }
         if (nightMode) {
@@ -214,16 +209,13 @@ class Settings_Fragment : Fragment() {
     }
 
     private fun clearAllSharedPreferences() {
-        // 列出所有需要清除的 SharedPreferences 名稱
-        val sharedPrefsNames = listOf("Login", "tdx", "my_prefs","stationInfo","AccessToken") // 根據實際專案情況增減
-
+        // 需要清除的 SharedPreferences
+        val sharedPrefsNames = listOf("Login", "tdx", "my_prefs","stationInfo","AccessToken")
         for (prefName in sharedPrefsNames) {
             val sharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
             sharedPreferences.edit().clear().apply()
         }
-        // 登出 Firebase 使用者
-        FirebaseAuth.getInstance().signOut()
-
+        FirebaseAuth.getInstance().signOut()// 登出 Firebase 使用者
     }
 
     override fun onResume() {

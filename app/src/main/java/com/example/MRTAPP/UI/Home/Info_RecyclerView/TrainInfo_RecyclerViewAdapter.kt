@@ -180,22 +180,18 @@ class TrainInfo_RecyclerViewAdapter(
     private fun showMRTArrivalNotification(EndName: String, Time: String) {
         val getLanguage=GetStationNameLanguage(context)
         val language=getLanguage.getsaveLanguage2(context)
-        val languageStationName=getLanguage.getStationName2(context,EndName.dropLast(1),"Zh_tw",language)
-        Log.d("languages","EndName${EndName.dropLast(1)}language${language}\n")
+        val languageStationName=getLanguage.getStationName2(context,EndName.dropLast(1),
+            "Zh_tw",language)
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.logo)
             .setContentTitle(context.getString(R.string.remindbtn))
             .setContentText( context.getString(R.string.arriving_in_minutes, languageStationName, Time))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
         // 設置大圖示（圖片資源或位圖）
         val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.logo)
         builder.setLargeIcon(bitmap)
-
         with(NotificationManagerCompat.from(context)) {
-            if (ActivityCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.POST_NOTIFICATIONS
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 return

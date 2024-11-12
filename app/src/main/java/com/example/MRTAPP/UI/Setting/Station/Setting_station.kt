@@ -41,13 +41,8 @@ class Setting_station : AppCompatActivity() {
 
         val routesSpinner = findViewById<Spinner>(R.id.spinner_routes)
         val stationsSpinner = findViewById<Spinner>(R.id.spinner_stations)
-        val BRText=getString(R.string.route_BR)
-        val GText=getString(R.string.route_G)
-        val RText=getString(R.string.route_R)
-        val BLText=getString(R.string.route_BL)
-        val OText=getString(R.string.route_O)
-        val YText=getString(R.string.route_Y)
-        val routes = listOf("BR ${BRText}", "G ${GText}", "R ${RText}", "BL ${BLText}", "O ${OText}", "Y ${YText}")
+        val routes = listOf("BR ${getString(R.string.route_BR)}", "G ${getString(R.string.route_G)}", "R ${getString(R.string.route_R)}",
+            "BL ${getString(R.string.route_BL)}", "O ${getString(R.string.route_O)}", "Y ${getString(R.string.route_Y)}")
         // 創建 ArrayAdapter
         val routesAdapter = ArrayAdapter(this, R.layout.spinner_item, routes)
         routesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
@@ -193,14 +188,11 @@ class Setting_station : AppCompatActivity() {
         if (appWidgetManager.isRequestPinAppWidgetSupported) {
             // 檢查 Android 版本是否 >= O (API 26)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
                 val pinnedWidgetCallbackIntent = Intent(this, MyPinnedWidgetReceiver::class.java)
-                val pinnedWidgetCallbackPendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0, pinnedWidgetCallbackIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-                val intentSender = pinnedWidgetCallbackPendingIntent.intentSender
-
-                // 請求固定小工具，傳遞 IntentSender 作為回調
-                val success = appWidgetManager.requestPinAppWidget(myProvider, null, pinnedWidgetCallbackPendingIntent)
-
+                val pinnedWidgetCallbackPendingIntent: PendingIntent = PendingIntent.getBroadcast(this, 0,
+                    pinnedWidgetCallbackIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+                val success = appWidgetManager.requestPinAppWidget(myProvider, null,
+                    pinnedWidgetCallbackPendingIntent)
                 if (success) {
                     Toast.makeText(this, this.getString(R.string.confirm_widget_request), Toast.LENGTH_SHORT).show()
                     // 記錄小工具的狀態
@@ -221,17 +213,11 @@ class Setting_station : AppCompatActivity() {
 
     fun stationItem(routeIndex: Int, stationsSpinner: Spinner) {
         routeText = when (routeIndex) {
-            0 -> "BR"
-            1 -> "G"
-            2 -> "R"
-            3 -> "BL"
-            4 -> "O"
-            5 -> "Y"
-            else -> ""
+            0 -> "BR" 1 -> "G" 2 -> "R"
+            3 -> "BL" 4 -> "O" 5 -> "Y" else -> ""
         }
         val jsonString = this.assets?.open("mrt_language.json")?.bufferedReader().use { it?.readText() }
-        val json = JSONObject(jsonString)[routeText].toString()
-        val jsons = JSONObject(json)
+        val jsons = JSONObject(JSONObject(jsonString)[routeText].toString())
         val jsonkeys = jsons.keys()
         val stationNames = mutableListOf<String>()
         val InputLanguage = GetStationNameLanguage(this).getsaveLanguage(this)
@@ -258,18 +244,13 @@ class Setting_station : AppCompatActivity() {
             2-> videoUri=Uri.parse("android.resource://" + packageName + "/" + R.raw.widget_3)
         }
         dialogs_videoview.setVideoURI(videoUri)
-        // 設置控制器
-        val mediaController = MediaController(this)
+        val mediaController = MediaController(this)// 設置控制器
         mediaController.setAnchorView(dialogs_videoview)
         dialogs_videoview.setMediaController(mediaController)
-
-        // 設置播放完成後重播
         dialogs_videoview.setOnCompletionListener {
-            dialogs_videoview.start() // 重播
+            dialogs_videoview.start() // 設置播放完成後重播
         }
-        // 開始播放
-        dialogs_videoview.start()
-
+        dialogs_videoview.start() // 開始播放
     }
 
 }

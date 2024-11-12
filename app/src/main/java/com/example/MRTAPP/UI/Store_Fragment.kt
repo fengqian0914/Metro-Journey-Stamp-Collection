@@ -116,13 +116,12 @@ class Store_Fragment : Fragment() {
                     view.findViewById<TextView>(R.id.mycoin).text=userCoin.toString()
                     productList=ArrayList()
                     recyclerView=view.findViewById<RecyclerView>(R.id.StoreRecyclerView)
-                    recyclerViewAdapter = Product_RecyclerViewAdapter(this@Store_Fragment, productList,userCoin!!.toInt())
+                    recyclerViewAdapter = Product_RecyclerViewAdapter(this@Store_Fragment,
+                        productList,userCoin!!.toInt())
                     val layoutManager:RecyclerView.LayoutManager=GridLayoutManager(context,2)
                     recyclerView!!.layoutManager=layoutManager
                     recyclerView!!.adapter= recyclerViewAdapter
-                    prepareProductListData()
-                    // 將資料傳回
-                }
+                    prepareProductListData()                }
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(requireContext(), context?.getString(R.string.get_user_data_failed), Toast.LENGTH_SHORT).show()
@@ -153,7 +152,12 @@ class Store_Fragment : Fragment() {
                         val productQuantity = productSnapshot.getLong("quantity")
                         val productImageUrl = productSnapshot.getString("ImageUrl").toString()
                         if (productId.isNotEmpty() && productName != null && productPrice != null && productQuantity != null) {
-                            val product = ProductList(productId, productName, productImageUrl, productPrice.toInt(), productQuantity.toLong())
+                            val product = ProductList(
+                                productId,
+                                productName,
+                                productImageUrl,
+                                productPrice.toInt(),
+                                productQuantity.toLong())
                             tempProductList.add(product)
                         }
                     }

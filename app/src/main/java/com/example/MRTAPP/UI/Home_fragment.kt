@@ -218,7 +218,8 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                 try {
                     priceList=response
                     activity?.runOnUiThread {
-                        views?.findViewById<TextView>(R.id.Home_Price)?.text = priceList[0].toInt().toString()  + " "+ requireContext().getString(R.string.dollar)
+                        views?.findViewById<TextView>(R.id.Home_Price)?.text = priceList[0].toInt().toString()  +
+                                " "+ requireContext().getString(R.string.dollar)
                         when (Price_grade_index) {
                             0 -> {
                                 view?.findViewById<TextView>(R.id.Home_Price_type)?.text = requireContext().getString(R.string.unanimous_vote)

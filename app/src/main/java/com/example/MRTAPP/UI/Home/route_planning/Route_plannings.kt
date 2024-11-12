@@ -57,7 +57,8 @@ class route_plannings : AppCompatActivity() {
                 val responseArray_TransferStations = JSONObject(response).getString("TransferStations")
                 // 將路徑和轉乘站分割成列表
                 val pathStations = responseArray_Path.split("-").filter { it.isNotEmpty() }
-                val transferStations = responseArray_TransferStations.split("-").filter { it.isNotEmpty() }
+                val transferStations = responseArray_TransferStations.split("-").filter {
+                    it.isNotEmpty() }
                 // 將路徑和轉乘站分段
                 val sectionedPath = convertPathToSectionedList(pathStations, transferStations)
                 // 設置適配器並附加到 RecyclerView

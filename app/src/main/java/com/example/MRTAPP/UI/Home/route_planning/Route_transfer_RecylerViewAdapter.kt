@@ -215,8 +215,6 @@ class Route_transfer_RecylerViewAdapter(
             val currentItem_Circular_Line = mlist[position - 1]
             val pathArray_Circular_Line =
                 currentItem_Circular_Line.TransferStation.split("-").filter { it.isNotEmpty() }
-
-
             var BanqiaoID: String
             if (findParentKeyByZhTwValue(context, pathArray_Circular_Line[1]).toString()
                     .contains("BL") && Circular_Line_Banqiao == false

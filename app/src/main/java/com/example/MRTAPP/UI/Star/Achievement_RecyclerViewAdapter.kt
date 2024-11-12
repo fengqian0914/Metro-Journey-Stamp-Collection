@@ -208,7 +208,9 @@ class Achievement_RecyclerViewAdapter(
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
         if (userId != null) {
             val db = FirebaseFirestore.getInstance()
-            db.collection("users").document(userId).collection("Achievement").document("Items").get()
+            db.collection("users").document(userId)
+                .collection("Achievement").document("Items")
+                .get()
                 .addOnSuccessListener {document ->
                     if(document!=null&&document.exists()){
                         val IDmap = document.get(achievementId) as? Map<*, *>

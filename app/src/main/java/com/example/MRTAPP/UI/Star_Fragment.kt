@@ -108,15 +108,11 @@ class Star_Fragment : Fragment() {
         val db = FirebaseFirestore.getInstance()
         val collectionRef = db.collection("Data").document("Achievement").collection("Item")
         val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        // 使用 get() 進行單次資料讀取
         collectionRef.get().addOnSuccessListener { snapshot ->
             if (snapshot != null && !snapshot.isEmpty) {
                 val tempAchievementList = mutableListOf<Achievement_List>()
-                val stationPath = db.collection("users")
-                    .document(userId)
-                    .collection("StationData")
-                    .document("stations")
-
+                val stationPath = db.collection("users").document(userId)
+                    .collection("StationData").document("stations")
                 val achievementTasks = mutableListOf<Task<Void>>() // 用於追蹤所有的 Firebase 異步操作
                 for (AchievementSnapshot in snapshot.documents) {
                     var existsquantity = 0 // 每次處理新成就前重置 existsquantity
@@ -124,7 +120,6 @@ class Star_Fragment : Fragment() {
                     val achievementName = AchievementSnapshot.getString("Name").toString()
                     val StationData = AchievementSnapshot.get("Station") as? Map<String, Any> ?: emptyMap()
                     val StationObject = JSONObject(StationData)
-
                     val keys = StationObject.keys()
                     while (keys.hasNext()) {
                         val key = keys.next()

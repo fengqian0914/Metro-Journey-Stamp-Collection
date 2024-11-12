@@ -218,7 +218,7 @@ class Camera : Fragment() {
         val keys = station.keys()
         while (keys.hasNext()) {
             val route = keys.next() // 獲取當前鍵
-            // 如果你想要獲取該鍵對應的值
+            // 獲取該鍵對應的值
             val stationName = station.getString(route)
             val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
             // 讀取指定路徑的數據
@@ -434,7 +434,7 @@ class Camera : Fragment() {
                         if (stationData != null && stationData.containsKey(key)) {
                             val stationCondition = stationData[key] as? Boolean ?: false
                             val status = if (stationCondition) "已完成" else "未完成"
-                            testData.add(MRT_Station_item(route, Translation.toString(), status))  // 將站點資料加入列表
+                            testData.add(MRT_Station_item(route, Translation.toString(), status)) // 將站點資料加入列表
                         }
                     }
                     val layoutManager = LinearLayoutManager(context)  // 完成資料讀取後設置 RecyclerView 的適配器
@@ -484,12 +484,10 @@ class Camera : Fragment() {
             checkPermissionCamera(this,view)
         }
     }
-
     private fun checkPermissionCamera(context: Camera,view: View) {
-    // 這是透過 getActivity() 來取得 fragment 所在的 activity
         val context_Fragment = requireContext()
-        if(ContextCompat.checkSelfPermission(context_Fragment,Manifest.permission.CAMERA )== PackageManager.PERMISSION_GRANTED){
-            showCamera(view)
+        if(ContextCompat.checkSelfPermission(context_Fragment,Manifest.permission.CAMERA )==
+            PackageManager.PERMISSION_GRANTED){ showCamera(view)
         }else if(shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)){
             Toast.makeText(activity,context.getString(R.string.camera_required),Toast.LENGTH_SHORT).show()
         }else{

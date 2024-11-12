@@ -184,18 +184,14 @@ class TDX_API(private val context: Context) {
                                     val escalator = firstObject.getInt("Escalator")
                                     val elevator = firstObject.getBoolean("Elevator")
                                     val ExitName = firstObject.getJSONObject("ExitName").getString("En")
-                                    val matchResult = pattern.find(ExitName) // 提取 Exit 後的數字，並將其轉換為 Int，用於排序
-                                    val exitNumber = matchResult?.groupValues?.get(1)?.toIntOrNull() ?: 1  // 如果無法匹配，設為最大值
+                                    val matchResult = pattern.find(ExitName) // 提取 Exit 後數字，
+                                    val exitNumber = matchResult?.groupValues?.get(1)?.toIntOrNull() ?: 1
                                     val exitMap = mapOf(
-                                        "StationID" to StationID,
-                                        "StationName_zh" to StationName_zh,
-                                        "StationName_En" to StationName_En,
-                                        "ExitName" to ExitName,
+                                        "StationID" to StationID, "StationName_zh" to StationName_zh,
+                                        "StationName_En" to StationName_En, "ExitName" to ExitName,
                                         "ExitNumber" to exitNumber,  // 用於排序的數字
                                         "LocationDescription" to locationDescription,
-                                        "Stair" to stair,
-                                        "Escalator" to escalator,
-                                        "Elevator" to elevator
+                                        "Stair" to stair, "Escalator" to escalator, "Elevator" to elevator
                                     )
                                     tempExitList.add(exitMap)
                                 }

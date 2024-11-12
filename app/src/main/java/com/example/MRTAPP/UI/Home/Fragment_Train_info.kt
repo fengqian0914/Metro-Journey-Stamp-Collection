@@ -95,8 +95,7 @@ class Fragment_Train_info : Fragment() {
             val sharedPreferences = requireContext().getSharedPreferences("stationInfo", Context.MODE_PRIVATE)
             val stationName = sharedPreferences.getString("stationName", null).toString()
             val dynamicUrl = "https://api.metro.taipei/metroapi/TrackInfo.asmx"
-            // 設定 10 秒的計時器
-            timer_10s = Timer()
+            timer_10s = Timer()// 設定 10 秒的計時器
             val timerTask_10s = object : TimerTask() {
                 override fun run() {
                     Api10s(view!!, dynamicUrl, stationName)
@@ -104,18 +103,15 @@ class Fragment_Train_info : Fragment() {
             }
             timer_10s?.schedule(timerTask_10s, 0, 10000)
         }
-        // 設定 1 秒的倒數計時器
+
         if (timer_1s == null) {
-            timer_1s = Timer()
+            timer_1s = Timer()// 設定 1 秒的倒數計時器
             val timerTask_1s = object : TimerTask() {
                 override fun run() {
                     activity?.runOnUiThread {
                         val timeTextView = view?.findViewById<TextView>(R.id.Train_arrives_times)
-                        try {
                             val timeText = timeTextView?.text.toString().toInt()
                             timeTextView?.text = if (timeText <= 0) "10" else (timeText - 1).toString()
-                        } catch (e: Exception) {
-                        }
                     }
                 }
             }

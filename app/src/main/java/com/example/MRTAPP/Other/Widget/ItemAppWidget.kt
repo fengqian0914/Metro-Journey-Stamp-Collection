@@ -20,7 +20,6 @@ import org.json.JSONArray
 
 class ItemAppWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
-        val views = RemoteViews(context.packageName, R.layout.item_app_widget)
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
             apiupdate(context, appWidgetId, appWidgetManager)
@@ -32,11 +31,9 @@ class ItemAppWidget : AppWidgetProvider() {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + 60 * 1000, // 1分鐘首次更新
-                60 * 1000, // 每分鐘更新
-                pendingIntent
+                60 * 1000, pendingIntent // 每分鐘更新
             )
         }
-
     }
     override fun onDisabled(context: Context) {
         // 取消定時任務
