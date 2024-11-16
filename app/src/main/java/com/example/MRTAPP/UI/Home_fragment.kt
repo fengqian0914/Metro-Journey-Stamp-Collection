@@ -233,6 +233,7 @@ class Home_fragment : Fragment(), MapView.StationTextListener {
                         }
                     }
                 } catch (e: Exception) {
+                    Log.d("click_price","error2${e}")
                     Toast.makeText(context,getString(R.string.read_failed),Toast.LENGTH_LONG).show()
                 }
             } else {

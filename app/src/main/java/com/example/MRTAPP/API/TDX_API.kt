@@ -248,12 +248,19 @@ class TDX_API(private val context: Context) {
     private fun ApiCallPrice(destinationStationId: String, originStationId: String,token: String,
                              callback: (MutableList<Double>?) -> Unit) {
         val urltype:String
+        try{
         if(destinationStationId.substring(0,1)=="Y" || originStationId.substring(0,1)=="Y"){
             val url = "https://11f252d4-ebba-44c2-8c42-a897af956c2d.mock.pstmn.io/API_Price_Y"
             var SID=destinationStationId
             var EndID=originStationId
+            if(destinationStationId.substring(0,1)!="Y" && originStationId.substring(0,1)=="Y" ){
+                val temp=destinationStationId
+                SID=originStationId
+                EndID=destinationStationId
+            }
             val startID = getSIDForStation(context, SID).toString()
             val endID = getSIDForStation(context, EndID).toString()
+            Log.d("click_price","startID${startID} endID${endID}")
             val request = Request.Builder().url(url).get().build()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
@@ -365,6 +372,9 @@ class TDX_API(private val context: Context) {
                 }
             }
         })
+        }
+        }catch (e:Exception){
+            Log.d("click_price","error${e}")
         }
     }
     fun getSIDForStation(context: Context, stationId: String): String? {

@@ -55,7 +55,7 @@ class Register : AppCompatActivity() {
         val passwordInput = findViewById<TextInputEditText>(R.id.register_password)
         val registerPasswordRepeat = findViewById<TextInputEditText>(R.id.register_password_repeat)
         val errorText=findViewById<TextView>(R.id.register_error_text)
-        val usercoin = 500 // 預設金幣
+        val usercoin = 500000 // 預設金幣
 
 
         val goback=findViewById<LinearLayout>(R.id.goback)
@@ -201,7 +201,7 @@ class Register : AppCompatActivity() {
                 }
 
                 // 將資料寫入 `/users/a0T5uR8cfhVBIVmrTnxOHkpo47m2/Achievement/Items/`
-                db.document("/users/a0T5uR8cfhVBIVmrTnxOHkpo47m2/Achievement/Items")
+                db.document("/users/${userId}/Achievement/Items")
                     .set(achievementData)
                     .addOnSuccessListener {
                         println("Document successfully written!")
