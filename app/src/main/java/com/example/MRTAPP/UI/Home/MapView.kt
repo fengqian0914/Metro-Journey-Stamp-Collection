@@ -449,7 +449,9 @@ class MapView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     init {
         blueLineStations.addAll(
             listOf(
-                Station("頂埔", "Dingpu", "頂埔", "딩푸", "顶埔", "BL01", PointF(100f * enlarge_size, screenHeight.toFloat())),
+                Station("頂埔", "Dingpu",
+                    "頂埔", "딩푸", "顶埔",
+                    "BL01", PointF(100f * enlarge_size, screenHeight.toFloat())),
                 Station("永寧", "Yongning", "永寧", "용닝", "永宁", "BL02", PointF(100f * enlarge_size, screenHeight.toFloat() - 200f * enlarge_size)),
                 Station("土城", "Tucheng", "土城", "투청", "土城", "BL03", PointF(100f * enlarge_size, screenHeight.toFloat() - 350f * enlarge_size)),
                 Station("海山", "Haishan", "海山", "하이산", "海山", "BL04", PointF(100f * enlarge_size, screenHeight.toFloat() - 500f * enlarge_size)),

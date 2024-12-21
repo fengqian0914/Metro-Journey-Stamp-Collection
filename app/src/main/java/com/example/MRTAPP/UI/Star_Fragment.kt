@@ -154,8 +154,8 @@ class Star_Fragment : Fragment() {
                                                 put("exists", false)
                                             }
                                             StationObject.put(key, stationDetails)
-                                        }
-                                    } else {
+                                       }
+                                     } else {
                                         Log.d("Firestore", "該站不存在")
                                     }
                                 } else {
